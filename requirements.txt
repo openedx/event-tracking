@@ -1,0 +1,8 @@
+# 3rd-party needs
+Django >= 1.4, < 1.5
+
+# For Tests
+mock
+
+# For docs
+sphinx
