@@ -2,30 +2,28 @@
 Test the event tracking module
 """
 
-from unittest import TestCase
-from mock import MagicMock
-from mock import sentinel
-from mock import patch
-
 from datetime import datetime
+from unittest import TestCase
+
+from mock import MagicMock
+from mock import patch
+from mock import sentinel
 
 from eventtracking import track
 
 
-class TestTrack(TestCase):  # pylint: disable=C0111
+class TestTrack(TestCase):  # pylint: disable=missing-docstring
 
     def setUp(self):
         self._mock_backend = MagicMock()
+        self.addCleanup(track.BACKENDS.remove, self._mock_backend)
         track.BACKENDS.append(self._mock_backend)
 
         self._expected_timestamp = datetime.utcnow()
         self._datetime_patcher = patch('eventtracking.track.datetime')
+        self.addCleanup(self._datetime_patcher.stop)
         mock_datetime = self._datetime_patcher.start()
-        mock_datetime.utcnow.return_value = self._expected_timestamp  # pylint: disable=E1103
-
-    def tearDown(self):
-        self._datetime_patcher.stop()
-        track.BACKENDS.remove(self._mock_backend)
+        mock_datetime.utcnow.return_value = self._expected_timestamp  # pylint: disable=maybe-no-member
 
     def test_event_simple_event_without_data(self):
         track.event(sentinel.event_type)
@@ -33,9 +31,7 @@ class TestTrack(TestCase):  # pylint: disable=C0111
         self.__assert_backend_called_with(sentinel.event_type)
 
     def __assert_backend_called_with(self, event_type, data=None, backend=None):
-        """
-        Ensures the backend is called exactly once with the expected data.
-        """
+        """Ensures the backend is called exactly once with the expected data."""
         if not backend:
             backend = self._mock_backend
 
