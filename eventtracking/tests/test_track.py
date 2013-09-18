@@ -1,6 +1,7 @@
 """
 Test the event tracking module
 """
+from __future__ import absolute_import
 
 from datetime import datetime
 from unittest import TestCase
@@ -28,9 +29,9 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
     def test_event_simple_event_without_data(self):
         track.event(sentinel.event_type)
 
-        self.__assert_backend_called_with(sentinel.event_type)
+        self.assert_backend_called_with(sentinel.event_type)
 
-    def __assert_backend_called_with(self, event_type, data=None, backend=None):
+    def assert_backend_called_with(self, event_type, data=None, backend=None):
         """Ensures the backend is called exactly once with the expected data."""
         if not backend:
             backend = self._mock_backend
@@ -51,7 +52,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
             }
         )
 
-        self.__assert_backend_called_with(
+        self.assert_backend_called_with(
             sentinel.event_type,
             {
                 sentinel.key: sentinel.value
@@ -64,8 +65,8 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         try:
             track.event(sentinel.event_type)
 
-            self.__assert_backend_called_with(sentinel.event_type)
-            self.__assert_backend_called_with(
+            self.assert_backend_called_with(sentinel.event_type)
+            self.assert_backend_called_with(
                 sentinel.event_type, backend=another_backend)
         finally:
             track.BACKENDS.remove(another_backend)
@@ -78,7 +79,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         try:
             track.event(sentinel.event_type)
 
-            self.__assert_backend_called_with(
+            self.assert_backend_called_with(
                 sentinel.event_type, backend=another_backend)
         finally:
             track.BACKENDS.remove(another_backend)
