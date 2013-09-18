@@ -11,15 +11,16 @@ setup(
     version='0.1',
     packages=['eventtracking'],
     include_package_data=True,
-    license='GPLv3 License',
-    description='A simple event tracking app for Django.',
+    license='AGPLv3 License',
+    description='A simple event tracking system.',
     long_description=README,
     url='http://code.edx.org/',
     classifiers=[
+        'Development Status :: 2 - Pre-Alpha',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
+        'License :: OSI Approved :: GNU Affero General Public License v3 (GPLv3)'
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
