@@ -23,6 +23,6 @@ class BaseBackend(object):
         pass
 
     @abc.abstractmethod
-    def send(self, event):
+    def send(self, event):  # pragma: no cover
         """Send event to tracker."""
         pass

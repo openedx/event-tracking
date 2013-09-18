@@ -1,17 +1,18 @@
 from __future__ import absolute_import
 
-from uuid import uuid4
-
+from unittest import TestCase
 from mock import patch
+from mock import sentinel
 
-from django.test import TestCase
+from pymongo.errors import PyMongoError
 
-from track.backends.mongodb import MongoBackend
+from eventtracking.backends.mongodb import MongoBackend
 
 
-class TestMongoBackend(TestCase):
+class TestMongoBackend(TestCase):  # pylint: disable=missing-docstring
+
     def setUp(self):
-        self.mongo_patcher = patch('track.backends.mongodb.MongoClient')
+        self.mongo_patcher = patch('eventtracking.backends.mongodb.MongoClient')
         self.addCleanup(self.mongo_patcher.stop)
         self.mongo_patcher.start()
 
@@ -38,3 +39,13 @@ class TestMongoBackend(TestCase):
 
         self.assertEqual(events[0], first_argument(calls[0]))
         self.assertEqual(events[1], first_argument(calls[1]))
+
+    def test_authentication_settings(self):
+        backend = MongoBackend(user=sentinel.user, password=sentinel.password)
+        backend.collection.database.authenticate.assert_called_once_with(sentinel.user, sentinel.password)
+
+    def test_mongo_insertion_error(self):
+        self.backend.collection.insert.side_effect = PyMongoError
+
+        self.backend.send({'test': 1})
+        # Ensure this error is caught

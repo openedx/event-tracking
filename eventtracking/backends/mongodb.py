@@ -8,10 +8,10 @@ import pymongo
 from pymongo import MongoClient
 from pymongo.errors import PyMongoError
 
-from track.backends import BaseBackend
+from eventtracking.backends import BaseBackend
 
 
-log = logging.getLogger('track.backends.mongodb')
+log = logging.getLogger(__name__)
 
 
 class MongoBackend(BaseBackend):
@@ -43,7 +43,7 @@ class MongoBackend(BaseBackend):
         user = kwargs.get('user', '')
         password = kwargs.get('password', '')
 
-        db_name = kwargs.get('database', 'track')
+        db_name = kwargs.get('database', 'eventtracking')
         collection_name = kwargs.get('collection', 'events')
 
         # Other mongo connection arguments
@@ -72,6 +72,7 @@ class MongoBackend(BaseBackend):
         self._create_indexes()
 
     def _create_indexes(self):
+        """Ensures the proper fields are indexed"""
         # WARNING: The collection will be locked during the index
         # creation. If the collection has a large number of
         # documents in it, the operation can take a long time.
