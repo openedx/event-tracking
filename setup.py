@@ -2,6 +2,8 @@ import os
 from setuptools import setup
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+REQUIREMENTS = [line.strip() for line in
+                open("requirements.txt").readlines()]
 
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
@@ -14,6 +16,7 @@ setup(
     license='AGPLv3 License',
     description='A simple event tracking system.',
     long_description=README,
+    install_requires=REQUIREMENTS,
     url='http://code.edx.org/',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',

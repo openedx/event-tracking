@@ -1,9 +1,2 @@
-# 3rd-party needs
 Django >= 1.4, < 1.5
 pymongo==2.4.1
-
-# For Tests
-mock
-
-# For docs
-sphinx
