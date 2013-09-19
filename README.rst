@@ -13,15 +13,16 @@ Roadmap
 -------
 
 In the very near future the following features are planned:
+
 * Layered contexts - allowing data to be injected into events even without
-    having to pass around all of said data to every location where the events
-    are emitted.
+  having to pass around all of said data to every location where the events
+  are emitted.
 * Django integration - provide a Django app that allows events to easily be
-    captured by web applications.
+  captured by web applications.
 * Dynamic documentation and event metadata - allow event emitters to document
-    the event types, and persist this documentation along with the events so
-    that it can be referenced during analysis to provide context about what
-    the event is and when it is emitted.
+  the event types, and persist this documentation along with the events so
+  that it can be referenced during analysis to provide context about what
+  the event is and when it is emitted.
 
 Documentation
 -------------
