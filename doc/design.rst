@@ -1,3 +1,8 @@
+.. note::
+   This is a proposed design and has not yet been implemented in the code.
+
+
+
 Interface
 =========
 
