@@ -26,8 +26,7 @@ In the very near future the following features are planned:
 Documentation
 -------------
 
-The docs for event-tracking is on Read The Docs:  https://XXX.readthedocs.org 
-(@@@ not yet)
+Initial API docs can be found in the ``doc`` directory.
 
 License
 -------
