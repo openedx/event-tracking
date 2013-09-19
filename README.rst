@@ -5,6 +5,9 @@ __ http://code.edx.org/
 event-tracking
 ==============
 
+.. image:: https://api.travis-ci.org/edx/event-tracking.png?branch=master
+    :target: https://travis-ci.org/edx/event-tracking
+
 This is a system for tracking events.  It is designed to support pluggable
 backends for persisting the event data. When the application emits an event
 each backend will be given an opportunity to save the event to stable storage.
