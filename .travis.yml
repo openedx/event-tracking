@@ -2,10 +2,7 @@ language: python
 python:
   - "2.7"
 install:
-  - "pip install -r test-requirements.txt --use-mirrors"
-  - "python setup.py install"
+  - make test.setup install
 script:
-  - coverage run -m nose
-  - coverage report --show-missing --fail-under=95
-  - pep8
-  - pylint --reports=y eventtracking
+  - make ci
+services: mongodb

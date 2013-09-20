@@ -13,101 +13,76 @@ Best Practices:
     equivalent to another, say so in your documenation, and the analyst
     can decide whether or not to group them.
 """
+
 from __future__ import absolute_import
 
 from datetime import datetime
-from importlib import import_module
-import inspect
+from collections import defaultdict
 import logging
 
-from eventtracking.backends import BaseBackend
+from pytz import UTC
 
-
-__all__ = ['configure', 'event']
+__all__ = ['get_tracker', 'event']
 
 
 LOG = logging.getLogger(__name__)
-BACKENDS = {}
 
 
-def configure(config):
+class Tracker(object):
     """
-    Configure event tracking.  `config` is expected to be a dictionary of backend engines.
+    Track application events.  Holds references to a set of backends that will
+    be used to persist any events that are emitted.
+    """
+    def __init__(self):
+        self.backends = {}
 
-    Example::
+    def get_backend(self, name):
+        """Gets the backend that was configured with `name`"""
+        return self.backends[name]
 
-        config = {
-            'default': {
-                'ENGINE': 'some.arbitrary.Backend',
-                'OPTIONS': {
-                    'endpoint': 'http://something/event'
-                }
-            },
-            'anoter_engine': {
-                'ENGINE': 'some.arbitrary.OtherBackend',
-                'OPTIONS': {
-                    'user': 'foo'
-                }
-            },
+    def add_backend(self, name, backend):
+        """Adds a backend to the tracker"""
+        self.backends[name] = backend
+
+    def clear_backends(self):
+        """Remove all backends from the tracker"""
+        self.backends = {}
+
+    def event(self, event_type, data=None):
+        """
+        Emit an event annotated with the UTC time when this function was called.
+
+        `event_type` is a unique identification string for an event that has
+            already been registered.
+        `data` is a dictionary mapping field names to the value to include in the event.
+            Note that all values provided must be serializable.
+
+        """
+        full_event = {
+            'event_type': event_type,
+            'timestamp': datetime.now(UTC),
+            'data': data or {}
         }
-    """
-    BACKENDS.clear()
 
-    for name, values in config.iteritems():
-        # Ignore empty values to turn-off default tracker backends
-        if values and 'ENGINE' in values:
-            engine = values['ENGINE']
-            options = values.get('OPTIONS', {})
-            BACKENDS[name] = _instantiate_backend_from_name(engine, options)
+        for name, backend in self.backends.iteritems():
+            try:
+                backend.send(full_event)
+            except Exception:  # pylint: disable=broad-except
+                LOG.exception(
+                    'Unable to send event to backend: {0}'.format(name)
+                )
 
 
-def _instantiate_backend_from_name(name, options):
-    """
-    Instantiate an event tracker backend from the full module path to
-    the backend class. Useful when setting backends from configuration
-    files.
+GLOBAL_TRACKERS = defaultdict(Tracker)
+GLOBAL_TRACKERS['__default__'] = Tracker()
 
-    """
-    # Parse backend name
 
-    parts = name.split('.')
-    module_name = '.'.join(parts[:-1])
-    class_name = parts[-1]
-
-    # Get and verify the backend class
-
-    try:
-        module = import_module(module_name)
-        cls = getattr(module, class_name)
-        if not inspect.isclass(cls) or not issubclass(cls, BaseBackend):
-            raise TypeError
-    except (ValueError, AttributeError, TypeError, ImportError):
-        raise ValueError('Cannot find event track backend %s' % name)
-
-    backend = cls(**options)
-
-    return backend
+def get_tracker(name=None):
+    """Gets a named tracker.  Defaults to the default global tracker."""
+    name = name or '__default__'
+    return GLOBAL_TRACKERS[name]
 
 
 def event(event_type, data=None):
-    """
-    Emit an event annotated with the UTC time when this function was called.
-
-    `event_type` is a unique identification string for an event that has already been registered.
-    `data` is a dictionary mapping field names to the value to include in the event.
-        Note that all values provided must be serializable.
-
-    """
-    full_event = {
-        'event_type': event_type,
-        'timestamp': datetime.utcnow(),
-        'data': data or {}
-    }
-
-    for name, backend in BACKENDS.iteritems():
-        try:
-            backend.send(full_event)
-        except Exception:  # pylint: disable=broad-except
-            LOG.exception(
-                'Unable to send event to backend: {0}'.format(name)
-            )
+    """Calls `Tracker.event` on the default global tracker"""
+    return get_tracker().event(event_type, data=data)
