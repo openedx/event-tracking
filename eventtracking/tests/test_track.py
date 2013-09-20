@@ -10,6 +10,7 @@ from unittest import TestCase
 from mock import MagicMock
 from mock import patch
 from mock import sentinel
+from pytz import UTC
 
 from eventtracking import track
 
@@ -22,11 +23,11 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         self.tracker = None
         self.configure_mock_backends(1)
 
-        self._expected_timestamp = datetime.utcnow()
+        self._expected_timestamp = datetime.now(UTC)
         self._datetime_patcher = patch('eventtracking.track.datetime')
         self.addCleanup(self._datetime_patcher.stop)
         mock_datetime = self._datetime_patcher.start()
-        mock_datetime.utcnow.return_value = self._expected_timestamp  # pylint: disable=maybe-no-member
+        mock_datetime.now.return_value = self._expected_timestamp  # pylint: disable=maybe-no-member
 
     def configure_mock_backends(self, number_of_mocks):
         """Ensure the tracking module has the requisite number of mock backends"""

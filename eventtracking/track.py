@@ -19,6 +19,7 @@ from __future__ import absolute_import
 from datetime import datetime
 import logging
 
+from pytz import UTC
 
 LOG = logging.getLogger(__name__)
 
@@ -47,7 +48,7 @@ class Tracker(object):
         """
         full_event = {
             'event_type': event_type,
-            'timestamp': datetime.utcnow(),
+            'timestamp': datetime.now(UTC),
             'data': data or {}
         }
 
