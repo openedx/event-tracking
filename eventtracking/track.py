@@ -20,6 +20,7 @@ from datetime import datetime
 from collections import defaultdict
 import logging
 
+from pytz import UTC
 
 __all__ = ['get_tracker', 'event']
 
@@ -59,7 +60,7 @@ class Tracker(object):
         """
         full_event = {
             'event_type': event_type,
-            'timestamp': datetime.utcnow(),
+            'timestamp': datetime.now(UTC),
             'data': data or {}
         }
 
