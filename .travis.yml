@@ -5,7 +5,6 @@ install:
   - "pip install -r test-requirements.txt --use-mirrors"
   - "python setup.py install"
 script:
-  - coverage run -m nose
-  - coverage report --show-missing --fail-under=95
+  - DJANGO_SETTINGS_MODULE=eventtracking.django.tests.settings nosetests --cover-erase --with-coverage --cover-min-percentage=95
   - pep8
   - pylint --reports=y eventtracking

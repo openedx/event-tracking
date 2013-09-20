@@ -1,3 +1,4 @@
+"""Unit tests for the Mongo backend"""
 from __future__ import absolute_import
 
 from unittest import TestCase
@@ -9,7 +10,8 @@ from pymongo.errors import PyMongoError
 from eventtracking.backends.mongodb import MongoBackend
 
 
-class TestMongoBackend(TestCase):  # pylint: disable=missing-docstring
+class TestMongoBackend(TestCase):
+    """Unit tests for the Mongo backend"""
 
     def setUp(self):
         self.mongo_patcher = patch('eventtracking.backends.mongodb.MongoClient')
@@ -34,6 +36,7 @@ class TestMongoBackend(TestCase):  # pylint: disable=missing-docstring
         # as the first argument to collection.insert
 
         def first_argument(call):
+            """Extract the first argument from a `mock.call`"""
             _, args, _ = call
             return args[0]
 
