@@ -3,3 +3,4 @@ nose
 coverage
 pep8
 pylint
+django-nose
