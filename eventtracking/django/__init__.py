@@ -8,13 +8,12 @@ from django.conf import settings
 
 from eventtracking import track
 
-__all__ = ['track']
-
 
 DJANGO_TRACKER_NAME = 'django'
+DJANGO_SETTING_NAME = 'TRACKING_BACKENDS'
 
 
-def configure_from_settings(tracker_name=None, setting_name=None):
+def configure_from_settings(tracker_name=DJANGO_TRACKER_NAME, setting_name=DJANGO_SETTING_NAME):
     """
     Configure event tracking.  Expects the Django setting "TRACKING_BACKENDS"
     to be defined and point to a dictionary of backend engines.
@@ -36,7 +35,7 @@ def configure_from_settings(tracker_name=None, setting_name=None):
             },
         }
     """
-    config = getattr(settings, setting_name or 'TRACKING_BACKENDS', {})
+    config = getattr(settings, setting_name, {})
 
     tracker = get_tracker(tracker_name)
     tracker.clear_backends()
@@ -80,9 +79,9 @@ def _instantiate_backend_from_name(name, options):
     return backend
 
 
-def get_tracker(name=None):
+def get_tracker(name=DJANGO_TRACKER_NAME):
     """Get the Django specific tracker"""
-    return track.get_tracker(name or DJANGO_TRACKER_NAME)
+    return track.get_tracker(name)
 
 
 # Configure the default tracker using the default settings

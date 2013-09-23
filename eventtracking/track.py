@@ -21,9 +21,6 @@ from collections import defaultdict
 import logging
 
 
-__all__ = ['get_tracker', 'event']
-
-
 LOG = logging.getLogger(__name__)
 
 
@@ -72,13 +69,13 @@ class Tracker(object):
                 )
 
 
+DEFAULT_TRACKER_NAME = '__default__'
 GLOBAL_TRACKERS = defaultdict(Tracker)
-GLOBAL_TRACKERS['__default__'] = Tracker()
+GLOBAL_TRACKERS[DEFAULT_TRACKER_NAME] = Tracker()
 
 
-def get_tracker(name=None):
+def get_tracker(name=DEFAULT_TRACKER_NAME):
     """Gets a named tracker.  Defaults to the default global tracker."""
-    name = name or '__default__'
     return GLOBAL_TRACKERS[name]
 
 

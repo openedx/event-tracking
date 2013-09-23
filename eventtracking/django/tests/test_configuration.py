@@ -34,7 +34,8 @@ class TestConfiguration(TestCase):
     })
     def test_ignore_no_engine(self):
         django.configure_from_settings()
-        self.assertRaises(KeyError, self.tracker.get_backend, 'no_engine')
+        with self.assertRaises(KeyError):
+            self.tracker.get_backend('no_engine')
 
     @override_settings(TRACKING_BACKENDS={
         "empty_engine": {
@@ -42,11 +43,8 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_empty_engine(self):
-        try:
+        with self.assertRaises(ValueError):
             django.configure_from_settings()
-            self.fail('Expected exception to be thrown when attempting to add a backend with an empty engine')
-        except ValueError:
-            pass
 
     @override_settings(TRACKING_BACKENDS={
         "invalid_package": {
@@ -54,11 +52,8 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_invalid_package(self):
-        try:
+        with self.assertRaises(ValueError):
             django.configure_from_settings()
-            self.fail('Expected exception to be thrown when attempting to add a backend from a non-existent package')
-        except ValueError:
-            pass
 
     @override_settings(TRACKING_BACKENDS={
         "no_package_invalid_class": {
@@ -66,11 +61,8 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_no_package_invalid_class(self):
-        try:
+        with self.assertRaises(ValueError):
             django.configure_from_settings()
-            self.fail('Expected exception to be thrown when attempting to add a non-existent backend class')
-        except ValueError:
-            pass
 
     @override_settings(TRACKING_BACKENDS={
         "invalid_class": {
@@ -78,11 +70,8 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_invalid_class(self):
-        try:
+        with self.assertRaises(ValueError):
             django.configure_from_settings()
-            self.fail('Expected exception to be thrown when attempting to add a non-existent backend class')
-        except ValueError:
-            pass
 
     @override_settings(TRACKING_BACKENDS={
         'with_options': {
@@ -124,11 +113,8 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_class_not_a_backend(self):
-        try:
+        with self.assertRaises(ValueError):
             django.configure_from_settings()
-            self.fail('Expected exception to be thrown when attempting to add a backend without a "send" method')
-        except ValueError:
-            pass
 
     @override_settings(MY_TRACKING_BACKENDS={
         'custom_fake': {
