@@ -17,10 +17,9 @@ from eventtracking import track
 class TestTrack(TestCase):  # pylint: disable=missing-docstring
 
     def setUp(self):
-        self.tracker = track.Tracker()
-
-        self._mock_backends = []
         self._mock_backend = None
+        self._mock_backends = []
+        self.tracker = None
         self.configure_mock_backends(1)
 
         self._expected_timestamp = datetime.utcnow()
@@ -31,13 +30,15 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
 
     def configure_mock_backends(self, number_of_mocks):
         """Ensure the tracking module has the requisite number of mock backends"""
-        self._mock_backends = []
+        backends = {}
         for i in range(number_of_mocks):
             name = 'mock{0}'.format(i)
             backend = MagicMock()
-            self.tracker.add_backend(name, backend)
-            self._mock_backends.append(backend)
+            backends[name] = backend
 
+        self.tracker = track.Tracker(backends)
+        track.register_tracker(self.tracker)
+        self._mock_backends = backends.values()
         self._mock_backend = self._mock_backends[0]
 
     def get_mock_backend(self, index):
@@ -95,9 +96,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
             sentinel.event_type, backend=self.get_mock_backend(1))
 
     def test_global_tracker(self):
-        mock_backend = MagicMock()
-        track.get_tracker().add_backend('default', mock_backend)
         track.event(sentinel.event_type)
 
         self.assert_backend_called_with(
-            sentinel.event_type, backend=mock_backend)
+            sentinel.event_type)

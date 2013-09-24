@@ -7,76 +7,86 @@ from importlib import import_module
 from django.conf import settings
 
 from eventtracking import track
+from eventtracking.track import Tracker
 
 
 DJANGO_TRACKER_NAME = 'django'
 DJANGO_SETTING_NAME = 'TRACKING_BACKENDS'
 
 
-def configure_from_settings(tracker_name=DJANGO_TRACKER_NAME, setting_name=DJANGO_SETTING_NAME):
+class DjangoTracker(Tracker):
     """
-    Configure event tracking.  Expects the Django setting "TRACKING_BACKENDS"
-    to be defined and point to a dictionary of backend engines.
-
-    Example::
-
-        TRACKING_BACKENDS = {
-            'default': {
-                'ENGINE': 'some.arbitrary.Backend',
-                'OPTIONS': {
-                    'endpoint': 'http://something/event'
-                }
-            },
-            'another_engine': {
-                'ENGINE': 'some.arbitrary.OtherBackend',
-                'OPTIONS': {
-                    'user': 'foo'
-                }
-            },
-        }
+    A `eventtracking.track.Tracker` that constructs its backends from
+    Django settings.
     """
-    config = getattr(settings, setting_name, {})
 
-    tracker = get_tracker(tracker_name)
-    tracker.clear_backends()
+    def __init__(self, setting_name=DJANGO_SETTING_NAME):
+        backends = self.create_backends_from_settings(setting_name)
+        super(DjangoTracker, self).__init__(backends)
 
-    for name, values in config.iteritems():
-        # Ignore empty values to turn-off default tracker backends
-        if values and 'ENGINE' in values:
-            engine = values['ENGINE']
-            options = values.get('OPTIONS', {})
-            backend = _instantiate_backend_from_name(engine, options)
-            tracker.add_backend(name, backend)
+    def create_backends_from_settings(self, setting_name=DJANGO_SETTING_NAME):
+        """
+        Expects the Django setting `setting_name` (defaults to
+        "TRACKING_BACKENDS") to be defined and point to a dictionary of
+        backend engine configurations.
 
-    return tracker
+        Example::
 
+            TRACKING_BACKENDS = {
+                'default': {
+                    'ENGINE': 'some.arbitrary.Backend',
+                    'OPTIONS': {
+                        'endpoint': 'http://something/event'
+                    }
+                },
+                'another_engine': {
+                    'ENGINE': 'some.arbitrary.OtherBackend',
+                    'OPTIONS': {
+                        'user': 'foo'
+                    }
+                },
+            }
+        """
+        config = getattr(settings, setting_name, {})
 
-def _instantiate_backend_from_name(name, options):
-    """
-    Instantiate an event tracker backend from the full module path to
-    the backend class. Useful when setting backends from configuration
-    files.
+        backends = {}
 
-    """
-    # Parse backend name
+        for name, values in config.iteritems():
+            # Ignore empty values to turn-off default tracker backends
+            if values and 'ENGINE' in values:
+                engine = values['ENGINE']
+                options = values.get('OPTIONS', {})
+                backend = self.instantiate_backend_from_name(engine, options)
+                backends[name] = backend
 
-    parts = name.split('.')
-    module_name = '.'.join(parts[:-1])
-    class_name = parts[-1]
+        return backends
 
-    # Get and verify the backend class
+    def instantiate_backend_from_name(self, name, options):
+        """
+        Instantiate an event tracker backend from the full module path to
+        the backend class. Useful when setting backends from configuration
+        files.
 
-    try:
-        module = import_module(module_name)
-        cls = getattr(module, class_name)
-    except (ValueError, AttributeError, TypeError, ImportError):
-        raise ValueError('Cannot find event track backend %s' % name)
+        """
+        # Parse backend name
 
-    backend = cls(**options)
-    if not hasattr(backend, 'send') or not callable(backend.send):
-        raise ValueError('Backend %s does not have a callable "send" method.' % name)
+        parts = name.split('.')
+        module_name = '.'.join(parts[:-1])
+        class_name = parts[-1]
 
-    return backend
+        # Get and verify the backend class
+
+        try:
+            module = import_module(module_name)
+            cls = getattr(module, class_name)
+        except (ValueError, AttributeError, TypeError, ImportError):
+            raise ValueError('Cannot find event track backend %s' % name)
+
+        backend = cls(**options)
+        if not hasattr(backend, 'send') or not callable(backend.send):
+            raise ValueError('Backend %s does not have a callable "send" method.' % name)
+
+        return backend
 
 
 def get_tracker(name=DJANGO_TRACKER_NAME):
@@ -85,4 +95,4 @@ def get_tracker(name=DJANGO_TRACKER_NAME):
 
 
 # Configure the default tracker using the default settings
-configure_from_settings()
+track.register_tracker(DjangoTracker(), DJANGO_TRACKER_NAME)

@@ -17,7 +17,6 @@ Best Practices:
 from __future__ import absolute_import
 
 from datetime import datetime
-from collections import defaultdict
 import logging
 
 
@@ -29,20 +28,12 @@ class Tracker(object):
     Track application events.  Holds references to a set of backends that will
     be used to persist any events that are emitted.
     """
-    def __init__(self):
-        self.backends = {}
+    def __init__(self, backends=None):
+        self.backends = backends or {}
 
     def get_backend(self, name):
         """Gets the backend that was configured with `name`"""
         return self.backends[name]
-
-    def add_backend(self, name, backend):
-        """Adds a backend to the tracker"""
-        self.backends[name] = backend
-
-    def clear_backends(self):
-        """Remove all backends from the tracker"""
-        self.backends = {}
 
     def event(self, event_type, data=None):
         """
@@ -70,12 +61,24 @@ class Tracker(object):
 
 
 DEFAULT_TRACKER_NAME = '__default__'
-GLOBAL_TRACKERS = defaultdict(Tracker)
-GLOBAL_TRACKERS[DEFAULT_TRACKER_NAME] = Tracker()
+GLOBAL_TRACKERS = {}
+
+
+def register_tracker(tracker, name=DEFAULT_TRACKER_NAME):
+    """
+    Makes a tracker globally accessible.  Providing no `name` parameter
+    allows you to register the global default tracker that will be used
+    by subsequent calls to `track.event`.
+    """
+    GLOBAL_TRACKERS[name] = tracker
 
 
 def get_tracker(name=DEFAULT_TRACKER_NAME):
-    """Gets a named tracker.  Defaults to the default global tracker."""
+    """
+    Gets a named tracker.  Defaults to the default global tracker.  Raises
+    a `KeyError` if no such tracker has been registered by previously calling
+    `register_tracker`.
+    """
     return GLOBAL_TRACKERS[name]
 
 

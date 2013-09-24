@@ -11,6 +11,9 @@ from mock import sentinel
 from eventtracking import django
 
 
+TEST_TRACKER_NAME = 'django.test.tracker'
+
+
 class TestConfiguration(TestCase):
     """Tests various configuration settings for the django tracker"""
 
@@ -23,9 +26,13 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure(self):
-        django.configure_from_settings()
+        self.configure_tracker()
         fake_backend = self.tracker.get_backend('fake')
         self.assertTrue(isinstance(fake_backend, TrivialFakeBackend))
+
+    def configure_tracker(self, setting_name='TRACKING_BACKENDS'):
+        """Reads the tracker configuration from the Django settings"""
+        self.tracker = django.DjangoTracker(setting_name)
 
     @override_settings(TRACKING_BACKENDS={
         "no_engine": {
@@ -33,7 +40,7 @@ class TestConfiguration(TestCase):
         }
     })
     def test_ignore_no_engine(self):
-        django.configure_from_settings()
+        self.configure_tracker()
         with self.assertRaises(KeyError):
             self.tracker.get_backend('no_engine')
 
@@ -43,8 +50,15 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_empty_engine(self):
-        with self.assertRaises(ValueError):
-            django.configure_from_settings()
+        self.assert_fails_to_configure_with_error()
+
+    def assert_fails_to_configure_with_error(self, error=ValueError):
+        """
+        Attempts to read the tracker configuration from the Django settings
+        and ensures that the tracker construction fails.
+        """
+        with self.assertRaises(error):
+            self.configure_tracker()
 
     @override_settings(TRACKING_BACKENDS={
         "invalid_package": {
@@ -52,8 +66,7 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_invalid_package(self):
-        with self.assertRaises(ValueError):
-            django.configure_from_settings()
+        self.assert_fails_to_configure_with_error()
 
     @override_settings(TRACKING_BACKENDS={
         "no_package_invalid_class": {
@@ -61,8 +74,7 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_no_package_invalid_class(self):
-        with self.assertRaises(ValueError):
-            django.configure_from_settings()
+        self.assert_fails_to_configure_with_error()
 
     @override_settings(TRACKING_BACKENDS={
         "invalid_class": {
@@ -70,8 +82,7 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_invalid_class(self):
-        with self.assertRaises(ValueError):
-            django.configure_from_settings()
+        self.assert_fails_to_configure_with_error()
 
     @override_settings(TRACKING_BACKENDS={
         'with_options': {
@@ -82,7 +93,7 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_engine_with_options(self):
-        django.configure_from_settings()
+        self.configure_tracker()
         self.assertEquals(self.tracker.get_backend('with_options').option, sentinel.option_value)
 
     @override_settings(TRACKING_BACKENDS={
@@ -91,7 +102,7 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_engine_missing_options(self):
-        django.configure_from_settings()
+        self.configure_tracker()
         self.assertEquals(self.tracker.get_backend('without_options').option, None)
 
     @override_settings(TRACKING_BACKENDS={
@@ -104,7 +115,7 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_engine_with_extra_options(self):
-        django.configure_from_settings()
+        self.configure_tracker()
         self.assertEquals(self.tracker.get_backend('extra_options').option, sentinel.option_value)
 
     @override_settings(TRACKING_BACKENDS={
@@ -113,8 +124,7 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_class_not_a_backend(self):
-        with self.assertRaises(ValueError):
-            django.configure_from_settings()
+        self.assert_fails_to_configure_with_error()
 
     @override_settings(MY_TRACKING_BACKENDS={
         'custom_fake': {
@@ -122,10 +132,9 @@ class TestConfiguration(TestCase):
         }
     })
     def test_configure_with_custom_settings(self):
-        my_tracker = django.configure_from_settings('my.tracker', 'MY_TRACKING_BACKENDS')
+        self.configure_tracker('MY_TRACKING_BACKENDS')
 
-        self.assertEquals(id(my_tracker), id(django.get_tracker('my.tracker')))
-        self.assertTrue(my_tracker.get_backend('custom_fake') is not None)
+        self.assertTrue(self.tracker.get_backend('custom_fake') is not None)
 
 
 class TrivialFakeBackend(object):
