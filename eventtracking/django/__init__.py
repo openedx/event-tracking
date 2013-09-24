@@ -4,13 +4,10 @@ from __future__ import absolute_import
 
 from importlib import import_module
 
-from django.conf import settings
-
 from eventtracking import track
 from eventtracking.track import Tracker
 
 
-DJANGO_TRACKER_NAME = 'django'
 DJANGO_SETTING_NAME = 'TRACKING_BACKENDS'
 
 
@@ -47,6 +44,7 @@ class DjangoTracker(Tracker):
                 },
             }
         """
+        from django.conf import settings
         config = getattr(settings, setting_name, {})
 
         backends = {}
@@ -89,10 +87,15 @@ class DjangoTracker(Tracker):
         return backend
 
 
-def get_tracker(name=DJANGO_TRACKER_NAME):
-    """Get the Django specific tracker"""
-    return track.get_tracker(name)
+def try_override_default_tracker():
+    """
+    Setup a default tracker if a Django tracker can be
+    configured properly.
+    """
+    try:
+        track.register_tracker(DjangoTracker())
+    except (ImportError, ValueError):
+        pass
 
 
-# Configure the default tracker using the default settings
-track.register_tracker(DjangoTracker(), DJANGO_TRACKER_NAME)
+try_override_default_tracker()

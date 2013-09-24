@@ -9,6 +9,7 @@ from django.test.utils import override_settings
 from mock import sentinel
 
 from eventtracking import django
+from eventtracking import track
 
 
 TEST_TRACKER_NAME = 'django.test.tracker'
@@ -18,7 +19,7 @@ class TestConfiguration(TestCase):
     """Tests various configuration settings for the django tracker"""
 
     def setUp(self):
-        self.tracker = django.get_tracker()
+        self.tracker = track.get_tracker()
 
     @override_settings(TRACKING_BACKENDS={
         "fake": {
@@ -135,6 +136,9 @@ class TestConfiguration(TestCase):
         self.configure_tracker('MY_TRACKING_BACKENDS')
 
         self.assertTrue(self.tracker.get_backend('custom_fake') is not None)
+
+    def test_overrides_default_tracker(self):
+        self.assertEquals(id(self.tracker), id(track.get_tracker()))
 
 
 class TrivialFakeBackend(object):
