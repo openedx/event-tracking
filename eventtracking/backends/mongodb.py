@@ -8,13 +8,11 @@ import pymongo
 from pymongo import MongoClient
 from pymongo.errors import PyMongoError
 
-from eventtracking.backends import BaseBackend
-
 
 log = logging.getLogger(__name__)
 
 
-class MongoBackend(BaseBackend):
+class MongoBackend(object):
     """Class for a MongoDB event tracker Backend"""
 
     def __init__(self, **kwargs):
@@ -33,7 +31,7 @@ class MongoBackend(BaseBackend):
 
         """
 
-        super(MongoBackend, self).__init__(**kwargs)
+        super(MongoBackend, self).__init__()
 
         # Extract connection parameters from kwargs
 
@@ -84,6 +82,7 @@ class MongoBackend(BaseBackend):
         self.collection.ensure_index('event_type')
 
     def send(self, event):
+        """Insert the event in to the Mongo collection"""
         try:
             self.collection.insert(event, manipulate=False)
         except PyMongoError:
