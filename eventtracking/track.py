@@ -21,6 +21,11 @@ import logging
 
 from pytz import UTC
 
+from eventtracking.locator import DefaultContextLocator
+
+UNKNOWN_EVENT_TYPE = 'unknown'
+DEFAULT_TRACKER_NAME = 'default'
+TRACKERS = {}
 LOG = logging.getLogger(__name__)
 
 
@@ -29,14 +34,22 @@ class Tracker(object):
     Track application events.  Holds references to a set of backends that will
     be used to persist any events that are emitted.
     """
-    def __init__(self, backends=None):
+    def __init__(self, backends=None, context_locator=None):
         self.backends = backends or {}
+        self.context_locator = context_locator or DefaultContextLocator()
+
+    @property
+    def located_context(self):
+        """
+        The thread local context for this tracker.
+        """
+        return self.context_locator.get()
 
     def get_backend(self, name):
         """Gets the backend that was configured with `name`"""
         return self.backends[name]
 
-    def event(self, event_type, data=None):
+    def event(self, event_type=None, data=None):
         """
         Emit an event annotated with the UTC time when this function was called.
 
@@ -47,9 +60,10 @@ class Tracker(object):
 
         """
         full_event = {
-            'event_type': event_type,
+            'event_type': event_type or UNKNOWN_EVENT_TYPE,
             'timestamp': datetime.now(UTC),
-            'data': data or {}
+            'data': data or {},
+            'context': self.resolve_context()
         }
 
         for name, backend in self.backends.iteritems():
@@ -60,9 +74,31 @@ class Tracker(object):
                     'Unable to send event to backend: {0}'.format(name)
                 )
 
+    def resolve_context(self):
+        """
+        Create a new dictionary that corresponds to the union of all of the
+        contexts that have been entered but not exited at this point.
+        """
+        merged = dict()
+        for context in self.located_context.values():
+            merged.update(context)
+        return merged
 
-DEFAULT_TRACKER_NAME = '__default__'
-GLOBAL_TRACKERS = {}
+    def enter_context(self, name, ctx):
+        """
+        Enter a named context.  Any events emitted after calling this
+        method will contain all of the key-value pairs included in `ctx`
+        unless overridden by a context that is entered after this call.
+        """
+        self.located_context[name] = ctx
+
+    def exit_context(self, name):
+        """
+        Exit a named context.  This will remove all key-value pairs
+        associated with this context from any events emitted after it
+        is removed.
+        """
+        del self.located_context[name]
 
 
 def register_tracker(tracker, name=DEFAULT_TRACKER_NAME):
@@ -71,7 +107,7 @@ def register_tracker(tracker, name=DEFAULT_TRACKER_NAME):
     allows you to register the global default tracker that will be used
     by subsequent calls to `track.event`.
     """
-    GLOBAL_TRACKERS[name] = tracker
+    TRACKERS[name] = tracker
 
 
 def get_tracker(name=DEFAULT_TRACKER_NAME):
@@ -80,9 +116,9 @@ def get_tracker(name=DEFAULT_TRACKER_NAME):
     a `KeyError` if no such tracker has been registered by previously calling
     `register_tracker`.
     """
-    return GLOBAL_TRACKERS[name]
+    return TRACKERS[name]
 
 
-def event(event_type, data=None):
+def event(event_type=None, data=None):
     """Calls `Tracker.event` on the default global tracker"""
-    return get_tracker().event(event_type, data=data)
+    return get_tracker().event(event_type=event_type, data=data)

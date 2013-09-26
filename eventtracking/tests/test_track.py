@@ -10,6 +10,7 @@ from unittest import TestCase
 from mock import MagicMock
 from mock import patch
 from mock import sentinel
+from mock import call
 from pytz import UTC
 
 from eventtracking import track
@@ -51,17 +52,53 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
 
         self.assert_backend_called_with(sentinel.event_type)
 
-    def assert_backend_called_with(self, event_type, data=None, backend=None):
+    def assert_backend_called_with(self, event_type, data=None, context=None, backend=None):
         """Ensures the backend is called exactly once with the expected data."""
+
+        self.assert_exact_backend_calls([(event_type, context, data)], backend=backend)
+
+    def assert_exact_backend_calls(self, parameter_tuple_list, backend=None):
+        """
+        Ensure the backend was called with the specified parameters in the
+        specified order.  Note that it expects a list of tuples to be passed
+        in to `parameter_tuple_list`.  Each tuple should be in the form:
+
+        (event_type, context, data)
+
+        These are expanded out into complete events.
+        """
         if not backend:
             backend = self._mock_backend
 
-        backend.send.assert_called_once_with(
+        self.assertEquals(
+            backend.send.mock_calls,
+            [
+                call({
+                    'event_type': event_type,
+                    'timestamp': self._expected_timestamp,
+                    'context': context or {},
+                    'data': data or {}
+                })
+                for event_type, context, data
+                in parameter_tuple_list
+            ]
+        )
+
+    def test_event_simple_event_without_type(self):
+        self.tracker.event(data={sentinel.key: sentinel.value})
+
+        self.assert_backend_called_with(
+            'unknown',
             {
-                'event_type': event_type,
-                'timestamp': self._expected_timestamp,
-                'data': data or {}
+                sentinel.key: sentinel.value
             }
+        )
+
+    def test_event_simple_event_without_type_or_data(self):
+        self.tracker.event()
+        self.assert_backend_called_with(
+            'unknown',
+            {}
         )
 
     def test_event_simple_event_with_data(self):
@@ -101,3 +138,42 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
 
         self.assert_backend_called_with(
             sentinel.event_type)
+
+    def test_missing_tracker(self):
+        self.assertRaises(KeyError, track.get_tracker, 'foobar')
+
+    def test_single_context(self):
+        context = {sentinel.context_key: sentinel.context_value}
+        data = {sentinel.key: sentinel.value}
+
+        self.tracker.enter_context('single', context)
+        self.tracker.event(sentinel.event_type, data)
+        self.tracker.exit_context('single')
+
+        self.assert_backend_called_with(
+            sentinel.event_type,
+            data=data,
+            context=context
+        )
+
+    def test_context_override(self):
+        context = {
+            sentinel.context_key: sentinel.context_value,
+            sentinel.another_key: sentinel.another_value
+        }
+        override_context = {
+            sentinel.context_key: sentinel.override_context_value
+        }
+        self.tracker.enter_context('outer', context)
+        self.tracker.enter_context('inner', override_context)
+        self.tracker.event(sentinel.event_type)
+        self.tracker.exit_context('inner')
+        self.tracker.exit_context('outer')
+
+        self.assert_backend_called_with(
+            sentinel.event_type,
+            context={
+                sentinel.context_key: sentinel.override_context_value,
+                sentinel.another_key: sentinel.another_value
+            }
+        )
