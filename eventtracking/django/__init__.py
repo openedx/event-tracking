@@ -4,8 +4,11 @@ from __future__ import absolute_import
 
 from importlib import import_module
 
+from django.conf import settings
+
 from eventtracking import track
 from eventtracking.track import Tracker
+from eventtracking.locator import ThreadLocalContextLocator
 
 
 DJANGO_SETTING_NAME = 'TRACKING_BACKENDS'
@@ -17,11 +20,11 @@ class DjangoTracker(Tracker):
     Django settings.
     """
 
-    def __init__(self, setting_name=DJANGO_SETTING_NAME):
-        backends = self.create_backends_from_settings(setting_name)
-        super(DjangoTracker, self).__init__(backends)
+    def __init__(self):
+        backends = self.create_backends_from_settings()
+        super(DjangoTracker, self).__init__(backends, ThreadLocalContextLocator())
 
-    def create_backends_from_settings(self, setting_name=DJANGO_SETTING_NAME):
+    def create_backends_from_settings(self):
         """
         Expects the Django setting `setting_name` (defaults to
         "TRACKING_BACKENDS") to be defined and point to a dictionary of
@@ -44,8 +47,7 @@ class DjangoTracker(Tracker):
                 },
             }
         """
-        from django.conf import settings
-        config = getattr(settings, setting_name, {})
+        config = getattr(settings, DJANGO_SETTING_NAME, {})
 
         backends = {}
 
@@ -87,15 +89,10 @@ class DjangoTracker(Tracker):
         return backend
 
 
-def try_override_default_tracker():
-    """
-    Setup a default tracker if a Django tracker can be
-    configured properly.
-    """
-    try:
+def override_default_tracker():
+    """Sets the default tracker to a DjangoTracker"""
+    if getattr(settings, 'TRACKING_ENABLED', False):
         track.register_tracker(DjangoTracker())
-    except (ImportError, ValueError):
-        pass
 
 
-try_override_default_tracker()
+override_default_tracker()

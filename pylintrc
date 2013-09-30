@@ -58,9 +58,10 @@ disable=
 # R0913: Too many arguments
 # R0914: Too many local variables
     C0302,R0201,R0901,R0902,R0903,R0904,R0911,R0912,R0913,R0914,
-#W0511: TODOs etc
-    W0511
-
+# W0511: TODOs etc
+    W0511,
+# E1103: maybe no member
+    E1103
 
 [REPORTS]
 
