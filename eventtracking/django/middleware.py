@@ -6,7 +6,7 @@ from contextlib import contextmanager
 import re
 import logging
 
-from eventtracking import track
+from eventtracking import tracker
 
 from django.conf import settings
 
@@ -58,7 +58,7 @@ class TrackRequestContextMiddleware(object):
             for header_name, context_key in header_context_key_map.iteritems():
                 context[context_key] = request.META.get(header_name, '')
 
-            track.get_tracker().enter_context(self.CONTEXT_NAME, context)
+            tracker.get_tracker().enter_context(self.CONTEXT_NAME, context)
 
     def get_session_key(self, request):
         """Gets the Django session key from the request or an empty string if it isn't found"""
@@ -84,7 +84,7 @@ class TrackRequestContextMiddleware(object):
     def process_response(self, request, response):  # pylint: disable=unused-argument
         """Remove the request variable context from the tracker context stack"""
         with failures_only_in_debug():
-            track.get_tracker().exit_context(self.CONTEXT_NAME)
+            tracker.get_tracker().exit_context(self.CONTEXT_NAME)
 
         return response
 
@@ -133,7 +133,7 @@ class TrackRequestMiddleware(object):
                 'query': self._remove_sensitive_request_variables(request.GET),
                 'body': self._remove_sensitive_request_variables(request.POST)
             }
-            track.event(event_type, event)
+            tracker.emit(event_type, event)
 
         return response
 

@@ -13,6 +13,7 @@ backends for persisting the event data. When the application emits an event
 each backend will be given an opportunity to save the event to stable storage.
 
 It currently provides:
+
 * Nested contexts - allows data to be injected into events even without
   having to pass around all of said data to every location where the events
   are emitted.
@@ -21,16 +22,16 @@ It currently provides:
 
 Example::
 
-    from eventtracking import track
+    from eventtracking import tracker
 
-    tracker = track.get_tracker()
+    tracker = tracker.get_tracker()
     tracker.enter_context('outer', {'user_id': 10938})
-    tracker.event('navigation.request', {'url': 'http://www.edx.org/some/path/1'})
+    tracker.emit('navigation.request', {'url': 'http://www.edx.org/some/path/1'})
 
     with tracker.context({'user_id': 11111, 'session_id': '2987lkjdyoioey'}):
-        tracker.event('navigation.request', {'url': 'http://www.edx.org/some/path/2'})
+        tracker.emit('navigation.request', {'url': 'http://www.edx.org/some/path/2'})
 
-    tracker.event('navigation.request', {'url': 'http://www.edx.org/some/path/3'})
+    tracker.emit('navigation.request', {'url': 'http://www.edx.org/some/path/3'})
 
     # The following list shows the contexts and data for the three events that
     # are emitted
