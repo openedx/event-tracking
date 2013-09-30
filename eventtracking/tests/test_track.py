@@ -164,11 +164,9 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         override_context = {
             sentinel.context_key: sentinel.override_context_value
         }
-        self.tracker.enter_context('outer', context)
-        self.tracker.enter_context('inner', override_context)
-        self.tracker.emit(sentinel.event_type)
-        self.tracker.exit_context('inner')
-        self.tracker.exit_context('outer')
+        with self.tracker.context('outer', context):
+            with self.tracker.context('inner', override_context):
+                self.tracker.emit(sentinel.event_type)
 
         self.assert_backend_called_with(
             sentinel.event_type,
@@ -177,3 +175,12 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
                 sentinel.another_key: sentinel.another_value
             }
         )
+
+    def test_exception_in_context(self):
+        with self.assertRaises(ValueError):
+            with self.tracker.context('foo', {sentinel.context_key: sentinel.context_value}):
+                raise ValueError
+
+        self.tracker.emit(sentinel.event_type)
+
+        self.assert_backend_called_with(sentinel.event_type)
