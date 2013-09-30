@@ -17,7 +17,7 @@ class TestTrackRequestContextMiddleware(TestCase):
     """Test middleware that adds context to every request"""
 
     def setUp(self):
-        get_tracker_patcher = patch('eventtracking.django.middleware.track.get_tracker')
+        get_tracker_patcher = patch('eventtracking.django.middleware.tracker.get_tracker')
         mock_get_tracker = get_tracker_patcher.start()
         self.addCleanup(get_tracker_patcher.stop)
 
@@ -55,7 +55,7 @@ class TestTrackRequestMiddleware(TestCase):
         self.track_middleware = TrackRequestMiddleware()
         self.request_factory = RequestFactory()
 
-        track_patcher = patch('eventtracking.django.middleware.track.emit')
+        track_patcher = patch('eventtracking.django.middleware.tracker.emit')
         self.mock_track = track_patcher.start()
         self.addCleanup(track_patcher.stop)
 

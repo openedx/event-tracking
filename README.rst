@@ -22,9 +22,9 @@ It currently provides:
 
 Example::
 
-    from eventtracking import track
+    from eventtracking import tracker
 
-    tracker = track.get_tracker()
+    tracker = tracker.get_tracker()
     tracker.enter_context('outer', {'user_id': 10938})
     tracker.emit('navigation.request', {'url': 'http://www.edx.org/some/path/1'})
 

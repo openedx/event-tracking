@@ -13,7 +13,7 @@ from pytz import UTC
 from eventtracking.backends.tests import IntegrationTestCase
 from eventtracking.backends.tests import InMemoryBackend
 from eventtracking.backends.mongodb import MongoBackend
-from eventtracking.track import Tracker
+from eventtracking.tracker import Tracker
 
 
 class TestMongoIntegration(IntegrationTestCase):

@@ -13,7 +13,7 @@ from mock import sentinel
 from mock import call
 from pytz import UTC
 
-from eventtracking import track
+from eventtracking import tracker
 
 
 class TestTrack(TestCase):  # pylint: disable=missing-docstring
@@ -25,7 +25,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         self.configure_mock_backends(1)
 
         self._expected_timestamp = datetime.now(UTC)
-        self._datetime_patcher = patch('eventtracking.track.datetime')
+        self._datetime_patcher = patch('eventtracking.tracker.datetime')
         self.addCleanup(self._datetime_patcher.stop)
         mock_datetime = self._datetime_patcher.start()
         mock_datetime.now.return_value = self._expected_timestamp  # pylint: disable=maybe-no-member
@@ -38,8 +38,8 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
             backend = MagicMock()
             backends[name] = backend
 
-        self.tracker = track.Tracker(backends)
-        track.register_tracker(self.tracker)
+        self.tracker = tracker.Tracker(backends)
+        tracker.register_tracker(self.tracker)
         self._mock_backends = backends.values()
         self._mock_backend = self._mock_backends[0]
 
@@ -134,13 +134,13 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
             sentinel.event_type, backend=self.get_mock_backend(1))
 
     def test_global_tracker(self):
-        track.emit(sentinel.event_type)
+        tracker.emit(sentinel.event_type)
 
         self.assert_backend_called_with(
             sentinel.event_type)
 
     def test_missing_tracker(self):
-        self.assertRaises(KeyError, track.get_tracker, 'foobar')
+        self.assertRaises(KeyError, tracker.get_tracker, 'foobar')
 
     def test_single_context(self):
         context = {sentinel.context_key: sentinel.context_value}

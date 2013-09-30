@@ -6,8 +6,8 @@ from importlib import import_module
 
 from django.conf import settings
 
-from eventtracking import track
-from eventtracking.track import Tracker
+from eventtracking import tracker
+from eventtracking.tracker import Tracker
 from eventtracking.locator import ThreadLocalContextLocator
 
 
@@ -16,7 +16,7 @@ DJANGO_SETTING_NAME = 'TRACKING_BACKENDS'
 
 class DjangoTracker(Tracker):
     """
-    A `eventtracking.track.Tracker` that constructs its backends from
+    A `eventtracking.tracker.Tracker` that constructs its backends from
     Django settings.
     """
 
@@ -80,7 +80,7 @@ class DjangoTracker(Tracker):
             module = import_module(module_name)
             cls = getattr(module, class_name)
         except (ValueError, AttributeError, TypeError, ImportError):
-            raise ValueError('Cannot find event track backend %s' % name)
+            raise ValueError('Cannot find event tracker backend %s' % name)
 
         backend = cls(**options)
         if not hasattr(backend, 'send') or not callable(backend.send):
@@ -92,7 +92,7 @@ class DjangoTracker(Tracker):
 def override_default_tracker():
     """Sets the default tracker to a DjangoTracker"""
     if getattr(settings, 'TRACKING_ENABLED', False):
-        track.register_tracker(DjangoTracker())
+        tracker.register_tracker(DjangoTracker())
 
 
 override_default_tracker()

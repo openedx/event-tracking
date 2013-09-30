@@ -105,7 +105,7 @@ def register_tracker(tracker, name=DEFAULT_TRACKER_NAME):
     """
     Makes a tracker globally accessible.  Providing no `name` parameter
     allows you to register the global default tracker that will be used
-    by subsequent calls to `track.emit`.
+    by subsequent calls to `tracker.emit`.
     """
     TRACKERS[name] = tracker
 
