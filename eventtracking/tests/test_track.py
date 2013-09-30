@@ -48,7 +48,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         return self.tracker.get_backend('mock{0}'.format(index))
 
     def test_event_simple_event_without_data(self):
-        self.tracker.event(sentinel.event_type)
+        self.tracker.emit(sentinel.event_type)
 
         self.assert_backend_called_with(sentinel.event_type)
 
@@ -85,7 +85,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         )
 
     def test_event_simple_event_without_type(self):
-        self.tracker.event(data={sentinel.key: sentinel.value})
+        self.tracker.emit(data={sentinel.key: sentinel.value})
 
         self.assert_backend_called_with(
             'unknown',
@@ -95,14 +95,14 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         )
 
     def test_event_simple_event_without_type_or_data(self):
-        self.tracker.event()
+        self.tracker.emit()
         self.assert_backend_called_with(
             'unknown',
             {}
         )
 
     def test_event_simple_event_with_data(self):
-        self.tracker.event(
+        self.tracker.emit(
             sentinel.event_type,
             {
                 sentinel.key: sentinel.value
@@ -118,7 +118,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
 
     def test_multiple_backends(self):
         self.configure_mock_backends(2)
-        self.tracker.event(sentinel.event_type)
+        self.tracker.emit(sentinel.event_type)
 
         for backend in self._mock_backends:
             self.assert_backend_called_with(
@@ -128,13 +128,13 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         self.configure_mock_backends(2)
         self.get_mock_backend(0).send.side_effect = Exception
 
-        self.tracker.event(sentinel.event_type)
+        self.tracker.emit(sentinel.event_type)
 
         self.assert_backend_called_with(
             sentinel.event_type, backend=self.get_mock_backend(1))
 
     def test_global_tracker(self):
-        track.event(sentinel.event_type)
+        track.emit(sentinel.event_type)
 
         self.assert_backend_called_with(
             sentinel.event_type)
@@ -147,7 +147,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         data = {sentinel.key: sentinel.value}
 
         self.tracker.enter_context('single', context)
-        self.tracker.event(sentinel.event_type, data)
+        self.tracker.emit(sentinel.event_type, data)
         self.tracker.exit_context('single')
 
         self.assert_backend_called_with(
@@ -166,7 +166,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         }
         self.tracker.enter_context('outer', context)
         self.tracker.enter_context('inner', override_context)
-        self.tracker.event(sentinel.event_type)
+        self.tracker.emit(sentinel.event_type)
         self.tracker.exit_context('inner')
         self.tracker.exit_context('outer')
 

@@ -55,7 +55,7 @@ class TestTrackRequestMiddleware(TestCase):
         self.track_middleware = TrackRequestMiddleware()
         self.request_factory = RequestFactory()
 
-        track_patcher = patch('eventtracking.django.middleware.track.event')
+        track_patcher = patch('eventtracking.django.middleware.track.emit')
         self.mock_track = track_patcher.start()
         self.addCleanup(track_patcher.stop)
 

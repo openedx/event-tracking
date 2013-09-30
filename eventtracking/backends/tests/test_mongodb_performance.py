@@ -31,7 +31,7 @@ class TestBackendPerformance(PerformanceTestCase):
     def test_sequential_events(self):
         with self.assert_execution_time_less_than_threshold():
             for i in range(self.num_events):
-                self.tracker.event('perf.event', {
+                self.tracker.emit('perf.event', {
                     'sequence': i,
                     'payload': self.random_payload
                 })

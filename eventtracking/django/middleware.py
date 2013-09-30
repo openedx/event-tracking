@@ -133,7 +133,7 @@ class TrackRequestMiddleware(object):
                 'query': self._remove_sensitive_request_variables(request.GET),
                 'body': self._remove_sensitive_request_variables(request.POST)
             }
-            track.event(event_type, event)
+            track.emit(event_type, event)
 
         return response
 

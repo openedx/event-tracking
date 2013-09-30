@@ -49,7 +49,7 @@ class Tracker(object):
         """Gets the backend that was configured with `name`"""
         return self.backends[name]
 
-    def event(self, event_type=None, data=None):
+    def emit(self, event_type=None, data=None):
         """
         Emit an event annotated with the UTC time when this function was called.
 
@@ -105,7 +105,7 @@ def register_tracker(tracker, name=DEFAULT_TRACKER_NAME):
     """
     Makes a tracker globally accessible.  Providing no `name` parameter
     allows you to register the global default tracker that will be used
-    by subsequent calls to `track.event`.
+    by subsequent calls to `track.emit`.
     """
     TRACKERS[name] = tracker
 
@@ -119,6 +119,6 @@ def get_tracker(name=DEFAULT_TRACKER_NAME):
     return TRACKERS[name]
 
 
-def event(event_type=None, data=None):
-    """Calls `Tracker.event` on the default global tracker"""
-    return get_tracker().event(event_type=event_type, data=data)
+def emit(event_type=None, data=None):
+    """Calls `Tracker.emit` on the default global tracker"""
+    return get_tracker().emit(event_type=event_type, data=data)

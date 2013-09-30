@@ -38,7 +38,7 @@ class TestMongoIntegration(IntegrationTestCase):
     def test_sequential_events(self):
         now = datetime.now(UTC)
         for i in range(10):
-            self.tracker.event('org.test.user.login', {
+            self.tracker.emit('org.test.user.login', {
                 'username': 'tester',
                 'user_id': 10,
                 'email': 'tester@eventtracking.org',
