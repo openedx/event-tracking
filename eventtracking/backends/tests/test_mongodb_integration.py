@@ -13,7 +13,7 @@ from pytz import UTC
 from eventtracking.backends.tests import IntegrationTestCase
 from eventtracking.backends.tests import InMemoryBackend
 from eventtracking.backends.mongodb import MongoBackend
-from eventtracking.track import Tracker
+from eventtracking.tracker import Tracker
 
 
 class TestMongoIntegration(IntegrationTestCase):
@@ -38,7 +38,7 @@ class TestMongoIntegration(IntegrationTestCase):
     def test_sequential_events(self):
         now = datetime.now(UTC)
         for i in range(10):
-            self.tracker.event('org.test.user.login', {
+            self.tracker.emit('org.test.user.login', {
                 'username': 'tester',
                 'user_id': 10,
                 'email': 'tester@eventtracking.org',

@@ -9,7 +9,7 @@ from uuid import uuid4
 
 from eventtracking.backends.tests import PerformanceTestCase
 from eventtracking.backends.mongodb import MongoBackend
-from eventtracking.track import Tracker
+from eventtracking.tracker import Tracker
 
 
 class TestBackendPerformance(PerformanceTestCase):
@@ -31,7 +31,7 @@ class TestBackendPerformance(PerformanceTestCase):
     def test_sequential_events(self):
         with self.assert_execution_time_less_than_threshold():
             for i in range(self.num_events):
-                self.tracker.event('perf.event', {
+                self.tracker.emit('perf.event', {
                     'sequence': i,
                     'payload': self.random_payload
                 })
