@@ -31,9 +31,9 @@ class TestConfiguration(TestCase):
         fake_backend = self.tracker.get_backend('fake')
         self.assertTrue(isinstance(fake_backend, TrivialFakeBackend))
 
-    def configure_tracker(self, setting_name='TRACKING_BACKENDS'):
+    def configure_tracker(self):
         """Reads the tracker configuration from the Django settings"""
-        self.tracker = django.DjangoTracker(setting_name)
+        self.tracker = django.DjangoTracker()
 
     @override_settings(TRACKING_BACKENDS={
         "no_engine": {
@@ -127,18 +127,15 @@ class TestConfiguration(TestCase):
     def test_configure_class_not_a_backend(self):
         self.assert_fails_to_configure_with_error()
 
-    @override_settings(MY_TRACKING_BACKENDS={
-        'custom_fake': {
-            'ENGINE': 'eventtracking.django.tests.test_configuration.TrivialFakeBackend'
-        }
-    })
-    def test_configure_with_custom_settings(self):
-        self.configure_tracker('MY_TRACKING_BACKENDS')
-
-        self.assertTrue(self.tracker.get_backend('custom_fake') is not None)
-
+    @override_settings(TRACKING_ENABLED=True)
     def test_overrides_default_tracker(self):
-        self.assertEquals(id(self.tracker), id(track.get_tracker()))
+        django.override_default_tracker()
+        self.assertTrue(isinstance(track.get_tracker(), django.DjangoTracker))
+
+    @override_settings(TRACKING_ENABLED=False)
+    def test_leaves_default_tracker_alone(self):
+        django.override_default_tracker()
+        self.assertTrue(isinstance(track.get_tracker(), track.Tracker))
 
 
 class TrivialFakeBackend(object):

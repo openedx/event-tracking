@@ -7,7 +7,7 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'TEST_NAME': ':memory:'
+        'NAME': ':memory:'
     }
 }
 
@@ -23,3 +23,5 @@ INSTALLED_APPS = [
 ]
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+TRACKING_ENABLED = True
