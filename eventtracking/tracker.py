@@ -16,6 +16,7 @@ Best Practices:
 
 from __future__ import absolute_import
 
+from contextlib import contextmanager
 from datetime import datetime
 import logging
 
@@ -99,6 +100,19 @@ class Tracker(object):
         is removed.
         """
         del self.located_context[name]
+
+    @contextmanager
+    def context(self, name, ctx):
+        """
+        Execute the block with the given context applied.  This manager
+        ensures that the context is removed even if an exception is raised
+        within the context.
+        """
+        self.enter_context(name, ctx)
+        try:
+            yield
+        finally:
+            self.exit_context(name)
 
 
 def register_tracker(tracker, name=DEFAULT_TRACKER_NAME):
