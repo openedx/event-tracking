@@ -84,7 +84,13 @@ class TrackRequestContextMiddleware(object):
     def process_response(self, request, response):  # pylint: disable=unused-argument
         """Remove the request variable context from the tracker context stack"""
         with failures_only_in_debug():
-            tracker.get_tracker().exit_context(self.CONTEXT_NAME)
+            try:
+                tracker.get_tracker().exit_context(self.CONTEXT_NAME)
+            except KeyError:
+                # If an error occurred processing some other middleware it is possible
+                # this method could be called without process_request having been
+                # called, in that case, don't raise an exception here.
+                pass
 
         return response
 
