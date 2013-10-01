@@ -5,20 +5,20 @@ __ http://code.edx.org/
 event-tracking
 ==============
 
-.. image:: https://api.travis-ci.org/edx/event-tracking.png?branch=master
-    :target: https://travis-ci.org/edx/event-tracking
+Track context-aware semi-structured system events.  Capture and store events
+with nested data structures in order to truly take advantage of schemaless
+data storage systems.
 
-This is a system for tracking events.  It is designed to support pluggable
-backends for persisting the event data. When the application emits an event
-each backend will be given an opportunity to save the event to stable storage.
+Key features:
 
-It currently provides:
-
+* Multiple backends - define custom backends that can be used to persist
+  your event data.
 * Nested contexts - allows data to be injected into events even without
   having to pass around all of said data to every location where the events
   are emitted.
-* Django integration - provide a Django app that allows events to easily be
-  captured by web applications.
+* Django integration - provides a Django app that allows context aware events
+  to easily be captured by multi-threaded web applications.
+* MongoDB integration - support writing events out to a mongo collection.
 
 Example::
 
@@ -31,32 +31,82 @@ Example::
     with tracker.context({'user_id': 11111, 'session_id': '2987lkjdyoioey'}):
         tracker.emit('navigation.request', {'url': 'http://www.edx.org/some/path/2'})
 
-    tracker.emit('navigation.request', {'url': 'http://www.edx.org/some/path/3'})
+    tracker.emit(
+        'address.create',
+        {
+            'name': 'foo',
+            'address': {
+                'postal_code': '90210',
+                'country': 'United States'
+            }
+        }
+    )
 
-    # The following list shows the contexts and data for the three events that
-    # are emitted
-    #  "context": { "user_id": 10938 },
-             "data": { "url": "http://www.edx.org/some/path/1" }
-    #  "context": { "user_id": 11111, "session_id": "2987lkjdyoioey" },
-            "data": { "url": "http://www.edx.org/some/path/2" }
-    #  "context": { "user_id": 10938 },
-            "data": { "url": "http://www.edx.org/some/path/3" }
+Running the above example produces the following events::
+
+    {
+        "event_type": "navigation.request",
+        "timestamp": ...,
+        "context": {
+            "user_id": 10938
+        },
+        "data": {
+            "url": "http://www.edx.org/some/path/1"
+        }
+    },
+    {
+        "event_type": "navigation.request",
+        "timestamp": ...,
+        "context": {
+            "user_id": 11111,
+            "session_id": "2987lkjdyoioey"
+        },
+        "data": {
+            "url": "http://www.edx.org/some/path/2"
+        }
+    },    
+    {
+        "event_type": "navigation.request",
+        "timestamp": ...,
+        "context": {
+            "user_id": 10938
+        },
+        "data": {
+            "name": "foo",
+            "address": {
+                "postal_code": "90210",
+                "country": "United States"
+            }
+        }
+    }
+
+
+Build Status
+------------
+
+.. image:: https://api.travis-ci.org/edx/event-tracking.png?branch=master
+    :target: https://travis-ci.org/edx/event-tracking
+
 
 Roadmap
 -------
 
 In the very near future the following features are planned:
 
-* Dynamic documentation and event metadata - allow event emitters to document
-  the event types, and persist this documentation along with the events so
-  that it can be referenced during analysis to provide context about what
-  the event is and when it is emitted.
+* Dynamic event documentation and event metadata - allow event emitters to
+  document the event types, and persist this documentation along with the
+  events so that it can be referenced during analysis to provide context
+  about what the event is and when it is emitted.
 
 
 Documentation
 -------------
 
-Initial API docs can be found in the ``doc`` directory.
+Documentation is hosted on `read the docs <http://www.readthedocs.org/>`_.
+
+Releases:
+
+* `development <http://event-tracking.readthedocs.org/en/latest/>`_
 
 License
 -------

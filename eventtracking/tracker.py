@@ -2,16 +2,17 @@
 Track application events.  Supports persisting events to multiple backends.
 
 Best Practices:
+
 * It is recommended that event types are namespaced using dot notation to
-    avoid naming collisions, similar to DNS names.  For example:
-    org.edx.video.stop, edu.mit.audio.stop
+  avoid naming collisions, similar to DNS names.  For example:
+  org.edx.video.stop, edu.mit.audio.stop
 * Avoid using event type names that may cause collisions.  The burden is
-    on the analyst to decide whether your event is equivalent to another
-    and should be grouped accordingly etc.
+  on the analyst to decide whether your event is equivalent to another
+  and should be grouped accordingly etc.
 * Do not emit events that you don't own.  This could negatively impact
-    the analysis of the event stream.  If you suspect your event is
-    equivalent to another, say so in your documenation, and the analyst
-    can decide whether or not to group them.
+  the analysis of the event stream.  If you suspect your event is
+  equivalent to another, say so in your documenation, and the analyst
+  can decide whether or not to group them.
 """
 
 from __future__ import absolute_import
