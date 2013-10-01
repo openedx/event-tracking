@@ -25,10 +25,10 @@ class TestTrackRequestContextMiddleware(TestCase):
 
         self.middleware = TrackRequestContextMiddleware()
         self.request_factory = RequestFactory()
+        self.request = self.request_factory.get('/somewhere')
 
     def test_simple_request(self):
-        request = self.request_factory.get('/somewhere')
-        self.middleware.process_request(request)
+        self.middleware.process_request(self.request)
 
         self.mock_tracker.enter_context.assert_called_once_with(
             'django.context',
@@ -43,8 +43,13 @@ class TestTrackRequestContextMiddleware(TestCase):
             }
         )
 
-        resp = self.middleware.process_response(request, sentinel.response)
+        resp = self.middleware.process_response(self.request, sentinel.response)
         self.mock_tracker.exit_context.assert_called_once_with('django.context')
+        self.assertEquals(resp, sentinel.response)
+
+    def test_response_without_request(self):
+        self.mock_tracker.exit_context.side_effect = KeyError
+        resp = self.middleware.process_response(self.request, sentinel.response)
         self.assertEquals(resp, sentinel.response)
 
 
