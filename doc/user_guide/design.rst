@@ -1,7 +1,9 @@
 .. note::
-   This is a proposed design and has not yet been implemented in the code.
+   This is a proposed design and has not yet been fully implemented in the code.
 
-
+======
+Design
+======
 
 Interface
 =========
@@ -9,7 +11,7 @@ Interface
 Python
 ------
 
-*tracking.register(event_type, description, field_descriptions)*
+.. function:: tracker.register(event_type, description, field_descriptions)
 
 :event_type: A unique identification string for this type of event
 :description: A description of the event and the conditions under which it is emitted
@@ -24,10 +26,10 @@ Any events emitted with that event type after the registration will contain a re
 
 Example::
 
-    import tracking
+    from eventtracking import tracker
     
-    tracking.register(
-        'org.edx.navigation.request',
+    tracker.register(
+        'edx.navigation.request',
         'A user visited a page', 
         {
             'url': 'The url of the page visited.',
@@ -37,7 +39,7 @@ Example::
         }
     )
 
-*tracking.event(event_type, field_values)*
+.. function:: tracker.emit(event_type, field_values)
 
 :event_type: A unique identification string for an event that has already been registered.
 :field_values: A dictionary mapping field names to the value to include in the event.  Note that all values provided must be serializable.
@@ -50,23 +52,23 @@ Regardless of previous state or configuration, the data will always be logged, h
 * the field_values are not serializable
 * the estimated serialized event size is greater than the maximum supported
 
-*tracking.context.push(context, name, description, field_descriptions)*
+.. function:: tracker.enter_context(name, context, description, field_descriptions)
 
 :context: A dictionary of key-value pairs that will be included in every event emitted after this call.  Values defined in this dictionary will override any previous calls to push_context with maps that contain the same key.
 :event_type: A unique identification string for this type of context.
 :description: A clear description of the conditions under which this context is included.
 :field_descriptions: A dictionary mapping field names to a long form description.
 
-Pushes a new context on to the context stack.  This context will be applied to every event emitted after this call.  It is stored thread local.
+Pushes a new context on to the context stack.  This context will be applied to every event emitted after this call.
 
-*tracking.context.pop()*
+.. function:: tracker.exit_context(name)
 
-Removes the most recently pushed context from the context stack.
+Removes the named context from the stack.
 
 Javascript
 ----------
 
-*Tracking.event(event_type, field_values)*
+.. function:: Tracker.emit(event_type, field_values)
 
 :event_type: A unique identification string for an event that has already been registered.
 :field_values: An object mapping field names to the value to include in the event.  Note that all values provided must be serializable.
@@ -84,8 +86,8 @@ The metadata for all registered event types is persisted along with a unique ide
 
     The same event type may be registered multiple times with different metadata in the normal case due to revisions to the schema.  This use case is supported and a new metadata record will be created for the new schema and linked to all future events of that type, while the old metadata will remain available for reference.
 
-Context Stack
-=============
+Nested Context Stack
+====================
 
 The context stack is designed to simplify the process of including context in your events without having to have that context available at every location where the event might be emitted.  It is rather cumbersome to have to pass around an HTTP request object for the sole purpose of gathering context out of it when emitting events.  To aide this process you can define nested scopes which add information to the context when entered and remove information from the context when exited.
 
@@ -99,20 +101,16 @@ Conceptually this is accomplished using a stack of dictionaries to hold all of t
 
 Example::
 
-    import tracking
-    
-    tracking.register(
-        'navigation.request', 'A user visited a page', { 'url': 'The url of the page visited.' }
-    )
+    from eventtracking import tracker
 
-    tracking.context.push({'user_id': 10938})
-    tracking.event('navigation.request', {'url': 'http://www.edx.org/some/path/1'})
+    tracker.enter_context('request', {'user_id': 10938})
+    tracker.emit('navigation.request', {'url': 'http://www.edx.org/some/path/1'})
 
-    tracking.context.push({'user_id': 11111, 'session_id': '2987lkjdyoioey'})
-    tracking.event('navigation.request', {'url': 'http://www.edx.org/some/path/2'})
+    tracker.enter_context('session', {'user_id': 11111, 'session_id': '2987lkjdyoioey'})
+    tracker.emit('navigation.request', {'url': 'http://www.edx.org/some/path/2'})
+    tracker.exit_context('session')
 
-    tracking.context.pop()
-    tracking.event('navigation.request', {'url': 'http://www.edx.org/some/path/3'})
+    tracker.emit('navigation.request', {'url': 'http://www.edx.org/some/path/3'})
 
     # The following list shows the contexts and data for the three events that are emitted
     #  "context": { "user_id": 10938 }, "data": { "url": "http://www.edx.org/some/path/1" }
@@ -122,7 +120,7 @@ Example::
 Best Practices
 ==============
 
-* It is recommended that event types are namespaced using dot notation to avoid naming collisions, similar to DNS names.  For example: org.edx.video.stop, edu.mit.audio.stop
+* It is recommended that event types are namespaced using dot notation to avoid naming collisions, similar to DNS names.  For example: edx.video.stop, mit.audio.stop
 * Avoid using event type names that may cause collisions.  The burden is on the analyst to decide whether your event is equivalent to another and should be grouped accordingly etc.
 * Do not emit events that you don't own.  This could negatively impact the analysis of the event stream.  If you suspect your event is equivalent to another, say so in your documenation, and the analyst can decide whether or not to group them.
 
@@ -132,20 +130,20 @@ Sample Usage
 
 Emitting an unregistered event::
 
-    tracking.event('org.edx.problem.show_answer', {'problem_id': 'i4x://MITx/6.00x/problem/L15:L15_Problem_2'})
+    tracker.emit('edx.problem.show_answer', {'problem_id': 'i4x://MITx/6.00x/problem/L15:L15_Problem_2'})
 
 Emitting a registered event::
 
-    tracking.register('org.edx.problem.show_answer', 'An answer was shown for a problem', {'problem_id': 'A unique problem identifier'})
-    tracking.event('org.edx.problem.show_answer', {'problem_id': 'i4x://MITx/6.00x/problem/L15:L15_Problem_2'})
+    tracker.register('edx.problem.show_answer', 'An answer was shown for a problem', {'problem_id': 'A unique problem identifier'})
+    tracker.emit('edx.problem.show_answer', {'problem_id': 'i4x://MITx/6.00x/problem/L15:L15_Problem_2'})
 
 Emitting an event with context::
 
-    tracking.context.push({'user_id': '1234'})
+    tracker.enter_context('request', {'user_id': '1234'})
     try:
-        tracking.event('org.edx.problem.show_answer', {'problem_id': 'i4x://MITx/6.00x/problem/L15:L15_Problem_2'})
+        tracker.emit('edx.problem.show_answer', {'problem_id': 'i4x://MITx/6.00x/problem/L15:L15_Problem_2'})
     finally:
-        tracking.context.pop()
+        tracker.exit_context('request')
 
 Sample Events
 =============
@@ -153,7 +151,7 @@ Sample Events
 Show Answer::
 
     {
-        "event_type": "org.edx.problem.show_answer",
+        "event_type": "edx.problem.show_answer",
         "timestamp": "2013-09-12T12:55:00.12345+00:00",
         "event_type_id": "10ac28",
         "context_type_id": "11bd88",
@@ -172,12 +170,12 @@ Show Answer::
 Sample Event Type Metadata
 ==========================
 
-For the org.edx.problem.show_answer event type.
+For the edx.problem.show_answer event type.
 
 +-----------------+-----------------------------+-----------------------------------+---------------------------+-------------+
 | schema_id       | name                        | description                       | timestamp                 | stack_trace |
 +=================+=============================+===================================+===========================+=============+
-| 10ac28          | org.edx.problem.show_answer | An answer was shown for a problem | 2013-09-12T12:05:00-00:00 | ...         |
+| 10ac28          | edx.problem.show_answer     | An answer was shown for a problem | 2013-09-12T12:05:00-00:00 | ...         |
 +-----------------+-----------------------------+-----------------------------------+---------------------------+-------------+
 | 11bd88          | edX context                 |                                   | 2013-09-12T12:05:01-00:00 | ...         |
 +-----------------+-----------------------------+-----------------------------------+---------------------------+-------------+
@@ -194,10 +192,10 @@ For the org.edx.problem.show_answer event type.
 | 40                    | 11bd88          | origin     | client || server            |
 +-----------------------+-----------------+------------+-----------------------------+
 
-Schema
-======
+Sample Event Schema
+===================
 
-Events are logged in the following format.
+Events can be serialized into any format.  Here is an example JSON serialization format that could be used to store events.
 
 Event Schema::
 
