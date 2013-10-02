@@ -267,3 +267,5 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'http://docs.python.org/': None}
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'eventtracking.django.tests'
