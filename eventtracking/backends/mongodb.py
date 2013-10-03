@@ -62,10 +62,12 @@ class MongoBackend(object):
             **extra
         )
 
-        self.collection = self.connection[db_name][collection_name]
+        self.database = self.connection[db_name]
 
         if user or password:
-            self.collection.database.authenticate(user, password)
+            self.database.authenticate(user, password)
+
+        self.collection = self.database[collection_name]
 
         self._create_indexes()
 
@@ -86,5 +88,8 @@ class MongoBackend(object):
         try:
             self.collection.insert(event, manipulate=False)
         except PyMongoError:
+            # The event will be lost in case of a connection error.
+            # pymongo will re-connect/re-authenticate automatically
+            # during the next event.
             msg = 'Error inserting to MongoDB event tracker backend'
             log.exception(msg)
