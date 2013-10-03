@@ -62,10 +62,12 @@ class MongoBackend(object):
             **extra
         )
 
-        self.collection = self.connection[db_name][collection_name]
+        database = self.connection[db_name]
 
         if user or password:
-            self.collection.database.authenticate(user, password)
+            database.authenticate(user, password)
+
+        self.collection = database[collection_name]
 
         self._create_indexes()
 
