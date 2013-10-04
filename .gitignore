@@ -19,3 +19,5 @@ pylint.report
 diff_cover.html
 diff_quality_pep8.html
 diff_quality_pylint.html
+
+dist
