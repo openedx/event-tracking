@@ -1,5 +1,6 @@
 import os
 from setuptools import setup
+from setuptools import find_packages
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 REQUIREMENTS = [line.strip() for line in
@@ -11,7 +12,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='event-tracking',
     version='0.1',
-    packages=['eventtracking'],
+    packages=find_packages(),
     include_package_data=True,
     license='AGPLv3 License',
     description='A simple event tracking system.',
