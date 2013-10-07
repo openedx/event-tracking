@@ -45,7 +45,7 @@ class TestMongoBackend(TestCase):
 
     def test_authentication_settings(self):
         backend = MongoBackend(user=sentinel.user, password=sentinel.password)
-        backend.collection.database.authenticate.assert_called_once_with(sentinel.user, sentinel.password)
+        backend.database.authenticate.assert_called_once_with(sentinel.user, sentinel.password)
 
     def test_mongo_insertion_error(self):
         self.backend.collection.insert.side_effect = PyMongoError
