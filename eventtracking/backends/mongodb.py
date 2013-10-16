@@ -81,7 +81,7 @@ class MongoBackend(object):
         # management command or equivalent. There is also an option to
         # run the indexing on the background, without locking.
         self.collection.ensure_index([('time', pymongo.DESCENDING)])
-        self.collection.ensure_index('event_type')
+        self.collection.ensure_index('name')
 
     def send(self, event):
         """Insert the event in to the Mongo collection"""

@@ -51,18 +51,18 @@ class Tracker(object):
         """Gets the backend that was configured with `name`"""
         return self.backends[name]
 
-    def emit(self, event_type=None, data=None):
+    def emit(self, name=None, data=None):
         """
         Emit an event annotated with the UTC time when this function was called.
 
-        `event_type` is a unique identification string for an event that has
+        `name` is a unique identification string for an event that has
             already been registered.
         `data` is a dictionary mapping field names to the value to include in the event.
             Note that all values provided must be serializable.
 
         """
         full_event = {
-            'event_type': event_type or UNKNOWN_EVENT_TYPE,
+            'name': name or UNKNOWN_EVENT_TYPE,
             'timestamp': datetime.now(UTC),
             'data': data or {},
             'context': self.resolve_context()
@@ -134,6 +134,6 @@ def get_tracker(name=DEFAULT_TRACKER_NAME):
     return TRACKERS[name]
 
 
-def emit(event_type=None, data=None):
+def emit(name=None, data=None):
     """Calls `Tracker.emit` on the default global tracker"""
-    return get_tracker().emit(event_type=event_type, data=data)
+    return get_tracker().emit(name=name, data=data)
