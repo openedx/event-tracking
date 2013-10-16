@@ -11,9 +11,9 @@ Interface
 Python
 ------
 
-.. function:: tracker.register(event_type, description, field_descriptions)
+.. function:: tracker.register(name, description, field_descriptions)
 
-:event_type: A unique identification string for this type of event
+:name: A unique identification string for this type of event
 :description: A description of the event and the conditions under which it is emitted
 :field_descriptions: A dictionary mapping field names to a long form description
 
@@ -39,9 +39,9 @@ Example::
         }
     )
 
-.. function:: tracker.emit(event_type, field_values)
+.. function:: tracker.emit(name, field_values)
 
-:event_type: A unique identification string for an event that has already been registered.
+:name: A unique identification string for an event that has already been registered.
 :field_values: A dictionary mapping field names to the value to include in the event.  Note that all values provided must be serializable.
 
 Regardless of previous state or configuration, the data will always be logged, however, in the following conditions will cause a warning to be logged:
@@ -55,7 +55,7 @@ Regardless of previous state or configuration, the data will always be logged, h
 .. function:: tracker.enter_context(name, context, description, field_descriptions)
 
 :context: A dictionary of key-value pairs that will be included in every event emitted after this call.  Values defined in this dictionary will override any previous calls to push_context with maps that contain the same key.
-:event_type: A unique identification string for this type of context.
+:name: A unique identification string for this type of context.
 :description: A clear description of the conditions under which this context is included.
 :field_descriptions: A dictionary mapping field names to a long form description.
 
@@ -68,9 +68,9 @@ Removes the named context from the stack.
 Javascript
 ----------
 
-.. function:: Tracker.emit(event_type, field_values)
+.. function:: Tracker.emit(name, field_values)
 
-:event_type: A unique identification string for an event that has already been registered.
+:name: A unique identification string for an event that has already been registered.
 :field_values: An object mapping field names to the value to include in the event.  Note that all values provided must be serializable.
 
 See the documentation for the Python API.
@@ -151,9 +151,9 @@ Sample Events
 Show Answer::
 
     {
-        "event_type": "edx.problem.show_answer",
+        "name": "edx.problem.show_answer",
         "timestamp": "2013-09-12T12:55:00.12345+00:00",
-        "event_type_id": "10ac28",
+        "name_id": "10ac28",
         "context_type_id": "11bd88",
         "context": {
             "course_id":"",
@@ -208,9 +208,9 @@ Event Schema::
         "description": "An event emitted from the edx platform.",
     
         "properties":{
-            "event_type": {
+            "name": {
                 "type": "string",
-                "id": "http://edx.org/event/event_type",
+                "id": "http://edx.org/event/name",
                 "description": "A unique identifier for this type of event.",
                 "required": true
             },
@@ -220,9 +220,9 @@ Event Schema::
                 "description": "The UTC time the event was emitted in RFC-3339 format.",
                 "required": true
             }
-            "event_type_id": {
+            "name_id": {
                 "type": "string",
-                "id": "http://edx.org/event/event_type_id",
+                "id": "http://edx.org/event/name_id",
                 "description": "A unique reference to the metadata for this event type.",
                 "required": false
             },

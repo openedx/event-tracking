@@ -48,14 +48,14 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         return self.tracker.get_backend('mock{0}'.format(index))
 
     def test_event_simple_event_without_data(self):
-        self.tracker.emit(sentinel.event_type)
+        self.tracker.emit(sentinel.name)
 
-        self.assert_backend_called_with(sentinel.event_type)
+        self.assert_backend_called_with(sentinel.name)
 
-    def assert_backend_called_with(self, event_type, data=None, context=None, backend=None):
+    def assert_backend_called_with(self, name, data=None, context=None, backend=None):
         """Ensures the backend is called exactly once with the expected data."""
 
-        self.assert_exact_backend_calls([(event_type, context, data)], backend=backend)
+        self.assert_exact_backend_calls([(name, context, data)], backend=backend)
 
     def assert_exact_backend_calls(self, parameter_tuple_list, backend=None):
         """
@@ -63,7 +63,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         specified order.  Note that it expects a list of tuples to be passed
         in to `parameter_tuple_list`.  Each tuple should be in the form:
 
-        (event_type, context, data)
+        (name, context, data)
 
         These are expanded out into complete events.
         """
@@ -74,12 +74,12 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
             backend.send.mock_calls,
             [
                 call({
-                    'event_type': event_type,
+                    'name': name,
                     'timestamp': self._expected_timestamp,
                     'context': context or {},
                     'data': data or {}
                 })
-                for event_type, context, data
+                for name, context, data
                 in parameter_tuple_list
             ]
         )
@@ -103,14 +103,14 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
 
     def test_event_simple_event_with_data(self):
         self.tracker.emit(
-            sentinel.event_type,
+            sentinel.name,
             {
                 sentinel.key: sentinel.value
             }
         )
 
         self.assert_backend_called_with(
-            sentinel.event_type,
+            sentinel.name,
             {
                 sentinel.key: sentinel.value
             }
@@ -118,26 +118,26 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
 
     def test_multiple_backends(self):
         self.configure_mock_backends(2)
-        self.tracker.emit(sentinel.event_type)
+        self.tracker.emit(sentinel.name)
 
         for backend in self._mock_backends:
             self.assert_backend_called_with(
-                sentinel.event_type, backend=backend)
+                sentinel.name, backend=backend)
 
     def test_single_backend_failure(self):
         self.configure_mock_backends(2)
         self.get_mock_backend(0).send.side_effect = Exception
 
-        self.tracker.emit(sentinel.event_type)
+        self.tracker.emit(sentinel.name)
 
         self.assert_backend_called_with(
-            sentinel.event_type, backend=self.get_mock_backend(1))
+            sentinel.name, backend=self.get_mock_backend(1))
 
     def test_global_tracker(self):
-        tracker.emit(sentinel.event_type)
+        tracker.emit(sentinel.name)
 
         self.assert_backend_called_with(
-            sentinel.event_type)
+            sentinel.name)
 
     def test_missing_tracker(self):
         self.assertRaises(KeyError, tracker.get_tracker, 'foobar')
@@ -147,11 +147,11 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         data = {sentinel.key: sentinel.value}
 
         self.tracker.enter_context('single', context)
-        self.tracker.emit(sentinel.event_type, data)
+        self.tracker.emit(sentinel.name, data)
         self.tracker.exit_context('single')
 
         self.assert_backend_called_with(
-            sentinel.event_type,
+            sentinel.name,
             data=data,
             context=context
         )
@@ -166,10 +166,10 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         }
         with self.tracker.context('outer', context):
             with self.tracker.context('inner', override_context):
-                self.tracker.emit(sentinel.event_type)
+                self.tracker.emit(sentinel.name)
 
         self.assert_backend_called_with(
-            sentinel.event_type,
+            sentinel.name,
             context={
                 sentinel.context_key: sentinel.override_context_value,
                 sentinel.another_key: sentinel.another_value
@@ -181,6 +181,6 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
             with self.tracker.context('foo', {sentinel.context_key: sentinel.context_value}):
                 raise ValueError
 
-        self.tracker.emit(sentinel.event_type)
+        self.tracker.emit(sentinel.name)
 
-        self.assert_backend_called_with(sentinel.event_type)
+        self.assert_backend_called_with(sentinel.name)

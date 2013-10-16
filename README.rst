@@ -45,7 +45,7 @@ Example::
 Running the above example produces the following events::
 
     {
-        "event_type": "navigation.request",
+        "name": "navigation.request",
         "timestamp": ...,
         "context": {
             "user_id": 10938
@@ -55,7 +55,7 @@ Running the above example produces the following events::
         }
     },
     {
-        "event_type": "navigation.request",
+        "name": "navigation.request",
         "timestamp": ...,
         "context": {
             "user_id": 11111,
@@ -66,7 +66,7 @@ Running the above example produces the following events::
         }
     },    
     {
-        "event_type": "navigation.request",
+        "name": "navigation.request",
         "timestamp": ...,
         "context": {
             "user_id": 10938
