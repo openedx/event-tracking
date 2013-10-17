@@ -137,6 +137,23 @@ class TestConfiguration(TestCase):
         django.override_default_tracker()
         self.assertTrue(isinstance(tracker.get_tracker(), tracker.Tracker))
 
+    @override_settings(TRACKING_PROCESSORS=[
+        {
+            'ENGINE': 'eventtracking.django.tests.test_configuration.NopProcessor'
+        }
+    ])
+    def test_single_processor(self):
+        self.configure_tracker()
+        self.assertEquals(len(self.tracker.processors), 1)
+        self.assertTrue(isinstance(self.tracker.processors[0], NopProcessor))
+
+    @override_settings(TRACKING_PROCESSORS=[
+        {}
+    ])
+    def test_missing_processor_engine(self):
+        self.configure_tracker()
+        self.assertEquals(len(self.tracker.processors), 0)
+
 
 class TrivialFakeBackend(object):
     """A trivial fake backend without any options"""
@@ -157,3 +174,10 @@ class FakeBackendWithOptions(TrivialFakeBackend):
     def __init__(self, **kwargs):
         super(FakeBackendWithOptions, self).__init__()
         self.option = kwargs.get('option', None)
+
+
+class NopProcessor(object):
+    """Changes every event"""
+
+    def __call__(self, event):
+        pass

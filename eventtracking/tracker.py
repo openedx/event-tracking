@@ -41,6 +41,10 @@ class Tracker(object):
         self.context_locator = context_locator or DefaultContextLocator()
         self.processors = processors or []
 
+        for backend in backends.itervalues():
+            if not hasattr(backend, 'send') or not callable(backend.send):
+                raise ValueError('Backend %s does not have a callable "send" method.' % backend.__class__.__name__)
+
     @property
     def located_context(self):
         """
