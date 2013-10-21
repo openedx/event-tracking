@@ -36,9 +36,14 @@ class Tracker(object):
     Track application events.  Holds references to a set of backends that will
     be used to persist any events that are emitted.
     """
-    def __init__(self, backends=None, context_locator=None):
+    def __init__(self, backends=None, context_locator=None, processors=None):
         self.backends = backends or {}
         self.context_locator = context_locator or DefaultContextLocator()
+        self.processors = processors or []
+
+        for backend in backends.itervalues():
+            if not hasattr(backend, 'send') or not callable(backend.send):
+                raise ValueError('Backend %s does not have a callable "send" method.' % backend.__class__.__name__)
 
     @property
     def located_context(self):
@@ -61,16 +66,44 @@ class Tracker(object):
             Note that all values provided must be serializable.
 
         """
-        full_event = {
+        event = {
             'name': name or UNKNOWN_EVENT_TYPE,
             'timestamp': datetime.now(UTC),
             'data': data or {},
             'context': self.resolve_context()
         }
 
+        event = self.process_event(event)
+        self.send_to_backends(event)
+
+    def process_event(self, event):
+        """
+
+        Executes all event processors on the event in order.
+
+        `event` is a nested dictionary that represents the event.
+
+        Returns the modified event.
+        """
+
+        for processor in self.processors:
+            try:
+                modified_event = processor(event)
+                if modified_event is not None:
+                    event = modified_event
+            except Exception:  # pylint: disable=broad-except
+                LOG.exception(
+                    'Failed to execute processor: {0}'.format(processor)
+                )
+
+        return event
+
+    def send_to_backends(self, event):
+        """Sends the event to all registered backends."""
+
         for name, backend in self.backends.iteritems():
             try:
-                backend.send(full_event)
+                backend.send(event)
             except Exception:  # pylint: disable=broad-except
                 LOG.exception(
                     'Unable to send event to backend: {0}'.format(name)

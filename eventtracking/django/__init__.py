@@ -11,7 +11,8 @@ from eventtracking.tracker import Tracker
 from eventtracking.locator import ThreadLocalContextLocator
 
 
-DJANGO_SETTING_NAME = 'TRACKING_BACKENDS'
+DJANGO_BACKEND_SETTING_NAME = 'TRACKING_BACKENDS'
+DJANGO_PROCESSOR_SETTING_NAME = 'TRACKING_PROCESSORS'
 
 
 class DjangoTracker(Tracker):
@@ -22,13 +23,13 @@ class DjangoTracker(Tracker):
 
     def __init__(self):
         backends = self.create_backends_from_settings()
-        super(DjangoTracker, self).__init__(backends, ThreadLocalContextLocator())
+        processors = self.create_processors_from_settings()
+        super(DjangoTracker, self).__init__(backends, ThreadLocalContextLocator(), processors)
 
     def create_backends_from_settings(self):
         """
-        Expects the Django setting `setting_name` (defaults to
-        "TRACKING_BACKENDS") to be defined and point to a dictionary of
-        backend engine configurations.
+        Expects the Django setting "TRACKING_BACKENDS" to be defined and point
+        to a dictionary of backend engine configurations.
 
         Example::
 
@@ -47,46 +48,71 @@ class DjangoTracker(Tracker):
                 },
             }
         """
-        config = getattr(settings, DJANGO_SETTING_NAME, {})
+        config = getattr(settings, DJANGO_BACKEND_SETTING_NAME, {})
 
         backends = {}
 
         for name, values in config.iteritems():
             # Ignore empty values to turn-off default tracker backends
             if values and 'ENGINE' in values:
-                engine = values['ENGINE']
-                options = values.get('OPTIONS', {})
-                backend = self.instantiate_backend_from_name(engine, options)
+                backend = self.instantiate_from_dict(values)
                 backends[name] = backend
 
         return backends
 
-    def instantiate_backend_from_name(self, name, options):
+    def instantiate_from_dict(self, values):
         """
-        Instantiate an event tracker backend from the full module path to
-        the backend class. Useful when setting backends from configuration
-        files.
-
+        Constructs an object given a dictionary containing an "ENGINE" key
+        which contains the full module path to the class, and an "OPTIONS"
+        key which contains a dictionary that will be passed in to the
+        constructor as keyword args.
         """
-        # Parse backend name
 
+        name = values['ENGINE']
+        options = values.get('OPTIONS', {})
+
+        # Parse the name
         parts = name.split('.')
         module_name = '.'.join(parts[:-1])
         class_name = parts[-1]
 
-        # Get and verify the backend class
-
+        # Get the class
         try:
             module = import_module(module_name)
             cls = getattr(module, class_name)
         except (ValueError, AttributeError, TypeError, ImportError):
-            raise ValueError('Cannot find event tracker backend %s' % name)
+            raise ValueError('Cannot find class %s' % name)
 
-        backend = cls(**options)
-        if not hasattr(backend, 'send') or not callable(backend.send):
-            raise ValueError('Backend %s does not have a callable "send" method.' % name)
+        return cls(**options)
 
-        return backend
+    def create_processors_from_settings(self):
+        """
+        Expects the Django setting "TRACKING_PROCESSORS" to be defined and
+        point to a list of backend engine configurations.
+
+        Example::
+
+            TRACKING_PROCESSORS = [
+                {
+                    'ENGINE': 'some.arbitrary.Processor'
+                },
+                {
+                    'ENGINE': 'some.arbitrary.OtherProcessor',
+                    'OPTIONS': {
+                        'user': 'foo'
+                    }
+                },
+            ]
+        """
+        config = getattr(settings, DJANGO_PROCESSOR_SETTING_NAME, [])
+
+        processors = []
+        for values in config:
+            # Ignore empty values to turn-off default tracker backends
+            if values and 'ENGINE' in values:
+                processors.append(self.instantiate_from_dict(values))
+
+        return processors
 
 
 def override_default_tracker():
