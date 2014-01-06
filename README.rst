@@ -66,7 +66,7 @@ Running the above example produces the following events::
         }
     },    
     {
-        "name": "navigation.request",
+        "name": "address.create",
         "timestamp": ...,
         "context": {
             "user_id": 10938
