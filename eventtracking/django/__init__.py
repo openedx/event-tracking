@@ -11,8 +11,9 @@ from eventtracking.tracker import Tracker
 from eventtracking.locator import ThreadLocalContextLocator
 
 
-DJANGO_BACKEND_SETTING_NAME = 'TRACKING_BACKENDS'
-DJANGO_PROCESSOR_SETTING_NAME = 'TRACKING_PROCESSORS'
+DJANGO_BACKEND_SETTING_NAME = 'EVENT_TRACKING_BACKENDS'
+DJANGO_PROCESSOR_SETTING_NAME = 'EVENT_TRACKING_PROCESSORS'
+DJANGO_ENABLED_SETTING_NAME = 'EVENT_TRACKING_ENABLED'
 
 
 class DjangoTracker(Tracker):
@@ -28,12 +29,12 @@ class DjangoTracker(Tracker):
 
     def create_backends_from_settings(self):
         """
-        Expects the Django setting "TRACKING_BACKENDS" to be defined and point
+        Expects the Django setting "EVENT_TRACKING_BACKENDS" to be defined and point
         to a dictionary of backend engine configurations.
 
         Example::
 
-            TRACKING_BACKENDS = {
+            EVENT_TRACKING_BACKENDS = {
                 'default': {
                     'ENGINE': 'some.arbitrary.Backend',
                     'OPTIONS': {
@@ -87,12 +88,12 @@ class DjangoTracker(Tracker):
 
     def create_processors_from_settings(self):
         """
-        Expects the Django setting "TRACKING_PROCESSORS" to be defined and
+        Expects the Django setting "EVENT_TRACKING_PROCESSORS" to be defined and
         point to a list of backend engine configurations.
 
         Example::
 
-            TRACKING_PROCESSORS = [
+            EVENT_TRACKING_PROCESSORS = [
                 {
                     'ENGINE': 'some.arbitrary.Processor'
                 },
@@ -117,7 +118,7 @@ class DjangoTracker(Tracker):
 
 def override_default_tracker():
     """Sets the default tracker to a DjangoTracker"""
-    if getattr(settings, 'TRACKING_ENABLED', False):
+    if getattr(settings, DJANGO_ENABLED_SETTING_NAME, False):
         tracker.register_tracker(DjangoTracker())
 
 

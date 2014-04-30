@@ -24,4 +24,4 @@ INSTALLED_APPS = [
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
-TRACKING_ENABLED = True
+EVENT_TRACKING_ENABLED = True

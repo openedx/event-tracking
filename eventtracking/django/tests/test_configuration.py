@@ -21,7 +21,7 @@ class TestConfiguration(TestCase):
     def setUp(self):
         self.tracker = tracker.get_tracker()
 
-    @override_settings(TRACKING_BACKENDS={
+    @override_settings(EVENT_TRACKING_BACKENDS={
         "fake": {
             'ENGINE': 'eventtracking.django.tests.test_configuration.TrivialFakeBackend'
         }
@@ -35,7 +35,7 @@ class TestConfiguration(TestCase):
         """Reads the tracker configuration from the Django settings"""
         self.tracker = django.DjangoTracker()
 
-    @override_settings(TRACKING_BACKENDS={
+    @override_settings(EVENT_TRACKING_BACKENDS={
         "no_engine": {
             'OPTIONS': {}
         }
@@ -45,7 +45,7 @@ class TestConfiguration(TestCase):
         with self.assertRaises(KeyError):
             self.tracker.get_backend('no_engine')
 
-    @override_settings(TRACKING_BACKENDS={
+    @override_settings(EVENT_TRACKING_BACKENDS={
         "empty_engine": {
             'ENGINE': ''
         }
@@ -61,7 +61,7 @@ class TestConfiguration(TestCase):
         with self.assertRaises(error):
             self.configure_tracker()
 
-    @override_settings(TRACKING_BACKENDS={
+    @override_settings(EVENT_TRACKING_BACKENDS={
         "invalid_package": {
             'ENGINE': 'foo.BarBackend'
         }
@@ -69,7 +69,7 @@ class TestConfiguration(TestCase):
     def test_configure_invalid_package(self):
         self.assert_fails_to_configure_with_error()
 
-    @override_settings(TRACKING_BACKENDS={
+    @override_settings(EVENT_TRACKING_BACKENDS={
         "no_package_invalid_class": {
             'ENGINE': 'BarBackend'
         }
@@ -77,7 +77,7 @@ class TestConfiguration(TestCase):
     def test_configure_no_package_invalid_class(self):
         self.assert_fails_to_configure_with_error()
 
-    @override_settings(TRACKING_BACKENDS={
+    @override_settings(EVENT_TRACKING_BACKENDS={
         "invalid_class": {
             'ENGINE': 'eventtracking.django.tests.test_configuration.BarBackend'
         }
@@ -85,7 +85,7 @@ class TestConfiguration(TestCase):
     def test_configure_invalid_class(self):
         self.assert_fails_to_configure_with_error()
 
-    @override_settings(TRACKING_BACKENDS={
+    @override_settings(EVENT_TRACKING_BACKENDS={
         'with_options': {
             'ENGINE': 'eventtracking.django.tests.test_configuration.FakeBackendWithOptions',
             'OPTIONS': {
@@ -97,7 +97,7 @@ class TestConfiguration(TestCase):
         self.configure_tracker()
         self.assertEquals(self.tracker.get_backend('with_options').option, sentinel.option_value)
 
-    @override_settings(TRACKING_BACKENDS={
+    @override_settings(EVENT_TRACKING_BACKENDS={
         'without_options': {
             'ENGINE': 'eventtracking.django.tests.test_configuration.FakeBackendWithOptions'
         }
@@ -106,7 +106,7 @@ class TestConfiguration(TestCase):
         self.configure_tracker()
         self.assertEquals(self.tracker.get_backend('without_options').option, None)
 
-    @override_settings(TRACKING_BACKENDS={
+    @override_settings(EVENT_TRACKING_BACKENDS={
         'extra_options': {
             'ENGINE': 'eventtracking.django.tests.test_configuration.FakeBackendWithOptions',
             'OPTIONS': {
@@ -119,7 +119,7 @@ class TestConfiguration(TestCase):
         self.configure_tracker()
         self.assertEquals(self.tracker.get_backend('extra_options').option, sentinel.option_value)
 
-    @override_settings(TRACKING_BACKENDS={
+    @override_settings(EVENT_TRACKING_BACKENDS={
         'extra_options': {
             'ENGINE': 'eventtracking.django.tests.test_configuration.NotABackend'
         }
@@ -127,17 +127,17 @@ class TestConfiguration(TestCase):
     def test_configure_class_not_a_backend(self):
         self.assert_fails_to_configure_with_error()
 
-    @override_settings(TRACKING_ENABLED=True)
+    @override_settings(EVENT_TRACKING_ENABLED=True)
     def test_overrides_default_tracker(self):
         django.override_default_tracker()
         self.assertTrue(isinstance(tracker.get_tracker(), django.DjangoTracker))
 
-    @override_settings(TRACKING_ENABLED=False)
+    @override_settings(EVENT_TRACKING_ENABLED=False)
     def test_leaves_default_tracker_alone(self):
         django.override_default_tracker()
         self.assertTrue(isinstance(tracker.get_tracker(), tracker.Tracker))
 
-    @override_settings(TRACKING_PROCESSORS=[
+    @override_settings(EVENT_TRACKING_PROCESSORS=[
         {
             'ENGINE': 'eventtracking.django.tests.test_configuration.NopProcessor'
         }
@@ -147,7 +147,7 @@ class TestConfiguration(TestCase):
         self.assertEquals(len(self.tracker.processors), 1)
         self.assertTrue(isinstance(self.tracker.processors[0], NopProcessor))
 
-    @override_settings(TRACKING_PROCESSORS=[
+    @override_settings(EVENT_TRACKING_PROCESSORS=[
         {}
     ])
     def test_missing_processor_engine(self):
