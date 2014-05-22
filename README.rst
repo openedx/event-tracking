@@ -102,11 +102,8 @@ In the very near future the following features are planned:
 Documentation
 -------------
 
-Documentation is hosted on `read the docs <http://www.readthedocs.org/>`_.
+`Latest documentation <http://event-tracking.readthedocs.org/en/latest/>`_ (Hosted on Read the Docs)
 
-Releases:
-
-* `development <http://event-tracking.readthedocs.org/en/latest/>`_
 
 License
 -------
@@ -115,6 +112,7 @@ The code in this repository is licensed under version 3 of the AGPL unless
 otherwise noted.
 
 Please see ``LICENSE.txt`` for details.
+
 
 How to Contribute
 -----------------
