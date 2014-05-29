@@ -2,12 +2,12 @@ Part of `edX code`__.
 
 __ http://code.edx.org/
 
-event-tracking
-==============
+Event Tracking library |build-status|
+=====================================
 
-Track context-aware semi-structured system events.  Capture and store events
-with nested data structures in order to truly take advantage of schemaless
-data storage systems.
+The ``event-tracking`` library tracks context-aware semi-structured system events. 
+It captures and stores events with nested data structures in order to truly 
+take advantage of schemaless data storage systems.
 
 Key features:
 
@@ -81,13 +81,6 @@ Running the above example produces the following events::
     }
 
 
-Build Status
-------------
-
-.. image:: https://api.travis-ci.org/edx/event-tracking.png?branch=master
-    :target: https://travis-ci.org/edx/event-tracking
-
-
 Roadmap
 -------
 
@@ -133,3 +126,6 @@ You can discuss this code on the `edx-code Google Group`__ or in the
 ``edx-code`` IRC channel on Freenode.
 
 __ https://groups.google.com/forum/#!forum/edx-code
+
+.. |build-status| image:: https://api.travis-ci.org/edx/event-tracking.png?branch=master 
+   :target: https://travis-ci.org/edx/event-tracking
