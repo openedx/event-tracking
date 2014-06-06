@@ -9,6 +9,16 @@ htmlcov
 .ropeproject
 *.sublime-*
 
+### Editor and IDE artifacts
+*~
+*.swp
+*.orig
+/nbproject
+.idea/
+.redcar/
+codekit-config.json
+.pycharm_helpers/
+
 # Documentation
 doc/_build
 .pip_cache
