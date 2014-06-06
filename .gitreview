@@ -1,0 +1,5 @@
+[gerrit]
+host=review.edx.org
+port=29418
+project=edx/event-tracking.git
+defaultbranch=master
