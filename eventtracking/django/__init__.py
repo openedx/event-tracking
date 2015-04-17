@@ -51,15 +51,68 @@ class DjangoTracker(Tracker):
         """
         config = getattr(settings, DJANGO_BACKEND_SETTING_NAME, {})
 
-        backends = {}
-
-        for name, values in config.iteritems():
-            # Ignore empty values to turn-off default tracker backends
-            if values and 'ENGINE' in values:
-                backend = self.instantiate_from_dict(values)
-                backends[name] = backend
+        backends = self.instantiate_objects(config)
 
         return backends
+
+    def instantiate_objects(self, node):
+        """
+        Recursively traverse a structure to identify dictionaries that represent objects that need to be instantiated
+
+        Traverse all values of all dictionaries and all elements of all lists to identify dictionaries that contain the
+        special "ENGINE" key which indicates that a class of that type should be instantiated and passed all key-value
+        pairs found in the sibling "OPTIONS" dictionary as keyword arguments.
+
+        For example::
+
+            tree = {
+                'a': {
+                    'b': {
+                        'first_obj': {
+                            'ENGINE': 'mypackage.mymodule.Clazz',
+                            'OPTIONS': {
+                                'size': 10,
+                                'foo': 'bar'
+                            }
+                        }
+                    },
+                    'c': [
+                        {
+                            'ENGINE': 'mypackage.mymodule.Clazz2',
+                            'OPTIONS': {
+                                'more_objects': {
+                                    'd': {'ENGINE': 'mypackage.foo.Bar'}
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+            root = self.instantiate_objects(tree)
+
+        That structure of dicts, lists, and strings will end up with (this example assumes that all keyword arguments to
+        constructors were saved as attributes of the same name):
+
+        assert type(root['a']['b']['first_obj']) == <type 'mypackage.mymodule.Clazz'>
+        assert root['a']['b']['first_obj'].size == 10
+        assert root['a']['b']['first_obj'].foo == 'bar'
+        assert type(root['a']['c'][0]) == <type 'mypackage.mymodule.Clazz2'>
+        assert type(root['a']['c'][0].more_objects['d']) == <type 'mypackage.foo.Bar'>
+        """
+        result = node
+        if isinstance(node, dict):
+            if 'ENGINE' in node:
+                result = self.instantiate_from_dict(node)
+            else:
+                result = {}
+                for key, value in node.iteritems():
+                    result[key] = self.instantiate_objects(value)
+        elif isinstance(node, list):
+            result = []
+            for child in node:
+                result.append(self.instantiate_objects(child))
+
+        return result
 
     def instantiate_from_dict(self, values):
         """
@@ -84,6 +137,8 @@ class DjangoTracker(Tracker):
         except (ValueError, AttributeError, TypeError, ImportError):
             raise ValueError('Cannot find class %s' % name)
 
+        options = self.instantiate_objects(options)
+
         return cls(**options)
 
     def create_processors_from_settings(self):
@@ -107,11 +162,7 @@ class DjangoTracker(Tracker):
         """
         config = getattr(settings, DJANGO_PROCESSOR_SETTING_NAME, [])
 
-        processors = []
-        for values in config:
-            # Ignore empty values to turn-off default tracker backends
-            if values and 'ENGINE' in values:
-                processors.append(self.instantiate_from_dict(values))
+        processors = self.instantiate_objects(config)
 
         return processors
 

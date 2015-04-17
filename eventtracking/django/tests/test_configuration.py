@@ -41,9 +41,8 @@ class TestConfiguration(TestCase):
         }
     })
     def test_ignore_no_engine(self):
-        self.configure_tracker()
-        with self.assertRaises(KeyError):
-            self.tracker.get_backend('no_engine')
+        with self.assertRaises(ValueError):
+            self.configure_tracker()
 
     @override_settings(EVENT_TRACKING_BACKENDS={
         "empty_engine": {
@@ -127,6 +126,56 @@ class TestConfiguration(TestCase):
     def test_configure_class_not_a_backend(self):
         self.assert_fails_to_configure_with_error()
 
+    @override_settings(EVENT_TRACKING_BACKENDS={
+        'outer_backend': {
+            'ENGINE': 'eventtracking.django.tests.test_configuration.NestedBackend',
+            'OPTIONS': {
+                'backends': {
+                    'inner_backend': {
+                        'ENGINE': 'eventtracking.django.tests.test_configuration.FakeBackendWithOptions',
+                        'OPTIONS': {
+                            'option': sentinel.option_value,
+                            'extra_option': sentinel.extra_option_value
+                        }
+                    },
+                    'nested_backend': {
+                        'ENGINE': 'eventtracking.django.tests.test_configuration.NestedBackend',
+                        'OPTIONS': {
+                            'backends': {
+                                'trivial': {
+                                    'ENGINE': 'eventtracking.django.tests.test_configuration.TrivialFakeBackend'
+                                }
+                            },
+                            'processors': [
+                                {'ENGINE': 'eventtracking.django.tests.test_configuration.NopProcessor'},
+                            ]
+                        }
+                    }
+                },
+                'processors': [
+                    {'ENGINE': 'eventtracking.django.tests.test_configuration.NopProcessor'},
+                    {'ENGINE': 'eventtracking.django.tests.test_configuration.NopProcessor'},
+                ]
+            }
+        }
+    })
+    def test_configure_nested_backends(self):
+        self.configure_tracker()
+        outer_backend = self.tracker.get_backend('outer_backend')
+        self.assertEquals(len(outer_backend.backends), 2)
+
+        inner_backend = outer_backend.backends['inner_backend']
+        self.assertEquals(inner_backend.option, sentinel.option_value)
+
+        self.assertEquals(len(outer_backend.processors), 2)
+        self.assertTrue(isinstance(outer_backend.processors[0], NopProcessor))
+        self.assertTrue(isinstance(outer_backend.processors[1], NopProcessor))
+
+        nested_backend = outer_backend.backends['nested_backend']
+        self.assertEquals(len(nested_backend.backends), 1)
+        self.assertTrue(isinstance(nested_backend.backends['trivial'], TrivialFakeBackend))
+        self.assertTrue(isinstance(nested_backend.processors[0], NopProcessor))
+
     @override_settings(EVENT_TRACKING_ENABLED=True)
     def test_overrides_default_tracker(self):
         django.override_default_tracker()
@@ -148,11 +197,39 @@ class TestConfiguration(TestCase):
         self.assertTrue(isinstance(self.tracker.processors[0], NopProcessor))
 
     @override_settings(EVENT_TRACKING_PROCESSORS=[
+        {
+            'ENGINE': 'eventtracking.django.tests.test_configuration.ProcessorWithOptions',
+            'OPTIONS': {
+                'option': sentinel.option_value
+            }
+        }
+    ])
+    def test_processor_with_options(self):
+        self.configure_tracker()
+        self.assertEquals(len(self.tracker.processors), 1)
+        self.assertTrue(isinstance(self.tracker.processors[0], ProcessorWithOptions))
+        self.assertEqual(self.tracker.processors[0].option, sentinel.option_value)
+
+    @override_settings(EVENT_TRACKING_PROCESSORS=[
         {}
     ])
     def test_missing_processor_engine(self):
+        with self.assertRaises(ValueError):
+            self.configure_tracker()
+
+    @override_settings(EVENT_TRACKING_PROCESSORS=[
+        {
+            'ENGINE': 'eventtracking.django.tests.test_configuration.NopProcessor'
+        },
+        {
+            'ENGINE': 'eventtracking.django.tests.test_configuration.NopProcessor'
+        }
+    ])
+    def test_multiple_processor(self):
         self.configure_tracker()
-        self.assertEquals(len(self.tracker.processors), 0)
+        self.assertEquals(len(self.tracker.processors), 2)
+        self.assertTrue(isinstance(self.tracker.processors[0], NopProcessor))
+        self.assertTrue(isinstance(self.tracker.processors[1], NopProcessor))
 
 
 class TrivialFakeBackend(object):
@@ -181,3 +258,21 @@ class NopProcessor(object):
 
     def __call__(self, event):
         pass
+
+
+class ProcessorWithOptions(object):
+    """Takes in an argument"""
+
+    def __init__(self, **kwargs):
+        self. option = kwargs.get('option', None)
+
+    def __call__(self, event):
+        pass
+
+
+class NestedBackend(TrivialFakeBackend):
+    """Supports other backends as children"""
+
+    def __init__(self, backends=None, processors=None, **_kwargs):
+        self.backends = backends or {}
+        self.processors = processors or []

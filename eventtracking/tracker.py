@@ -24,6 +24,7 @@ import logging
 from pytz import UTC
 
 from eventtracking.locator import DefaultContextLocator
+from eventtracking.backends.routing import RoutingBackend
 
 UNKNOWN_EVENT_TYPE = 'unknown'
 DEFAULT_TRACKER_NAME = 'default'
@@ -37,13 +38,8 @@ class Tracker(object):
     be used to persist any events that are emitted.
     """
     def __init__(self, backends=None, context_locator=None, processors=None):
-        self.backends = backends or {}
+        self.routing_backend = RoutingBackend(backends=backends, processors=processors)
         self.context_locator = context_locator or DefaultContextLocator()
-        self.processors = processors or []
-
-        for backend in backends.itervalues():
-            if not hasattr(backend, 'send') or not callable(backend.send):
-                raise ValueError('Backend %s does not have a callable "send" method.' % backend.__class__.__name__)
 
     @property
     def located_context(self):
@@ -55,6 +51,16 @@ class Tracker(object):
     def get_backend(self, name):
         """Gets the backend that was configured with `name`"""
         return self.backends[name]
+
+    @property
+    def processors(self):
+        """The list of registered processors"""
+        return self.routing_backend.processors
+
+    @property
+    def backends(self):
+        """The dictionary of registered backends"""
+        return self.routing_backend.backends
 
     def emit(self, name=None, data=None):
         """
@@ -73,41 +79,7 @@ class Tracker(object):
             'context': self.resolve_context()
         }
 
-        event = self.process_event(event)
-        self.send_to_backends(event)
-
-    def process_event(self, event):
-        """
-
-        Executes all event processors on the event in order.
-
-        `event` is a nested dictionary that represents the event.
-
-        Returns the modified event.
-        """
-
-        for processor in self.processors:
-            try:
-                modified_event = processor(event)
-                if modified_event is not None:
-                    event = modified_event
-            except Exception:  # pylint: disable=broad-except
-                LOG.exception(
-                    'Failed to execute processor: {0}'.format(processor)
-                )
-
-        return event
-
-    def send_to_backends(self, event):
-        """Sends the event to all registered backends."""
-
-        for name, backend in self.backends.iteritems():
-            try:
-                backend.send(event)
-            except Exception:  # pylint: disable=broad-except
-                LOG.exception(
-                    'Unable to send event to backend: {0}'.format(name)
-                )
+        self.routing_backend.send(event)
 
     def resolve_context(self):
         """

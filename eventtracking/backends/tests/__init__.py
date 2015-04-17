@@ -53,7 +53,7 @@ class PerformanceTestCase(TestCase):
         self.num_events = int(os.getenv('EVENT_TRACKING_PERF_EVENTS', 20000))
         self.payload_size = int(os.getenv('EVENT_TRACKING_PERF_PAYLOAD_SIZE', 600))
         self.random_payload = ''.join(random.choice(string.ascii_letters) for _ in range(self.payload_size))
-        self.threshold = float(os.getenv('EVENT_TRACKING_PERF_THRESHOLD_SECONDS', 1))
+        self.threshold = float(os.getenv('EVENT_TRACKING_PERF_THRESHOLD_SECONDS', 1.75))
 
     @contextmanager
     def assert_execution_time_less_than_threshold(self):

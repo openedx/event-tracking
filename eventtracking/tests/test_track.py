@@ -116,23 +116,6 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
             }
         )
 
-    def test_multiple_backends(self):
-        self.configure_mock_backends(2)
-        self.tracker.emit(sentinel.name)
-
-        for backend in self._mock_backends:
-            self.assert_backend_called_with(
-                sentinel.name, backend=backend)
-
-    def test_single_backend_failure(self):
-        self.configure_mock_backends(2)
-        self.get_mock_backend(0).send.side_effect = Exception
-
-        self.tracker.emit(sentinel.name)
-
-        self.assert_backend_called_with(
-            sentinel.name, backend=self.get_mock_backend(1))
-
     def test_global_tracker(self):
         tracker.emit(sentinel.name)
 
@@ -184,75 +167,3 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         self.tracker.emit(sentinel.name)
 
         self.assert_backend_called_with(sentinel.name)
-
-    def test_single_processor(self):
-        self.tracker.processors.append(self.change_name)
-        self.tracker.emit(sentinel.name)
-        self.assert_backend_called_with(sentinel.changed_name)
-
-    def change_name(self, event):
-        """Modify the event type of the event"""
-        event['name'] = sentinel.changed_name
-        return event
-
-    def test_non_callable_processor(self):
-        self.tracker.processors.append(object())
-        self.tracker.emit(sentinel.name)
-        self.assert_backend_called_with(sentinel.name)
-
-    def test_callable_class_processor(self):
-        class SampleProcessor(object):
-            """An event processing class"""
-            def __call__(self, event):
-                """Modify the event type"""
-                event['name'] = sentinel.class_name
-
-        self.tracker.processors.append(SampleProcessor())
-        self.tracker.emit(sentinel.name)
-        self.assert_backend_called_with(sentinel.class_name)
-
-    def test_processor_chain(self):
-
-        def ensure_modified_event(event):
-            """Assert the first processor added a field to the event"""
-            self.assertIn(sentinel.key, event)
-            self.assertEquals(event[sentinel.key], sentinel.value)
-            return event
-
-        self.tracker.processors.extend([self.change_name, ensure_modified_event])
-        self.tracker.emit(sentinel.name)
-        self.assert_backend_called_with(sentinel.changed_name)
-
-    def test_processor_failure(self):
-
-        def always_fail(event):  # pylint: disable=unused-argument
-            """Always raises an error"""
-            raise ValueError
-
-        self.tracker.processors.extend([always_fail, self.change_name])
-        self.tracker.emit(sentinel.name)
-        self.assert_backend_called_with(sentinel.changed_name)
-
-    def test_processor_returns_none(self):
-
-        def return_none(event):  # pylint: disable=unused-argument
-            """Don't return the event"""
-            pass
-
-        self.tracker.processors.append(return_none)
-        self.tracker.emit(sentinel.name)
-        self.assert_backend_called_with(sentinel.name)
-
-    def test_processor_modifies_the_same_event_object(self):
-
-        def forget_return(event):
-            """Modify the event without returning it"""
-            event['name'] = sentinel.forgotten_return
-
-        def ensure_name_changed(event):
-            """Assert the event type has been modified even though the event wasn't returned"""
-            self.assertEquals(event['name'], sentinel.forgotten_return)
-
-        self.tracker.processors.extend([forget_return, ensure_name_changed])
-        self.tracker.emit(sentinel.name)
-        self.assert_backend_called_with(sentinel.forgotten_return)
