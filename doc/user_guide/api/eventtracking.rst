@@ -15,6 +15,7 @@ eventtracking
 
     eventtracking.backends
     eventtracking.django
+    eventtracking.processors
 
 
 eventtracking.tracker
