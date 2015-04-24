@@ -24,13 +24,14 @@ class RoutingBackend(object):
        logged and swallowed, subsequent processors will execute and the event will be emitted.
     2) Backends - Backends are intended to not mutate the event and each receive the same event data. They are not
        chained like processors. Once an event has been processed by the processor chain, it is passed to each backend in
-       order, sorted by the name of the backend. Backends typically persist the event in some way, either by sending it
+       the order that they were registered. Backends typically persist the event in some way, either by sending it
        to an external system or saving it to disk. They are called synchronously and in sequence, so a long running
        backend will block other backends until it is done persisting the event. Note that you can register another
        `RoutingBackend` as a backend of a `RoutingBackend`, allowing for arbitrary processing trees.
 
-    `backends` is a collection that supports iteration over it's items using `iteritems()`. The keys are expected to be
-        sortable and the values are expected to expose a `send(event)` method that will be called for each event.
+    `backends` is a collection that supports iteration over its items using `iteritems()`. The keys are expected to be
+        sortable and the values are expected to expose a `send(event)` method that will be called for each event. Each
+        backend in this collection is registered in order sorted alphanumeric ascending by key.
     `processors` is an iterable of callables.
 
     Raises a `ValueError` if any of the provided backends do not have a callable "send" attribute or any of the
@@ -51,7 +52,7 @@ class RoutingBackend(object):
 
     def register_backend(self, name, backend):
         """
-        Register a new backend that will be called for each processed event
+        Register a new backend that will be called for each processed event.
 
         Note that backends are called in the order that they are registered.
         """
