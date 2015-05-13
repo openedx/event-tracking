@@ -6,6 +6,7 @@ from mock import patch
 from mock import sentinel
 
 from pymongo.errors import PyMongoError
+from bson.errors import BSONError
 
 from eventtracking.backends.mongodb import MongoBackend
 
@@ -47,8 +48,14 @@ class TestMongoBackend(TestCase):
         backend = MongoBackend(user=sentinel.user, password=sentinel.password)
         backend.database.authenticate.assert_called_once_with(sentinel.user, sentinel.password)
 
-    def test_mongo_insertion_error(self):
+    def test_mongo_pymongo_insertion_error(self):
         self.backend.collection.insert.side_effect = PyMongoError
+
+        self.backend.send({'test': 1})
+        # Ensure this error is caught
+
+    def test_mongo_bson_insertion_error(self):
+        self.backend.collection.insert.side_effect = BSONError
 
         self.backend.send({'test': 1})
         # Ensure this error is caught
