@@ -25,3 +25,5 @@ INSTALLED_APPS = [
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 EVENT_TRACKING_ENABLED = True
+
+SECRET_KEY = "test_key"
