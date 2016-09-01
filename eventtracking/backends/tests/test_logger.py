@@ -4,11 +4,11 @@ from __future__ import absolute_import
 
 import json
 import datetime
-import pytz
-
 from unittest import TestCase
+
 from mock import patch
 from mock import sentinel
+import pytz
 
 from eventtracking.backends.logger import LoggerBackend
 
