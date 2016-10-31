@@ -11,13 +11,17 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='event-tracking',
-    version='0.2.1',
+    version='0.2.2',
     packages=find_packages(),
     include_package_data=True,
     license='AGPLv3 License',
     description='A simple event tracking system.',
     long_description=README,
-    install_requires=REQUIREMENTS,
+    install_requires=[
+        'Django >= 1.8, < 1.9',
+        'pymongo',
+        'pytz',
+    ],
     url='http://code.edx.org/',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
