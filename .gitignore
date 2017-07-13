@@ -8,6 +8,7 @@ local_settings.py
 htmlcov
 .ropeproject
 *.sublime-*
+.tox/
 
 ### Editor and IDE artifacts
 *~

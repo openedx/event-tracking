@@ -28,7 +28,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         self._datetime_patcher = patch('eventtracking.tracker.datetime')
         self.addCleanup(self._datetime_patcher.stop)
         mock_datetime = self._datetime_patcher.start()
-        mock_datetime.now.return_value = self._expected_timestamp  # pylint: disable=maybe-no-member
+        mock_datetime.now.return_value = self._expected_timestamp
 
     def configure_mock_backends(self, number_of_mocks):
         """Ensure the tracking module has the requisite number of mock backends"""
