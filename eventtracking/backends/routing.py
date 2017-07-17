@@ -97,7 +97,7 @@ class RoutingBackend(object):
         Returns the modified event.
         """
 
-        if len(self.processors) == 0:
+        if len(self.processors) == 0:  # lint-amnesty, pylint: disable=len-as-condition
             return event
 
         processed_event = event

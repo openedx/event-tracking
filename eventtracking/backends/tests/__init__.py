@@ -8,7 +8,7 @@ from contextlib import contextmanager
 import time
 import os
 import random
-import string  # pylint: disable=deprecated-module
+import string
 
 
 class InMemoryBackend(object):

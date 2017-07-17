@@ -45,7 +45,7 @@ class LoggerBackend(object):
 class DateTimeJSONEncoder(json.JSONEncoder):
     """JSON encoder aware of datetime.datetime and datetime.date objects"""
 
-    def default(self, obj):  # pylint: disable=method-hidden
+    def default(self, obj):  # lint-amnesty, pylint: disable=arguments-differ, method-hidden
         """
         Serialize datetime and date objects of iso format.
 

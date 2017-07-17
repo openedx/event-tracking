@@ -1,3 +1,5 @@
-Django >= 1.8, < 1.9
+# Django is now defined explicitly in setup.py,
+# so that tox can define it separately from
+# how setup.py includes it.
 pymongo>=2.7.2,<4.0.0
 pytz

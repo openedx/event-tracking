@@ -108,7 +108,7 @@ class DjangoTracker(Tracker):
                 for key, value in node.iteritems():
                     result[key] = self.instantiate_objects(value)
         elif isinstance(node, list):
-            result = []  # pylint: disable=redefined-variable-type
+            result = []
             for child in node:
                 result.append(self.instantiate_objects(child))
 
