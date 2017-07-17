@@ -1,3 +1,5 @@
+# Config file for automatic testing at travis-ci.org
+
 language: python
 
 python:
@@ -14,3 +16,12 @@ script:
   - tox
 
 services: mongodb
+
+deploy:
+  provider: pypi
+  user: edx
+  password:
+    secure: JUf0mqd5jrKJncfUkQTRg6K+dfR1qQxE0SwDKq7hTbY+zdHM7M9kDUsNUKgzG6rni/1+b7Ke4BuM6OnxozxQDnTkPBEVjwUo5z8LGCQqr8fONDZXM77oas3OVusCWJvGHrlWTu7umXxixreVB1NPSbLgwi21WwFtwuXwJAXu4uE=
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
