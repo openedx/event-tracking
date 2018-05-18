@@ -19,7 +19,7 @@ test.setup:
 test: test.unit test.integration test.performance
 
 test.unit: test.setup
-	nosetests --cover-erase --with-coverage --cover-branches -A 'not integration and not performance' --cover-min-percentage=95
+	nosetests --cover-erase --with-coverage --cover-branches -A 'not integration and not performance' --cover-min-percentage=95 --cover-package=eventtracking --debug=DEFAULT
 
 test.integration: test.setup
 	nosetests --verbose --nocapture -a 'integration'
