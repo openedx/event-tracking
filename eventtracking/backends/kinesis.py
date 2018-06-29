@@ -1,11 +1,7 @@
 """Event tracking backend that sends events to an AWS Kinesis Stream"""
 
 from __future__ import absolute_import
-
-try:
-    import boto3
-except ImportError:
-    boto3 = None
+from boto import kinesis
 
 from datetime import datetime, date
 from pytz import UTC
@@ -23,12 +19,10 @@ class KinesisBackend(object):
 
         `streamName` is the stream to send the events to
         """
-        if boto3 is None:
-            log.error('boto not loaded')
-            return
 
         self.streamName = kwargs.get('streamName', None)
-        self.kinesis = boto3.client('kinesis')
+        self.regionName = kwarge.get('regionName', None)
+        self.kinesis = kinesis.connect_to_region(self.regionName)
 
     """
     Send events to an AWS Kinesis Stream
@@ -46,28 +40,24 @@ class KinesisBackend(object):
     """
 
     def send(self, event):
-        if boto3 is None:
-            log.error('boto not loaded')
-            return
-
         # validate
         context = event.get('context', {})
         user_id = context.get('user_id')
         name = event.get('name')
         if name is None or user_id is None:
-            log.error('Ignoring Event:')
+            log.info('Ignoring Event:')
             return
 
-        log.error(event)
+        log.info(event)
         kinesisData = {
             'Data': json.dumps(event, cls=DateTimeJSONEncoder),
             'PartitionKey': 'shardId-000000000000'
         }
 
-        log.error(kinesisData)
-        log.error(self.streamName)
+        log.info(kinesisData)
+        log.info(self.streamName)
 
-        self.kinesis.put_records(Records=[ kinesisData ], StreamName=self.streamName)
+        self.kinesis.put_record([ kinesisData ], self.streamName)
 
 
 class DateTimeJSONEncoder(json.JSONEncoder):

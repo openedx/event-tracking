@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import
 
-import boto3
+from boto import kinesis
 
 from unittest import TestCase
 from mock import patch
@@ -17,7 +17,7 @@ class TestKinesisBackend(TestCase):
     @mock_kinesis
     def test_simple_emit(self):
         # need to create a stream to test against
-        conn = boto3.client('kinesis', region_name="us-east-1")
+        conn = kinesis.connect_to_region("us-east-1")
         conn.create_stream(StreamName='my_stream', ShardCount=1)
 
         self.backend = KinesisBackend(streamName='my_stream')
