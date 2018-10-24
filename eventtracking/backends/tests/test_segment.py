@@ -72,6 +72,87 @@ class TestSegmentBackend(TestCase):
         self.mock_analytics.track.assert_called_once_with(
             sentinel.user_id, sentinel.name, event, context=expected_segment_context)
 
+    def test_ip_address(self):
+        event = {
+            'name': sentinel.name,
+            'context': {
+                'user_id': sentinel.user_id,
+                'ip': sentinel.ip
+            }
+        }
+        expected_segment_context = {
+            'ip': sentinel.ip
+        }
+        self.backend.send(event)
+        self.mock_analytics.track.assert_called_once_with(
+            sentinel.user_id, sentinel.name, event, context=expected_segment_context)
+
+    def test_user_agent(self):
+        event = {
+            'name': sentinel.name,
+            'context': {
+                'user_id': sentinel.user_id,
+                'agent': sentinel.user_agent
+            }
+        }
+        expected_segment_context = {
+            'userAgent': sentinel.user_agent
+        }
+        self.backend.send(event)
+        self.mock_analytics.track.assert_called_once_with(
+            sentinel.user_id, sentinel.name, event, context=expected_segment_context)
+
+    def test_path(self):
+        event = {
+            'name': sentinel.name,
+            'context': {
+                'user_id': sentinel.user_id,
+                'path': sentinel.path
+            }
+        }
+        expected_segment_context = {
+            'page': {
+                'path': sentinel.path
+            }
+        }
+        self.backend.send(event)
+        self.mock_analytics.track.assert_called_once_with(
+            sentinel.user_id, sentinel.name, event, context=expected_segment_context)
+
+    def test_referer(self):
+        event = {
+            'name': sentinel.name,
+            'context': {
+                'user_id': sentinel.user_id,
+                'referer': sentinel.referer
+            }
+        }
+        expected_segment_context = {
+            'page': {
+                'referrer': sentinel.referer
+            }
+        }
+        self.backend.send(event)
+        self.mock_analytics.track.assert_called_once_with(
+            sentinel.user_id, sentinel.name, event, context=expected_segment_context)
+
+    def test_page(self):
+        event = {
+            'name': sentinel.name,
+            'context': {
+                'user_id': sentinel.user_id,
+                'page': sentinel.page
+            }
+        }
+        expected_segment_context = {
+            'page': {
+                'url': sentinel.page
+            }
+        }
+        self.backend.send(event)
+        self.mock_analytics.track.assert_called_once_with(
+            sentinel.user_id, sentinel.name, event, context=expected_segment_context)
+
 
 class TestSegmentBackendMissingDependency(TestCase):
     """Test the segment.com backend without the package installed"""

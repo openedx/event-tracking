@@ -19,7 +19,7 @@ test.setup:
 test: test.unit test.integration test.performance
 
 test.unit: test.setup
-	nosetests --cover-erase --with-coverage --cover-branches -A 'not integration and not performance' --cover-min-percentage=95
+	nosetests --cover-erase --with-coverage --cover-branches -A 'not integration and not performance' --cover-min-percentage=95 --cover-package=eventtracking
 
 test.integration: test.setup
 	nosetests --verbose --nocapture -a 'integration'
@@ -28,7 +28,7 @@ test.performance: test.setup
 	nosetests --verbose --nocapture -a 'performance'
 
 style:
-	pep8 eventtracking
+	pycodestyle eventtracking
 
 lint:
 	pylint --reports=y eventtracking
@@ -45,6 +45,6 @@ doc.html:
 	$(MAKE_DOC) html
 
 report:
-	pep8 eventtracking >pep8.report || true
+	pycodestyle eventtracking >pep8.report || true
 	pylint -f parseable eventtracking >pylint.report || true
 	coverage xml -o coverage.xml
