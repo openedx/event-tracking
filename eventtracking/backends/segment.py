@@ -29,6 +29,11 @@ class SegmentBackend(object):
         {
             'context': {
                 'client_id': "your google analytics client id",
+                'ip': "your IP address",
+                'agent': "your user-agent string",
+                'path': "your path",
+                'page': "your page",
+                'referer': "your referrer",
             }
         }
 
@@ -55,6 +60,23 @@ class SegmentBackend(object):
             segment_context['Google Analytics'] = {
                 'clientId': ga_client_id
             }
+        ip_address = context.get('ip')
+        if ip_address is not None:
+            segment_context['ip'] = ip_address
+        user_agent = context.get('agent')
+        if user_agent is not None:
+            segment_context['userAgent'] = user_agent
+        path = context.get('path')
+        referer = context.get('referer')
+        page = context.get('page')
+        if path is not None or referer is not None or page is not None:
+            segment_context['page'] = {}
+            if path is not None:
+                segment_context['page']['path'] = path
+            if referer is not None:
+                segment_context['page']['referrer'] = referer
+            if page is not None:
+                segment_context['page']['url'] = page
 
         analytics.track(
             user_id,
