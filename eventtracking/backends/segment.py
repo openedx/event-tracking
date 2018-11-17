@@ -1,6 +1,7 @@
 """Event tracking backend that sends events to segment.com"""
 
 from __future__ import absolute_import
+from urlparse import urljoin
 
 try:
     import analytics
@@ -28,14 +29,18 @@ class SegmentBackend(object):
 
         {
             'context': {
-                'client_id': "your google analytics client id",
-                'ip': "your IP address",
                 'agent': "your user-agent string",
-                'path': "your path",
+                'client_id': "your google analytics client id",
+                'host': "your hostname",
+                'ip': "your IP address",
                 'page': "your page",
+                'path': "your path",
                 'referer': "your referrer",
             }
         }
+
+    The 'page', 'path' and 'referer' are sent to Segment as "page" information.  If the 'page' is absent but the 'host'
+    and 'path' are present, these are used to create a URL value to substitute for the 'page' value.
 
     Note that although some parts of the event are lifted out to pass explicitly into the Segment.com API, the entire
     event is sent as the payload to segment.com, which includes all context, data and other fields in the event.
@@ -69,6 +74,13 @@ class SegmentBackend(object):
         path = context.get('path')
         referer = context.get('referer')
         page = context.get('page')
+
+        if path and not page:
+            # Try to put together a url from host and path:
+            host = context.get('host')
+            if host:
+                page = urljoin("//{host}".format(host=host), path)
+
         if path is not None or referer is not None or page is not None:
             segment_context['page'] = {}
             if path is not None:
