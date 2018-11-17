@@ -13,6 +13,7 @@ class TestSegmentBackend(TestCase):
     """Test the segment.com backend"""
 
     def setUp(self):
+        super(TestSegmentBackend, self).setUp()
         patcher = patch('eventtracking.backends.segment.analytics')
         self.addCleanup(patcher.stop)
         self.mock_analytics = patcher.start()

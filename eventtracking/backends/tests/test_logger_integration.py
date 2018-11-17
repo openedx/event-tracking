@@ -26,6 +26,7 @@ class TestLoggerIntegration(IntegrationTestCase):
 
     def setUp(self):
 
+        super(TestLoggerIntegration, self).setUp()
         logger_name = 'integration.test'
         test_logger = logging.getLogger(logger_name)
         test_logger.setLevel(logging.INFO)

@@ -19,6 +19,7 @@ from eventtracking import tracker
 class TestTrack(TestCase):  # pylint: disable=missing-docstring
 
     def setUp(self):
+        super(TestTrack, self).setUp()
         self._mock_backend = None
         self._mock_backends = []
         self.tracker = None
