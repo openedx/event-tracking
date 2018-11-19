@@ -19,6 +19,7 @@ class TestConfiguration(TestCase):
     """Tests various configuration settings for the django tracker"""
 
     def setUp(self):
+        super(TestConfiguration, self).setUp()
         self.tracker = tracker.get_tracker()
 
     @override_settings(EVENT_TRACKING_BACKENDS={

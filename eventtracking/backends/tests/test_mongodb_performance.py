@@ -19,6 +19,7 @@ class TestBackendPerformance(PerformanceTestCase):
     """
 
     def setUp(self):
+        super(TestBackendPerformance, self).setUp()
         self.database_name = 'perf_test_eventtracking_' + str(uuid4())
         self.mongo_backend = MongoBackend(database=self.database_name)
         self.tracker = Tracker({
@@ -27,6 +28,7 @@ class TestBackendPerformance(PerformanceTestCase):
 
     def tearDown(self):
         self.mongo_backend.connection.drop_database(self.database_name)
+        super(TestBackendPerformance, self).tearDown()
 
     def test_sequential_events(self):
         with self.assert_execution_time_less_than_threshold():

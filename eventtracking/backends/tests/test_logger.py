@@ -17,6 +17,7 @@ class TestLoggerBackend(TestCase):
     """Test the logging backend"""
 
     def setUp(self):
+        super(TestLoggerBackend, self).setUp()
         patcher = patch('eventtracking.backends.logger.logging')
         self.mock_logging = patcher.start()
         self.addCleanup(patcher.stop)
