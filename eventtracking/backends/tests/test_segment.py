@@ -154,6 +154,26 @@ class TestSegmentBackend(TestCase):
         self.mock_analytics.track.assert_called_once_with(
             sentinel.user_id, sentinel.name, event, context=expected_segment_context)
 
+    def test_host_and_path_with_missing_page(self):
+        event = {
+            'name': sentinel.name,
+            'context': {
+                'user_id': sentinel.user_id,
+                # Note that 'host' and 'path' will be urlparsed, so must be strings.
+                'path': '/this/is/a/path',
+                'host': 'hostname',
+            }
+        }
+        expected_segment_context = {
+            'page': {
+                'path': '/this/is/a/path',
+                'url': '//hostname/this/is/a/path'  # Synthesized URL value.
+            }
+        }
+        self.backend.send(event)
+        self.mock_analytics.track.assert_called_once_with(
+            sentinel.user_id, sentinel.name, event, context=expected_segment_context)
+
 
 class TestSegmentBackendMissingDependency(TestCase):
     """Test the segment.com backend without the package installed"""
