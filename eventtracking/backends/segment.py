@@ -1,7 +1,7 @@
 """Event tracking backend that sends events to segment.com"""
 
 from __future__ import absolute_import
-from urlparse import urljoin
+from urlparse import urlunsplit
 
 try:
     import analytics
@@ -76,10 +76,12 @@ class SegmentBackend(object):
         page = context.get('page')
 
         if path and not page:
-            # Try to put together a url from host and path:
+            # Try to put together a url from host and path, hardcoding the schema.
+            # (Segment doesn't care about the schema for GA, but will extract the host and path from the url.)
             host = context.get('host')
             if host:
-                page = urljoin("//{host}".format(host=host), path)
+                parts = ("https", host, path, "", "")
+                page = urlunsplit(parts)
 
         if path is not None or referer is not None or page is not None:
             segment_context['page'] = {}

@@ -167,7 +167,7 @@ class TestSegmentBackend(TestCase):
         expected_segment_context = {
             'page': {
                 'path': '/this/is/a/path',
-                'url': '//hostname/this/is/a/path'  # Synthesized URL value.
+                'url': 'https://hostname/this/is/a/path'  # Synthesized URL value.
             }
         }
         self.backend.send(event)
