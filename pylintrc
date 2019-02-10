@@ -408,6 +408,7 @@ generated-members =
 	name,
 	revision,
 	_meta,
+ignored-modules = six.moves
 
 [VARIABLES]
 init-import = no
@@ -440,4 +441,4 @@ int-import-graph =
 [EXCEPTIONS]
 overgeneral-exceptions = Exception
 
-# fec84ca3f1ffa8918c888b8b3a3bf9dbce842987
+# 16af6803439589e2212237d7ed8695870b89b0ec
