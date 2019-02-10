@@ -65,12 +65,12 @@ class TestLoggerBackend(TestCase):
 
     def test_event_with_datetime_fields(self):
         eastern_tz = pytz.timezone('US/Eastern')
-        test_time = datetime.datetime(2012, 05, 01, 07, 27, 01, 200)
+        test_time = datetime.datetime(2012, 5, 1, 7, 27, 1, 200)
         event = {
             'test': True,
             'time': test_time,
             'converted_time': eastern_tz.localize(test_time),
-            'date': datetime.date(2012, 05, 07)
+            'date': datetime.date(2012, 5, 7)
         }
 
         self.backend.send(event)
