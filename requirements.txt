@@ -3,3 +3,4 @@
 # how setup.py includes it.
 pymongo>=2.7.2,<4.0.0
 pytz
+six
