@@ -1,7 +1,7 @@
 """
 Helper classes for backend tests
 """
-from __future__ import absolute_import
+from __future__ import absolute_import, print_function
 
 from unittest import TestCase
 from contextlib import contextmanager
@@ -9,6 +9,7 @@ import time
 import os
 import random
 import string
+from six.moves import range
 
 
 class InMemoryBackend(object):

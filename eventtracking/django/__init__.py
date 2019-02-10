@@ -9,6 +9,7 @@ from django.conf import settings
 from eventtracking import tracker
 from eventtracking.tracker import Tracker
 from eventtracking.locator import ThreadLocalContextLocator
+import six
 
 
 DJANGO_BACKEND_SETTING_NAME = 'EVENT_TRACKING_BACKENDS'
@@ -105,7 +106,7 @@ class DjangoTracker(Tracker):
                 result = self.instantiate_from_dict(node)
             else:
                 result = {}
-                for key, value in node.iteritems():
+                for key, value in six.iteritems(node):
                     result[key] = self.instantiate_objects(value)
         elif isinstance(node, list):
             result = []

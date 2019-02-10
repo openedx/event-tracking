@@ -1,7 +1,7 @@
 """Event tracking backend that sends events to segment.com"""
 
 from __future__ import absolute_import
-from urlparse import urlunsplit
+from six.moves.urllib.parse import urlunsplit
 
 try:
     import analytics

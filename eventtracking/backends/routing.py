@@ -1,9 +1,11 @@
 """Route events to processors and backends"""
 
+from __future__ import absolute_import
 from collections import OrderedDict
 import logging
 
 from eventtracking.processors.exceptions import EventEmissionExit
+import six
 
 LOG = logging.getLogger(__name__)
 
@@ -123,7 +125,7 @@ class RoutingBackend(object):
         Logs and swallows all `Exception`.
         """
 
-        for name, backend in self.backends.iteritems():
+        for name, backend in six.iteritems(self.backends):
             try:
                 backend.send(event)
             except Exception:  # pylint: disable=broad-except

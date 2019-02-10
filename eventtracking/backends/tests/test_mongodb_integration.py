@@ -14,6 +14,7 @@ from eventtracking.backends.tests import IntegrationTestCase
 from eventtracking.backends.tests import InMemoryBackend
 from eventtracking.backends.mongodb import MongoBackend
 from eventtracking.tracker import Tracker
+from six.moves import range
 
 
 class TestMongoIntegration(IntegrationTestCase):
