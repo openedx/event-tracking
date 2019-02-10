@@ -24,25 +24,29 @@ class TestRoutingBackend(TestCase):
         self.router = RoutingBackend(backends={'0': self.mock_backend})
 
     def test_non_callable_backend(self):
-        with self.assertRaisesRegexp(ValueError, r'Backend \w+ does not have a callable "send" method.'):
+        with self.assertRaisesRegexp(  # pylint: disable=deprecated-method,useless-suppression
+                ValueError, r'Backend \w+ does not have a callable "send" method.'):
             RoutingBackend(backends={
                 'a': 'b'
             })
 
     def test_backend_without_send(self):
-        with self.assertRaisesRegexp(ValueError, r'Backend \w+ does not have a callable "send" method.'):
+        with self.assertRaisesRegexp(  # pylint: disable=deprecated-method,useless-suppression
+                ValueError, r'Backend \w+ does not have a callable "send" method.'):
             RoutingBackend(backends={
                 'a': object()
             })
 
     def test_non_callable_processor(self):
-        with self.assertRaisesRegexp(ValueError, r'Processor \w+ is not callable.'):
+        with self.assertRaisesRegexp(  # pylint: disable=deprecated-method,useless-suppression
+                ValueError, r'Processor \w+ is not callable.'):
             RoutingBackend(processors=[
                 object()
             ])
 
     def test_non_callable_processor_simple_type(self):
-        with self.assertRaisesRegexp(ValueError, r'Processor \w+ is not callable.'):
+        with self.assertRaisesRegexp(  # pylint: disable=deprecated-method,useless-suppression
+                ValueError, r'Processor \w+ is not callable.'):
             RoutingBackend(processors=[
                 'b'
             ])

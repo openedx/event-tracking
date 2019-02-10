@@ -45,7 +45,8 @@ class TestNameWhitelistProcessor(TestCase):
 
     def assert_initialization_fails(self):
         """Assert that the constructor raises the expected initialization exception"""
-        return self.assertRaisesRegexp(TypeError, r'The NameWhitelistProcessor must be passed')
+        return self.assertRaisesRegexp(  # pylint: disable=deprecated-method,useless-suppression
+            TypeError, r'The NameWhitelistProcessor must be passed')
 
     def test_whitelist_param_not_iterable(self):
         with self.assert_initialization_fails():
