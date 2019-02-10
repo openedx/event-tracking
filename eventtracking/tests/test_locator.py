@@ -34,7 +34,7 @@ class TestThreadLocalContextLocator(TestCase):
 
             # At this point both the parent and child threads have entered their contexts, but
             # the child thread should only "see" the context it setup.
-            self.assertEquals(self.locator.get(), {'child': thread_context})
+            self.assertEqual(self.locator.get(), {'child': thread_context})
 
             # Notify the parent that the child has setup its context.  At this point both the
             # parent and the child have entered their own contexts.
@@ -44,7 +44,7 @@ class TestThreadLocalContextLocator(TestCase):
 
             del self.locator.get()['child']
 
-            self.assertEquals(self.locator.get(), {})
+            self.assertEqual(self.locator.get(), {})
 
         self.locator.get()['parent'] = context
 
@@ -56,7 +56,7 @@ class TestThreadLocalContextLocator(TestCase):
 
         # At this point both the parent and child threads have entered their contexts, but
         # the parent thread should only "see" the context it setup.
-        self.assertEquals(self.locator.get(), {'parent': context})
+        self.assertEqual(self.locator.get(), {'parent': context})
 
         # Notify the thread that it can send its event and exit
         parent_sent_event.set()
@@ -64,4 +64,4 @@ class TestThreadLocalContextLocator(TestCase):
 
         del self.locator.get()['parent']
 
-        self.assertEquals(self.locator.get(), {})
+        self.assertEqual(self.locator.get(), {})

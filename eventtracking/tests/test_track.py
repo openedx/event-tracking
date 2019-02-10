@@ -72,7 +72,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         if not backend:
             backend = self._mock_backend
 
-        self.assertEquals(
+        self.assertEqual(
             backend.send.mock_calls,
             [
                 call({

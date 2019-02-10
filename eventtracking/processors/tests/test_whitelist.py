@@ -24,7 +24,7 @@ class TestNameWhitelistProcessor(TestCase):
 
     def assert_event_passed_through(self, whitelist, event):
         """Assert that the whitelist allowed the event processing to proceed"""
-        self.assertEquals(whitelist(event), event)
+        self.assertEqual(whitelist(event), event)
 
     def test_empty_whitelist(self):
         whitelist = NameWhitelistProcessor(whitelist=[])

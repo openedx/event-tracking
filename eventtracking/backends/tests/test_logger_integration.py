@@ -62,7 +62,7 @@ class TestLoggerIntegration(IntegrationTestCase):
         for event in self.memory_backend.events:
             event['timestamp'] = event['timestamp'].isoformat()
             event['data']['current_time'] = event['data']['current_time'].isoformat()
-        self.assertEquals(len(self.memory_backend.events), 10)
+        self.assertEqual(len(self.memory_backend.events), 10)
 
         written_events = []
         with os.fdopen(self.temporary_fd, 'r') as temporary_file:
@@ -70,4 +70,4 @@ class TestLoggerIntegration(IntegrationTestCase):
                 loaded_event = json.loads(line.strip())
                 written_events.append(loaded_event)
 
-        self.assertEquals(written_events, self.memory_backend.events)
+        self.assertEqual(written_events, self.memory_backend.events)

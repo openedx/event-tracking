@@ -56,17 +56,17 @@ class TestMongoIntegration(IntegrationTestCase):
         mem_events = {}
         for event in self.memory_backend.events:
             mem_events[event['data']['sequence']] = event
-        self.assertEquals(len(mem_events), 10)
+        self.assertEqual(len(mem_events), 10)
 
         cursor = self.mongo_backend.collection.find()
-        self.assertEquals(cursor.count(), 10)
+        self.assertEqual(cursor.count(), 10)
 
         for event in cursor:
             mem_event = mem_events[event['data']['sequence']]
             mem_event['_id'] = event['_id']
             if self.are_results_equal(mem_event, event):
                 del mem_events[event['data']['sequence']]
-        self.assertEquals(len(mem_events), 0)
+        self.assertEqual(len(mem_events), 0)
 
     def are_results_equal(self, left, right):
         """

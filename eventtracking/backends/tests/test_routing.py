@@ -155,14 +155,14 @@ class TestRoutingBackend(TestCase):
 
         def remove_field(event):
             """Remove a field to the event"""
-            self.assertEquals(event['to_remove'], sentinel.to_remove)
+            self.assertEqual(event['to_remove'], sentinel.to_remove)
             del event['to_remove']
             return event
 
         def ensure_modified_event(event):
             """Assert the first processor added a field to the event"""
-            self.assertEquals(event['name'], sentinel.changed_name)
-            self.assertEquals(event['other'], sentinel.other)
+            self.assertEqual(event['name'], sentinel.changed_name)
+            self.assertEqual(event['other'], sentinel.other)
             return event
 
         self.router.register_processor(change_name)
@@ -212,7 +212,7 @@ class TestRoutingBackend(TestCase):
 
         def ensure_name_changed(event):
             """Assert the event type has been modified even though the event wasn't returned"""
-            self.assertEquals(event['name'], sentinel.forgotten_return)
+            self.assertEqual(event['name'], sentinel.forgotten_return)
 
         self.router.register_processor(forget_return)
         self.router.register_processor(ensure_name_changed)
