@@ -38,7 +38,6 @@ def load_requirements(*requirements_paths):
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 REQUIREMENTS = load_requirements('requirements.txt')
-REQUIREMENTS.append('Django>=1.11,<2')
 
 setup(
     name='event-tracking',
