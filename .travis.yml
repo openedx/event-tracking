@@ -2,11 +2,16 @@
 
 language: python
 
-python:
-  - 2.7
-
-env:
-  - TOXENV=django111
+matrix:
+  include:
+    - python: 2.7
+      env: TOXENV=py27-django111
+    - python: 3.6
+      env: TOXENV=py36-django111
+    - python: 3.6
+      env: TOXENV=py36-django20
+    - python: 3.6
+      env: TOXENV=py36-django21
 
 install:
   - make test.setup install
