@@ -6,7 +6,6 @@ python:
   - 2.7
 
 env:
-  - TOXENV=django18
   - TOXENV=django111
 
 install:
