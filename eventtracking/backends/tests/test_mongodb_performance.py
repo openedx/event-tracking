@@ -10,6 +10,7 @@ from uuid import uuid4
 from eventtracking.backends.tests import PerformanceTestCase
 from eventtracking.backends.mongodb import MongoBackend
 from eventtracking.tracker import Tracker
+from six.moves import range
 
 
 class TestBackendPerformance(PerformanceTestCase):

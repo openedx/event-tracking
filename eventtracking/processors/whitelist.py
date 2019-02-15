@@ -1,6 +1,8 @@
 """Filter out events whose names aren't on a pre-configured whitelist"""
 
+from __future__ import absolute_import
 from eventtracking.processors.exceptions import EventEmissionExit
+import six
 
 
 class NameWhitelistProcessor(object):
@@ -13,7 +15,7 @@ class NameWhitelistProcessor(object):
 
     def __init__(self, whitelist=None, **_kwargs):
         try:
-            if isinstance(whitelist, basestring):
+            if isinstance(whitelist, six.string_types):
                 raise TypeError
 
             self.whitelist = frozenset(whitelist)

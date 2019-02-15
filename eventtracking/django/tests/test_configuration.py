@@ -95,7 +95,7 @@ class TestConfiguration(TestCase):
     })
     def test_configure_engine_with_options(self):
         self.configure_tracker()
-        self.assertEquals(self.tracker.get_backend('with_options').option, sentinel.option_value)
+        self.assertEqual(self.tracker.get_backend('with_options').option, sentinel.option_value)
 
     @override_settings(EVENT_TRACKING_BACKENDS={
         'without_options': {
@@ -104,7 +104,7 @@ class TestConfiguration(TestCase):
     })
     def test_configure_engine_missing_options(self):
         self.configure_tracker()
-        self.assertEquals(self.tracker.get_backend('without_options').option, None)
+        self.assertEqual(self.tracker.get_backend('without_options').option, None)
 
     @override_settings(EVENT_TRACKING_BACKENDS={
         'extra_options': {
@@ -117,7 +117,7 @@ class TestConfiguration(TestCase):
     })
     def test_configure_engine_with_extra_options(self):
         self.configure_tracker()
-        self.assertEquals(self.tracker.get_backend('extra_options').option, sentinel.option_value)
+        self.assertEqual(self.tracker.get_backend('extra_options').option, sentinel.option_value)
 
     @override_settings(EVENT_TRACKING_BACKENDS={
         'extra_options': {
@@ -163,17 +163,17 @@ class TestConfiguration(TestCase):
     def test_configure_nested_backends(self):
         self.configure_tracker()
         outer_backend = self.tracker.get_backend('outer_backend')
-        self.assertEquals(len(outer_backend.backends), 2)
+        self.assertEqual(len(outer_backend.backends), 2)
 
         inner_backend = outer_backend.backends['inner_backend']
-        self.assertEquals(inner_backend.option, sentinel.option_value)
+        self.assertEqual(inner_backend.option, sentinel.option_value)
 
-        self.assertEquals(len(outer_backend.processors), 2)
+        self.assertEqual(len(outer_backend.processors), 2)
         self.assertTrue(isinstance(outer_backend.processors[0], NopProcessor))
         self.assertTrue(isinstance(outer_backend.processors[1], NopProcessor))
 
         nested_backend = outer_backend.backends['nested_backend']
-        self.assertEquals(len(nested_backend.backends), 1)
+        self.assertEqual(len(nested_backend.backends), 1)
         self.assertTrue(isinstance(nested_backend.backends['trivial'], TrivialFakeBackend))
         self.assertTrue(isinstance(nested_backend.processors[0], NopProcessor))
 
@@ -194,7 +194,7 @@ class TestConfiguration(TestCase):
     ])
     def test_single_processor(self):
         self.configure_tracker()
-        self.assertEquals(len(self.tracker.processors), 1)
+        self.assertEqual(len(self.tracker.processors), 1)
         self.assertTrue(isinstance(self.tracker.processors[0], NopProcessor))
 
     @override_settings(EVENT_TRACKING_PROCESSORS=[
@@ -207,7 +207,7 @@ class TestConfiguration(TestCase):
     ])
     def test_processor_with_options(self):
         self.configure_tracker()
-        self.assertEquals(len(self.tracker.processors), 1)
+        self.assertEqual(len(self.tracker.processors), 1)
         self.assertTrue(isinstance(self.tracker.processors[0], ProcessorWithOptions))
         self.assertEqual(self.tracker.processors[0].option, sentinel.option_value)
 
@@ -228,7 +228,7 @@ class TestConfiguration(TestCase):
     ])
     def test_multiple_processor(self):
         self.configure_tracker()
-        self.assertEquals(len(self.tracker.processors), 2)
+        self.assertEqual(len(self.tracker.processors), 2)
         self.assertTrue(isinstance(self.tracker.processors[0], NopProcessor))
         self.assertTrue(isinstance(self.tracker.processors[1], NopProcessor))
 

@@ -1,5 +1,5 @@
-# Django is now defined explicitly in setup.py,
-# so that tox can define it separately from
-# how setup.py includes it.
+Django>=1.11,<2 ; python_version == '2.7'
+Django>=1.11,<3 ; python_version > '3'
 pymongo>=2.7.2,<4.0.0
 pytz
+six

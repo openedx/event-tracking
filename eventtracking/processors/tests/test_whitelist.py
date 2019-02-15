@@ -24,7 +24,7 @@ class TestNameWhitelistProcessor(TestCase):
 
     def assert_event_passed_through(self, whitelist, event):
         """Assert that the whitelist allowed the event processing to proceed"""
-        self.assertEquals(whitelist(event), event)
+        self.assertEqual(whitelist(event), event)
 
     def test_empty_whitelist(self):
         whitelist = NameWhitelistProcessor(whitelist=[])
@@ -45,7 +45,8 @@ class TestNameWhitelistProcessor(TestCase):
 
     def assert_initialization_fails(self):
         """Assert that the constructor raises the expected initialization exception"""
-        return self.assertRaisesRegexp(TypeError, r'The NameWhitelistProcessor must be passed')
+        return self.assertRaisesRegexp(  # pylint: disable=deprecated-method,useless-suppression
+            TypeError, r'The NameWhitelistProcessor must be passed')
 
     def test_whitelist_param_not_iterable(self):
         with self.assert_initialization_fails():

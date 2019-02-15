@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import os
 from setuptools import setup
 from setuptools import find_packages
@@ -37,7 +38,6 @@ def load_requirements(*requirements_paths):
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 REQUIREMENTS = load_requirements('requirements.txt')
-REQUIREMENTS.append('Django>=1.8,<2')
 
 setup(
     name='event-tracking',

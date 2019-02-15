@@ -9,6 +9,8 @@ from mock import sentinel
 
 from eventtracking.processors.exceptions import EventEmissionExit
 from eventtracking.backends.routing import RoutingBackend
+import six
+from six.moves import range
 
 
 class TestRoutingBackend(TestCase):
@@ -22,25 +24,29 @@ class TestRoutingBackend(TestCase):
         self.router = RoutingBackend(backends={'0': self.mock_backend})
 
     def test_non_callable_backend(self):
-        with self.assertRaisesRegexp(ValueError, r'Backend \w+ does not have a callable "send" method.'):
+        with self.assertRaisesRegexp(  # pylint: disable=deprecated-method,useless-suppression
+                ValueError, r'Backend \w+ does not have a callable "send" method.'):
             RoutingBackend(backends={
                 'a': 'b'
             })
 
     def test_backend_without_send(self):
-        with self.assertRaisesRegexp(ValueError, r'Backend \w+ does not have a callable "send" method.'):
+        with self.assertRaisesRegexp(  # pylint: disable=deprecated-method,useless-suppression
+                ValueError, r'Backend \w+ does not have a callable "send" method.'):
             RoutingBackend(backends={
                 'a': object()
             })
 
     def test_non_callable_processor(self):
-        with self.assertRaisesRegexp(ValueError, r'Processor \w+ is not callable.'):
+        with self.assertRaisesRegexp(  # pylint: disable=deprecated-method,useless-suppression
+                ValueError, r'Processor \w+ is not callable.'):
             RoutingBackend(processors=[
                 object()
             ])
 
     def test_non_callable_processor_simple_type(self):
-        with self.assertRaisesRegexp(ValueError, r'Processor \w+ is not callable.'):
+        with self.assertRaisesRegexp(  # pylint: disable=deprecated-method,useless-suppression
+                ValueError, r'Processor \w+ is not callable.'):
             RoutingBackend(processors=[
                 'b'
             ])
@@ -79,7 +85,7 @@ class TestRoutingBackend(TestCase):
         backends['1'].send.side_effect = RuntimeError
         router = RoutingBackend(backends=backends)
         router.send(self.sample_event)
-        for backend in backends.itervalues():
+        for backend in six.itervalues(backends):
             backend.send.assert_called_once_with(self.sample_event)
 
     def test_multiple_processors(self):
@@ -153,14 +159,14 @@ class TestRoutingBackend(TestCase):
 
         def remove_field(event):
             """Remove a field to the event"""
-            self.assertEquals(event['to_remove'], sentinel.to_remove)
+            self.assertEqual(event['to_remove'], sentinel.to_remove)
             del event['to_remove']
             return event
 
         def ensure_modified_event(event):
             """Assert the first processor added a field to the event"""
-            self.assertEquals(event['name'], sentinel.changed_name)
-            self.assertEquals(event['other'], sentinel.other)
+            self.assertEqual(event['name'], sentinel.changed_name)
+            self.assertEqual(event['other'], sentinel.other)
             return event
 
         self.router.register_processor(change_name)
@@ -210,7 +216,7 @@ class TestRoutingBackend(TestCase):
 
         def ensure_name_changed(event):
             """Assert the event type has been modified even though the event wasn't returned"""
-            self.assertEquals(event['name'], sentinel.forgotten_return)
+            self.assertEqual(event['name'], sentinel.forgotten_return)
 
         self.router.register_processor(forget_return)
         self.router.register_processor(ensure_name_changed)

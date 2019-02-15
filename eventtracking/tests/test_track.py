@@ -14,6 +14,7 @@ from mock import call
 from pytz import UTC
 
 from eventtracking import tracker
+from six.moves import range
 
 
 class TestTrack(TestCase):  # pylint: disable=missing-docstring
@@ -41,7 +42,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
 
         self.tracker = tracker.Tracker(backends)
         tracker.register_tracker(self.tracker)
-        self._mock_backends = backends.values()
+        self._mock_backends = list(backends.values())
         self._mock_backend = self._mock_backends[0]
 
     def get_mock_backend(self, index):
@@ -71,7 +72,7 @@ class TestTrack(TestCase):  # pylint: disable=missing-docstring
         if not backend:
             backend = self._mock_backend
 
-        self.assertEquals(
+        self.assertEqual(
             backend.send.mock_calls,
             [
                 call({

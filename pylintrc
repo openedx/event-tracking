@@ -59,10 +59,9 @@ load-plugins = edx_lint.pylint,pylint_django,pylint_celery
 
 [MESSAGES CONTROL]
 enable = 
-	# These are controlled by explicit choices in the pylintrc files
 	blacklisted-name,
 	line-too-long,
-	# These affect the correctness of the code
+	
 	syntax-error,
 	init-is-generator,
 	return-in-init,
@@ -185,7 +184,7 @@ enable =
 	anomalous-unicode-escape-in-string,
 	bad-open-mode,
 	boolean-datetime,
-	# Checking failed for some reason
+	
 	fatal,
 	astroid-error,
 	parse-error,
@@ -193,21 +192,20 @@ enable =
 	django-not-available,
 	raw-checker-failed,
 	django-not-available-placeholder,
-	# Documentation is important
+	
 	empty-docstring,
 	invalid-characters-in-docstring,
 	missing-docstring,
 	wrong-spelling-in-comment,
 	wrong-spelling-in-docstring,
-	# Unused code should be deleted
+	
 	unused-import,
 	unused-variable,
 	unused-argument,
-	# These are dangerous!
+	
 	exec-used,
 	eval-used,
-	# These represent idiomatic python. Not adhering to them
-	# will raise red flags with future readers.
+	
 	bad-classmethod-argument,
 	bad-mcs-classmethod-argument,
 	bad-mcs-method-argument,
@@ -242,34 +240,32 @@ enable =
 	model-has-unicode,
 	model-no-explicit-unicode,
 	protected-access,
-	# Don't use things that are deprecated
+	
 	deprecated-module,
 	deprecated-method,
-	# These help manage code complexity
+	
 	too-many-nested-blocks,
 	too-many-statements,
 	too-many-boolean-expressions,
-	# Consistent import order makes finding where code is
-	# imported from easier
+	
 	ungrouped-imports,
 	wrong-import-order,
 	wrong-import-position,
 	wildcard-import,
-	# These should be auto-fixed by any competent editor
+	
 	missing-final-newline,
 	mixed-line-endings,
 	trailing-newlines,
 	trailing-whitespace,
 	unexpected-line-ending-format,
 	mixed-indentation,
-	# These attempt to limit pylint line-noise
+	
 	bad-option-value,
 	unrecognized-inline-option,
 	useless-suppression,
 	bad-inline-option,
 	deprecated-pragma,
 disable = 
-	# These should be left to the discretion of the reviewer
 	bad-continuation,
 	invalid-name,
 	misplaced-comparison-constant,
@@ -279,7 +275,7 @@ disable =
 	unused-wildcard-import,
 	global-statement,
 	no-else-return,
-	# These are disabled by pylint by default
+	
 	apply-builtin,
 	backtick,
 	basestring-builtin,
@@ -412,6 +408,7 @@ generated-members =
 	name,
 	revision,
 	_meta,
+ignored-modules = six.moves
 
 [VARIABLES]
 init-import = no
@@ -444,4 +441,4 @@ int-import-graph =
 [EXCEPTIONS]
 overgeneral-exceptions = Exception
 
-# 2303568fe30e9fdd336b485a1a52e3b0aa0449b7
+# 16af6803439589e2212237d7ed8695870b89b0ec
