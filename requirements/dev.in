@@ -1,0 +1,13 @@
+# Additional requirements for development of this application
+
+-c constraints.txt
+
+-r pip-tools.txt          # pip-tools and its dependencies, for managing requirements files
+-r test.txt               # Core and quality check dependencies
+-r travis.txt             # tox and related dependencies
+
+edx-lint>=0.5.4,<1.0.0
+pycodestyle>=2.4.0,<3.0.0
+tox>=2.7.0
+pip-tools
+sphinx==1.1.3
