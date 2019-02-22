@@ -1,5 +1,4 @@
-include requirements.txt
-include dev-requirements.txt
+include requirements/base.in
 include LICENSE.TXT
 include AUTHORS
 include README.rst
