@@ -49,7 +49,7 @@ REQUIREMENTS = load_requirements('requirements/base.in')
 
 setup(
     name='event-tracking',
-    version='0.2.8',
+    version='0.2.9',
     packages=find_packages(),
     include_package_data=True,
     license='AGPLv3 License',
