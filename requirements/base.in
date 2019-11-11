@@ -2,8 +2,8 @@
 
 -c constraints.txt
 
-Django>=1.11,<2 ; python_version == '2.7'
-Django>=1.11,<3 ; python_version > '3'
+Django>=1.11,<2.0 ; python_version == '2.7'
+Django>=1.11 ; python_version > '3'
 pymongo>=2.7.2,<4.0.0
 pytz
 six
