@@ -3,6 +3,7 @@ Package metadata for event-tracking.
 """
 
 from __future__ import absolute_import
+import io
 import os
 from setuptools import setup
 from setuptools import find_packages
@@ -44,12 +45,12 @@ def load_requirements(*requirements_paths):
     return list(requirements)
 
 
-README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+README = io.open(os.path.join(os.path.dirname(__file__), 'README.rst'), encoding='utf-8').read()
 REQUIREMENTS = load_requirements('requirements/base.in')
 
 setup(
     name='event-tracking',
-    version='0.2.9',
+    version='0.3.0',
     packages=find_packages(),
     include_package_data=True,
     license='AGPLv3 License',
@@ -70,6 +71,7 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
