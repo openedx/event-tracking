@@ -4,27 +4,25 @@
 #
 #    make upgrade
 #
-certifi==2019.9.11        # via requests
+appdirs==1.4.3            # via virtualenv
+certifi==2020.4.5.1       # via requests
 chardet==3.0.4            # via requests
-codecov==2.0.15
-configparser==4.0.2       # via importlib-metadata
-contextlib2==0.6.0.post1  # via importlib-metadata
-coverage==4.5.4           # via codecov
-filelock==3.0.12          # via tox
-idna==2.8                 # via requests
-importlib-metadata==0.23  # via pluggy, tox
-more-itertools==5.0.0     # via zipp
-packaging==19.2           # via tox
-pathlib2==2.3.5           # via importlib-metadata
-pluggy==0.13.0            # via tox
-py==1.8.0                 # via tox
-pyparsing==2.4.5          # via packaging
-requests==2.22.0          # via codecov
-scandir==1.10.0           # via pathlib2
-six==1.13.0               # via more-itertools, packaging, pathlib2, tox
+codecov==2.0.22           # via -r requirements/travis.in
+coverage==5.1             # via codecov
+distlib==0.3.0            # via virtualenv
+filelock==3.0.12          # via tox, virtualenv
+idna==2.9                 # via requests
+importlib-metadata==1.6.0  # via importlib-resources, pluggy, tox, virtualenv
+importlib-resources==1.5.0  # via virtualenv
+packaging==20.3           # via tox
+pluggy==0.13.1            # via tox
+py==1.8.1                 # via tox
+pyparsing==2.4.7          # via packaging
+requests==2.23.0          # via codecov
+six==1.14.0               # via packaging, tox, virtualenv
 toml==0.10.0              # via tox
-tox-battery==0.5.1
-tox==3.14.0
-urllib3==1.25.6           # via requests
-virtualenv==16.7.7        # via tox
-zipp==0.6.0               # via importlib-metadata
+tox-battery==0.5.2        # via -r requirements/travis.in
+tox==3.14.6               # via -r requirements/travis.in, tox-battery
+urllib3==1.25.9           # via requests
+virtualenv==20.0.18       # via tox
+zipp==1.2.0               # via importlib-metadata, importlib-resources
