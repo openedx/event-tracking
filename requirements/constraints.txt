@@ -8,5 +8,5 @@
 # pin when possible.  Writing an issue against the offending project and
 # linking to it here is good.
 
-# This is a backport which can only be installed on Python 2.7
-futures ; python_version == "2.7"
+# staying on an lts release
+django<2.3
