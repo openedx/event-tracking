@@ -7,10 +7,11 @@ from __future__ import absolute_import
 
 from uuid import uuid4
 
-from eventtracking.backends.tests import PerformanceTestCase
-from eventtracking.backends.mongodb import MongoBackend
-from eventtracking.tracker import Tracker
 from six.moves import range
+
+from eventtracking.backends.mongodb import MongoBackend
+from eventtracking.backends.tests import PerformanceTestCase
+from eventtracking.tracker import Tracker
 
 
 class TestBackendPerformance(PerformanceTestCase):

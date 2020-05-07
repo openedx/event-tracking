@@ -13,7 +13,7 @@ from bson.errors import BSONError
 log = logging.getLogger(__name__)
 
 
-class MongoBackend(object):
+class MongoBackend:
     """Class for a MongoDB event tracker Backend"""
 
     def __init__(self, **kwargs):

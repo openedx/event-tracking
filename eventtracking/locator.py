@@ -12,7 +12,7 @@ from collections import OrderedDict
 import threading
 
 
-class DefaultContextLocator(object):
+class DefaultContextLocator:
     """
     One-to-one mapping between contexts and trackers.  Every tracker will
     get a new context instance and it will always be returned by this
@@ -27,7 +27,7 @@ class DefaultContextLocator(object):
         return self.context
 
 
-class ThreadLocalContextLocator(object):
+class ThreadLocalContextLocator:
     """
     Returns a different context depending on the thread that the locator
     was called from.  Thus, contexts can be isolated from one another

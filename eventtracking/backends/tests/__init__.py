@@ -12,7 +12,7 @@ import string
 from six.moves import range
 
 
-class InMemoryBackend(object):
+class InMemoryBackend:
     """A backend that simply stores all events in memory"""
 
     def __init__(self):
@@ -49,6 +49,7 @@ class PerformanceTestCase(TestCase):
     # This is equivalent to decorating all subclasses with attr('performance')
     performance = 1
 
+    # pylint: disable=invalid-envvar-default
     def __init__(self, *args, **kwargs):
         super(PerformanceTestCase, self).__init__(*args, **kwargs)
         self.num_events = int(os.getenv('EVENT_TRACKING_PERF_EVENTS', 20000))

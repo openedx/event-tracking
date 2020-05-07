@@ -7,17 +7,15 @@ from __future__ import absolute_import
 from datetime import datetime
 from unittest import TestCase
 
-from mock import MagicMock
-from mock import patch
-from mock import sentinel
-from mock import call
-from pytz import UTC
-
-from eventtracking import tracker
 from six.moves import range
 
+from eventtracking import tracker
+from mock import MagicMock, call, patch, sentinel  # pylint: disable=wrong-import-order
+from pytz import UTC  # pylint: disable=wrong-import-order
 
-class TestTrack(TestCase):  # pylint: disable=missing-docstring
+
+class TestTrack(TestCase):
+    """Tests cases for the event tracking module."""
 
     def setUp(self):
         super(TestTrack, self).setUp()

@@ -12,7 +12,7 @@ from pytz import UTC
 MAX_EVENT_SIZE = 1024  # 1 KB
 
 
-class LoggerBackend(object):
+class LoggerBackend:
     """
     Event tracker backend that uses a python logger.
 

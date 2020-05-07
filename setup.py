@@ -50,7 +50,7 @@ REQUIREMENTS = load_requirements('requirements/base.in')
 
 setup(
     name='event-tracking',
-    version='0.3.1',
+    version='0.3.2',
     packages=find_packages(),
     include_package_data=True,
     license='AGPLv3 License',
@@ -71,6 +71,7 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],

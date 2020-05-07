@@ -32,7 +32,7 @@ TRACKERS = {}
 LOG = logging.getLogger(__name__)
 
 
-class Tracker(object):
+class Tracker:
     """
     Track application events.  Holds references to a set of backends that will
     be used to persist any events that are emitted.

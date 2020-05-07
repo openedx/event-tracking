@@ -9,10 +9,6 @@ python:
 env:
   - TOXENV=django22
 
-matrix:
-  allow_failures:
-    - python: 3.8
-
 install:
   - make test.setup install
   - pip install pip==20.0.2
