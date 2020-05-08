@@ -9,7 +9,7 @@ from django.conf import settings
 from eventtracking import tracker
 from eventtracking.tracker import Tracker
 from eventtracking.locator import ThreadLocalContextLocator
-import six
+import six  # pylint: disable=wrong-import-order
 
 
 DJANGO_BACKEND_SETTING_NAME = 'EVENT_TRACKING_BACKENDS'

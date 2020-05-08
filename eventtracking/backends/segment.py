@@ -9,7 +9,7 @@ except ImportError:
     analytics = None
 
 
-class SegmentBackend(object):
+class SegmentBackend:
     """
 
     Send events to segment.com

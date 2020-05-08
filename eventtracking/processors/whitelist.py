@@ -1,11 +1,13 @@
 """Filter out events whose names aren't on a pre-configured whitelist"""
 
 from __future__ import absolute_import
-from eventtracking.processors.exceptions import EventEmissionExit
+
 import six
 
+from eventtracking.processors.exceptions import EventEmissionExit
 
-class NameWhitelistProcessor(object):
+
+class NameWhitelistProcessor:
     """
 
     Filter out events whose names aren't on a pre-configured whitelist.
@@ -28,5 +30,5 @@ class NameWhitelistProcessor(object):
     def __call__(self, event):
         if event['name'] not in self.whitelist:
             raise EventEmissionExit()
-        else:
-            return event
+
+        return event

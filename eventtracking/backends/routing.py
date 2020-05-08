@@ -1,16 +1,18 @@
 """Route events to processors and backends"""
 
 from __future__ import absolute_import
-from collections import OrderedDict
+
 import logging
+from collections import OrderedDict
+
+import six
 
 from eventtracking.processors.exceptions import EventEmissionExit
-import six
 
 LOG = logging.getLogger(__name__)
 
 
-class RoutingBackend(object):
+class RoutingBackend:
     """
 
     Route events to the appropriate backends.
@@ -60,8 +62,8 @@ class RoutingBackend(object):
         """
         if not hasattr(backend, 'send') or not callable(backend.send):
             raise ValueError('Backend %s does not have a callable "send" method.' % backend.__class__.__name__)
-        else:
-            self.backends[name] = backend
+
+        self.backends[name] = backend
 
     def register_processor(self, processor):
         """
@@ -71,8 +73,8 @@ class RoutingBackend(object):
         """
         if not callable(processor):
             raise ValueError('Processor %s is not callable.' % processor.__class__.__name__)
-        else:
-            self.processors.append(processor)
+
+        self.processors.append(processor)
 
     def send(self, event):
         """
@@ -99,7 +101,7 @@ class RoutingBackend(object):
         Returns the modified event.
         """
 
-        if len(self.processors) == 0:  # lint-amnesty, pylint: disable=len-as-condition
+        if len(self.processors) == 0:
             return event
 
         processed_event = event

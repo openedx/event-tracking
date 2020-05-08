@@ -4,13 +4,12 @@ from __future__ import absolute_import
 
 from unittest import TestCase
 
-from mock import MagicMock
-from mock import sentinel
-
-from eventtracking.processors.exceptions import EventEmissionExit
-from eventtracking.backends.routing import RoutingBackend
 import six
+from mock import MagicMock, sentinel
 from six.moves import range
+
+from eventtracking.backends.routing import RoutingBackend
+from eventtracking.processors.exceptions import EventEmissionExit
 
 
 class TestRoutingBackend(TestCase):
@@ -120,7 +119,7 @@ class TestRoutingBackend(TestCase):
             backend.send.assert_called_once_with(self.sample_event)
 
     def test_callable_class_processor(self):
-        class SampleProcessor(object):
+        class SampleProcessor:
             """An event processing class"""
             def __call__(self, event):
                 """Modify the event type"""
@@ -184,7 +183,7 @@ class TestRoutingBackend(TestCase):
 
     def test_processor_failure(self):
 
-        def always_fail(event):  # pylint: disable=unused-argument
+        def always_fail(event):  # pylint: disable=unused-argument, useless-suppression
             """Always raises an error"""
             raise ValueError
 
@@ -202,7 +201,6 @@ class TestRoutingBackend(TestCase):
 
         def return_none(event):  # pylint: disable=unused-argument
             """Don't return the event"""
-            pass
 
         self.router.register_processor(return_none)
         self.router.send(self.sample_event)
@@ -225,7 +223,7 @@ class TestRoutingBackend(TestCase):
 
     def test_processor_abort(self):
 
-        def abort_processing(event):  # pylint: disable=unused-argument
+        def abort_processing(event):  # pylint: disable=unused-argument, useless-suppression
             """Always abort processing"""
             raise EventEmissionExit
 
@@ -261,7 +259,7 @@ class TestRoutingBackend(TestCase):
 
     def test_backend_call_order(self):
 
-        class OrderRecordingBackend(object):
+        class OrderRecordingBackend:
             """Keep track of the order that the backends are called in"""
 
             def __init__(self, name, call_order):

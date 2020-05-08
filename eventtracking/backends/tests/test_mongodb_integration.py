@@ -5,16 +5,15 @@ an actual MongoDB instance.
 
 from __future__ import absolute_import
 
-from uuid import uuid4
 from datetime import datetime
+from uuid import uuid4
 
 from pytz import UTC
-
-from eventtracking.backends.tests import IntegrationTestCase
-from eventtracking.backends.tests import InMemoryBackend
-from eventtracking.backends.mongodb import MongoBackend
-from eventtracking.tracker import Tracker
 from six.moves import range
+
+from eventtracking.backends.mongodb import MongoBackend
+from eventtracking.backends.tests import InMemoryBackend, IntegrationTestCase
+from eventtracking.tracker import Tracker
 
 
 class TestMongoIntegration(IntegrationTestCase):

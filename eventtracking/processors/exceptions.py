@@ -7,4 +7,3 @@ class EventEmissionExit(Exception):
 
     This should only be raised by processors.
     """
-    pass

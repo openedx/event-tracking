@@ -233,17 +233,15 @@ class TestConfiguration(TestCase):
         self.assertTrue(isinstance(self.tracker.processors[1], NopProcessor))
 
 
-class TrivialFakeBackend(object):
+class TrivialFakeBackend:
     """A trivial fake backend without any options"""
 
     def send(self, event):
         """Don't actually send the event anywhere"""
-        pass
 
 
-class NotABackend(object):
+class NotABackend:
     """A class that is not a backend"""
-    pass
 
 
 class FakeBackendWithOptions(TrivialFakeBackend):
@@ -254,14 +252,14 @@ class FakeBackendWithOptions(TrivialFakeBackend):
         self.option = kwargs.get('option', None)
 
 
-class NopProcessor(object):
+class NopProcessor:
     """Changes every event"""
 
     def __call__(self, event):
         pass
 
 
-class ProcessorWithOptions(object):
+class ProcessorWithOptions:
     """Takes in an argument"""
 
     def __init__(self, **kwargs):

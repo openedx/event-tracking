@@ -5,19 +5,18 @@ the actual python logging system.
 
 from __future__ import absolute_import
 
-from datetime import datetime
 import json
 import logging
 import os
 import tempfile
+from datetime import datetime
 
 from pytz import UTC
-
-from eventtracking.backends.tests import IntegrationTestCase
-from eventtracking.backends.tests import InMemoryBackend
-from eventtracking.backends.logger import LoggerBackend
-from eventtracking.tracker import Tracker
 from six.moves import range
+
+from eventtracking.backends.logger import LoggerBackend
+from eventtracking.backends.tests import InMemoryBackend, IntegrationTestCase
+from eventtracking.tracker import Tracker
 
 
 class TestLoggerIntegration(IntegrationTestCase):
