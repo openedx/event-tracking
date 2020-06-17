@@ -13,3 +13,12 @@ class EventTrackingConfig(AppConfig):
 
     name = 'eventtracking.django'
     label = 'eventtracking_django'
+
+    def ready(self):
+        """
+        Initialize django specific tracker.
+        """
+        super(EventTrackingConfig, self).ready()
+        # pylint: disable=import-outside-toplevel
+        from eventtracking.django.django_tracker import override_default_tracker
+        override_default_tracker()

@@ -1,4 +1,4 @@
 [run]
 branch = True
 include = eventtracking*
-omit = */*performance*, */*integration*
+omit = */*performance*, */*integration*, */admin.py, */apps.py

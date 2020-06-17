@@ -11,4 +11,3 @@ pycodestyle
 tox
 pip-tools
 sphinx
-

@@ -7,4 +7,5 @@
 edx-lint
 pycodestyle
 mock
+ddt
 pytest-cov

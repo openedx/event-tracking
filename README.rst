@@ -5,8 +5,8 @@ __ http://code.edx.org/
 Event Tracking library |build-status|
 =====================================
 
-The ``event-tracking`` library tracks context-aware semi-structured system events. 
-It captures and stores events with nested data structures in order to truly 
+The ``event-tracking`` library tracks context-aware semi-structured system events.
+It captures and stores events with nested data structures in order to truly
 take advantage of schemaless data storage systems.
 
 Key features:
@@ -64,7 +64,7 @@ Running the above example produces the following events::
         "data": {
             "url": "http://www.edx.org/some/path/2"
         }
-    },    
+    },
     {
         "name": "address.create",
         "timestamp": ...,
@@ -78,6 +78,65 @@ Running the above example produces the following events::
                 "country": "United States"
             }
         }
+    }
+
+
+Asynchronous Routing
+--------------------
+
+Considering the volume of the events being generated, we would want to avoid
+processing events in the main thread that could cause delays in response
+depending upon the operations and event processors.
+
+``event-tracking`` provides a solution for this i.e. ``AsyncRoutingBackend``.
+It extends ``RoutingBackend`` but performs its operations asynchronously.
+
+It can:
+
+* Process event through the configured processors.
+* If the event is processed successfully, pass it to the configured backends.
+
+Handling the operations asynchronously would avoid overburdening the main thread
+and pass the intensive processing tasks to celery workers.
+
+**Limitations**: Although backends for ``RoutingBackend`` can be configured
+at any level of ``EVENT_TRACKING_BACKEND`` configuration tree,
+``AsyncRoutingBackend`` only supports backends defined at the root level of
+``EVENT_TRACKING_BACKEND`` setting.
+
+An example configuration for ``AsyncRoutingBackend`` is provided below::
+
+    EVENT_TRACKING_BACKENDS = {
+        'caliper': {
+            'ENGINE':  'eventtracking.backends.async_routing.AsyncRoutingBackend',
+            'OPTIONS': {
+                'backend_name': 'caliper',
+                'processors': [
+                    {
+                        'ENGINE': 'eventtracking.processors.regex_filter.RegexFilter',
+                        'OPTIONS':{
+                            'filter_type': 'allowlist',
+                            'regular_expressions': [
+                                'edx.course.enrollment.activated',
+                                'edx.course.enrollment.deactivated',
+                            ]
+                        }
+                    }
+                ],
+                'backends': {
+                    'caliper': {
+                        'ENGINE': 'dummy.backend.engine',
+                        'OPTIONS': {
+                            ...
+                        }
+                    }
+                },
+            },
+        },
+        'tracking_logs': {
+            ...
+        }
+        ...
     }
 
 
@@ -127,5 +186,5 @@ You can discuss this code on the `edx-code Google Group`__ or in the
 
 __ https://groups.google.com/forum/#!forum/edx-code
 
-.. |build-status| image:: https://api.travis-ci.org/edx/event-tracking.png?branch=master 
+.. |build-status| image:: https://api.travis-ci.org/edx/event-tracking.png?branch=master
    :target: https://travis-ci.org/edx/event-tracking

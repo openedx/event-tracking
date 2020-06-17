@@ -8,8 +8,8 @@ from django.test.utils import override_settings
 
 from mock import sentinel
 
-from eventtracking import django
 from eventtracking import tracker
+from eventtracking.django.django_tracker import DjangoTracker, override_default_tracker
 
 
 TEST_TRACKER_NAME = 'django.test.tracker'
@@ -20,6 +20,7 @@ class TestConfiguration(TestCase):
 
     def setUp(self):
         super(TestConfiguration, self).setUp()
+        override_default_tracker()
         self.tracker = tracker.get_tracker()
 
     @override_settings(EVENT_TRACKING_BACKENDS={
@@ -34,7 +35,7 @@ class TestConfiguration(TestCase):
 
     def configure_tracker(self):
         """Reads the tracker configuration from the Django settings"""
-        self.tracker = django.DjangoTracker()
+        self.tracker = DjangoTracker()
 
     @override_settings(EVENT_TRACKING_BACKENDS={
         "no_engine": {
@@ -179,12 +180,12 @@ class TestConfiguration(TestCase):
 
     @override_settings(EVENT_TRACKING_ENABLED=True)
     def test_overrides_default_tracker(self):
-        django.override_default_tracker()
-        self.assertTrue(isinstance(tracker.get_tracker(), django.DjangoTracker))
+        override_default_tracker()
+        self.assertTrue(isinstance(tracker.get_tracker(), DjangoTracker))
 
     @override_settings(EVENT_TRACKING_ENABLED=False)
     def test_leaves_default_tracker_alone(self):
-        django.override_default_tracker()
+        override_default_tracker()
         self.assertTrue(isinstance(tracker.get_tracker(), tracker.Tracker))
 
     @override_settings(EVENT_TRACKING_PROCESSORS=[
