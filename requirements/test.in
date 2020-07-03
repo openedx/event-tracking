@@ -5,9 +5,6 @@
 -r base.txt               # Core dependencies for this package
 
 edx-lint
-coverage
 pycodestyle
-django_nose
 mock
-nose
-
+pytest-cov

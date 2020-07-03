@@ -5,49 +5,52 @@
 #    make upgrade
 #
 alabaster==0.7.12         # via sphinx
-appdirs==1.4.3            # via -r requirements/travis.txt, virtualenv
+appdirs==1.4.4            # via -r requirements/travis.txt, virtualenv
 astroid==2.3.3            # via -r requirements/test.txt, pylint, pylint-celery
+attrs==19.3.0             # via -r requirements/test.txt, pytest
 babel==2.8.0              # via sphinx
-certifi==2020.4.5.1       # via -r requirements/travis.txt, requests
+certifi==2020.6.20        # via -r requirements/travis.txt, requests
 chardet==3.0.4            # via -r requirements/travis.txt, requests
 click-log==0.3.2          # via -r requirements/test.txt, edx-lint
 click==7.1.2              # via -r requirements/pip-tools.txt, -r requirements/test.txt, click-log, edx-lint, pip-tools
-codecov==2.0.22           # via -r requirements/travis.txt
-coverage==5.1             # via -r requirements/test.txt, -r requirements/travis.txt, codecov
-distlib==0.3.0            # via -r requirements/travis.txt, virtualenv
-django-nose==1.4.6        # via -r requirements/test.txt
-django==2.2.12            # via -c requirements/constraints.txt, -r requirements/test.txt
+codecov==2.1.7            # via -r requirements/travis.txt
+coverage==5.1             # via -r requirements/test.txt, -r requirements/travis.txt, codecov, pytest-cov
+distlib==0.3.1            # via -r requirements/travis.txt, virtualenv
+django==2.2.14            # via -c requirements/constraints.txt, -r requirements/test.txt
 docutils==0.16            # via sphinx
-edx-lint==1.4.1           # via -r requirements/dev.in, -r requirements/test.txt
+edx-lint==1.5.0           # via -r requirements/dev.in, -r requirements/test.txt
 filelock==3.0.12          # via -r requirements/travis.txt, tox, virtualenv
-idna==2.9                 # via -r requirements/travis.txt, requests
+idna==2.10                # via -r requirements/travis.txt, requests
 imagesize==1.2.0          # via sphinx
-importlib-metadata==1.6.0  # via -r requirements/travis.txt, importlib-resources, pluggy, tox, virtualenv
-importlib-resources==1.5.0  # via -r requirements/travis.txt, virtualenv
+importlib-metadata==1.7.0  # via -r requirements/test.txt, -r requirements/travis.txt, pluggy, pytest, tox, virtualenv
+importlib-resources==3.0.0  # via -r requirements/travis.txt, virtualenv
 isort==4.3.21             # via -r requirements/test.txt, pylint
 jinja2==2.11.2            # via sphinx
 lazy-object-proxy==1.4.3  # via -r requirements/test.txt, astroid
 markupsafe==1.1.1         # via jinja2
 mccabe==0.6.1             # via -r requirements/test.txt, pylint
 mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.txt
-nose==1.3.7               # via -c requirements/constraints.txt, -r requirements/test.txt, django-nose
-packaging==20.3           # via -r requirements/travis.txt, sphinx, tox
-pip-tools==5.1.2          # via -r requirements/dev.in, -r requirements/pip-tools.txt
-pluggy==0.13.1            # via -r requirements/travis.txt, tox
-py==1.8.1                 # via -r requirements/travis.txt, tox
-pycodestyle==2.5.0        # via -r requirements/dev.in, -r requirements/test.txt
+more-itertools==8.4.0     # via -r requirements/test.txt, pytest
+packaging==20.4           # via -r requirements/test.txt, -r requirements/travis.txt, pytest, sphinx, tox
+pathlib2==2.3.5           # via -r requirements/test.txt, pytest
+pip-tools==5.2.1          # via -r requirements/dev.in, -r requirements/pip-tools.txt
+pluggy==0.13.1            # via -r requirements/test.txt, -r requirements/travis.txt, pytest, tox
+py==1.9.0                 # via -r requirements/test.txt, -r requirements/travis.txt, pytest, tox
+pycodestyle==2.6.0        # via -r requirements/dev.in, -r requirements/test.txt
 pygments==2.6.1           # via sphinx
 pylint-celery==0.3        # via -r requirements/test.txt, edx-lint
 pylint-django==2.0.11     # via -r requirements/test.txt, edx-lint
 pylint-plugin-utils==0.6  # via -r requirements/test.txt, pylint-celery, pylint-django
-pylint==2.4.2             # via -r requirements/test.txt, edx-lint, pylint-celery, pylint-django, pylint-plugin-utils
+pylint==2.4.4             # via -r requirements/test.txt, edx-lint, pylint-celery, pylint-django, pylint-plugin-utils
 pymongo==3.10.1           # via -r requirements/test.txt
-pyparsing==2.4.7          # via -r requirements/travis.txt, packaging
+pyparsing==2.4.7          # via -r requirements/test.txt, -r requirements/travis.txt, packaging
+pytest-cov==2.10.0        # via -r requirements/test.txt
+pytest==5.4.3             # via -r requirements/test.txt, pytest-cov
 pytz==2020.1              # via -r requirements/test.txt, babel, django
-requests==2.23.0          # via -r requirements/travis.txt, codecov, sphinx
-six==1.14.0               # via -r requirements/pip-tools.txt, -r requirements/test.txt, -r requirements/travis.txt, astroid, edx-lint, mock, packaging, pip-tools, tox, virtualenv
+requests==2.24.0          # via -r requirements/travis.txt, codecov, sphinx
+six==1.15.0               # via -r requirements/pip-tools.txt, -r requirements/test.txt, -r requirements/travis.txt, astroid, edx-lint, mock, packaging, pathlib2, pip-tools, tox, virtualenv
 snowballstemmer==2.0.0    # via sphinx
-sphinx==3.0.3             # via -r requirements/dev.in
+sphinx==3.1.1             # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2  # via sphinx
 sphinxcontrib-devhelp==1.0.2  # via sphinx
 sphinxcontrib-htmlhelp==1.0.3  # via sphinx
@@ -55,14 +58,15 @@ sphinxcontrib-jsmath==1.0.1  # via sphinx
 sphinxcontrib-qthelp==1.0.3  # via sphinx
 sphinxcontrib-serializinghtml==1.1.4  # via sphinx
 sqlparse==0.3.1           # via -r requirements/test.txt, django
-toml==0.10.0              # via -r requirements/travis.txt, tox
-tox-battery==0.5.2        # via -r requirements/travis.txt
-tox==3.15.0               # via -r requirements/dev.in, -r requirements/travis.txt, tox-battery
+toml==0.10.1              # via -r requirements/travis.txt, tox
+tox-battery==0.6.1        # via -r requirements/travis.txt
+tox==3.16.1               # via -r requirements/dev.in, -r requirements/travis.txt, tox-battery
 typed-ast==1.4.1          # via -r requirements/test.txt, astroid
 urllib3==1.25.9           # via -r requirements/travis.txt, requests
-virtualenv==20.0.20       # via -r requirements/travis.txt, tox
+virtualenv==20.0.25       # via -r requirements/travis.txt, tox
+wcwidth==0.2.5            # via -r requirements/test.txt, pytest
 wrapt==1.11.2             # via -r requirements/test.txt, astroid
-zipp==1.2.0               # via -r requirements/travis.txt, importlib-metadata, importlib-resources
+zipp==1.2.0               # via -r requirements/test.txt, -r requirements/travis.txt, importlib-metadata, importlib-resources
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

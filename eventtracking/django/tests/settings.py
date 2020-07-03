@@ -18,11 +18,8 @@ MIDDLEWARE = (
 )
 
 INSTALLED_APPS = [
-    'django_nose',
     'eventtracking.django'
 ]
-
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 EVENT_TRACKING_ENABLED = True
 

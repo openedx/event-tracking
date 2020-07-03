@@ -4,8 +4,8 @@
 #
 #    make upgrade
 #
-django==2.2.12            # via -c requirements/constraints.txt, -r requirements/base.in
+django==2.2.14            # via -c requirements/constraints.txt, -r requirements/base.in
 pymongo==3.10.1           # via -r requirements/base.in
 pytz==2020.1              # via -r requirements/base.in, django
-six==1.14.0               # via -r requirements/base.in
+six==1.15.0               # via -r requirements/base.in
 sqlparse==0.3.1           # via django
