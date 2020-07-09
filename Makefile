@@ -23,13 +23,13 @@ test.setup: ## install dependencies for running tests
 test: test.unit test.integration test.performance ## run all tests
 
 test.unit: test.setup ## run unit tests
-	nosetests --cover-erase --with-coverage --cover-branches -A 'not integration and not performance' --cover-min-percentage=95 --cover-package=eventtracking
+	pytest --cov-report=html --cov-report term-missing  --cov-branch -k 'not integration and not performance' --cov-fail-under=95 --cov=eventtracking
 
 test.integration: test.setup ## run integration tests
-	nosetests --verbose --nocapture -a 'integration'
+	pytest --verbose -s -k 'integration'
 
 test.performance: test.setup ## run performance tests
-	nosetests --verbose --nocapture -a 'performance'
+	pytest --verbose -s -k 'performance'
 
 style: ## run pycodestyle on the code
 	pycodestyle eventtracking
