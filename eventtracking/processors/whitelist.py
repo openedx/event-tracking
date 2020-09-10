@@ -2,8 +2,6 @@
 
 from __future__ import absolute_import
 
-import six
-
 from eventtracking.processors.exceptions import EventEmissionExit
 
 
@@ -17,7 +15,7 @@ class NameWhitelistProcessor:
 
     def __init__(self, whitelist=None, **_kwargs):
         try:
-            if isinstance(whitelist, six.string_types):
+            if isinstance(whitelist, str):
                 raise TypeError
 
             self.whitelist = frozenset(whitelist)
