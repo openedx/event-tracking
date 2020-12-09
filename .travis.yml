@@ -3,11 +3,11 @@
 language: python
 
 python:
-  - 3.5
   - 3.8
 
 env:
-  - TOXENV=django22
+  - TOXENV=celery44-django22
+  - TOXENV=celery50-django22
 
 install:
   - make test.setup install
@@ -26,3 +26,4 @@ deploy:
   distributions: sdist bdist_wheel
   on:
     tags: true
+    python: 3.8
