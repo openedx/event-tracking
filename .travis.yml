@@ -27,4 +27,4 @@ deploy:
   on:
     tags: true
     python: 3.8
-    condition: "$TARGETS = celery44-django22"
+    condition: "$TOXENV = celery44-django22"
