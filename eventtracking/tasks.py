@@ -4,7 +4,7 @@ Celery tasks
 import json
 
 from celery.utils.log import get_task_logger
-from celery import task
+from celery import shared_task
 
 from eventtracking.tracker import get_tracker
 from eventtracking.processors.exceptions import EventEmissionExit
@@ -13,7 +13,7 @@ from eventtracking.processors.exceptions import EventEmissionExit
 logger = get_task_logger(__name__)
 
 
-@task(name='eventtracking.tasks.send_event')
+@shared_task(name='eventtracking.tasks.send_event')
 def send_event(backend_name, json_event):
     """
     Send event to configured backends asynchronously.

@@ -6,11 +6,11 @@
 #
 amqp==2.6.1               # via kombu
 billiard==3.6.3.0         # via celery
-celery==4.4.7             # via -r requirements/base.in
-django==2.2.15            # via -c requirements/constraints.txt, -r requirements/base.in
+celery==4.4.7             # via -c requirements/constraints.txt, -r requirements/base.in
+django==2.2.17            # via -c requirements/constraints.txt, -r requirements/base.in
 kombu==4.6.11             # via celery
-pymongo==3.11.0           # via -r requirements/base.in
-pytz==2020.1              # via -r requirements/base.in, celery, django
+pymongo==3.11.2           # via -r requirements/base.in
+pytz==2020.4              # via -r requirements/base.in, celery, django
 six==1.15.0               # via -r requirements/base.in
-sqlparse==0.3.1           # via django
+sqlparse==0.4.1           # via django
 vine==1.3.0               # via amqp, celery
