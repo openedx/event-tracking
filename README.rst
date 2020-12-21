@@ -186,5 +186,5 @@ You can discuss this code on the `edx-code Google Group`__ or in the
 
 __ https://groups.google.com/forum/#!forum/edx-code
 
-.. |build-status| image:: https://api.travis-ci.org/edx/event-tracking.png?branch=master
-   :target: https://travis-ci.org/edx/event-tracking
+.. |build-status| image:: https://api.travis-ci.com/edx/event-tracking.svg?branch=master
+   :target: https://travis-ci.com/edx/event-tracking
