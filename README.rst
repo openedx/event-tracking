@@ -100,9 +100,9 @@ Handling the operations asynchronously would avoid overburdening the main thread
 and pass the intensive processing tasks to celery workers.
 
 **Limitations**: Although backends for ``RoutingBackend`` can be configured
-at any level of ``EVENT_TRACKING_BACKEND`` configuration tree,
+at any level of ``EVENT_TRACKING_BACKENDS`` configuration tree,
 ``AsyncRoutingBackend`` only supports backends defined at the root level of
-``EVENT_TRACKING_BACKEND`` setting.
+``EVENT_TRACKING_BACKENDS`` setting.
 
 An example configuration for ``AsyncRoutingBackend`` is provided below::
 
