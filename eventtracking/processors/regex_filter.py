@@ -54,8 +54,8 @@ class RegexFilter:
 
     def _compile_regular_expressions(self):
         """
-        Compile and validate every regular expression in the list and return a
-        tuple containing lists of compiled and invalid expressions.
+        Compile and validate every regular expression in the list.
+        Throws on invalid regex.
 
         Returns:
             list<compiled re>

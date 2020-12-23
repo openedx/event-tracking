@@ -15,6 +15,11 @@ logger = logging.getLogger(__name__)
 class AsyncRoutingBackend(RoutingBackend):
     """
     Route events to configured backends asynchronously.
+
+    NB: This can only be safely configured as a top-level backend,
+    since the Celery task has to look up the backend again by name.
+    This backend can also only be used from the default tracker, since
+    again the Celery task does not know which other tracker to use.
     """
     def __init__(self, processors=None, backends=None, backend_name=''):
         self.backend_name = backend_name
