@@ -81,6 +81,14 @@ Running the above example produces the following events::
     }
 
 
+Configuration
+-------------
+
+Configuration for ``event-tracking`` takes the form of a tree of backends. When a ``Tracker`` is instantiated, it creates a root ``RoutingBackend`` object using the top-level backends and processors that are passed to it. (Or in the case of the ``DjangoTracker``, the backends and processors are constructed according to the appropriate Django settings.)
+
+In this ``RoutingBackend``, each event is first passed through the chain of processors in series, and then distributed to each backend in turn. Theoretically, these backends might be the Mongo, Segment, or logger backends, but in practice these are wrapped by another layer of ``RoutingBackend``. This allows each one to have its own set of processors that are not shared with other backends, allowing independent filtering or event emit cancellation.
+
+
 Asynchronous Routing
 --------------------
 
@@ -102,7 +110,8 @@ and pass the intensive processing tasks to celery workers.
 **Limitations**: Although backends for ``RoutingBackend`` can be configured
 at any level of ``EVENT_TRACKING_BACKENDS`` configuration tree,
 ``AsyncRoutingBackend`` only supports backends defined at the root level of
-``EVENT_TRACKING_BACKENDS`` setting.
+``EVENT_TRACKING_BACKENDS`` setting.  It is also only possible to use it
+successfully from the default tracker.
 
 An example configuration for ``AsyncRoutingBackend`` is provided below::
 
