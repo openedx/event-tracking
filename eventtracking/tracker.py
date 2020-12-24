@@ -15,7 +15,6 @@ Best Practices:
   can decide whether or not to group them.
 """
 
-from __future__ import absolute_import
 
 from contextlib import contextmanager
 from datetime import datetime

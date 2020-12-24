@@ -1,10 +1,9 @@
 """Test the segment.com backend"""
 
-from __future__ import absolute_import
 
 from unittest import TestCase
-from mock import patch
-from mock import sentinel
+from unittest.mock import patch
+from unittest.mock import sentinel
 
 from eventtracking.backends.segment import SegmentBackend
 

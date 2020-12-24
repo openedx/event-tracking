@@ -3,10 +3,10 @@ Tests for celery tasks.
 """
 import json
 
+from unittest.mock import sentinel
+
 from django.test import TestCase
 from django.test.utils import override_settings
-
-from mock import sentinel
 
 from eventtracking.tasks import send_event
 from eventtracking.tracker import get_tracker

@@ -2,15 +2,13 @@
 Test the event tracking module
 """
 
-from __future__ import absolute_import
 
 from datetime import datetime
 from unittest import TestCase
 
-from six.moves import range
 
 from eventtracking import tracker
-from mock import MagicMock, call, patch, sentinel  # pylint: disable=wrong-import-order
+from unittest.mock import MagicMock, call, patch, sentinel  # pylint: disable=wrong-import-order
 from pytz import UTC  # pylint: disable=wrong-import-order
 
 
@@ -34,7 +32,7 @@ class TestTrack(TestCase):
         """Ensure the tracking module has the requisite number of mock backends"""
         backends = {}
         for i in range(number_of_mocks):
-            name = 'mock{0}'.format(i)
+            name = f'mock{i}'
             backend = MagicMock()
             backends[name] = backend
 
@@ -45,7 +43,7 @@ class TestTrack(TestCase):
 
     def get_mock_backend(self, index):
         """Get the mock backend created by `configure_mock_backends`"""
-        return self.tracker.get_backend('mock{0}'.format(index))
+        return self.tracker.get_backend(f'mock{index}')
 
     def test_event_simple_event_without_data(self):
         self.tracker.emit(sentinel.name)

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # event-tracking documentation build configuration file, created by
 # sphinx-quickstart on Tue Oct  1 09:28:12 2013.
@@ -12,7 +11,6 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-from __future__ import absolute_import
 import sys
 import os
 
@@ -51,8 +49,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'event-tracking'
-copyright = u'2013, edX.org'
+project = 'event-tracking'
+copyright = '2013, edX.org'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -204,8 +202,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'event-tracking.tex', u'event-tracking Documentation',
-   u'edX.org', 'manual'),
+  ('index', 'event-tracking.tex', 'event-tracking Documentation',
+   'edX.org', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -234,8 +232,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'event-tracking', u'event-tracking Documentation',
-     [u'edX.org'], 1)
+    ('index', 'event-tracking', 'event-tracking Documentation',
+     ['edX.org'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -248,8 +246,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'event-tracking', u'event-tracking Documentation',
-   u'edX.org', 'event-tracking', 'One line description of project.',
+  ('index', 'event-tracking', 'event-tracking Documentation',
+   'edX.org', 'event-tracking', 'One line description of project.',
    'Miscellaneous'),
 ]
 

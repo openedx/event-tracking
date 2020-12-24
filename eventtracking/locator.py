@@ -6,7 +6,6 @@ All context locators must implement a `get` method that returns an
 `OrderedDict`-like object.
 """
 
-from __future__ import absolute_import
 
 from collections import OrderedDict
 import threading

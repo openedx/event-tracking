@@ -3,13 +3,11 @@ Runs invasive tests to ensure that the tracking system can communicate with
 an actual MongoDB instance.
 """
 
-from __future__ import absolute_import
 
 from datetime import datetime
 from uuid import uuid4
 
 from pytz import UTC
-from six.moves import range
 
 from eventtracking.backends.mongodb import MongoBackend
 from eventtracking.backends.tests import InMemoryBackend, IntegrationTestCase

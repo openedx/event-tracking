@@ -4,7 +4,7 @@ Test the async routing backend.
 import json
 from unittest import TestCase
 
-from mock import sentinel, patch
+from unittest.mock import sentinel, patch
 from eventtracking.backends.async_routing import AsyncRoutingBackend
 
 
