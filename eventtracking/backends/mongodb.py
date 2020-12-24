@@ -32,7 +32,7 @@ class MongoBackend:
 
         """
 
-        super(MongoBackend, self).__init__()
+        super().__init__()
 
         # Extract connection parameters from kwargs
 

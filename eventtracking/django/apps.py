@@ -18,7 +18,7 @@ class EventTrackingConfig(AppConfig):
         """
         Initialize django specific tracker.
         """
-        super(EventTrackingConfig, self).ready()
+        super().ready()
         # pylint: disable=import-outside-toplevel
         from eventtracking.django.django_tracker import override_default_tracker
         override_default_tracker()

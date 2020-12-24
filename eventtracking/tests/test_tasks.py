@@ -39,7 +39,7 @@ class TestAsyncSend(TestCase):
     """
 
     def setUp(self):
-        super(TestAsyncSend, self).setUp()
+        super().setUp()
 
         self.event = {
             'name': str(sentinel.name),

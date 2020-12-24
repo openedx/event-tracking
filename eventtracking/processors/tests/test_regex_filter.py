@@ -17,7 +17,7 @@ class TestRegexFilterProcessor(TestCase):
     """
 
     def setUp(self):
-        super(TestRegexFilterProcessor, self).setUp()
+        super().setUp()
         self.sample_event = {
             'name': str(sentinel.name),
             'event_type': 'edx.test.event',

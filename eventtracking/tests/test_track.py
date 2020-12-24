@@ -18,7 +18,7 @@ class TestTrack(TestCase):
     """Tests cases for the event tracking module."""
 
     def setUp(self):
-        super(TestTrack, self).setUp()
+        super().setUp()
         self._mock_backend = None
         self._mock_backends = []
         self.tracker = None

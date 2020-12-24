@@ -23,7 +23,7 @@ class AsyncRoutingBackend(RoutingBackend):
     """
     def __init__(self, processors=None, backends=None, backend_name=''):
         self.backend_name = backend_name
-        super(AsyncRoutingBackend, self).__init__(processors=processors, backends=backends)
+        super().__init__(processors=processors, backends=backends)
 
     def send(self, event):
         """
