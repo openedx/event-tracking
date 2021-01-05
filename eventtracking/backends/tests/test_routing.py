@@ -14,7 +14,7 @@ class TestRoutingBackend(TestCase):
     """Test the routing backend"""
 
     def setUp(self):
-        super(TestRoutingBackend, self).setUp()
+        super().setUp()
         self.sample_event = {'name': sentinel.name}
 
         self.mock_backend = MagicMock()

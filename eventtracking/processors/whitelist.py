@@ -19,11 +19,11 @@ class NameWhitelistProcessor:
                 raise TypeError
 
             self.whitelist = frozenset(whitelist)
-        except TypeError:
+        except TypeError as error:
             raise TypeError(
                 'The NameWhitelistProcessor must be passed a collection of allowed names '
                 'using the "whitelist" parameter'
-            )
+            ) from error
 
     def __call__(self, event):
         if event['name'] not in self.whitelist:

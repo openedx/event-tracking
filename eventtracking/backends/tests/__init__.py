@@ -16,7 +16,7 @@ class InMemoryBackend:
     """A backend that simply stores all events in memory"""
 
     def __init__(self):
-        super(InMemoryBackend, self).__init__()
+        super().__init__()
         self.events = []
 
     def send(self, event):
@@ -51,7 +51,7 @@ class PerformanceTestCase(TestCase):
 
     # pylint: disable=invalid-envvar-default
     def __init__(self, *args, **kwargs):
-        super(PerformanceTestCase, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.num_events = int(os.getenv('EVENT_TRACKING_PERF_EVENTS', 20000))
         self.payload_size = int(os.getenv('EVENT_TRACKING_PERF_PAYLOAD_SIZE', 600))
         self.random_payload = ''.join(random.choice(string.ascii_letters) for _ in range(self.payload_size))

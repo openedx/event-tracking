@@ -14,7 +14,7 @@ class TestAsyncRoutingBackend(TestCase):
     """
 
     def setUp(self):
-        super(TestAsyncRoutingBackend, self).setUp()
+        super().setUp()
         self.sample_event = {
             'name': str(sentinel.name),
             'event_type': 'edx.test.event',

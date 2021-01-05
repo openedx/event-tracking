@@ -15,7 +15,7 @@ class TestMongoBackend(TestCase):
     """Unit tests for the Mongo backend"""
 
     def setUp(self):
-        super(TestMongoBackend, self).setUp()
+        super().setUp()
         self.mongo_patcher = patch('eventtracking.backends.mongodb.MongoClient')
         self.addCleanup(self.mongo_patcher.stop)
         self.mongo_patcher.start()

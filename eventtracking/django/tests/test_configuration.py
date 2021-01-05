@@ -19,7 +19,7 @@ class TestConfiguration(TestCase):
     """Tests various configuration settings for the django tracker"""
 
     def setUp(self):
-        super(TestConfiguration, self).setUp()
+        super().setUp()
         override_default_tracker()
         self.tracker = tracker.get_tracker()
 
@@ -249,7 +249,7 @@ class FakeBackendWithOptions(TrivialFakeBackend):
     """A trivial fake backend with options"""
 
     def __init__(self, **kwargs):
-        super(FakeBackendWithOptions, self).__init__()
+        super().__init__()
         self.option = kwargs.get('option', None)
 
 

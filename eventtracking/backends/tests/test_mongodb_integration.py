@@ -24,7 +24,7 @@ class TestMongoIntegration(IntegrationTestCase):
     """
 
     def setUp(self):
-        super(TestMongoIntegration, self).setUp()
+        super().setUp()
         self.database_name = 'test_eventtracking_' + str(uuid4())
         self.mongo_backend = MongoBackend(database=self.database_name)
         self.memory_backend = InMemoryBackend()
@@ -35,7 +35,7 @@ class TestMongoIntegration(IntegrationTestCase):
 
     def tearDown(self):
         self.mongo_backend.connection.drop_database(self.database_name)
-        super(TestMongoIntegration, self).tearDown()
+        super().tearDown()
 
     def test_sequential_events(self):
         now = datetime.now(UTC)

@@ -28,7 +28,7 @@ class DjangoTracker(Tracker):
     ):
         backends = self.create_backends_from_settings(backends_settings_name)
         processors = self.create_processors_from_settings(processors_settings_name)
-        super(DjangoTracker, self).__init__(backends, ThreadLocalContextLocator(), processors)
+        super().__init__(backends, ThreadLocalContextLocator(), processors)
 
     def create_backends_from_settings(self, settings_name):
         """
@@ -137,8 +137,8 @@ class DjangoTracker(Tracker):
         try:
             module = import_module(module_name)
             cls = getattr(module, class_name)
-        except (ValueError, AttributeError, TypeError, ImportError):
-            raise ValueError('Cannot find class %s' % name)
+        except (ValueError, AttributeError, TypeError, ImportError) as error:
+            raise ValueError('Cannot find class %s' % name) from error
 
         options = self._instantiate_objects(options)
         return cls(**options)
