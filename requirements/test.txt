@@ -4,35 +4,117 @@
 #
 #    make upgrade
 #
-astroid==2.4.2            # via pylint, pylint-celery
-attrs==20.3.0             # via pytest
-click-log==0.3.2          # via edx-lint
-coverage==5.3.1           # via pytest-cov
-ddt==1.4.1                # via -r requirements/test.in
-edx-lint==1.6             # via -r requirements/test.in
-importlib-metadata==2.1.1  # via -r requirements/base.txt, kombu, pluggy, pytest
-iniconfig==1.1.1          # via pytest
-isort==4.3.21             # via pylint
-lazy-object-proxy==1.4.3  # via astroid
-mccabe==0.6.1             # via pylint
-mock==3.0.5               # via -c requirements/constraints.txt, -r requirements/test.in
-packaging==20.8           # via pytest
-pathlib2==2.3.5           # via pytest
-pluggy==0.13.1            # via pytest
-py==1.10.0                # via pytest
-pycodestyle==2.6.0        # via -r requirements/test.in
-pylint-celery==0.3        # via edx-lint
-pylint-django==2.3.0      # via edx-lint
-pylint-plugin-utils==0.6  # via pylint-celery, pylint-django
-pylint==2.6.0             # via edx-lint, pylint-celery, pylint-django, pylint-plugin-utils
-pymongo==3.11.2           # via -r requirements/base.txt
-pyparsing==2.4.7          # via packaging
-pytest-cov==2.10.1        # via -r requirements/test.in
-pytest==6.1.2             # via pytest-cov
-pytz==2020.5              # via -r requirements/base.txt, celery, django
-six==1.15.0               # via -r requirements/base.txt, astroid, edx-lint, mock, pathlib2
-sqlparse==0.4.1           # via -r requirements/base.txt, django
-toml==0.10.2              # via pylint, pytest
-typed-ast==1.4.2          # via astroid
-wrapt==1.12.1             # via astroid
-zipp==1.2.0               # via -r requirements/base.txt, importlib-metadata
+    # via
+    #   -r requirements/base.txt
+    #   kombu
+astroid==2.4.2
+    # via
+    #   pylint
+    #   pylint-celery
+attrs==20.3.0
+    # via pytest
+    # via
+    #   -r requirements/base.txt
+    #   celery
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/base.txt
+click-log==0.3.2
+    # via edx-lint
+    # via
+    #   click-log
+    #   edx-lint
+coverage==5.3.1
+    # via pytest-cov
+ddt==1.4.1
+    # via -r requirements/test.in
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/base.txt
+edx-lint==1.6
+    # via -r requirements/test.in
+importlib-metadata==2.1.1
+    # via
+    #   -r requirements/base.txt
+    #   kombu
+    #   pluggy
+    #   pytest
+iniconfig==1.1.1
+    # via pytest
+isort==4.3.21
+    # via pylint
+    # via
+    #   -r requirements/base.txt
+    #   celery
+lazy-object-proxy==1.4.3
+    # via astroid
+mccabe==0.6.1
+    # via pylint
+mock==3.0.5
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/test.in
+packaging==20.8
+    # via pytest
+pathlib2==2.3.5
+    # via pytest
+pluggy==0.13.1
+    # via pytest
+py==1.10.0
+    # via pytest
+pycodestyle==2.6.0
+    # via -r requirements/test.in
+pylint-celery==0.3
+    # via edx-lint
+pylint-django==2.3.0
+    # via edx-lint
+pylint-plugin-utils==0.6
+    # via
+    #   pylint-celery
+    #   pylint-django
+pylint==2.6.0
+    # via
+    #   edx-lint
+    #   pylint-celery
+    #   pylint-django
+    #   pylint-plugin-utils
+pymongo==3.11.2
+    # via -r requirements/base.txt
+pyparsing==2.4.7
+    # via packaging
+pytest-cov==2.10.1
+    # via -r requirements/test.in
+pytest==6.1.2
+    # via pytest-cov
+pytz==2020.5
+    # via
+    #   -r requirements/base.txt
+    #   celery
+    #   django
+six==1.15.0
+    # via
+    #   -r requirements/base.txt
+    #   astroid
+    #   edx-lint
+    #   mock
+    #   pathlib2
+sqlparse==0.4.1
+    # via
+    #   -r requirements/base.txt
+    #   django
+toml==0.10.2
+    # via
+    #   pylint
+    #   pytest
+typed-ast==1.4.2
+    # via astroid
+    # via
+    #   -r requirements/base.txt
+    #   amqp
+    #   celery
+wrapt==1.12.1
+    # via astroid
+zipp==1.2.0
+    # via
+    #   -r requirements/base.txt
+    #   importlib-metadata
