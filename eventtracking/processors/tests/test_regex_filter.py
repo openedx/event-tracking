@@ -1,9 +1,9 @@
 """
 Test the RegexFilter processor.
 """
+from unittest.mock import sentinel
 import ddt
 from django.test import TestCase
-from mock import sentinel
 
 from eventtracking.processors.exceptions import EventEmissionExit
 from eventtracking.exceptions import ImproperlyConfigured

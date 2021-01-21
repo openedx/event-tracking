@@ -1,12 +1,10 @@
 """Tests various configuration settings for the django tracker"""
 
-from __future__ import absolute_import
 
 from unittest import TestCase
 
+from unittest.mock import sentinel
 from django.test.utils import override_settings
-
-from mock import sentinel
 
 from eventtracking import tracker
 from eventtracking.django.django_tracker import DjangoTracker, override_default_tracker

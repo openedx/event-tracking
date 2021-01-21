@@ -3,11 +3,9 @@ Runs performance tests to determine if a significant performance regression has
 been introduced to the MongoBackend.
 """
 
-from __future__ import absolute_import
 
 from uuid import uuid4
 
-from six.moves import range
 
 from eventtracking.backends.mongodb import MongoBackend
 from eventtracking.backends.tests import PerformanceTestCase

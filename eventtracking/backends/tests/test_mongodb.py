@@ -1,9 +1,8 @@
 """Unit tests for the Mongo backend"""
-from __future__ import absolute_import
 
 from unittest import TestCase
-from mock import patch
-from mock import sentinel
+from unittest.mock import patch
+from unittest.mock import sentinel
 
 from pymongo.errors import PyMongoError
 from bson.errors import BSONError

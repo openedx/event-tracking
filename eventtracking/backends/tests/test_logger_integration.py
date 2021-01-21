@@ -3,7 +3,6 @@ Runs invasive tests to ensure that the tracking system can communicate with
 the actual python logging system.
 """
 
-from __future__ import absolute_import
 
 import json
 import logging
@@ -12,7 +11,6 @@ import tempfile
 from datetime import datetime
 
 from pytz import UTC
-from six.moves import range
 
 from eventtracking.backends.logger import LoggerBackend
 from eventtracking.backends.tests import InMemoryBackend, IntegrationTestCase

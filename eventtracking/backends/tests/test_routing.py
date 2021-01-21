@@ -1,10 +1,9 @@
 """Test the routing backend"""
 
-from __future__ import absolute_import
 
 from unittest import TestCase
 
-from mock import MagicMock, sentinel
+from unittest.mock import MagicMock, sentinel
 
 from eventtracking.backends.routing import RoutingBackend
 from eventtracking.processors.exceptions import EventEmissionExit

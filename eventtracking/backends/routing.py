@@ -1,6 +1,5 @@
 """Route events to processors and backends"""
 
-from __future__ import absolute_import
 
 import logging
 from collections import OrderedDict

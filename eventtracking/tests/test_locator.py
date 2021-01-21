@@ -1,11 +1,9 @@
 """Test context locators."""
 
-from __future__ import absolute_import
 
+from unittest.mock import sentinel
 from unittest import TestCase
 import threading
-
-from mock import sentinel
 
 from eventtracking import locator
 

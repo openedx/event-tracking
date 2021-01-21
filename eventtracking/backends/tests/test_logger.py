@@ -1,13 +1,12 @@
 """Test the logging backend"""
 
-from __future__ import absolute_import
 
 import json
 import datetime
 from unittest import TestCase
 
-from mock import patch
-from mock import sentinel
+from unittest.mock import patch
+from unittest.mock import sentinel
 import pytz
 
 from eventtracking.backends.logger import LoggerBackend

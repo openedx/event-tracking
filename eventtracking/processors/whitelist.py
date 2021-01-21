@@ -1,6 +1,5 @@
 """Filter out events whose names aren't on a pre-configured whitelist"""
 
-from __future__ import absolute_import
 
 from eventtracking.processors.exceptions import EventEmissionExit
 

@@ -1,7 +1,6 @@
 """
 Helper classes for backend tests
 """
-from __future__ import absolute_import, print_function
 
 from unittest import TestCase
 from contextlib import contextmanager
@@ -9,7 +8,6 @@ import time
 import os
 import random
 import string
-from six.moves import range
 
 
 class InMemoryBackend:
@@ -68,11 +66,11 @@ class PerformanceTestCase(TestCase):
         elapsed_time = time.time() - start_time
 
         print('')
-        print('Elapsed Time: {0} seconds'.format(elapsed_time))
-        print('Threshold: {0} seconds'.format(self.threshold))
-        print('Number of Events: {0}'.format(self.num_events))
-        print('Payload Size: {0} bytes'.format(self.payload_size))
-        print('Events per second: {0}'.format(self.num_events / elapsed_time))
+        print(f'Elapsed Time: {elapsed_time} seconds')
+        print(f'Threshold: {self.threshold} seconds')
+        print(f'Number of Events: {self.num_events}')
+        print(f'Payload Size: {self.payload_size} bytes')
+        print('Events per second: {}'.format(self.num_events / elapsed_time))
 
         if self.threshold >= 0:
             self.assertLessEqual(elapsed_time, self.threshold)

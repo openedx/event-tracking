@@ -1,10 +1,9 @@
 """Test the whitelist processor"""
 
-from __future__ import absolute_import
 
 from unittest import TestCase
 
-from mock import sentinel
+from unittest.mock import sentinel
 
 from eventtracking.processors.exceptions import EventEmissionExit
 from eventtracking.processors.whitelist import NameWhitelistProcessor
