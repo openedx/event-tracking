@@ -47,13 +47,13 @@ toml==0.10.2
     # via tox
 tox-battery==0.6.1
     # via -r requirements/travis.in
-tox==3.21.1
+tox==3.21.2
     # via
     #   -r requirements/travis.in
     #   tox-battery
 urllib3==1.26.2
     # via requests
-virtualenv==20.3.1
+virtualenv==20.4.0
     # via tox
 zipp==1.2.0
     # via

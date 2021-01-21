@@ -82,7 +82,7 @@ pymongo==3.11.2
     # via -r requirements/base.txt
 pyparsing==2.4.7
     # via packaging
-pytest-cov==2.10.1
+pytest-cov==2.11.1
     # via -r requirements/test.in
 pytest==6.1.2
     # via pytest-cov
