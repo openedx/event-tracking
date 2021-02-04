@@ -25,7 +25,7 @@ click-log==0.3.2
     #   click-log
     #   code-annotations
     #   edx-lint
-code-annotations==1.0.2
+code-annotations==1.1.0
     # via edx-lint
 coverage==5.4
     # via pytest-cov
@@ -36,13 +36,13 @@ ddt==1.4.1
     #   -r requirements/base.txt
     #   code-annotations
     #   edx-lint
-edx-lint==3.0.2
+edx-lint==4.0.0
     # via -r requirements/test.in
 iniconfig==1.1.1
     # via pytest
 isort==5.7.0
     # via pylint
-jinja2==2.11.2
+jinja2==2.11.3
     # via code-annotations
     # via
     #   -r requirements/base.txt
@@ -57,7 +57,7 @@ mock==3.0.5
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.in
-packaging==20.8
+packaging==20.9
     # via pytest
 pbr==5.5.1
     # via stevedore
@@ -81,7 +81,7 @@ pylint==2.6.0
     #   pylint-celery
     #   pylint-django
     #   pylint-plugin-utils
-pymongo==3.11.2
+pymongo==3.11.3
     # via -r requirements/base.txt
 pyparsing==2.4.7
     # via packaging
@@ -91,7 +91,7 @@ pytest==6.2.2
     # via pytest-cov
 python-slugify==4.0.1
     # via code-annotations
-pytz==2020.5
+pytz==2021.1
     # via
     #   -r requirements/base.txt
     #   celery
