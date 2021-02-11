@@ -79,7 +79,7 @@ django==2.2.18
     #   edx-lint
 docutils==0.16
     # via sphinx
-edx-lint==4.0.0
+edx-lint==4.0.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
