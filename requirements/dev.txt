@@ -158,7 +158,7 @@ pycodestyle==2.6.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-pygments==2.7.4
+pygments==2.8.0
     # via sphinx
 pylint-celery==0.3
     # via
@@ -173,7 +173,7 @@ pylint-plugin-utils==0.6
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pylint==2.6.0
+pylint==2.6.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -223,7 +223,7 @@ six==1.15.0
     #   virtualenv
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==3.4.3
+sphinx==3.5.1
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
@@ -258,7 +258,7 @@ toml==0.10.2
     #   tox
 tox-battery==0.6.1
     # via -r requirements/travis.txt
-tox==3.21.4
+tox==3.22.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/travis.txt
