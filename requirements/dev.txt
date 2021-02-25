@@ -14,7 +14,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/travis.txt
     #   virtualenv
-astroid==2.4.2
+astroid==2.5
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -71,7 +71,7 @@ distlib==0.3.1
     # via
     #   -r requirements/travis.txt
     #   virtualenv
-django==2.2.18
+django==2.2.19
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -111,7 +111,7 @@ kombu==4.6.11
     # via
     #   -r requirements/test.txt
     #   celery
-lazy-object-proxy==1.4.3
+lazy-object-proxy==1.5.2
     # via
     #   -r requirements/test.txt
     #   astroid
@@ -173,7 +173,7 @@ pylint-plugin-utils==0.6
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pylint==2.6.2
+pylint==2.7.1
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -216,7 +216,6 @@ six==1.15.0
     # via
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
-    #   astroid
     #   edx-lint
     #   mock
     #   tox
