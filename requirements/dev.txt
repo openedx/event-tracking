@@ -158,7 +158,7 @@ pycodestyle==2.6.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-pygments==2.8.0
+pygments==2.8.1
     # via sphinx
 pylint-celery==0.3
     # via
@@ -222,7 +222,7 @@ six==1.15.0
     #   virtualenv
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==3.5.1
+sphinx==3.5.2
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
