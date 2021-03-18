@@ -29,14 +29,14 @@ code-annotations==1.1.0
     # via edx-lint
 coverage==5.5
     # via pytest-cov
-ddt==1.4.1
+ddt==1.4.2
     # via -r requirements/test.in
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
     #   code-annotations
     #   edx-lint
-edx-lint==4.1.0
+edx-lint==4.1.1
     # via -r requirements/test.in
 iniconfig==1.1.1
     # via pytest
@@ -65,7 +65,7 @@ pluggy==0.13.1
     # via pytest
 py==1.10.0
     # via pytest
-pycodestyle==2.6.0
+pycodestyle==2.7.0
     # via -r requirements/test.in
 pylint-celery==0.3
     # via edx-lint
