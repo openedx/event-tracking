@@ -79,7 +79,7 @@ django==2.2.19
     #   edx-lint
 docutils==0.16
     # via sphinx
-edx-lint==4.1.1
+edx-lint==5.0.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
@@ -98,7 +98,7 @@ iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.7.0
+isort==5.8.0
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -111,7 +111,7 @@ kombu==4.6.11
     # via
     #   -r requirements/test.txt
     #   celery
-lazy-object-proxy==1.5.2
+lazy-object-proxy==1.6.0
     # via
     #   -r requirements/test.txt
     #   astroid
@@ -226,7 +226,7 @@ six==1.15.0
     #   virtualenv
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==3.5.2
+sphinx==3.5.3
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
