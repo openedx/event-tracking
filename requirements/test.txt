@@ -7,7 +7,7 @@
     # via
     #   -r requirements/base.txt
     #   kombu
-astroid==2.5.1
+astroid==2.5.2
     # via
     #   pylint
     #   pylint-celery
@@ -25,7 +25,7 @@ click-log==0.3.2
     #   click-log
     #   code-annotations
     #   edx-lint
-code-annotations==1.1.0
+code-annotations==1.1.1
     # via edx-lint
 coverage==5.5
     # via pytest-cov
@@ -75,7 +75,7 @@ pylint-plugin-utils==0.6
     # via
     #   pylint-celery
     #   pylint-django
-pylint==2.7.2
+pylint==2.7.4
     # via
     #   edx-lint
     #   pylint-celery
