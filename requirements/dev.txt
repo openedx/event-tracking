@@ -25,7 +25,7 @@ attrs==20.3.0
     #   pytest
 babel==2.9.0
     # via sphinx
-billiard==3.6.3.0
+billiard==3.6.4.0
     # via
     #   -r requirements/test.txt
     #   celery
@@ -71,13 +71,13 @@ distlib==0.3.1
     # via
     #   -r requirements/travis.txt
     #   virtualenv
-django==2.2.19
+django==2.2.20
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   code-annotations
     #   edx-lint
-docutils==0.16
+docutils==0.17
     # via sphinx
 edx-lint==5.0.0
     # via
@@ -193,7 +193,7 @@ pyparsing==2.4.7
     #   packaging
 pytest-cov==2.11.1
     # via -r requirements/test.txt
-pytest==6.2.2
+pytest==6.2.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov
