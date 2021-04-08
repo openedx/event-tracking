@@ -6,13 +6,13 @@
 #
 amqp==2.6.1
     # via kombu
-billiard==3.6.3.0
+billiard==3.6.4.0
     # via celery
 celery==4.4.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
-django==2.2.19
+django==2.2.20
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
