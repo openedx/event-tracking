@@ -14,7 +14,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/travis.txt
     #   virtualenv
-astroid==2.5.2
+astroid==2.5.3
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -77,7 +77,7 @@ django==2.2.20
     #   -r requirements/test.txt
     #   code-annotations
     #   edx-lint
-docutils==0.17
+docutils==0.16
     # via sphinx
 edx-lint==5.0.0
     # via
@@ -142,7 +142,7 @@ pep517==0.10.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-pip-tools==6.0.1
+pip-tools==6.1.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
@@ -168,7 +168,7 @@ pylint-celery==0.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
-pylint-django==2.4.2
+pylint-django==2.4.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -226,7 +226,7 @@ six==1.15.0
     #   virtualenv
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==3.5.3
+sphinx==3.5.4
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
