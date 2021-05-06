@@ -12,20 +12,20 @@ celery==4.4.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
-django==2.2.20
+django==2.2.21
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
 kombu==4.6.11
     # via celery
-pymongo==3.11.3
+pymongo==3.11.4
     # via -r requirements/base.in
 pytz==2021.1
     # via
     #   -r requirements/base.in
     #   celery
     #   django
-six==1.15.0
+six==1.16.0
     # via -r requirements/base.in
 sqlparse==0.4.1
     # via django
