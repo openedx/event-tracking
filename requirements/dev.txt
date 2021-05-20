@@ -19,7 +19,7 @@ astroid==2.5.6
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
-attrs==20.3.0
+attrs==21.2.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -47,6 +47,7 @@ click-log==0.3.2
     #   edx-lint
 click==7.1.2
     # via
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
     #   click-log
@@ -59,7 +60,7 @@ code-annotations==1.1.1
     #   edx-lint
 codecov==2.1.11
     # via -r requirements/travis.txt
-coverage==5.5
+coverage[toml]==5.5
     # via
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
@@ -71,14 +72,16 @@ distlib==0.3.1
     # via
     #   -r requirements/travis.txt
     #   virtualenv
-django==2.2.21
+django==2.2.23
     # via
-    #   -c requirements/constraints.txt
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   code-annotations
     #   edx-lint
 docutils==0.16
-    # via sphinx
+    # via
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
+    #   sphinx
 edx-lint==5.0.0
     # via
     #   -r requirements/dev.in
@@ -104,6 +107,7 @@ isort==5.8.0
     #   pylint
 jinja2==2.11.3
     # via
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   code-annotations
     #   sphinx
@@ -117,8 +121,10 @@ lazy-object-proxy==1.6.0
     #   astroid
 markupsafe==1.1.1
     # via
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   jinja2
+    #   sphinx
 mccabe==0.6.1
     # via
     #   -r requirements/test.txt
@@ -191,7 +197,7 @@ pyparsing==2.4.7
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
     #   packaging
-pytest-cov==2.11.1
+pytest-cov==2.12.0
     # via -r requirements/test.txt
 pytest==6.2.4
     # via
@@ -226,7 +232,7 @@ six==1.16.0
     #   virtualenv
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==3.5.4
+sphinx==4.0.1
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
@@ -257,6 +263,7 @@ toml==0.10.2
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
+    #   coverage
     #   pep517
     #   pylint
     #   pytest

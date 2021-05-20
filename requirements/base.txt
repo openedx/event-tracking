@@ -12,9 +12,9 @@ celery==4.4.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
-django==2.2.21
+django==2.2.23
     # via
-    #   -c requirements/constraints.txt
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
 kombu==4.6.11
     # via celery

@@ -8,13 +8,11 @@
 # pin when possible.  Writing an issue against the offending project and
 # linking to it here is good.
 
-# staying on an lts release
-django<2.3
-
+# This file contains all common constraints for edx-repos
+-c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
 
 # mock version 4.0.0 drops support for python 3.5
 mock<4.0.0
-
 
 # maintaining the production version.
 celery<5.0
