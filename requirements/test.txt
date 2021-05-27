@@ -22,11 +22,10 @@ attrs==21.2.0
 click-log==0.3.2
     # via edx-lint
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   click-log
     #   code-annotations
     #   edx-lint
-code-annotations==1.1.1
+code-annotations==1.1.2
     # via edx-lint
 coverage[toml]==5.5
     # via pytest-cov
@@ -35,7 +34,6 @@ ddt==1.4.2
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.txt
-    #   code-annotations
     #   edx-lint
 edx-lint==5.0.0
     # via -r requirements/test.in
@@ -43,19 +41,15 @@ iniconfig==1.1.1
     # via pytest
 isort==5.8.0
     # via pylint
-jinja2==2.11.3
-    # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
-    #   code-annotations
+jinja2==3.0.1
+    # via code-annotations
     # via
     #   -r requirements/base.txt
     #   celery
 lazy-object-proxy==1.6.0
     # via astroid
-markupsafe==1.1.1
-    # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
-    #   jinja2
+markupsafe==2.0.1
+    # via jinja2
 mccabe==0.6.1
     # via pylint
 mock==3.0.5
