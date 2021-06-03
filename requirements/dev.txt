@@ -33,7 +33,7 @@ celery==4.4.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-certifi==2020.12.5
+certifi==2021.5.30
     # via
     #   -r requirements/travis.txt
     #   requests
@@ -59,7 +59,7 @@ code-annotations==1.1.2
     #   edx-lint
 codecov==2.1.11
     # via -r requirements/travis.txt
-coverage[toml]==5.5
+coverage==5.5
     # via
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
@@ -67,11 +67,11 @@ coverage[toml]==5.5
     #   pytest-cov
 ddt==1.4.2
     # via -r requirements/test.txt
-distlib==0.3.1
+distlib==0.3.2
     # via
     #   -r requirements/travis.txt
     #   virtualenv
-django==2.2.23
+django==2.2.24
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -178,7 +178,7 @@ pylint-plugin-utils==0.6
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pylint==2.8.2
+pylint==2.8.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -192,7 +192,7 @@ pyparsing==2.4.7
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
     #   packaging
-pytest-cov==2.12.0
+pytest-cov==2.12.1
     # via -r requirements/test.txt
 pytest==6.2.4
     # via
@@ -258,10 +258,10 @@ toml==0.10.2
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
-    #   coverage
     #   pep517
     #   pylint
     #   pytest
+    #   pytest-cov
     #   tox
 tox-battery==0.6.1
     # via -r requirements/travis.txt
