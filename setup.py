@@ -37,13 +37,14 @@ def load_requirements(*requirements_paths):
     requirements = set()
     for path in requirements_paths:
         requirements.update(
-            line.strip() for line in open(path).readlines()
+            line.strip() for line in open(path).readlines()  # pylint: disable=consider-using-with
             if is_requirement(line)
         )
     return list(requirements)
 
 
-README = open(os.path.join(os.path.dirname(__file__), 'README.rst'), encoding='utf-8').read()
+README = open(os.path.join(os.path.dirname(__file__), 'README.rst'),  # pylint: disable=consider-using-with
+              encoding='utf-8').read()
 REQUIREMENTS = load_requirements('requirements/base.in')
 
 setup(

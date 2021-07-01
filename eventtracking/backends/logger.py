@@ -44,7 +44,7 @@ class LoggerBackend:
 class DateTimeJSONEncoder(json.JSONEncoder):
     """JSON encoder aware of datetime.datetime and datetime.date objects"""
 
-    def default(self, obj):  # pylint: disable=arguments-differ
+    def default(self, obj):  # pylint: disable=arguments-renamed
         """
         Serialize datetime and date objects of iso format.
 
