@@ -76,10 +76,8 @@ django==2.2.24
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   edx-lint
-docutils==0.16
-    # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
-    #   sphinx
+docutils==0.17.1
+    # via sphinx
 edx-lint==5.0.0
     # via
     #   -r requirements/dev.in
@@ -128,7 +126,7 @@ mock==3.0.5
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-packaging==20.9
+packaging==21.0
     # via
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
@@ -165,7 +163,7 @@ pycodestyle==2.7.0
     #   -r requirements/test.txt
 pygments==2.9.0
     # via sphinx
-pylint==2.9.1
+pylint==2.9.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -227,7 +225,7 @@ six==1.16.0
     #   virtualenv
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==4.0.2
+sphinx==4.0.3
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
