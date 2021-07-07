@@ -3,18 +3,22 @@ Celery tasks
 """
 import json
 
-from celery.utils.log import get_task_logger
 from celery import shared_task
+from celery.utils.log import get_task_logger
 
 from eventtracking.tracker import get_tracker
 from eventtracking.processors.exceptions import EventEmissionExit
 
 
 logger = get_task_logger(__name__)
+# Maximum number of retries before giving up on rounting event
+MAX_RETRIES = 3
+# Number of seconds after task is retried
+COUNTDOWN = 30
 
 
-@shared_task(name='eventtracking.tasks.send_event')
-def send_event(backend_name, json_event):
+@shared_task(bind=True)
+def send_event(self, backend_name, json_event):
     """
     Send event to configured top-level backend asynchronously.
 
@@ -47,10 +51,15 @@ def send_event(backend_name, json_event):
         processed_event = backend.process_event(event)
         logger.info('Successfully processed event "{}"'.format(event['name']))
 
+        for __, backend in backend.backends.items():
+            backend.send(processed_event.copy())
+
     except EventEmissionExit:
         logger.info('[EventEmissionExit] skipping event {}'.format(event['name']))
         return
-
-    for name, backend in backend.backends.items():
-        logger.info('Sending processed event "{}" to backend {}.'.format(event['name'], name))
-        backend.send(processed_event.copy())
+    except Exception as exc:
+        logger.exception(
+            '[send_event] Failed to send event [%s] with backend [%s], [%s]',
+            event['name'], backend_name, exc
+        )
+        raise self.retry(exc=exc, countdown=COUNTDOWN, max_retries=MAX_RETRIES)

@@ -57,7 +57,7 @@ class TestAsyncSend(TestCase):
         tracker = get_tracker()
         tracker.backends['backend_1'].processors[0].side_effect = EventEmissionExit
 
-        send_event('backend_1', json.dumps(self.event))
+        send_event.apply(['backend_1', json.dumps(self.event)])
 
         tracker.backends['backend_1'].backends['nested_backend_1'].send.assert_not_called()
 
@@ -67,6 +67,6 @@ class TestAsyncSend(TestCase):
         tracker = get_tracker()
         tracker.backends['backend_1'].processors[0].return_value = self.event
 
-        send_event('backend_1', json.dumps(self.event))
+        send_event.apply(['backend_1', json.dumps(self.event)])
 
         tracker.backends['backend_1'].backends['nested_backend_1'].send.assert_called_once_with(self.event)
