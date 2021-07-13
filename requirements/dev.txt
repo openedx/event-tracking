@@ -97,7 +97,7 @@ iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.9.1
+isort==5.9.2
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -225,7 +225,7 @@ six==1.16.0
     #   virtualenv
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==4.0.3
+sphinx==4.1.0
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
