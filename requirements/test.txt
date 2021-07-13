@@ -39,7 +39,7 @@ edx-lint==5.0.0
     # via -r requirements/test.in
 iniconfig==1.1.1
     # via pytest
-isort==5.9.1
+isort==5.9.2
     # via pylint
 jinja2==3.0.1
     # via code-annotations
