@@ -7,7 +7,7 @@
     # via
     #   -r requirements/base.txt
     #   kombu
-astroid==2.6.2
+astroid==2.6.4
     # via
     #   pylint
     #   pylint-celery
@@ -121,3 +121,6 @@ toml==0.10.2
     #   celery
 wrapt==1.12.1
     # via astroid
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools
