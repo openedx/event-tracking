@@ -10,7 +10,7 @@ amqp==2.6.1
     # via
     #   -r requirements/test.txt
     #   kombu
-astroid==2.6.4
+astroid==2.6.5
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -167,7 +167,7 @@ pycodestyle==2.7.0
     #   -r requirements/test.txt
 pygments==2.9.0
     # via sphinx
-pylint==2.9.3
+pylint==2.9.5
     # via
     #   -r requirements/test.txt
     #   edx-lint
