@@ -49,7 +49,7 @@ REQUIREMENTS = load_requirements('requirements/base.in')
 
 setup(
     name='event-tracking',
-    version='1.0.4',
+    version='1.1.0',
     packages=find_packages(),
     include_package_data=True,
     license='AGPLv3 License',
@@ -64,6 +64,9 @@ setup(
         'Environment :: Web Environment',
         'Framework :: Django',
         'Framework :: Django :: 2.2',
+        'Framework :: Django :: 3.0',
+        'Framework :: Django :: 3.1',
+        'Framework :: Django :: 3.2',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
         'Operating System :: OS Independent',
