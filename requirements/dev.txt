@@ -145,7 +145,7 @@ pip-tools==6.2.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==2.0.2
+platformdirs==2.1.0
     # via
     #   -r requirements/travis.txt
     #   virtualenv
@@ -229,7 +229,7 @@ six==1.16.0
     #   virtualenv
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==4.1.1
+sphinx==4.1.2
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
@@ -263,7 +263,7 @@ toml==0.10.2
     #   pytest
     #   pytest-cov
     #   tox
-tomli==1.0.4
+tomli==1.1.0
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
