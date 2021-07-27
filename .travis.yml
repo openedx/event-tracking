@@ -8,6 +8,7 @@ env:
   - TOXENV=celery44-django22
   - TOXENV=celery50-django30
   - TOXENV=celery50-django31
+  - TOXENV=celery50-django32
 install:
   - make test.setup install
   - pip install pip==20.0.2
