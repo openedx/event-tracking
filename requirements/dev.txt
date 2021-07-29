@@ -53,7 +53,7 @@ click-log==0.3.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
-code-annotations==1.1.2
+code-annotations==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -167,7 +167,7 @@ pycodestyle==2.7.0
     #   -r requirements/test.txt
 pygments==2.9.0
     # via sphinx
-pylint==2.9.5
+pylint==2.9.6
     # via
     #   -r requirements/test.txt
     #   edx-lint
