@@ -10,7 +10,7 @@ amqp==2.6.1
     # via
     #   -r requirements/test.txt
     #   kombu
-astroid==2.6.5
+astroid==2.6.6
     # via
     #   -r requirements/test.txt
     #   pylint
