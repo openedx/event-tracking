@@ -165,7 +165,7 @@ pycodestyle==2.7.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-pygments==2.9.0
+pygments==2.10.0
     # via sphinx
 pylint==2.9.6
     # via
