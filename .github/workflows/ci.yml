@@ -1,0 +1,41 @@
+name: Python CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches:
+    - '**'
+
+jobs:
+  run_tests:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04]
+        python-version: ['3.8']
+        toxenv: [celery44-django22, celery50-django30, celery50-django31, celery50-django32]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.6.0
+      with:
+        mongodb-version: 4.0
+
+    - name: Install pip
+      run: pip install -r requirements/pip.txt
+
+    - name: Install Dependencies
+      run: make test.setup install
+
+    - name: Run Tests
+      env:
+        TOXENV: ${{ matrix.toxenv }}
+      run: tox
