@@ -267,7 +267,7 @@ tomli==1.2.1
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
-tox==3.24.1
+tox==3.24.2
     # via
     #   -r requirements/dev.in
     #   -r requirements/travis.txt
