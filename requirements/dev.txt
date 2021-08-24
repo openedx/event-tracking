@@ -10,7 +10,7 @@ amqp==2.6.1
     # via
     #   -r requirements/test.txt
     #   kombu
-astroid==2.6.6
+astroid==2.7.2
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -147,7 +147,9 @@ pip-tools==6.2.0
     #   -r requirements/pip-tools.txt
 platformdirs==2.2.0
     # via
+    #   -r requirements/test.txt
     #   -r requirements/travis.txt
+    #   pylint
     #   virtualenv
 pluggy==0.13.1
     # via
@@ -167,7 +169,7 @@ pycodestyle==2.7.0
     #   -r requirements/test.txt
 pygments==2.10.0
     # via sphinx
-pylint==2.9.6
+pylint==2.10.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -247,7 +249,7 @@ sqlparse==0.4.1
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==3.3.0
+stevedore==3.4.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -267,7 +269,7 @@ tomli==1.2.1
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
-tox==3.24.2
+tox==3.24.3
     # via
     #   -r requirements/dev.in
     #   -r requirements/travis.txt
