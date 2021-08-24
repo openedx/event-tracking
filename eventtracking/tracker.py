@@ -85,7 +85,7 @@ class Tracker:
         Create a new dictionary that corresponds to the union of all of the
         contexts that have been entered but not exited at this point.
         """
-        merged = dict()
+        merged = {}
         for context in self.located_context.values():
             merged.update(context)
         return merged
