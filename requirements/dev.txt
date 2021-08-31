@@ -10,7 +10,7 @@ amqp==2.6.1
     # via
     #   -r requirements/test.txt
     #   kombu
-astroid==2.7.2
+astroid==2.7.3
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -145,7 +145,7 @@ pip-tools==6.2.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==2.2.0
+platformdirs==2.3.0
     # via
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
@@ -153,6 +153,7 @@ platformdirs==2.2.0
     #   virtualenv
 pluggy==0.13.1
     # via
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
     #   pytest
@@ -196,7 +197,7 @@ pyparsing==2.4.7
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
     #   packaging
-pytest==6.2.4
+pytest==6.2.5
     # via
     #   -r requirements/test.txt
     #   pytest-cov
