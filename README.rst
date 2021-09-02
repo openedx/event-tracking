@@ -195,5 +195,5 @@ You can discuss this code on the `edx-code Google Group`__ or in the
 
 __ https://groups.google.com/forum/#!forum/edx-code
 
-.. |build-status| image:: https://api.travis-ci.com/edx/event-tracking.svg?branch=master
-   :target: https://travis-ci.com/edx/event-tracking
+.. |build-status| image:: https://github.com/edx/event-tracking/workflows/Python%20CI/badge.svg?branch=master
+   :target: https://github.com/edx/event-tracking/actions?query=workflow%3A%22Python+CI%22
