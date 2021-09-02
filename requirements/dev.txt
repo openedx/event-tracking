@@ -75,10 +75,9 @@ django==2.2.24
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
-    #   edx-lint
 docutils==0.17.1
     # via sphinx
-edx-lint==5.0.0
+edx-lint==5.1.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
@@ -151,9 +150,8 @@ platformdirs==2.3.0
     #   -r requirements/travis.txt
     #   pylint
     #   virtualenv
-pluggy==0.13.1
+pluggy==1.0.0
     # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   -r requirements/travis.txt
     #   pytest
