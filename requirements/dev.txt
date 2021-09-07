@@ -152,6 +152,7 @@ platformdirs==2.3.0
     #   virtualenv
 pluggy==1.0.0
     # via
+    #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   pytest
     #   tox
