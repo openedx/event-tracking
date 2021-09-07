@@ -7,3 +7,17 @@ class EventEmissionExit(Exception):
 
     This should only be raised by processors.
     """
+
+
+class NoTransformerImplemented(Exception):
+    """
+    Raise this exception when there is no transformer implemented
+    for an event.
+    """
+
+
+class NoBackendEnabled(Exception):
+    """
+    Raise this exception when there is no backend enabled
+    for an event.
+    """
