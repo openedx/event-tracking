@@ -5,8 +5,10 @@ Celery tasks
 from celery.utils.log import get_task_logger
 from celery import shared_task
 from eventtracking.tracker import get_tracker
-from eventtracking.processors.exceptions import NoTransformerImplemented
-from eventtracking.processors.exceptions import NoBackendEnabled
+from eventtracking.processors.exceptions import (
+    NoBackendEnabled,
+    NoTransformerImplemented,
+)
 
 logger = get_task_logger(__name__)
 # Maximum number of retries before giving up on rounting event
@@ -38,7 +40,7 @@ def send_event(self, backend_name, processed_event):
         backend.send_to_backends(processed_event.copy())
 
     except (NoTransformerImplemented, NoBackendEnabled) as exc:
-        logger.exception(
+        logger.info(
             '[send_event] Failed to send event [%s] with backend [%s], [%s]',
             processed_event['name'], backend_name, exc
         )
@@ -46,6 +48,6 @@ def send_event(self, backend_name, processed_event):
     except Exception as exc:
         logger.exception(
             '[send_event] Failed to send event [%s] with backend [%s], [%s]',
-            processed_event['name'], backend_name, exc
+            processed_event['name'], backend_name, repr(exc)
         )
         raise self.retry(exc=exc, countdown=COUNTDOWN, max_retries=MAX_RETRIES)
