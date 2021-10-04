@@ -5,7 +5,11 @@ import logging
 from collections import OrderedDict
 from copy import deepcopy
 
-from eventtracking.processors.exceptions import EventEmissionExit
+from eventtracking.processors.exceptions import (
+    EventEmissionExit,
+    NoBackendEnabled,
+    NoTransformerImplemented,
+)
 
 
 LOG = logging.getLogger(__name__)
@@ -131,6 +135,11 @@ class RoutingBackend:
         for name, backend in self.backends.items():
             try:
                 backend.send(event)
+            except (NoTransformerImplemented, NoBackendEnabled) as exc:
+                LOG.info(
+                    '[send_to_backends] Failed to send event [%s] with backend [%s], [%s]',
+                    event, backend, repr(exc)
+                )
             except Exception:  # pylint: disable=broad-except
                 LOG.exception(
                     'Unable to send event to backend: %s', name
