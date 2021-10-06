@@ -1,3 +1,9 @@
 [TYPECHECK]
 # added because edx-lint-0.6.0 pins pylint-1.7.6 (can be removed when pylint-2.2.2 is used)
 ignored-modules = six.moves
+
+[MESSAGES CONTROL]
+disable+=
+    logging-format-interpolation,
+    consider-using-with,
+

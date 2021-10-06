@@ -1,5 +1,5 @@
 # Core dependencies for installing other packages
 
-pip==20.0.2
+pip
 setuptools
 wheel
