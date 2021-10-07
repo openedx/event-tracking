@@ -59,7 +59,7 @@ code-annotations==1.2.0
     #   edx-lint
 codecov==2.1.12
     # via -r requirements/ci.txt
-coverage[toml]==6.0
+coverage[toml]==6.0.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
