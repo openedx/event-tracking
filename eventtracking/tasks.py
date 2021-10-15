@@ -4,6 +4,7 @@ Celery tasks
 
 from celery.utils.log import get_task_logger
 from celery import shared_task
+from edx_django_utils.monitoring import set_code_owner_attribute
 from eventtracking.tracker import get_tracker
 from eventtracking.processors.exceptions import (
     NoBackendEnabled,
@@ -18,6 +19,7 @@ COUNTDOWN = 30
 
 
 @shared_task(bind=True)
+@set_code_owner_attribute
 def send_event(self, backend_name, processed_event):
     """
     Send event to configured top-level backend asynchronously.
