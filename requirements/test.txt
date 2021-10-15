@@ -34,6 +34,18 @@ ddt==1.4.4
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.txt
+    #   django-crum
+    #   edx-django-utils
+django-crum==0.7.9
+    # via
+    #   -r requirements/base.txt
+    #   edx-django-utils
+django-waffle==2.2.1
+    # via
+    #   -r requirements/base.txt
+    #   edx-django-utils
+edx-django-utils==4.4.0
+    # via -r requirements/base.txt
 edx-lint==5.2.0
     # via -r requirements/test.in
 iniconfig==1.1.1
@@ -55,14 +67,24 @@ mock==3.0.5
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.in
+newrelic==7.2.1.168
+    # via
+    #   -r requirements/base.txt
+    #   edx-django-utils
 packaging==21.0
     # via pytest
 pbr==5.6.0
-    # via stevedore
+    # via
+    #   -r requirements/base.txt
+    #   stevedore
 platformdirs==2.4.0
     # via pylint
 pluggy==1.0.0
     # via pytest
+psutil==5.8.0
+    # via
+    #   -r requirements/base.txt
+    #   edx-django-utils
 py==1.10.0
     # via pytest
 pycodestyle==2.8.0
@@ -96,7 +118,7 @@ pytz==2021.3
     #   -r requirements/base.txt
     #   celery
     #   django
-pyyaml==5.4.1
+pyyaml==6.0
     # via code-annotations
 six==1.16.0
     # via
@@ -108,7 +130,10 @@ sqlparse==0.4.2
     #   -r requirements/base.txt
     #   django
 stevedore==3.4.0
-    # via code-annotations
+    # via
+    #   -r requirements/base.txt
+    #   code-annotations
+    #   edx-django-utils
 text-unidecode==1.3
     # via python-slugify
 toml==0.10.2
