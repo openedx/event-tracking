@@ -7,7 +7,7 @@
     # via
     #   -r requirements/base.txt
     #   kombu
-astroid==2.8.2
+astroid==2.8.3
     # via
     #   pylint
     #   pylint-celery
@@ -67,7 +67,7 @@ mock==3.0.5
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.in
-newrelic==7.2.1.168
+newrelic==7.2.2.169
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -129,7 +129,7 @@ sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==3.4.0
+stevedore==3.5.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -150,7 +150,7 @@ typing-extensions==3.10.0.2
     #   -r requirements/base.txt
     #   amqp
     #   celery
-wrapt==1.12.1
+wrapt==1.13.2
     # via astroid
 
 # The following packages are considered to be unsafe in a requirements file:
