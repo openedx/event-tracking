@@ -135,12 +135,14 @@ class RoutingBackend:
         for name, backend in self.backends.items():
             try:
                 backend.send(event)
-            except (NoTransformerImplemented, NoBackendEnabled) as exc:
-                LOG.info(
-                    '[send_to_backends] Failed to send event [%s] with backend [%s], [%s]',
-                    event, backend, repr(exc)
-                )
+            except NoTransformerImplemented as exc:
+                LOG.info('[send_to_backends] No transformer has been implemented for edx event "%s", [%s]',
+                         event["name"], repr(exc))
+            except NoBackendEnabled as exc:
+                LOG.info('[send_to_backends] Failed to send edx event "%s" to "%s" backend. "%s" backend has'
+                         ' not been enabled, [%s]', event["name"], name, name, repr(exc)
+                         )
             except Exception:  # pylint: disable=broad-except
                 LOG.exception(
-                    'Unable to send event to backend: %s', name
+                    'Unable to send edx event "%s" to backend: %s', event["name"], name
                 )
