@@ -19,7 +19,7 @@ MAX_RETRIES = 3
 COUNTDOWN = 30
 
 @task_prerun.connect(sender='eventtracking.tasks.send_event')
-def add_code_owner_attribute(task = None):
+def add_code_owner_attribute(task = None, **kwargs):
     set_code_owner_attribute_from_module(task.__module__)
 
 
