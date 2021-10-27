@@ -4,7 +4,8 @@ Celery tasks
 
 from celery.utils.log import get_task_logger
 from celery import shared_task
-from edx_django_utils.monitoring import set_code_owner_attribute
+from celery.signals import task_prerun
+from edx_django_utils.monitoring import set_code_owner_attribute_from_module
 from eventtracking.tracker import get_tracker
 from eventtracking.processors.exceptions import (
     NoBackendEnabled,
@@ -17,9 +18,12 @@ MAX_RETRIES = 3
 # Number of seconds after task is retried
 COUNTDOWN = 30
 
+@task_prerun.connect(sender='eventtracking.tasks.send_event')
+def add_code_owner_attribute(task = None):
+    set_code_owner_attribute_from_module(task.__module__)
+
 
 @shared_task(bind=True)
-@set_code_owner_attribute
 def send_event(self, backend_name, processed_event):
     """
     Send event to configured top-level backend asynchronously.
