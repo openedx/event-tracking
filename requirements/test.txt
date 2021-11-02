@@ -27,7 +27,7 @@ click-log==0.3.2
     # via edx-lint
 code-annotations==1.2.0
     # via edx-lint
-coverage[toml]==6.0.2
+coverage[toml]==6.1.1
     # via pytest-cov
 ddt==1.4.4
     # via -r requirements/test.in
@@ -46,7 +46,7 @@ django-waffle==2.2.1
     #   edx-django-utils
 edx-django-utils==4.4.0
     # via -r requirements/base.txt
-edx-lint==5.2.0
+edx-lint==5.2.1
     # via -r requirements/test.in
 iniconfig==1.1.1
     # via pytest
@@ -71,7 +71,7 @@ newrelic==7.2.2.169
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-packaging==21.0
+packaging==21.2
     # via pytest
 pbr==5.6.0
     # via
@@ -105,7 +105,7 @@ pylint-plugin-utils==0.6
     #   pylint-django
 pymongo==3.12.1
     # via -r requirements/base.txt
-pyparsing==3.0.1
+pyparsing==2.4.7
     # via packaging
 pytest==6.2.5
     # via pytest-cov
@@ -150,7 +150,7 @@ typing-extensions==3.10.0.2
     #   -r requirements/base.txt
     #   amqp
     #   celery
-wrapt==1.13.2
+wrapt==1.13.3
     # via astroid
 
 # The following packages are considered to be unsafe in a requirements file:
