@@ -2,3 +2,4 @@ include requirements/base.in
 include LICENSE.TXT
 include AUTHORS
 include README.rst
+include requirements/constraints.txt
