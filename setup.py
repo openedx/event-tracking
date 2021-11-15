@@ -3,6 +3,8 @@ Package metadata for event-tracking.
 """
 
 import os
+import re
+
 from setuptools import setup
 from setuptools import find_packages
 
@@ -43,13 +45,29 @@ def load_requirements(*requirements_paths):
     return list(requirements)
 
 
+def get_version(*file_paths):
+    """
+    Extract the version string from the file at the given relative path fragments.
+    """
+    filename = os.path.join(os.path.dirname(__file__), *file_paths)
+    with open(filename, encoding='utf-8') as opened_file:
+        version_file = opened_file.read()
+        version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
+                                  version_file, re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError('Unable to find version string.')
+
+
+VERSION = get_version("eventtracking", "__init__.py")
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst'),
               encoding='utf-8').read()
 REQUIREMENTS = load_requirements('requirements/base.in')
 
+
 setup(
     name='event-tracking',
-    version='1.1.4',
+    version=VERSION,
     packages=find_packages(),
     include_package_data=True,
     license='AGPLv3 License',
