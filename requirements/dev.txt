@@ -14,7 +14,7 @@ asgiref==3.4.1
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.8.5
+astroid==2.8.6
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -97,7 +97,7 @@ edx-lint==5.2.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-filelock==3.3.2
+filelock==3.4.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -145,14 +145,14 @@ newrelic==7.2.4.171
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-packaging==21.2
+packaging==21.3
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   pytest
     #   sphinx
     #   tox
-pbr==5.7.0
+pbr==5.8.0
     # via
     #   -r requirements/test.txt
     #   stevedore
@@ -214,7 +214,7 @@ pylint-plugin-utils==0.6
     #   pylint-django
 pymongo==3.12.1
     # via -r requirements/test.txt
-pyparsing==2.4.7
+pyparsing==3.0.6
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -252,7 +252,7 @@ six==1.16.0
     #   mock
     #   tox
     #   virtualenv
-snowballstemmer==2.1.0
+snowballstemmer==2.2.0
     # via sphinx
 sphinx==4.3.0
     # via -r requirements/dev.in

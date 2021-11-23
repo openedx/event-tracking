@@ -11,7 +11,7 @@ asgiref==3.4.1
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.8.5
+astroid==2.8.6
     # via
     #   pylint
     #   pylint-celery
@@ -75,9 +75,9 @@ newrelic==7.2.4.171
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-packaging==21.2
+packaging==21.3
     # via pytest
-pbr==5.7.0
+pbr==5.8.0
     # via
     #   -r requirements/base.txt
     #   stevedore
@@ -109,7 +109,7 @@ pylint-plugin-utils==0.6
     #   pylint-django
 pymongo==3.12.1
     # via -r requirements/base.txt
-pyparsing==2.4.7
+pyparsing==3.0.6
     # via packaging
 pytest==6.2.5
     # via pytest-cov
