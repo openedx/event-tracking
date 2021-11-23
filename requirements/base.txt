@@ -30,7 +30,7 @@ kombu==4.6.11
     # via celery
 newrelic==7.2.4.171
     # via edx-django-utils
-pbr==5.7.0
+pbr==5.8.0
     # via stevedore
 psutil==5.8.0
     # via edx-django-utils
