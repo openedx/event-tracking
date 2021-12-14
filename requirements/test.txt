@@ -107,7 +107,7 @@ pylint-plugin-utils==0.6
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==3.12.2
+pymongo==3.12.3
     # via -r requirements/base.txt
 pyparsing==3.0.6
     # via packaging
@@ -144,7 +144,7 @@ toml==0.10.2
     # via
     #   pylint
     #   pytest
-tomli==1.2.2
+tomli==2.0.0
     # via coverage
 typing-extensions==4.0.1
     # via
