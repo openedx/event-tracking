@@ -91,7 +91,7 @@ django-waffle==2.2.1
     #   edx-django-utils
 docutils==0.17.1
     # via sphinx
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via -r requirements/test.txt
 edx-lint==5.2.1
     # via
@@ -125,7 +125,7 @@ kombu==4.6.11
     # via
     #   -r requirements/test.txt
     #   celery
-lazy-object-proxy==1.6.0
+lazy-object-proxy==1.7.1
     # via
     #   -r requirements/test.txt
     #   astroid
@@ -254,7 +254,7 @@ six==1.16.0
     #   virtualenv
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==4.3.1
+sphinx==4.3.2
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
