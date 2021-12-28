@@ -19,7 +19,7 @@ astroid==2.9.0
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
-attrs==21.2.0
+attrs==21.3.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -91,13 +91,13 @@ django-waffle==2.2.1
     #   edx-django-utils
 docutils==0.17.1
     # via sphinx
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via -r requirements/test.txt
 edx-lint==5.2.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-filelock==3.4.0
+filelock==3.4.2
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -125,7 +125,7 @@ kombu==4.6.11
     # via
     #   -r requirements/test.txt
     #   celery
-lazy-object-proxy==1.6.0
+lazy-object-proxy==1.7.1
     # via
     #   -r requirements/test.txt
     #   astroid
@@ -164,7 +164,7 @@ pip-tools==6.4.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==2.4.0
+platformdirs==2.4.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -254,7 +254,7 @@ six==1.16.0
     #   virtualenv
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==4.3.1
+sphinx==4.3.2
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
@@ -319,7 +319,7 @@ virtualenv==20.10.0
     # via
     #   -r requirements/ci.txt
     #   tox
-wheel==0.37.0
+wheel==0.37.1
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
