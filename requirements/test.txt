@@ -15,7 +15,7 @@ astroid==2.9.0
     # via
     #   pylint
     #   pylint-celery
-attrs==21.2.0
+attrs==21.3.0
     # via pytest
     # via
     #   -r requirements/base.txt
