@@ -14,7 +14,7 @@ asgiref==3.4.1
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.9.2
+astroid==2.9.3
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -37,7 +37,7 @@ certifi==2021.10.8
     # via
     #   -r requirements/ci.txt
     #   requests
-charset-normalizer==2.0.9
+charset-normalizer==2.0.10
     # via
     #   -r requirements/ci.txt
     #   requests
@@ -71,7 +71,7 @@ distlib==0.3.4
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.10
+django==3.2.11
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -81,7 +81,7 @@ django-crum==0.7.9
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django-waffle==2.2.1
+django-waffle==2.3.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -186,7 +186,7 @@ pycodestyle==2.8.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-pygments==2.11.1
+pygments==2.11.2
     # via sphinx
 pylint==2.12.2
     # via
@@ -235,7 +235,7 @@ pyyaml==6.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
-requests==2.27.0
+requests==2.27.1
     # via
     #   -r requirements/ci.txt
     #   codecov
@@ -302,7 +302,7 @@ typing-extensions==4.0.1
     #   -r requirements/test.txt
     #   astroid
     #   pylint
-urllib3==1.26.7
+urllib3==1.26.8
     # via
     #   -r requirements/ci.txt
     #   requests
