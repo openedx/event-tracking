@@ -6,7 +6,7 @@
 #
 amqp==2.6.1
     # via kombu
-asgiref==3.4.1
+asgiref==3.5.0
     # via django
 billiard==3.6.4.0
     # via celery
@@ -24,11 +24,11 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==2.3.0
     # via edx-django-utils
-edx-django-utils==4.4.1
+edx-django-utils==4.4.2
     # via -r requirements/base.in
 kombu==4.6.11
     # via celery
-newrelic==7.2.4.171
+newrelic==7.4.0.172
     # via edx-django-utils
 pbr==5.8.0
     # via stevedore

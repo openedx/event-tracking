@@ -10,7 +10,7 @@ amqp==2.6.1
     # via
     #   -r requirements/test.txt
     #   kombu
-asgiref==3.4.1
+asgiref==3.5.0
     # via
     #   -r requirements/test.txt
     #   django
@@ -87,7 +87,7 @@ django-waffle==2.3.0
     #   edx-django-utils
 docutils==0.17.1
     # via sphinx
-edx-django-utils==4.4.1
+edx-django-utils==4.4.2
     # via -r requirements/test.txt
 edx-lint==5.2.1
     # via
@@ -139,7 +139,7 @@ mock==3.0.5
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-newrelic==7.2.4.171
+newrelic==7.4.0.172
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -212,7 +212,7 @@ pylint-plugin-utils==0.7
     #   pylint-django
 pymongo==3.12.3
     # via -r requirements/test.txt
-pyparsing==3.0.6
+pyparsing==3.0.7
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
