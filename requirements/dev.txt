@@ -37,7 +37,7 @@ certifi==2021.10.8
     # via
     #   -r requirements/ci.txt
     #   requests
-charset-normalizer==2.0.10
+charset-normalizer==2.0.11
     # via
     #   -r requirements/ci.txt
     #   requests
@@ -59,7 +59,7 @@ code-annotations==1.2.0
     #   edx-lint
 codecov==2.1.12
     # via -r requirements/ci.txt
-coverage[toml]==6.2
+coverage[toml]==6.3
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -87,7 +87,7 @@ django-waffle==2.3.0
     #   edx-django-utils
 docutils==0.17.1
     # via sphinx
-edx-django-utils==4.4.2
+edx-django-utils==4.5.0
     # via -r requirements/test.txt
 edx-lint==5.2.1
     # via
