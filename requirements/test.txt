@@ -29,9 +29,9 @@ attrs==21.4.0
     #   edx-lint
 click-log==0.3.2
     # via edx-lint
-code-annotations==1.2.0
+code-annotations==1.3.0
     # via edx-lint
-coverage[toml]==6.3
+coverage[toml]==6.3.1
     # via pytest-cov
 ddt==1.4.4
     # via -r requirements/test.in
@@ -77,7 +77,7 @@ newrelic==7.4.0.172
     #   edx-django-utils
 packaging==21.3
     # via pytest
-pbr==5.8.0
+pbr==5.8.1
     # via
     #   -r requirements/base.txt
     #   stevedore
@@ -111,7 +111,7 @@ pymongo==3.12.3
     # via -r requirements/base.txt
 pyparsing==3.0.7
     # via packaging
-pytest==6.2.5
+pytest==7.0.0
     # via pytest-cov
 pytest-cov==3.0.0
     # via -r requirements/test.in
@@ -141,11 +141,11 @@ stevedore==3.5.0
 text-unidecode==1.3
     # via python-slugify
 toml==0.10.2
-    # via
-    #   pylint
-    #   pytest
+    # via pylint
 tomli==2.0.0
-    # via coverage
+    # via
+    #   coverage
+    #   pytest
 typing-extensions==4.0.1
     # via
     #   astroid

@@ -14,7 +14,7 @@ celery==4.4.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
-django==3.2.11
+django==3.2.12
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -30,7 +30,7 @@ kombu==4.6.11
     # via celery
 newrelic==7.4.0.172
     # via edx-django-utils
-pbr==5.8.0
+pbr==5.8.1
     # via stevedore
 psutil==5.9.0
     # via edx-django-utils
