@@ -24,14 +24,29 @@ attrs==21.4.0
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
     # via
+    #   -r requirements/base.txt
+    #   celery
+    #   click-didyoumean
     #   click-log
+    #   click-plugins
+    #   click-repl
     #   code-annotations
     #   edx-lint
+    # via
+    #   -r requirements/base.txt
+    #   celery
 click-log==0.3.2
     # via edx-lint
-code-annotations==1.2.0
+click-plugins==1.1.1
+    # via
+    #   -r requirements/base.txt
+    #   celery
+    # via
+    #   -r requirements/base.txt
+    #   celery
+code-annotations==1.3.0
     # via edx-lint
-coverage[toml]==6.3
+coverage[toml]==6.3.1
     # via pytest-cov
 ddt==1.4.4
     # via -r requirements/test.in
@@ -67,17 +82,15 @@ markupsafe==2.0.1
     # via jinja2
 mccabe==0.6.1
     # via pylint
-mock==3.0.5
-    # via
-    #   -c requirements/constraints.txt
-    #   -r requirements/test.in
+mock==4.0.3
+    # via -r requirements/test.in
 newrelic==7.4.0.172
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
 packaging==21.3
     # via pytest
-pbr==5.8.0
+pbr==5.8.1
     # via
     #   -r requirements/base.txt
     #   stevedore
@@ -85,6 +98,9 @@ platformdirs==2.4.1
     # via pylint
 pluggy==1.0.0
     # via pytest
+    # via
+    #   -r requirements/base.txt
+    #   click-repl
 psutil==5.9.0
     # via
     #   -r requirements/base.txt
@@ -111,7 +127,7 @@ pymongo==3.12.3
     # via -r requirements/base.txt
 pyparsing==3.0.7
     # via packaging
-pytest==6.2.5
+pytest==7.0.0
     # via pytest-cov
 pytest-cov==3.0.0
     # via -r requirements/test.in
@@ -127,8 +143,8 @@ pyyaml==6.0
 six==1.16.0
     # via
     #   -r requirements/base.txt
+    #   click-repl
     #   edx-lint
-    #   mock
 sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
@@ -141,11 +157,11 @@ stevedore==3.5.0
 text-unidecode==1.3
     # via python-slugify
 toml==0.10.2
+    # via pylint
+tomli==2.0.1
     # via
-    #   pylint
+    #   coverage
     #   pytest
-tomli==2.0.0
-    # via coverage
 typing-extensions==4.0.1
     # via
     #   astroid
@@ -154,6 +170,11 @@ typing-extensions==4.0.1
     #   -r requirements/base.txt
     #   amqp
     #   celery
+    #   kombu
+wcwidth==0.2.5
+    # via
+    #   -r requirements/base.txt
+    #   prompt-toolkit
 wrapt==1.13.3
     # via astroid
 

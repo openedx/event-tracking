@@ -70,7 +70,7 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	pip-compile --upgrade -o requirements/ci.txt requirements/ci.in
 	pip-compile --upgrade -o requirements/dev.txt requirements/dev.in
 	# Let tox control the Django version for tests
-	grep -e "^amqp==\|^anyjson==\|^billiard==\|^celery==\|^kombu==\|^click-didyoumean==\|^click-repl==\|^click==\|^prompt-toolkit==\|^vine==" requirements/base.txt > requirements/celery44.txt
+	grep -e "^amqp==\|^anyjson==\|^billiard==\|^celery==\|^kombu==\|^click-didyoumean==\|^click-repl==\|^click==\|^prompt-toolkit==\|^vine==" requirements/base.txt > requirements/celery52.txt
 	sed -i.tmp '/^[d|D]jango==/d' requirements/test.txt
 	sed -i.tmp '/^djangorestframework==/d' requirements/test.txt
 	sed -i.tmp '/^amqp==/d' requirements/test.txt
