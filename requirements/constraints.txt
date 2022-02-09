@@ -11,8 +11,5 @@
 # This file contains all common constraints for edx-repos
 -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
 
-# mock version 4.0.0 drops support for python 3.5
-mock<4.0.0
-
 # maintaining the production version.
-celery<5.0
+celery<6.0
