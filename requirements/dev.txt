@@ -176,7 +176,7 @@ pip-tools==6.5.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==2.4.1
+platformdirs==2.5.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
