@@ -94,7 +94,7 @@ pbr==5.8.1
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==2.4.1
+platformdirs==2.5.0
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -127,7 +127,7 @@ pymongo==3.12.3
     # via -r requirements/base.txt
 pyparsing==3.0.7
     # via packaging
-pytest==7.0.0
+pytest==7.0.1
     # via pytest-cov
 pytest-cov==3.0.0
     # via -r requirements/test.in
@@ -162,7 +162,7 @@ tomli==2.0.1
     # via
     #   coverage
     #   pytest
-typing-extensions==4.0.1
+typing-extensions==4.1.1
     # via
     #   astroid
     #   pylint
