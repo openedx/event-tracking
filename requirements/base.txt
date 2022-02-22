@@ -14,7 +14,7 @@ celery==5.2.3
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
-click==8.0.3
+click==8.0.4
     # via
     #   celery
     #   click-didyoumean
