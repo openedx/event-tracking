@@ -84,7 +84,7 @@ mccabe==0.6.1
     # via pylint
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.4.0.172
+newrelic==7.6.0.173
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -131,7 +131,7 @@ pytest==7.0.1
     # via pytest-cov
 pytest-cov==3.0.0
     # via -r requirements/test.in
-python-slugify==6.0.1
+python-slugify==6.1.1
     # via code-annotations
 pytz==2021.3
     # via
