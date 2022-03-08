@@ -6,7 +6,7 @@
 #
 alabaster==0.7.12
     # via sphinx
-amqp==5.0.9
+amqp==5.1.0
     # via
     #   -r requirements/test.txt
     #   kombu
@@ -135,7 +135,7 @@ jinja2==3.0.3
     #   -r requirements/test.txt
     #   code-annotations
     #   sphinx
-kombu==5.2.3
+kombu==5.2.4
     # via
     #   -r requirements/test.txt
     #   celery
@@ -332,7 +332,7 @@ vine==5.0.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.13.2
+virtualenv==20.13.3
     # via
     #   -r requirements/ci.txt
     #   tox
