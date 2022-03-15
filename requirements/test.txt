@@ -35,7 +35,7 @@ attrs==21.4.0
     # via
     #   -r requirements/base.txt
     #   celery
-click-log==0.3.2
+click-log==0.4.0
     # via edx-lint
 click-plugins==1.1.1
     # via
@@ -127,7 +127,7 @@ pymongo==3.12.3
     # via -r requirements/base.txt
 pyparsing==3.0.7
     # via packaging
-pytest==7.0.1
+pytest==7.1.0
     # via pytest-cov
 pytest-cov==3.0.0
     # via -r requirements/test.in
