@@ -63,7 +63,7 @@ django-waffle==2.3.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-edx-django-utils==4.5.0
+edx-django-utils==4.6.0
     # via -r requirements/base.txt
 edx-lint==5.2.1
     # via -r requirements/test.in
@@ -78,7 +78,7 @@ jinja2==3.0.3
     #   celery
 lazy-object-proxy==1.7.1
     # via astroid
-markupsafe==2.1.0
+markupsafe==2.1.1
     # via jinja2
 mccabe==0.6.1
     # via pylint
@@ -127,13 +127,13 @@ pymongo==3.12.3
     # via -r requirements/base.txt
 pyparsing==3.0.7
     # via packaging
-pytest==7.1.0
+pytest==7.1.1
     # via pytest-cov
 pytest-cov==3.0.0
     # via -r requirements/test.in
 python-slugify==6.1.1
     # via code-annotations
-pytz==2021.3
+pytz==2022.1
     # via
     #   -r requirements/base.txt
     #   celery
