@@ -10,11 +10,11 @@ asgiref==3.5.0
     # via django
 billiard==3.6.4.0
     # via celery
-celery==5.2.3
+celery==5.2.5
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
-click==8.1.0
+click==8.1.2
     # via
     #   celery
     #   click-didyoumean
@@ -40,11 +40,11 @@ edx-django-utils==4.6.0
     # via -r requirements/base.in
 kombu==5.2.4
     # via celery
-newrelic==7.6.0.173
+newrelic==7.8.0.174
     # via edx-django-utils
 pbr==5.8.1
     # via stevedore
-prompt-toolkit==3.0.28
+prompt-toolkit==3.0.29
     # via click-repl
 psutil==5.9.0
     # via edx-django-utils
@@ -70,6 +70,3 @@ vine==5.0.0
     #   kombu
 wcwidth==0.2.5
     # via prompt-toolkit
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools
