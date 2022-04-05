@@ -29,7 +29,7 @@ billiard==3.6.4.0
     # via
     #   -r requirements/test.txt
     #   celery
-celery==5.2.3
+celery==5.2.5
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -41,7 +41,7 @@ charset-normalizer==2.0.12
     # via
     #   -r requirements/ci.txt
     #   requests
-click==8.1.0
+click==8.1.2
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
@@ -157,7 +157,7 @@ mccabe==0.7.0
     #   pylint
 mock==4.0.3
     # via -r requirements/test.txt
-newrelic==7.6.0.173
+newrelic==7.8.0.174
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -192,7 +192,7 @@ pluggy==1.0.0
     #   -r requirements/test.txt
     #   pytest
     #   tox
-prompt-toolkit==3.0.28
+prompt-toolkit==3.0.29
     # via
     #   -r requirements/test.txt
     #   click-repl
@@ -212,7 +212,7 @@ pycodestyle==2.8.0
     #   -r requirements/test.txt
 pygments==2.11.2
     # via sphinx
-pylint==2.13.2
+pylint==2.13.4
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -351,7 +351,7 @@ wrapt==1.14.0
     # via
     #   -r requirements/test.txt
     #   astroid
-zipp==3.7.0
+zipp==3.8.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
