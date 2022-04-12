@@ -29,7 +29,7 @@ billiard==3.6.4.0
     # via
     #   -r requirements/test.txt
     #   celery
-celery==5.2.5
+celery==5.2.6
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -91,7 +91,7 @@ distlib==0.3.4
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.12
+django==3.2.13
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -157,7 +157,7 @@ mccabe==0.7.0
     #   pylint
 mock==4.0.3
     # via -r requirements/test.txt
-newrelic==7.8.0.174
+newrelic==7.10.0.175
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -176,7 +176,7 @@ pep517==0.12.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-pip-tools==6.5.1
+pip-tools==6.6.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
@@ -212,7 +212,7 @@ pycodestyle==2.8.0
     #   -r requirements/test.txt
 pygments==2.11.2
     # via sphinx
-pylint==2.13.4
+pylint==2.13.5
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -234,7 +234,7 @@ pylint-plugin-utils==0.7
     #   pylint-django
 pymongo==3.12.3
     # via -r requirements/test.txt
-pyparsing==3.0.7
+pyparsing==3.0.8
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -313,7 +313,7 @@ tomli==2.0.1
     #   pep517
     #   pylint
     #   pytest
-tox==3.24.5
+tox==3.25.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
@@ -335,7 +335,7 @@ vine==5.0.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.14.0
+virtualenv==20.14.1
     # via
     #   -r requirements/ci.txt
     #   tox

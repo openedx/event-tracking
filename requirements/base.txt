@@ -10,7 +10,7 @@ asgiref==3.5.0
     # via django
 billiard==3.6.4.0
     # via celery
-celery==5.2.5
+celery==5.2.6
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -26,7 +26,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.2.0
     # via celery
-django==3.2.12
+django==3.2.13
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -40,7 +40,7 @@ edx-django-utils==4.6.0
     # via -r requirements/base.in
 kombu==5.2.4
     # via celery
-newrelic==7.8.0.174
+newrelic==7.10.0.175
     # via edx-django-utils
 pbr==5.8.1
     # via stevedore
