@@ -86,7 +86,7 @@ mccabe==0.7.0
     # via pylint
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.8.0.174
+newrelic==7.10.0.175
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -111,7 +111,7 @@ py==1.11.0
     # via pytest
 pycodestyle==2.8.0
     # via -r requirements/test.in
-pylint==2.13.4
+pylint==2.13.5
     # via
     #   edx-lint
     #   pylint-celery
@@ -127,7 +127,7 @@ pylint-plugin-utils==0.7
     #   pylint-django
 pymongo==3.12.3
     # via -r requirements/base.txt
-pyparsing==3.0.7
+pyparsing==3.0.8
     # via packaging
 pytest==7.1.1
     # via pytest-cov
