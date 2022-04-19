@@ -6,7 +6,7 @@
 #
 alabaster==0.7.12
     # via sphinx
-amqp==5.1.0
+amqp==5.1.1
     # via
     #   -r requirements/test.txt
     #   kombu
@@ -180,7 +180,7 @@ pip-tools==6.6.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==2.5.1
+platformdirs==2.5.2
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -320,7 +320,7 @@ tox==3.25.0
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-typing-extensions==4.1.1
+typing-extensions==4.2.0
     # via
     #   -r requirements/test.txt
     #   astroid

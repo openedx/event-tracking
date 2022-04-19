@@ -96,7 +96,7 @@ pbr==5.8.1
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==2.5.1
+platformdirs==2.5.2
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -163,7 +163,7 @@ tomli==2.0.1
     #   coverage
     #   pylint
     #   pytest
-typing-extensions==4.1.1
+typing-extensions==4.2.0
     # via
     #   astroid
     #   pylint
