@@ -14,7 +14,7 @@ asgiref==3.5.0
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.11.2
+astroid==2.11.3
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -23,7 +23,7 @@ attrs==21.4.0
     # via
     #   -r requirements/test.txt
     #   pytest
-babel==2.9.1
+babel==2.10.1
     # via sphinx
 billiard==3.6.4.0
     # via
@@ -210,9 +210,9 @@ pycodestyle==2.8.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-pygments==2.11.2
+pygments==2.12.0
     # via sphinx
-pylint==2.13.5
+pylint==2.13.7
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -239,7 +239,7 @@ pyparsing==3.0.8
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   packaging
-pytest==7.1.1
+pytest==7.1.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
