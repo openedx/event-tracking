@@ -7,11 +7,11 @@
     # via
     #   -r requirements/base.txt
     #   kombu
-asgiref==3.5.0
+asgiref==3.5.1
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.11.3
+astroid==2.11.4
     # via
     #   pylint
     #   pylint-celery
@@ -73,7 +73,7 @@ iniconfig==1.1.1
     # via pytest
 isort==5.10.1
     # via pylint
-jinja2==3.1.1
+jinja2==3.1.2
     # via code-annotations
     # via
     #   -r requirements/base.txt
@@ -111,7 +111,7 @@ py==1.11.0
     # via pytest
 pycodestyle==2.8.0
     # via -r requirements/test.in
-pylint==2.13.7
+pylint==2.13.8
     # via
     #   edx-lint
     #   pylint-celery
@@ -133,7 +133,7 @@ pytest==7.1.2
     # via pytest-cov
 pytest-cov==3.0.0
     # via -r requirements/test.in
-python-slugify==6.1.1
+python-slugify==6.1.2
     # via code-annotations
 pytz==2022.1
     # via
@@ -176,7 +176,7 @@ wcwidth==0.2.5
     # via
     #   -r requirements/base.txt
     #   prompt-toolkit
-wrapt==1.14.0
+wrapt==1.14.1
     # via astroid
 
 # The following packages are considered to be unsafe in a requirements file:
