@@ -6,7 +6,7 @@
 #
 amqp==5.1.1
     # via kombu
-asgiref==3.5.1
+asgiref==3.5.2
     # via django
 billiard==3.6.4.0
     # via celery
