@@ -29,7 +29,7 @@ billiard==3.6.4.0
     # via
     #   -r requirements/test.txt
     #   celery
-celery==5.2.6
+celery==5.2.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -110,7 +110,7 @@ django-waffle==2.4.1
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-docutils==0.17.1
+docutils==0.18.1
     # via sphinx
 edx-django-utils==5.0.0
     # via -r requirements/test.txt
@@ -287,7 +287,7 @@ six==1.16.0
     #   virtualenv
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==4.5.0
+sphinx==5.0.0
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx

@@ -10,7 +10,7 @@ asgiref==3.5.2
     # via django
 billiard==3.6.4.0
     # via celery
-celery==5.2.6
+celery==5.2.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
