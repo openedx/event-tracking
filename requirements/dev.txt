@@ -114,7 +114,7 @@ docutils==0.18.1
     # via sphinx
 edx-django-utils==5.0.0
     # via -r requirements/test.txt
-edx-lint==5.2.2
+edx-lint==5.2.3
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt

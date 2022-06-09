@@ -72,7 +72,7 @@ django-waffle==2.5.0
     #   edx-django-utils
 edx-django-utils==5.0.0
     # via -r requirements/base.txt
-edx-lint==5.2.2
+edx-lint==5.2.3
     # via -r requirements/test.in
 iniconfig==1.1.1
     # via pytest
