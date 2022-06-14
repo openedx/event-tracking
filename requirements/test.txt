@@ -11,7 +11,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.11.5
+astroid==2.11.6
     # via
     #   pylint
     #   pylint-celery
@@ -72,7 +72,7 @@ django-waffle==2.5.0
     #   edx-django-utils
 edx-django-utils==5.0.0
     # via -r requirements/base.txt
-edx-lint==5.2.3
+edx-lint==5.2.4
     # via -r requirements/test.in
 iniconfig==1.1.1
     # via pytest
@@ -91,7 +91,7 @@ mccabe==0.7.0
     # via pylint
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.10.0.175
+newrelic==7.12.0.176
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
