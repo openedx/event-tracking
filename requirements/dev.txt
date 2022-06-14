@@ -14,7 +14,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.11.5
+astroid==2.11.6
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -114,7 +114,7 @@ docutils==0.18.1
     # via sphinx
 edx-django-utils==5.0.0
     # via -r requirements/test.txt
-edx-lint==5.2.3
+edx-lint==5.2.4
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
@@ -162,7 +162,7 @@ mccabe==0.7.0
     #   pylint
 mock==4.0.3
     # via -r requirements/test.txt
-newrelic==7.10.0.175
+newrelic==7.12.0.176
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -272,7 +272,7 @@ pyyaml==6.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
-requests==2.27.1
+requests==2.28.0
     # via
     #   -r requirements/ci.txt
     #   codecov
