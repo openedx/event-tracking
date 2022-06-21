@@ -23,7 +23,7 @@ attrs==21.4.0
     # via
     #   -r requirements/test.txt
     #   pytest
-babel==2.10.1
+babel==2.10.3
     # via sphinx
 billiard==3.6.4.0
     # via
@@ -33,7 +33,7 @@ celery==5.2.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-certifi==2022.5.18.1
+certifi==2022.6.15
     # via
     #   -r requirements/ci.txt
     #   requests
@@ -221,7 +221,7 @@ pycparser==2.21
     #   cffi
 pygments==2.12.0
     # via sphinx
-pylint==2.14.1
+pylint==2.14.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -287,7 +287,7 @@ six==1.16.0
     #   virtualenv
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==5.0.1
+sphinx==5.0.2
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
