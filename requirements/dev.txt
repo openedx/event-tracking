@@ -14,7 +14,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.11.6
+astroid==2.11.7
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -334,7 +334,7 @@ tomli==2.0.1
     #   pep517
     #   pylint
     #   pytest
-tomlkit==0.11.0
+tomlkit==0.11.1
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -350,7 +350,7 @@ typing-extensions==4.3.0
     #   -r requirements/test.txt
     #   astroid
     #   pylint
-urllib3==1.26.9
+urllib3==1.26.10
     # via
     #   -r requirements/ci.txt
     #   requests
