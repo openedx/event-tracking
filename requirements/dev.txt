@@ -110,11 +110,11 @@ django-crum==0.7.9
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django-waffle==2.5.0
+django-waffle==2.6.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-docutils==0.18.1
+docutils==0.19
     # via sphinx
 edx-django-utils==5.0.0
     # via -r requirements/test.txt
@@ -166,7 +166,7 @@ mccabe==0.7.0
     #   pylint
 mock==4.0.3
     # via -r requirements/test.txt
-newrelic==7.14.0.177
+newrelic==7.16.0.178
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -291,10 +291,9 @@ six==1.16.0
     #   click-repl
     #   edx-lint
     #   tox
-    #   virtualenv
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==5.0.2
+sphinx==5.1.0
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
@@ -350,7 +349,7 @@ typing-extensions==4.3.0
     #   -r requirements/test.txt
     #   astroid
     #   pylint
-urllib3==1.26.10
+urllib3==1.26.11
     # via
     #   -r requirements/ci.txt
     #   requests
@@ -360,7 +359,7 @@ vine==5.0.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.15.1
+virtualenv==20.16.0
     # via
     #   -r requirements/ci.txt
     #   tox
