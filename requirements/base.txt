@@ -37,13 +37,13 @@ django==3.2.14
     #   edx-django-utils
 django-crum==0.7.9
     # via edx-django-utils
-django-waffle==2.5.0
+django-waffle==2.6.0
     # via edx-django-utils
 edx-django-utils==5.0.0
     # via -r requirements/base.in
 kombu==5.2.4
     # via celery
-newrelic==7.14.0.177
+newrelic==7.16.0.178
     # via edx-django-utils
 pbr==5.9.0
     # via stevedore
