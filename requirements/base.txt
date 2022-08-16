@@ -43,9 +43,9 @@ edx-django-utils==5.0.0
     # via -r requirements/base.in
 kombu==5.2.4
     # via celery
-newrelic==7.16.0.178
+newrelic==8.0.0.179
     # via edx-django-utils
-pbr==5.9.0
+pbr==5.10.0
     # via stevedore
 prompt-toolkit==3.0.30
     # via click-repl
@@ -57,7 +57,7 @@ pymongo==3.12.3
     # via -r requirements/base.in
 pynacl==1.5.0
     # via edx-django-utils
-pytz==2022.1
+pytz==2022.2.1
     # via
     #   -r requirements/base.in
     #   celery
