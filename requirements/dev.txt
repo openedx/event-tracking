@@ -14,7 +14,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.11.7
+astroid==2.12.5
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -96,7 +96,7 @@ dill==0.3.5.1
     # via
     #   -r requirements/test.txt
     #   pylint
-distlib==0.3.5
+distlib==0.3.6
     # via
     #   -r requirements/ci.txt
     #   virtualenv
@@ -227,7 +227,7 @@ pycparser==2.21
     #   cffi
 pygments==2.13.0
     # via sphinx
-pylint==2.14.5
+pylint==2.15.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
