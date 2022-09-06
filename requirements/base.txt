@@ -37,7 +37,7 @@ django==3.2.15
     #   edx-django-utils
 django-crum==0.7.9
     # via edx-django-utils
-django-waffle==2.7.0
+django-waffle==3.0.0
     # via edx-django-utils
 edx-django-utils==5.0.0
     # via -r requirements/base.in
@@ -47,9 +47,9 @@ newrelic==8.0.0.179
     # via edx-django-utils
 pbr==5.10.0
     # via stevedore
-prompt-toolkit==3.0.30
+prompt-toolkit==3.0.31
     # via click-repl
-psutil==5.9.1
+psutil==5.9.2
     # via edx-django-utils
 pycparser==2.21
     # via cffi
