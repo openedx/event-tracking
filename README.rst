@@ -180,7 +180,7 @@ How to Contribute
 
 Contributions are very welcome.
 
-Please read `How To Contribute <https://github.com/edx/edx-platform/wiki/How-To-Contribute>`_ for details.
+Please read `How To Contribute <https://github.com/openedx/edx-platform/wiki/How-To-Contribute>`_ for details.
 
 Reporting Security Issues
 -------------------------
@@ -195,5 +195,5 @@ You can discuss this code on the `edx-code Google Group`__ or in the
 
 __ https://groups.google.com/forum/#!forum/edx-code
 
-.. |build-status| image:: https://github.com/edx/event-tracking/workflows/Python%20CI/badge.svg?branch=master
-   :target: https://github.com/edx/event-tracking/actions?query=workflow%3A%22Python+CI%22
+.. |build-status| image:: https://github.com/openedx/event-tracking/workflows/Python%20CI/badge.svg?branch=master
+   :target: https://github.com/openedx/event-tracking/actions?query=workflow%3A%22Python+CI%22
