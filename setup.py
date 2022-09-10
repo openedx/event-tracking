@@ -73,7 +73,7 @@ setup(
     description='A simple event tracking system.',
     long_description=README,
     install_requires=REQUIREMENTS,
-    url='https://github.com/edx/event-tracking',
+    url='https://github.com/openedx/event-tracking',
     author='edX',
     author_email='oscm@edx.org',
     classifiers=[
