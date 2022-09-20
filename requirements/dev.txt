@@ -14,7 +14,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.12.9
+astroid==2.12.10
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -37,7 +37,7 @@ celery==5.2.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-certifi==2022.6.15.1
+certifi==2022.9.14
     # via
     #   -r requirements/ci.txt
     #   requests
@@ -116,9 +116,9 @@ django-waffle==3.0.0
     #   edx-django-utils
 docutils==0.19
     # via sphinx
-edx-django-utils==5.0.1
+edx-django-utils==5.1.0
     # via -r requirements/test.txt
-edx-lint==5.2.5
+edx-lint==5.3.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
@@ -127,7 +127,7 @@ filelock==3.8.0
     #   -r requirements/ci.txt
     #   tox
     #   virtualenv
-idna==3.3
+idna==3.4
     # via
     #   -r requirements/ci.txt
     #   requests
@@ -227,7 +227,7 @@ pycparser==2.21
     #   cffi
 pygments==2.13.0
     # via sphinx
-pylint==2.15.2
+pylint==2.15.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
