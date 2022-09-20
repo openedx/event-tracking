@@ -39,7 +39,7 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==3.0.0
     # via edx-django-utils
-edx-django-utils==5.0.1
+edx-django-utils==5.1.0
     # via -r requirements/base.in
 kombu==5.2.4
     # via celery
