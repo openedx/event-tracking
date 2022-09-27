@@ -160,7 +160,7 @@ six==1.16.0
     #   -r requirements/base.txt
     #   click-repl
     #   edx-lint
-sqlparse==0.4.2
+sqlparse==0.4.3
     # via
     #   -r requirements/base.txt
     #   django

@@ -37,7 +37,7 @@ celery==5.2.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-certifi==2022.9.14
+certifi==2022.9.24
     # via
     #   -r requirements/ci.txt
     #   requests
@@ -293,7 +293,7 @@ six==1.16.0
     #   tox
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==5.1.1
+sphinx==5.2.1
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
@@ -307,7 +307,7 @@ sphinxcontrib-qthelp==1.0.3
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
-sqlparse==0.4.2
+sqlparse==0.4.3
     # via
     #   -r requirements/test.txt
     #   django
