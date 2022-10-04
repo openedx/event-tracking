@@ -84,7 +84,7 @@ code-annotations==1.3.0
     #   edx-lint
 codecov==2.1.12
     # via -r requirements/ci.txt
-coverage[toml]==6.4.4
+coverage[toml]==6.5.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -133,7 +133,7 @@ idna==3.4
     #   requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==4.12.0
+importlib-metadata==5.0.0
     # via sphinx
 iniconfig==1.1.1
     # via
@@ -166,7 +166,7 @@ mccabe==0.7.0
     #   pylint
 mock==4.0.3
     # via -r requirements/test.txt
-newrelic==8.1.0.180
+newrelic==8.2.0.181
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -263,13 +263,13 @@ pytest==7.1.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-pytest-cov==3.0.0
+pytest-cov==4.0.0
     # via -r requirements/test.txt
 python-slugify==6.1.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2022.2.1
+pytz==2022.4
     # via
     #   -r requirements/test.txt
     #   babel
@@ -293,7 +293,7 @@ six==1.16.0
     #   tox
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==5.2.1
+sphinx==5.2.3
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
@@ -331,7 +331,7 @@ tomli==2.0.1
     #   pylint
     #   pytest
     #   tox
-tomlkit==0.11.4
+tomlkit==0.11.5
     # via
     #   -r requirements/test.txt
     #   pylint
