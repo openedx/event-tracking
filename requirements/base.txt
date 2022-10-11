@@ -29,7 +29,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.2.0
     # via celery
-django==3.2.15
+django==3.2.16
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -39,11 +39,11 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==3.0.0
     # via edx-django-utils
-edx-django-utils==5.1.0
+edx-django-utils==5.2.0
     # via -r requirements/base.in
 kombu==5.2.4
     # via celery
-newrelic==8.2.0.181
+newrelic==8.2.1
     # via edx-django-utils
 pbr==5.10.0
     # via stevedore
