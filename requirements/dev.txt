@@ -14,7 +14,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.12.10
+astroid==2.12.11
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -100,7 +100,7 @@ distlib==0.3.6
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.15
+django==3.2.16
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -116,7 +116,7 @@ django-waffle==3.0.0
     #   edx-django-utils
 docutils==0.19
     # via sphinx
-edx-django-utils==5.1.0
+edx-django-utils==5.2.0
     # via -r requirements/test.txt
 edx-lint==5.3.0
     # via
@@ -166,7 +166,7 @@ mccabe==0.7.0
     #   pylint
 mock==4.0.3
     # via -r requirements/test.txt
-newrelic==8.2.0.181
+newrelic==8.2.1
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -187,7 +187,7 @@ pep517==0.13.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pip-tools==6.8.0
+pip-tools==6.9.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
@@ -227,7 +227,7 @@ pycparser==2.21
     #   cffi
 pygments==2.13.0
     # via sphinx
-pylint==2.15.3
+pylint==2.15.4
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -342,7 +342,7 @@ tox==3.26.0
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-typing-extensions==4.3.0
+typing-extensions==4.4.0
     # via
     #   -r requirements/test.txt
     #   astroid
@@ -373,7 +373,7 @@ wrapt==1.14.1
     # via
     #   -r requirements/test.txt
     #   astroid
-zipp==3.8.1
+zipp==3.9.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
