@@ -49,7 +49,7 @@ pbr==5.10.0
     # via stevedore
 prompt-toolkit==3.0.31
     # via click-repl
-psutil==5.9.2
+psutil==5.9.3
     # via edx-django-utils
 pycparser==2.21
     # via cffi
@@ -57,7 +57,7 @@ pymongo==3.12.3
     # via -r requirements/base.in
 pynacl==1.5.0
     # via edx-django-utils
-pytz==2022.4
+pytz==2022.5
     # via
     #   -r requirements/base.in
     #   celery
@@ -68,7 +68,7 @@ six==1.16.0
     #   click-repl
 sqlparse==0.4.3
     # via django
-stevedore==4.0.0
+stevedore==4.0.1
     # via edx-django-utils
 vine==5.0.0
     # via

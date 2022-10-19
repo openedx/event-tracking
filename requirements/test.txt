@@ -108,7 +108,7 @@ pluggy==1.0.0
     # via
     #   -r requirements/base.txt
     #   click-repl
-psutil==5.9.2
+psutil==5.9.3
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -148,7 +148,7 @@ pytest-cov==4.0.0
     # via -r requirements/test.in
 python-slugify==6.1.2
     # via code-annotations
-pytz==2022.4
+pytz==2022.5
     # via
     #   -r requirements/base.txt
     #   celery
@@ -164,7 +164,7 @@ sqlparse==0.4.3
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==4.0.0
+stevedore==4.0.1
     # via
     #   -r requirements/base.txt
     #   code-annotations
