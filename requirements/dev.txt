@@ -23,13 +23,13 @@ attrs==22.1.0
     # via
     #   -r requirements/test.txt
     #   pytest
-babel==2.10.3
+babel==2.11.0
     # via sphinx
 billiard==3.6.4.0
     # via
     #   -r requirements/test.txt
     #   celery
-build==0.8.0
+build==0.9.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
@@ -122,7 +122,7 @@ edx-lint==5.3.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-exceptiongroup==1.0.0rc9
+exceptiongroup==1.0.1
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -156,7 +156,7 @@ kombu==5.2.4
     # via
     #   -r requirements/test.txt
     #   celery
-lazy-object-proxy==1.7.1
+lazy-object-proxy==1.8.0
     # via
     #   -r requirements/test.txt
     #   astroid
@@ -170,7 +170,7 @@ mccabe==0.7.0
     #   pylint
 mock==4.0.3
     # via -r requirements/test.txt
-newrelic==8.3.0
+newrelic==8.4.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -195,7 +195,7 @@ pip-tools==6.9.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==2.5.2
+platformdirs==2.5.3
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -207,11 +207,11 @@ pluggy==1.0.0
     #   -r requirements/test.txt
     #   pytest
     #   tox
-prompt-toolkit==3.0.31
+prompt-toolkit==3.0.32
     # via
     #   -r requirements/test.txt
     #   click-repl
-psutil==5.9.3
+psutil==5.9.4
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -249,7 +249,7 @@ pylint-plugin-utils==0.7
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pymongo==3.12.3
+pymongo==3.13.0
     # via -r requirements/test.txt
 pynacl==1.5.0
     # via
@@ -271,7 +271,7 @@ python-slugify==6.1.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2022.5
+pytz==2022.6
     # via
     #   -r requirements/test.txt
     #   babel
@@ -333,11 +333,11 @@ tomli==2.0.1
     #   pylint
     #   pytest
     #   tox
-tomlkit==0.11.5
+tomlkit==0.11.6
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==3.26.0
+tox==3.27.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
@@ -359,7 +359,7 @@ vine==5.0.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.16.5
+virtualenv==20.16.6
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -367,7 +367,7 @@ wcwidth==0.2.5
     # via
     #   -r requirements/test.txt
     #   prompt-toolkit
-wheel==0.37.1
+wheel==0.38.2
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
