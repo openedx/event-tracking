@@ -14,7 +14,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.12.12
+astroid==2.12.13
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -122,7 +122,7 @@ edx-lint==5.3.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-exceptiongroup==1.0.1
+exceptiongroup==1.0.4
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -137,7 +137,7 @@ idna==3.4
     #   requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==5.0.0
+importlib-metadata==5.1.0
     # via sphinx
 iniconfig==1.1.1
     # via
@@ -191,11 +191,11 @@ pep517==0.13.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pip-tools==6.9.0
+pip-tools==6.10.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==2.5.3
+platformdirs==2.5.4
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -207,7 +207,7 @@ pluggy==1.0.0
     #   -r requirements/test.txt
     #   pytest
     #   tox
-prompt-toolkit==3.0.32
+prompt-toolkit==3.0.33
     # via
     #   -r requirements/test.txt
     #   click-repl
@@ -219,7 +219,7 @@ py==1.11.0
     # via
     #   -r requirements/ci.txt
     #   tox
-pycodestyle==2.9.1
+pycodestyle==2.10.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
@@ -229,7 +229,7 @@ pycparser==2.21
     #   cffi
 pygments==2.13.0
     # via sphinx
-pylint==2.15.5
+pylint==2.15.6
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -267,7 +267,7 @@ pytest==7.2.0
     #   pytest-cov
 pytest-cov==4.0.0
     # via -r requirements/test.txt
-python-slugify==6.1.2
+python-slugify==7.0.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -313,7 +313,7 @@ sqlparse==0.4.3
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==4.1.0
+stevedore==4.1.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -337,7 +337,7 @@ tomlkit==0.11.6
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==3.27.0
+tox==3.27.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
@@ -349,7 +349,7 @@ typing-extensions==4.4.0
     #   -r requirements/test.txt
     #   astroid
     #   pylint
-urllib3==1.26.12
+urllib3==1.26.13
     # via
     #   -r requirements/ci.txt
     #   requests
@@ -359,7 +359,7 @@ vine==5.0.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.16.6
+virtualenv==20.17.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -367,7 +367,7 @@ wcwidth==0.2.5
     # via
     #   -r requirements/test.txt
     #   prompt-toolkit
-wheel==0.38.2
+wheel==0.38.4
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
@@ -375,7 +375,7 @@ wrapt==1.14.1
     # via
     #   -r requirements/test.txt
     #   astroid
-zipp==3.10.0
+zipp==3.11.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:

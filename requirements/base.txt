@@ -47,7 +47,7 @@ newrelic==8.4.0
     # via edx-django-utils
 pbr==5.11.0
     # via stevedore
-prompt-toolkit==3.0.32
+prompt-toolkit==3.0.33
     # via click-repl
 psutil==5.9.4
     # via edx-django-utils
@@ -68,7 +68,7 @@ six==1.16.0
     #   click-repl
 sqlparse==0.4.3
     # via django
-stevedore==4.1.0
+stevedore==4.1.1
     # via edx-django-utils
 vine==5.0.0
     # via
