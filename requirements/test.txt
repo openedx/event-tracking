@@ -11,7 +11,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.12.12
+astroid==2.12.13
     # via
     #   pylint
     #   pylint-celery
@@ -74,7 +74,7 @@ edx-django-utils==5.2.0
     # via -r requirements/base.txt
 edx-lint==5.3.0
     # via -r requirements/test.in
-exceptiongroup==1.0.1
+exceptiongroup==1.0.4
     # via pytest
 iniconfig==1.1.1
     # via pytest
@@ -103,7 +103,7 @@ pbr==5.11.0
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==2.5.3
+platformdirs==2.5.4
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -114,13 +114,13 @@ psutil==5.9.4
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pycodestyle==2.9.1
+pycodestyle==2.10.0
     # via -r requirements/test.in
 pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pylint==2.15.5
+pylint==2.15.6
     # via
     #   edx-lint
     #   pylint-celery
@@ -146,7 +146,7 @@ pytest==7.2.0
     # via pytest-cov
 pytest-cov==4.0.0
     # via -r requirements/test.in
-python-slugify==6.1.2
+python-slugify==7.0.0
     # via code-annotations
 pytz==2022.6
     # via
@@ -164,7 +164,7 @@ sqlparse==0.4.3
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==4.1.0
+stevedore==4.1.1
     # via
     #   -r requirements/base.txt
     #   code-annotations
