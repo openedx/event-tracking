@@ -84,7 +84,7 @@ code-annotations==1.3.0
     #   edx-lint
 codecov==2.1.12
     # via -r requirements/ci.txt
-coverage[toml]==6.5.0
+coverage[toml]==7.0.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -137,13 +137,13 @@ idna==3.4
     #   requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==5.1.0
+importlib-metadata==5.2.0
     # via sphinx
 iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.11.1
+isort==5.11.3
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -191,7 +191,7 @@ pep517==0.13.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pip-tools==6.11.0
+pip-tools==6.12.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
@@ -229,7 +229,7 @@ pycparser==2.21
     #   cffi
 pygments==2.13.0
     # via sphinx
-pylint==2.15.8
+pylint==2.15.9
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -265,7 +265,7 @@ python-slugify==7.0.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2022.6
+pytz==2022.7
     # via
     #   -r requirements/test.txt
     #   babel
@@ -331,7 +331,7 @@ tomlkit==0.11.6
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==3.27.1
+tox==3.28.0
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/ci.txt
