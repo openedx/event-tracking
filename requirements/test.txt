@@ -11,7 +11,7 @@ asgiref==3.6.0
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.13.3
+astroid==2.14.2
     # via
     #   pylint
     #   pylint-celery
@@ -93,7 +93,7 @@ mccabe==0.7.0
     # via pylint
 mock==5.0.1
     # via -r requirements/test.in
-newrelic==8.5.0
+newrelic==8.6.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -103,7 +103,7 @@ pbr==5.11.1
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==2.6.2
+platformdirs==3.0.0
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -120,7 +120,7 @@ pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pylint==2.15.10
+pylint==2.16.2
     # via
     #   edx-lint
     #   pylint-celery
@@ -162,7 +162,7 @@ sqlparse==0.4.3
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==4.1.1
+stevedore==5.0.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
