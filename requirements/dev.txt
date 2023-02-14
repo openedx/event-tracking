@@ -14,7 +14,7 @@ asgiref==3.6.0
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.13.3
+astroid==2.14.2
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -100,7 +100,7 @@ distlib==0.3.6
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.16
+django==3.2.17
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -170,7 +170,7 @@ mccabe==0.7.0
     #   pylint
 mock==5.0.1
     # via -r requirements/test.txt
-newrelic==8.5.0
+newrelic==8.6.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -187,11 +187,11 @@ pbr==5.11.1
     # via
     #   -r requirements/test.txt
     #   stevedore
-pip-tools==6.12.1
+pip-tools==6.12.2
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==2.6.2
+platformdirs==3.0.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -225,7 +225,7 @@ pycparser==2.21
     #   cffi
 pygments==2.14.0
     # via sphinx
-pylint==2.15.10
+pylint==2.16.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -297,7 +297,7 @@ sphinxcontrib-applehelp==1.0.4
     # via sphinx
 sphinxcontrib-devhelp==1.0.2
     # via sphinx
-sphinxcontrib-htmlhelp==2.0.0
+sphinxcontrib-htmlhelp==2.0.1
     # via sphinx
 sphinxcontrib-jsmath==1.0.1
     # via sphinx
@@ -309,7 +309,7 @@ sqlparse==0.4.3
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==4.1.1
+stevedore==5.0.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -356,7 +356,7 @@ vine==5.0.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.17.1
+virtualenv==20.19.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -372,7 +372,7 @@ wrapt==1.14.1
     # via
     #   -r requirements/test.txt
     #   astroid
-zipp==3.12.0
+zipp==3.13.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
