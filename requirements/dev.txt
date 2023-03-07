@@ -14,7 +14,7 @@ asgiref==3.6.0
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.14.2
+astroid==2.15.0
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -23,7 +23,7 @@ attrs==22.2.0
     # via
     #   -r requirements/test.txt
     #   pytest
-babel==2.11.0
+babel==2.12.1
     # via sphinx
 billiard==3.6.4.0
     # via
@@ -45,7 +45,7 @@ cffi==1.15.1
     # via
     #   -r requirements/test.txt
     #   pynacl
-charset-normalizer==3.0.1
+charset-normalizer==3.1.0
     # via
     #   -r requirements/ci.txt
     #   requests
@@ -187,11 +187,11 @@ pbr==5.11.1
     # via
     #   -r requirements/test.txt
     #   stevedore
-pip-tools==6.12.2
+pip-tools==6.12.3
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==3.0.0
+platformdirs==3.1.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -203,7 +203,7 @@ pluggy==1.0.0
     #   -r requirements/test.txt
     #   pytest
     #   tox
-prompt-toolkit==3.0.37
+prompt-toolkit==3.0.38
     # via
     #   -r requirements/test.txt
     #   click-repl
@@ -225,7 +225,7 @@ pycparser==2.21
     #   cffi
 pygments==2.14.0
     # via sphinx
-pylint==2.16.2
+pylint==2.16.4
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -255,7 +255,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.2.1
+pytest==7.2.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -356,7 +356,7 @@ vine==5.0.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.19.0
+virtualenv==20.20.0
     # via
     #   -r requirements/ci.txt
     #   tox
