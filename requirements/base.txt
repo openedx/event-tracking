@@ -39,17 +39,17 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==3.0.0
     # via edx-django-utils
-edx-django-utils==5.2.0
+edx-django-utils==5.4.0
     # via -r requirements/base.in
 kombu==5.2.4
     # via celery
-newrelic==8.7.0
+newrelic==8.8.0
     # via edx-django-utils
 pbr==5.11.1
     # via stevedore
 prompt-toolkit==3.0.38
     # via click-repl
-psutil==5.9.4
+psutil==5.9.5
     # via edx-django-utils
 pycparser==2.21
     # via cffi
@@ -57,7 +57,7 @@ pymongo==3.13.0
     # via -r requirements/base.in
 pynacl==1.5.0
     # via edx-django-utils
-pytz==2022.7.1
+pytz==2023.3
     # via
     #   -r requirements/base.in
     #   celery
