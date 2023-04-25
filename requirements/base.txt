@@ -66,7 +66,7 @@ six==1.16.0
     # via
     #   -r requirements/base.in
     #   click-repl
-sqlparse==0.4.3
+sqlparse==0.4.4
     # via django
 stevedore==5.0.0
     # via edx-django-utils
