@@ -11,7 +11,7 @@ asgiref==3.6.0
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.15.3
+astroid==2.15.4
     # via
     #   pylint
     #   pylint-celery
@@ -118,7 +118,7 @@ pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pylint==2.17.2
+pylint==2.17.3
     # via
     #   edx-lint
     #   pylint-celery
@@ -156,7 +156,7 @@ six==1.16.0
     #   -r requirements/base.txt
     #   click-repl
     #   edx-lint
-sqlparse==0.4.3
+sqlparse==0.4.4
     # via
     #   -r requirements/base.txt
     #   django
