@@ -33,7 +33,7 @@ celery==5.2.7
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-certifi==2022.12.7
+certifi==2023.5.7
     # via requests
 cffi==1.15.1
     # via
@@ -89,7 +89,7 @@ distlib==0.3.6
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.18
+django==3.2.19
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -212,7 +212,7 @@ pycparser==2.21
     #   cffi
 pygments==2.15.1
     # via sphinx
-pylint==2.17.3
+pylint==2.17.4
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -262,7 +262,7 @@ pyyaml==6.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
-requests==2.29.0
+requests==2.30.0
     # via sphinx
 six==1.16.0
     # via
@@ -330,7 +330,7 @@ typing-extensions==4.5.0
     #   -r requirements/test.txt
     #   astroid
     #   pylint
-urllib3==1.26.15
+urllib3==2.0.2
     # via requests
 vine==5.0.0
     # via
