@@ -68,7 +68,7 @@ six==1.16.0
     #   click-repl
 sqlparse==0.4.4
     # via django
-stevedore==5.0.0
+stevedore==5.1.0
     # via edx-django-utils
 vine==5.0.0
     # via
