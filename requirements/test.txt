@@ -7,11 +7,11 @@
     # via
     #   -r requirements/base.txt
     #   kombu
-asgiref==3.6.0
+asgiref==3.7.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.15.4
+astroid==2.15.5
     # via
     #   pylint
     #   pylint-celery
@@ -49,7 +49,7 @@ click-plugins==1.1.1
     #   celery
 code-annotations==1.3.0
     # via edx-lint
-coverage[toml]==7.2.5
+coverage[toml]==7.2.7
     # via pytest-cov
 ddt==1.6.0
     # via -r requirements/test.in
@@ -101,7 +101,7 @@ pbr==5.11.1
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==3.5.0
+platformdirs==3.5.1
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -128,7 +128,7 @@ pylint-celery==0.3
     # via edx-lint
 pylint-django==2.5.3
     # via edx-lint
-pylint-plugin-utils==0.7
+pylint-plugin-utils==0.8.2
     # via
     #   pylint-celery
     #   pylint-django
@@ -140,7 +140,7 @@ pynacl==1.5.0
     #   edx-django-utils
 pytest==7.3.1
     # via pytest-cov
-pytest-cov==4.0.0
+pytest-cov==4.1.0
     # via -r requirements/test.in
 python-slugify==8.0.1
     # via code-annotations
@@ -160,7 +160,7 @@ sqlparse==0.4.4
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==5.0.0
+stevedore==5.1.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -174,8 +174,10 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.11.8
     # via pylint
-typing-extensions==4.5.0
+typing-extensions==4.6.2
     # via
+    #   -r requirements/base.txt
+    #   asgiref
     #   astroid
     #   pylint
     # via
