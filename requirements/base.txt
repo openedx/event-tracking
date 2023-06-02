@@ -8,11 +8,15 @@ amqp==5.1.1
     # via kombu
 asgiref==3.7.2
     # via django
+attrs==23.1.0
+    # via openedx-events
 backports-zoneinfo[tzdata]==0.2.1
-    # via kombu
-billiard==3.6.4.0
+    # via
+    #   celery
+    #   kombu
+billiard==4.1.0
     # via celery
-celery==5.2.7
+celery==5.3.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -37,16 +41,23 @@ django==3.2.19
     #   -r requirements/base.in
     #   django-crum
     #   edx-django-utils
+    #   openedx-events
 django-crum==0.7.9
     # via edx-django-utils
 django-waffle==3.0.0
     # via edx-django-utils
 edx-django-utils==5.5.0
     # via -r requirements/base.in
+edx-opaque-keys[django]==2.3.0
+    # via openedx-events
+fastavro==1.7.4
+    # via openedx-events
 kombu==5.3.0
     # via celery
 newrelic==8.8.0
     # via edx-django-utils
+openedx-events==8.0.1
+    # via -r requirements/base.in
 pbr==5.11.1
     # via stevedore
 prompt-toolkit==3.0.38
@@ -56,28 +67,36 @@ psutil==5.9.5
 pycparser==2.21
     # via cffi
 pymongo==3.13.0
-    # via -r requirements/base.in
+    # via
+    #   -r requirements/base.in
+    #   edx-opaque-keys
 pynacl==1.5.0
     # via edx-django-utils
+python-dateutil==2.8.2
+    # via celery
 pytz==2023.3
     # via
     #   -r requirements/base.in
-    #   celery
     #   django
 six==1.16.0
     # via
     #   -r requirements/base.in
     #   click-repl
+    #   python-dateutil
 sqlparse==0.4.4
     # via django
 stevedore==5.1.0
-    # via edx-django-utils
+    # via
+    #   edx-django-utils
+    #   edx-opaque-keys
 typing-extensions==4.6.3
     # via
     #   asgiref
     #   kombu
 tzdata==2023.3
-    # via backports-zoneinfo
+    # via
+    #   backports-zoneinfo
+    #   celery
 vine==5.0.0
     # via
     #   amqp
