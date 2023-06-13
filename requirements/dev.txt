@@ -24,8 +24,9 @@ babel==2.12.1
 backports-zoneinfo[tzdata]==0.2.1
     # via
     #   -r requirements/test.txt
+    #   celery
     #   kombu
-billiard==3.6.4.0
+billiard==4.1.0
     # via
     #   -r requirements/test.txt
     #   celery
@@ -33,7 +34,7 @@ build==0.10.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-celery==5.2.7
+celery==5.3.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -119,7 +120,7 @@ exceptiongroup==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-filelock==3.12.0
+filelock==3.12.2
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -182,7 +183,7 @@ pip-tools==6.13.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==3.5.1
+platformdirs==3.5.3
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -246,12 +247,16 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.3.1
+pytest==7.3.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
 pytest-cov==4.1.0
     # via -r requirements/test.txt
+python-dateutil==2.8.2
+    # via
+    #   -r requirements/test.txt
+    #   celery
 python-slugify==8.0.1
     # via
     #   -r requirements/test.txt
@@ -260,7 +265,6 @@ pytz==2023.3
     # via
     #   -r requirements/test.txt
     #   babel
-    #   celery
     #   django
 pyyaml==6.0
     # via
@@ -274,6 +278,7 @@ six==1.16.0
     #   -r requirements/test.txt
     #   click-repl
     #   edx-lint
+    #   python-dateutil
     #   tox
 snowballstemmer==2.2.0
     # via sphinx
@@ -340,7 +345,8 @@ tzdata==2023.3
     # via
     #   -r requirements/test.txt
     #   backports-zoneinfo
-urllib3==2.0.2
+    #   celery
+urllib3==2.0.3
     # via requests
 vine==5.0.0
     # via
