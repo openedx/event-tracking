@@ -14,7 +14,7 @@ backports-zoneinfo[tzdata]==0.2.1
     #   kombu
 billiard==4.1.0
     # via celery
-celery==5.3.0
+celery==5.3.1
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -31,7 +31,7 @@ click-didyoumean==0.3.0
     # via celery
 click-plugins==1.1.1
     # via celery
-click-repl==0.2.0
+click-repl==0.3.0
     # via celery
 django==3.2.19
     # via
@@ -45,7 +45,7 @@ django-waffle==3.0.0
     # via edx-django-utils
 edx-django-utils==5.5.0
     # via -r requirements/base.in
-kombu==5.3.0
+kombu==5.3.1
     # via celery
 newrelic==8.8.0
     # via edx-django-utils
@@ -70,7 +70,6 @@ pytz==2023.3
 six==1.16.0
     # via
     #   -r requirements/base.in
-    #   click-repl
     #   python-dateutil
 sqlparse==0.4.4
     # via django

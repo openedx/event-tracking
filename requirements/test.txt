@@ -106,7 +106,7 @@ pbr==5.11.1
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==3.5.3
+platformdirs==3.6.0
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -162,7 +162,6 @@ pyyaml==6.0
 six==1.16.0
     # via
     #   -r requirements/base.txt
-    #   click-repl
     #   edx-lint
     #   python-dateutil
 sqlparse==0.4.4
