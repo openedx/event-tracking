@@ -108,7 +108,7 @@ django-waffle==3.0.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-docutils==0.19
+docutils==0.20.1
     # via sphinx
 edx-django-utils==5.5.0
     # via -r requirements/test.txt
@@ -162,7 +162,7 @@ mccabe==0.7.0
     #   pylint
 mock==5.0.2
     # via -r requirements/test.txt
-newrelic==8.8.0
+newrelic==8.8.1
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -183,13 +183,13 @@ pip-tools==6.13.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==3.6.0
+platformdirs==3.8.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   pylint
     #   virtualenv
-pluggy==1.0.0
+pluggy==1.2.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -247,7 +247,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.3.2
+pytest==7.4.0
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -281,10 +281,8 @@ six==1.16.0
     #   tox
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==5.3.0
-    # via
-    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
-    #   -r requirements/dev.in
+sphinx==7.0.1
+    # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.4
     # via sphinx
 sphinxcontrib-devhelp==1.0.2
