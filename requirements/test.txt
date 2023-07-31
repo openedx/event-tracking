@@ -64,12 +64,13 @@ dill==0.3.7
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.txt
     #   django-crum
+    #   django-waffle
     #   edx-django-utils
 django-crum==0.7.9
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-django-waffle==3.0.0
+django-waffle==4.0.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -96,7 +97,7 @@ mccabe==0.7.0
     # via pylint
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==8.8.1
+newrelic==8.9.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -106,7 +107,7 @@ pbr==5.11.1
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==3.9.1
+platformdirs==3.10.0
     # via pylint
 pluggy==1.2.0
     # via pytest
@@ -117,13 +118,13 @@ psutil==5.9.5
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pycodestyle==2.10.0
+pycodestyle==2.11.0
     # via -r requirements/test.in
 pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pylint==2.17.4
+pylint==2.17.5
     # via
     #   edx-lint
     #   pylint-celery
@@ -180,7 +181,7 @@ tomli==2.0.1
     #   coverage
     #   pylint
     #   pytest
-tomlkit==0.11.8
+tomlkit==0.12.1
     # via pylint
 typing-extensions==4.7.1
     # via
