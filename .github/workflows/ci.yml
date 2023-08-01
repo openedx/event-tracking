@@ -17,8 +17,8 @@ jobs:
           [
             celery44-django32,
             celery52-django32,
-            celery44-django40,
-            celery52-django40,
+            celery53-django32,
+            celery53-django42,
           ]
 
     steps:

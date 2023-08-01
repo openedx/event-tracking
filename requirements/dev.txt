@@ -99,12 +99,13 @@ django==3.2.20
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   django-crum
+    #   django-waffle
     #   edx-django-utils
 django-crum==0.7.9
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django-waffle==3.0.0
+django-waffle==4.0.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -162,7 +163,7 @@ mccabe==0.7.0
     #   pylint
 mock==5.1.0
     # via -r requirements/test.txt
-newrelic==8.8.1
+newrelic==8.9.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -183,7 +184,7 @@ pip-tools==7.1.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==3.9.1
+platformdirs==3.10.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -207,7 +208,7 @@ py==1.11.0
     # via
     #   -r requirements/ci.txt
     #   tox
-pycodestyle==2.10.0
+pycodestyle==2.11.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
@@ -217,7 +218,7 @@ pycparser==2.21
     #   cffi
 pygments==2.15.1
     # via sphinx
-pylint==2.17.4
+pylint==2.17.5
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -281,7 +282,7 @@ six==1.16.0
     #   tox
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==7.1.0
+sphinx==7.1.1
     # via -r requirements/dev.in
 sphinxcontrib-applehelp==1.0.4
     # via sphinx
@@ -320,7 +321,7 @@ tomli==2.0.1
     #   pyproject-hooks
     #   pytest
     #   tox
-tomlkit==0.11.8
+tomlkit==0.12.1
     # via
     #   -r requirements/test.txt
     #   pylint
