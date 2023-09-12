@@ -14,13 +14,13 @@ backports-zoneinfo[tzdata]==0.2.1
     #   kombu
 billiard==4.1.0
     # via celery
-celery==5.3.1
+celery==5.3.4
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
 cffi==1.15.1
     # via pynacl
-click==8.1.6
+click==8.1.7
     # via
     #   celery
     #   click-didyoumean
@@ -33,7 +33,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-django==3.2.20
+django==3.2.21
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -44,11 +44,11 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==4.0.0
     # via edx-django-utils
-edx-django-utils==5.6.0
+edx-django-utils==5.7.0
     # via -r requirements/base.in
-kombu==5.3.1
+kombu==5.3.2
     # via celery
-newrelic==8.9.0
+newrelic==9.0.0
     # via edx-django-utils
 pbr==5.11.1
     # via stevedore
@@ -64,7 +64,7 @@ pynacl==1.5.0
     # via edx-django-utils
 python-dateutil==2.8.2
     # via celery
-pytz==2023.3
+pytz==2023.3.post1
     # via
     #   -r requirements/base.in
     #   django
