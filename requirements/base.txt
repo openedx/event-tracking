@@ -76,7 +76,7 @@ sqlparse==0.4.4
     # via django
 stevedore==5.1.0
     # via edx-django-utils
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via
     #   asgiref
     #   kombu
