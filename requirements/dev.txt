@@ -19,7 +19,7 @@ astroid==2.15.8
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
-babel==2.12.1
+babel==2.13.0
     # via sphinx
 backports-zoneinfo[tzdata]==0.2.1
     # via
@@ -94,7 +94,7 @@ distlib==0.3.7
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.21
+django==3.2.22
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
