@@ -24,6 +24,7 @@ babel==2.13.0
 backports-zoneinfo[tzdata]==0.2.1
     # via
     #   -r requirements/test.txt
+    #   backports-zoneinfo
     #   celery
     #   kombu
 billiard==4.1.0
@@ -83,6 +84,7 @@ coverage[toml]==7.3.2
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
+    #   coverage
     #   pytest-cov
 ddt==1.6.0
     # via -r requirements/test.txt
@@ -203,7 +205,7 @@ prompt-toolkit==3.0.39
     # via
     #   -r requirements/test.txt
     #   click-repl
-psutil==5.9.5
+psutil==5.9.6
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -211,7 +213,7 @@ py==1.11.0
     # via
     #   -r requirements/ci.txt
     #   tox
-pycodestyle==2.11.0
+pycodestyle==2.11.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
