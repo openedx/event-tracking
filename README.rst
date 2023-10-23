@@ -185,7 +185,7 @@ Please read `How To Contribute <https://github.com/openedx/edx-platform/wiki/How
 Reporting Security Issues
 -------------------------
 
-Please do not report security issues in public. Please email security@edx.org
+Please do not report security issues in public. Please email security@openedx.org
 
 Mailing List and IRC Channel
 ----------------------------
