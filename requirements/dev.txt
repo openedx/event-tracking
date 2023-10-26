@@ -92,6 +92,7 @@ code-annotations==1.6.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
+    #   edx-toggles
 colorama==0.4.6
     # via
     #   -r requirements/ci.txt
@@ -119,19 +120,25 @@ django==3.2.24
     #   django-crum
     #   django-waffle
     #   edx-django-utils
+    #   edx-toggles
     #   openedx-events
 django-crum==0.7.9
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
+    #   edx-toggles
 django-waffle==4.1.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
+    #   edx-toggles
 docutils==0.20.1
     # via sphinx
 edx-django-utils==5.10.1
-    # via -r requirements/test.txt
+    # via
+    #   -r requirements/test.txt
+    #   edx-toggles
+    #   openedx-events
 edx-lint==5.3.6
     # via
     #   -r requirements/dev.in
@@ -141,6 +148,8 @@ edx-opaque-keys[django]==2.5.1
     #   -r requirements/test.txt
     #   edx-opaque-keys
     #   openedx-events
+edx-toggles==5.1.1
+    # via -r requirements/test.txt
 exceptiongroup==1.2.0
     # via
     #   -r requirements/test.txt
@@ -194,7 +203,7 @@ newrelic==9.6.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-openedx-events==9.4.0
+openedx-events==9.5.1
     # via -r requirements/test.txt
 packaging==23.2
     # via

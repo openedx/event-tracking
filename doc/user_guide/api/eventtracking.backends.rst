@@ -42,3 +42,11 @@ eventtracking.backends.segment
     :undoc-members:
     :show-inheritance:
 
+
+eventtracking.backends.event_bus
+------------------------------
+
+.. automodule:: eventtracking.backends.event_bus
+    :members:
+    :undoc-members:
+    :show-inheritance:

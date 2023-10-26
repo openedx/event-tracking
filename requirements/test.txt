@@ -58,7 +58,10 @@ click-plugins==1.1.1
     #   -r requirements/base.txt
     #   celery
 code-annotations==1.6.0
-    # via edx-lint
+    # via
+    #   -r requirements/base.txt
+    #   edx-lint
+    #   edx-toggles
 coverage[toml]==7.4.1
     # via
     #   coverage
@@ -73,17 +76,23 @@ dill==0.3.8
     #   django-crum
     #   django-waffle
     #   edx-django-utils
+    #   edx-toggles
     #   openedx-events
 django-crum==0.7.9
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
+    #   edx-toggles
 django-waffle==4.1.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
+    #   edx-toggles
 edx-django-utils==5.10.1
-    # via -r requirements/base.txt
+    # via
+    #   -r requirements/base.txt
+    #   edx-toggles
+    #   openedx-events
 edx-lint==5.3.6
     # via -r requirements/test.in
 edx-opaque-keys[django]==2.5.1
@@ -91,6 +100,8 @@ edx-opaque-keys[django]==2.5.1
     #   -r requirements/base.txt
     #   edx-opaque-keys
     #   openedx-events
+edx-toggles==5.1.1
+    # via -r requirements/base.txt
 exceptiongroup==1.2.0
     # via pytest
 fastavro==1.9.3
@@ -102,12 +113,16 @@ iniconfig==2.0.0
 isort==5.13.2
     # via pylint
 jinja2==3.1.3
-    # via code-annotations
+    # via
+    #   -r requirements/base.txt
+    #   code-annotations
     # via
     #   -r requirements/base.txt
     #   celery
 markupsafe==2.1.5
-    # via jinja2
+    # via
+    #   -r requirements/base.txt
+    #   jinja2
 mccabe==0.7.0
     # via pylint
 mock==5.1.0
@@ -116,7 +131,7 @@ newrelic==9.6.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-openedx-events==9.4.0
+openedx-events==9.5.1
     # via -r requirements/base.txt
 packaging==23.2
     # via pytest
@@ -172,13 +187,17 @@ python-dateutil==2.8.2
     #   -r requirements/base.txt
     #   celery
 python-slugify==8.0.4
-    # via code-annotations
+    # via
+    #   -r requirements/base.txt
+    #   code-annotations
 pytz==2024.1
     # via
     #   -r requirements/base.txt
     #   django
 pyyaml==6.0.1
-    # via code-annotations
+    # via
+    #   -r requirements/base.txt
+    #   code-annotations
 six==1.16.0
     # via
     #   -r requirements/base.txt
@@ -195,7 +214,9 @@ stevedore==5.1.0
     #   edx-django-utils
     #   edx-opaque-keys
 text-unidecode==1.3
-    # via python-slugify
+    # via
+    #   -r requirements/base.txt
+    #   python-slugify
 tomli==2.0.1
     # via
     #   coverage
