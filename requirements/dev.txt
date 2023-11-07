@@ -6,7 +6,7 @@
 #
 alabaster==0.7.13
     # via sphinx
-amqp==5.1.1
+amqp==5.2.0
     # via
     #   -r requirements/test.txt
     #   kombu
@@ -14,19 +14,20 @@ asgiref==3.7.2
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.15.8
+astroid==3.0.1
     # via
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
-babel==2.13.0
+babel==2.13.1
     # via sphinx
 backports-zoneinfo[tzdata]==0.2.1
     # via
     #   -r requirements/test.txt
+    #   backports-zoneinfo
     #   celery
     #   kombu
-billiard==4.1.0
+billiard==4.2.0
     # via
     #   -r requirements/test.txt
     #   celery
@@ -44,7 +45,7 @@ cffi==1.16.0
     # via
     #   -r requirements/test.txt
     #   pynacl
-charset-normalizer==3.3.0
+charset-normalizer==3.3.2
     # via requests
 click==8.1.7
     # via
@@ -83,6 +84,7 @@ coverage[toml]==7.3.2
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
+    #   coverage
     #   pytest-cov
 ddt==1.6.0
     # via -r requirements/test.txt
@@ -94,7 +96,7 @@ distlib==0.3.7
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.22
+django==3.2.23
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -111,9 +113,9 @@ django-waffle==4.0.0
     #   edx-django-utils
 docutils==0.20.1
     # via sphinx
-edx-django-utils==5.7.0
+edx-django-utils==5.8.0
     # via -r requirements/test.txt
-edx-lint==5.3.4
+edx-lint==5.3.6
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
@@ -121,7 +123,7 @@ exceptiongroup==1.1.3
     # via
     #   -r requirements/test.txt
     #   pytest
-filelock==3.12.4
+filelock==3.13.1
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -148,14 +150,10 @@ jinja2==3.1.2
     #   -r requirements/test.txt
     #   code-annotations
     #   sphinx
-kombu==5.3.2
+kombu==5.3.3
     # via
     #   -r requirements/test.txt
     #   celery
-lazy-object-proxy==1.9.0
-    # via
-    #   -r requirements/test.txt
-    #   astroid
 markupsafe==2.1.3
     # via
     #   -r requirements/test.txt
@@ -166,7 +164,7 @@ mccabe==0.7.0
     #   pylint
 mock==5.1.0
     # via -r requirements/test.txt
-newrelic==9.1.0
+newrelic==9.1.1
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -203,7 +201,7 @@ prompt-toolkit==3.0.39
     # via
     #   -r requirements/test.txt
     #   click-repl
-psutil==5.9.5
+psutil==5.9.6
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -211,7 +209,7 @@ py==1.11.0
     # via
     #   -r requirements/ci.txt
     #   tox
-pycodestyle==2.11.0
+pycodestyle==2.11.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
@@ -221,7 +219,7 @@ pycparser==2.21
     #   cffi
 pygments==2.16.1
     # via sphinx
-pylint==2.17.7
+pylint==3.0.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -232,7 +230,7 @@ pylint-celery==0.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
-pylint-django==2.5.3
+pylint-django==2.5.5
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -251,7 +249,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.4.2
+pytest==7.4.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -324,7 +322,7 @@ tomli==2.0.1
     #   pyproject-hooks
     #   pytest
     #   tox
-tomlkit==0.12.1
+tomlkit==0.12.2
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -348,30 +346,26 @@ tzdata==2023.3
     #   -r requirements/test.txt
     #   backports-zoneinfo
     #   celery
-urllib3==2.0.6
+urllib3==2.0.7
     # via requests
-vine==5.0.0
+vine==5.1.0
     # via
     #   -r requirements/test.txt
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.24.5
+virtualenv==20.24.6
     # via
     #   -r requirements/ci.txt
     #   tox
-wcwidth==0.2.8
+wcwidth==0.2.9
     # via
     #   -r requirements/test.txt
     #   prompt-toolkit
-wheel==0.41.2
+wheel==0.41.3
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-wrapt==1.15.0
-    # via
-    #   -r requirements/test.txt
-    #   astroid
 zipp==3.17.0
     # via
     #   -r requirements/pip-tools.txt
