@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-amqp==5.1.1
+amqp==5.2.0
     # via kombu
 asgiref==3.7.2
     # via django
@@ -12,9 +12,9 @@ backports-zoneinfo[tzdata]==0.2.1
     # via
     #   celery
     #   kombu
-billiard==4.1.0
+billiard==4.2.0
     # via celery
-celery==5.3.4
+celery==5.3.5
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -33,7 +33,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-django==3.2.22
+django==3.2.23
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -44,17 +44,17 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==4.0.0
     # via edx-django-utils
-edx-django-utils==5.7.0
+edx-django-utils==5.8.0
     # via -r requirements/base.in
-kombu==5.3.2
+kombu==5.3.3
     # via celery
-newrelic==9.1.0
+newrelic==9.1.2
     # via edx-django-utils
-pbr==5.11.1
+pbr==6.0.0
     # via stevedore
-prompt-toolkit==3.0.39
+prompt-toolkit==3.0.41
     # via click-repl
-psutil==5.9.5
+psutil==5.9.6
     # via edx-django-utils
 pycparser==2.21
     # via cffi
@@ -84,10 +84,10 @@ tzdata==2023.3
     # via
     #   backports-zoneinfo
     #   celery
-vine==5.0.0
+vine==5.1.0
     # via
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.2.8
+wcwidth==0.2.10
     # via prompt-toolkit
