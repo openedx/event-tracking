@@ -14,7 +14,7 @@ backports-zoneinfo[tzdata]==0.2.1
     #   kombu
 billiard==4.2.0
     # via celery
-celery==5.3.5
+celery==5.3.6
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -44,11 +44,11 @@ django-crum==0.7.9
     # via edx-django-utils
 django-waffle==4.0.0
     # via edx-django-utils
-edx-django-utils==5.8.0
+edx-django-utils==5.9.0
     # via -r requirements/base.in
-kombu==5.3.3
+kombu==5.3.4
     # via celery
-newrelic==9.1.2
+newrelic==9.2.0
     # via edx-django-utils
 pbr==6.0.0
     # via stevedore
@@ -89,5 +89,5 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.2.10
+wcwidth==0.2.12
     # via prompt-toolkit
