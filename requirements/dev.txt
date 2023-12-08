@@ -35,6 +35,10 @@ build==1.0.3
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
+cachetools==5.3.2
+    # via
+    #   -r requirements/ci.txt
+    #   tox
 celery==5.3.6
     # via
     #   -c requirements/constraints.txt
@@ -45,6 +49,10 @@ cffi==1.16.0
     # via
     #   -r requirements/test.txt
     #   pynacl
+chardet==5.2.0
+    # via
+    #   -r requirements/ci.txt
+    #   tox
 charset-normalizer==3.3.2
     # via requests
 click==8.1.7
@@ -80,6 +88,10 @@ code-annotations==1.5.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
+colorama==0.4.6
+    # via
+    #   -r requirements/ci.txt
+    #   tox
 coverage[toml]==7.3.2
     # via
     #   -r requirements/ci.txt
@@ -164,7 +176,7 @@ mccabe==0.7.0
     #   pylint
 mock==5.1.0
     # via -r requirements/test.txt
-newrelic==9.2.0
+newrelic==9.3.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -174,6 +186,7 @@ packaging==23.2
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
     #   build
+    #   pyproject-api
     #   pytest
     #   sphinx
     #   tox
@@ -190,6 +203,7 @@ platformdirs==4.1.0
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   pylint
+    #   tox
     #   virtualenv
 pluggy==1.3.0
     # via
@@ -205,10 +219,6 @@ psutil==5.9.6
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-py==1.11.0
-    # via
-    #   -r requirements/ci.txt
-    #   tox
 pycodestyle==2.11.1
     # via
     #   -r requirements/dev.in
@@ -245,6 +255,10 @@ pynacl==1.5.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
+pyproject-api==1.6.1
+    # via
+    #   -r requirements/ci.txt
+    #   tox
 pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
@@ -276,11 +290,9 @@ requests==2.31.0
     # via sphinx
 six==1.16.0
     # via
-    #   -r requirements/ci.txt
     #   -r requirements/test.txt
     #   edx-lint
     #   python-dateutil
-    #   tox
 snowballstemmer==2.2.0
     # via sphinx
 sphinx==7.1.2
@@ -319,6 +331,7 @@ tomli==2.0.1
     #   coverage
     #   pip-tools
     #   pylint
+    #   pyproject-api
     #   pyproject-hooks
     #   pytest
     #   tox
@@ -326,13 +339,10 @@ tomlkit==0.12.3
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==3.28.0
+tox==4.11.4
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
-    #   tox-battery
-tox-battery==0.6.2
-    # via -r requirements/ci.txt
 typing-extensions==4.8.0
     # via
     #   -r requirements/test.txt
