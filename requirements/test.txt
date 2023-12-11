@@ -98,7 +98,7 @@ mccabe==0.7.0
     # via pylint
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==9.2.0
+newrelic==9.3.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
