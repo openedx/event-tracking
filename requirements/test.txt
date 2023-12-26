@@ -55,7 +55,7 @@ click-plugins==1.1.1
     #   celery
 code-annotations==1.5.0
     # via edx-lint
-coverage[toml]==7.3.3
+coverage[toml]==7.3.4
     # via
     #   coverage
     #   pytest-cov
