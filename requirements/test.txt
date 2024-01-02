@@ -55,7 +55,7 @@ click-plugins==1.1.1
     #   celery
 code-annotations==1.5.0
     # via edx-lint
-coverage[toml]==7.3.3
+coverage[toml]==7.4.0
     # via
     #   coverage
     #   pytest-cov
@@ -145,7 +145,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==7.4.3
+pytest==7.4.4
     # via pytest-cov
 pytest-cov==4.1.0
     # via -r requirements/test.in
@@ -191,7 +191,7 @@ typing-extensions==4.9.0
     #   astroid
     #   kombu
     #   pylint
-tzdata==2023.3
+tzdata==2023.4
     # via
     #   -r requirements/base.txt
     #   backports-zoneinfo

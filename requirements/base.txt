@@ -80,7 +80,7 @@ typing-extensions==4.9.0
     # via
     #   asgiref
     #   kombu
-tzdata==2023.3
+tzdata==2023.4
     # via
     #   backports-zoneinfo
     #   celery

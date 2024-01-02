@@ -92,7 +92,7 @@ colorama==0.4.6
     # via
     #   -r requirements/ci.txt
     #   tox
-coverage[toml]==7.3.3
+coverage[toml]==7.4.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -144,7 +144,7 @@ idna==3.6
     # via requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==7.0.0
+importlib-metadata==7.0.1
     # via
     #   -r requirements/pip-tools.txt
     #   build
@@ -263,7 +263,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.4.3
+pytest==7.4.4
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -350,7 +350,7 @@ typing-extensions==4.9.0
     #   astroid
     #   kombu
     #   pylint
-tzdata==2023.3
+tzdata==2023.4
     # via
     #   -r requirements/test.txt
     #   backports-zoneinfo
