@@ -46,9 +46,9 @@ django-waffle==4.1.0
     # via edx-django-utils
 edx-django-utils==5.9.0
     # via -r requirements/base.in
-kombu==5.3.4
+kombu==5.3.5
     # via celery
-newrelic==9.3.0
+newrelic==9.5.0
     # via edx-django-utils
 pbr==6.0.0
     # via stevedore
@@ -80,7 +80,7 @@ typing-extensions==4.9.0
     # via
     #   asgiref
     #   kombu
-tzdata==2023.3
+tzdata==2023.4
     # via
     #   backports-zoneinfo
     #   celery
@@ -89,5 +89,5 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.2.12
+wcwidth==0.2.13
     # via prompt-toolkit
