@@ -64,7 +64,7 @@ pynacl==1.5.0
     # via edx-django-utils
 python-dateutil==2.8.2
     # via celery
-pytz==2023.4
+pytz==2024.1
     # via
     #   -r requirements/base.in
     #   django
