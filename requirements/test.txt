@@ -153,7 +153,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/base.txt
     #   celery
-python-slugify==8.0.3
+python-slugify==8.0.4
     # via code-annotations
 pytz==2024.1
     # via
@@ -191,7 +191,7 @@ typing-extensions==4.9.0
     #   astroid
     #   kombu
     #   pylint
-tzdata==2023.4
+tzdata==2024.1
     # via
     #   -r requirements/base.txt
     #   backports-zoneinfo
