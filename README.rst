@@ -149,6 +149,61 @@ An example configuration for ``AsyncRoutingBackend`` is provided below::
     }
 
 
+Event Bus Routing
+-----------------
+
+``event-tracking`` provides a solution for routing events to the Event Bus
+using the ``EventBusBackend``. It extends ``RoutingBackend`` but sends events
+to the Event Bus.
+
+It can:
+
+* Process event through the configured processors.
+* If the event is allowed via `EVENT_BUS_TRACKING_LOGS`, send it to the Event Bus.
+
+Make sure to enable the setting: ``SEND_TRACKING_EVENT_EMITTED_SIGNAL`` to allow the
+``EventBusBackend`` to send events to the Event Bus.
+
+An example configuration for ``EventBusBackend`` is provided below::
+
+    EVENT_TRACKING_BACKENDS = {
+        'xapi': {
+            'ENGINE':  'eventtracking.backends.event_bus.EventBusBackend',
+            'OPTIONS': {
+                'backend_name': 'xapi',
+                'processors': [
+                    {
+                        'ENGINE': 'eventtracking.processors.regex_filter.RegexFilter',
+                        'OPTIONS':{
+                            'filter_type': 'allowlist',
+                            'regular_expressions': [
+                                'edx.course.enrollment.activated',
+                                'edx.course.enrollment.deactivated',
+                            ]
+                        }
+                    }
+                ],
+                'backends': {
+                    'xapi': {
+                        'ENGINE': 'dummy.backend.engine',
+                        'OPTIONS': {
+                            ...
+                        }
+                    }
+                },
+            },
+        },
+        'tracking_logs': {
+            ...
+        }
+        ...
+    }
+
+    EVENT_BUS_TRACKING_LOGS = [
+        'edx.course.enrollment.activated',
+        'edx.course.enrollment.deactivated',
+    ]
+
 Roadmap
 -------
 
