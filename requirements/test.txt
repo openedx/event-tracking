@@ -23,6 +23,7 @@ backports-zoneinfo[tzdata]==0.2.1
     # via
     #   -r requirements/base.txt
     #   celery
+    #   django
     #   kombu
     # via
     #   -r requirements/base.txt
@@ -178,7 +179,7 @@ pytest==8.0.2
     # via pytest-cov
 pytest-cov==4.1.0
     # via -r requirements/test.in
-python-dateutil==2.8.2
+python-dateutil==2.9.0.post0
     # via
     #   -r requirements/base.txt
     #   celery
@@ -187,9 +188,7 @@ python-slugify==8.0.4
     #   -r requirements/base.txt
     #   code-annotations
 pytz==2024.1
-    # via
-    #   -r requirements/base.txt
-    #   django
+    # via -r requirements/base.txt
 pyyaml==6.0.1
     # via
     #   -r requirements/base.txt
@@ -218,7 +217,7 @@ tomli==2.0.1
     #   coverage
     #   pylint
     #   pytest
-tomlkit==0.12.3
+tomlkit==0.12.4
     # via pylint
 typing-extensions==4.10.0
     # via

@@ -29,12 +29,13 @@ backports-zoneinfo[tzdata]==0.2.1
     # via
     #   -r requirements/test.txt
     #   celery
+    #   django
     #   kombu
 billiard==4.2.0
     # via
     #   -r requirements/test.txt
     #   celery
-build==1.0.3
+build==1.1.1
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
@@ -111,7 +112,7 @@ distlib==0.3.8
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.24
+django==4.2.11
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -294,7 +295,7 @@ pytest==8.0.2
     #   pytest-cov
 pytest-cov==4.1.0
     # via -r requirements/test.txt
-python-dateutil==2.8.2
+python-dateutil==2.9.0.post0
     # via
     #   -r requirements/test.txt
     #   celery
@@ -306,7 +307,6 @@ pytz==2024.1
     # via
     #   -r requirements/test.txt
     #   babel
-    #   django
 pyyaml==6.0.1
     # via
     #   -r requirements/test.txt
@@ -361,7 +361,7 @@ tomli==2.0.1
     #   pyproject-hooks
     #   pytest
     #   tox
-tomlkit==0.12.3
+tomlkit==0.12.4
     # via
     #   -r requirements/test.txt
     #   pylint
