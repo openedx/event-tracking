@@ -13,6 +13,7 @@ attrs==23.2.0
 backports-zoneinfo[tzdata]==0.2.1
     # via
     #   celery
+    #   django
     #   kombu
 billiard==4.2.0
     # via celery
@@ -36,9 +37,9 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==1.6.0
+code-annotations==1.7.0
     # via edx-toggles
-django==3.2.24
+django==4.2.11
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -55,7 +56,7 @@ django-waffle==4.1.0
     # via
     #   edx-django-utils
     #   edx-toggles
-edx-django-utils==5.10.1
+edx-django-utils==5.11.0
     # via
     #   -r requirements/base.in
     #   edx-toggles
@@ -72,7 +73,7 @@ kombu==5.3.5
     # via celery
 markupsafe==2.1.5
     # via jinja2
-newrelic==9.7.0
+newrelic==9.7.1
     # via edx-django-utils
 openedx-events==9.5.2
     # via -r requirements/base.in
@@ -90,14 +91,12 @@ pymongo==3.13.0
     #   edx-opaque-keys
 pynacl==1.5.0
     # via edx-django-utils
-python-dateutil==2.8.2
+python-dateutil==2.9.0.post0
     # via celery
 python-slugify==8.0.4
     # via code-annotations
 pytz==2024.1
-    # via
-    #   -r requirements/base.in
-    #   django
+    # via -r requirements/base.in
 pyyaml==6.0.1
     # via code-annotations
 six==1.16.0

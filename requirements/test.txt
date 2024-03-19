@@ -23,6 +23,7 @@ backports-zoneinfo[tzdata]==0.2.1
     # via
     #   -r requirements/base.txt
     #   celery
+    #   django
     #   kombu
     # via
     #   -r requirements/base.txt
@@ -56,12 +57,12 @@ click-plugins==1.1.1
     # via
     #   -r requirements/base.txt
     #   celery
-code-annotations==1.6.0
+code-annotations==1.7.0
     # via
     #   -r requirements/base.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.4.3
+coverage[toml]==7.4.4
     # via pytest-cov
 ddt==1.7.2
     # via -r requirements/test.in
@@ -85,7 +86,7 @@ django-waffle==4.1.0
     #   -r requirements/base.txt
     #   edx-django-utils
     #   edx-toggles
-edx-django-utils==5.10.1
+edx-django-utils==5.11.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
@@ -123,13 +124,13 @@ mccabe==0.7.0
     # via pylint
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==9.7.0
+newrelic==9.7.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
 openedx-events==9.5.2
     # via -r requirements/base.txt
-packaging==23.2
+packaging==24.0
     # via pytest
 pbr==6.0.0
     # via
@@ -174,11 +175,11 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==8.0.2
+pytest==8.1.1
     # via pytest-cov
 pytest-cov==4.1.0
     # via -r requirements/test.in
-python-dateutil==2.8.2
+python-dateutil==2.9.0.post0
     # via
     #   -r requirements/base.txt
     #   celery
@@ -187,9 +188,7 @@ python-slugify==8.0.4
     #   -r requirements/base.txt
     #   code-annotations
 pytz==2024.1
-    # via
-    #   -r requirements/base.txt
-    #   django
+    # via -r requirements/base.txt
 pyyaml==6.0.1
     # via
     #   -r requirements/base.txt
@@ -218,7 +217,7 @@ tomli==2.0.1
     #   coverage
     #   pylint
     #   pytest
-tomlkit==0.12.3
+tomlkit==0.12.4
     # via pylint
 typing-extensions==4.10.0
     # via
