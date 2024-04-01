@@ -25,7 +25,14 @@ class NameWhitelistProcessor:
             ) from error
 
     def __call__(self, event):
-        if event['name'] not in self.whitelist:
+        """
+        Filter out events whose names aren't on the whitelist.
+
+        The event can be a single event or a list of events (when using event-routing-backends with batching enabled).
+        """
+        if isinstance(event, list):
+            return [e for e in event if e['name'] in self.whitelist]
+        elif event['name'] not in self.whitelist:
             raise EventEmissionExit()
 
         return event
