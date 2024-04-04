@@ -20,6 +20,10 @@ class EventBusRoutingBackend(RoutingBackend):
     Event tracker backend for the event bus.
     """
 
+    def __init__(self, processors=None, backends=None, backend_name=''):
+        self.backend_name = backend_name
+        super().__init__(processors=processors, backends=backends)
+
     def send(self, event):
         """
         Send the tracking log event to the event bus by emitting the
