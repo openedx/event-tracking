@@ -58,7 +58,7 @@ click-plugins==1.1.1
     # via
     #   -r requirements/base.txt
     #   celery
-code-annotations==1.7.0
+code-annotations==1.8.0
     # via
     #   -r requirements/base.txt
     #   edx-lint
@@ -129,7 +129,7 @@ newrelic==9.8.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-openedx-events==9.6.0
+openedx-events==9.9.1
     # via -r requirements/base.txt
 packaging==24.0
     # via pytest
@@ -199,7 +199,7 @@ six==1.16.0
     #   -r requirements/base.txt
     #   edx-lint
     #   python-dateutil
-sqlparse==0.4.4
+sqlparse==0.5.0
     # via
     #   -r requirements/base.txt
     #   django
@@ -220,7 +220,7 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.12.4
     # via pylint
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   -r requirements/base.txt
     #   asgiref
