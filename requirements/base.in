@@ -3,6 +3,7 @@
 -c constraints.txt
 
 django
+pymongo>=2.7.2,<4.1.2
 pytz
 six
 celery
