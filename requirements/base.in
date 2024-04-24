@@ -3,10 +3,9 @@
 -c constraints.txt
 
 django
-pymongo>=2.7.2,<4.0.0
 pytz
 six
-celery
+celery<5.4.0
 edx-django-utils
 openedx-events>=9.5.1
 edx-toggles
