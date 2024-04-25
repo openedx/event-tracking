@@ -80,8 +80,8 @@ class MongoBackend:
         # TODO: The creation of indexes can be moved to a Django
         # management command or equivalent. There is also an option to
         # run the indexing on the background, without locking.
-        self.collection.ensure_index([('time', pymongo.DESCENDING)])
-        self.collection.ensure_index('name')
+        self.collection.create_index([('time', pymongo.DESCENDING)])
+        self.collection.create_index('name')
 
     def send(self, event):
         """Insert the event in to the Mongo collection"""
