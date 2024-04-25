@@ -29,7 +29,7 @@ class TestMongoBackend(TestCase):
 
         # Check if we inserted events into the database
 
-        calls = self.backend.collection.insert.mock_calls
+        calls = self.backend.collection.insert_one.mock_calls
 
         self.assertEqual(len(calls), 2)
 
