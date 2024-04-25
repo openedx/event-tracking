@@ -48,7 +48,7 @@ class TestMongoIntegration(IntegrationTestCase):
 
         # Ensure MongoDB has finished writing out the events before we
         # run our query.
-        self.mongo_backend.connection.fsync()
+        self.connection.admin.command('fsync', lock=True)
 
         mem_events = {}
         for event in self.memory_backend.events:
