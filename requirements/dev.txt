@@ -128,6 +128,10 @@ django-waffle==4.1.0
     #   -r requirements/test.txt
     #   edx-django-utils
     #   edx-toggles
+dnspython==2.6.1
+    # via
+    #   -r requirements/test.txt
+    #   pymongo
 docutils==0.20.1
     # via sphinx
 edx-django-utils==5.12.0
@@ -139,7 +143,7 @@ edx-lint==5.3.6
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-edx-opaque-keys[django]==2.8.0
+edx-opaque-keys[django]==2.9.0
     # via
     #   -r requirements/test.txt
     #   openedx-events
@@ -266,7 +270,7 @@ pylint-plugin-utils==0.8.2
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pymongo==3.13.0
+pymongo==4.4.0
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys

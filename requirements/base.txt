@@ -55,12 +55,14 @@ django-waffle==4.1.0
     # via
     #   edx-django-utils
     #   edx-toggles
+dnspython==2.6.1
+    # via pymongo
 edx-django-utils==5.12.0
     # via
     #   -r requirements/base.in
     #   edx-toggles
     #   openedx-events
-edx-opaque-keys[django]==2.8.0
+edx-opaque-keys[django]==2.9.0
     # via openedx-events
 edx-toggles==5.2.0
     # via -r requirements/base.in
@@ -82,7 +84,7 @@ prompt-toolkit==3.0.43
     # via click-repl
 psutil==5.9.8
     # via edx-django-utils
-pymongo==3.13.0
+pymongo==4.4.0
     # via
     #   -r requirements/base.in
     #   edx-opaque-keys
