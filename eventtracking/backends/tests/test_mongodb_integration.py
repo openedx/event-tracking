@@ -56,7 +56,7 @@ class TestMongoIntegration(IntegrationTestCase):
         self.assertEqual(len(mem_events), 10)
 
         cursor = self.mongo_backend.collection.find()
-        self.assertEqual(cursor.count_documents(), 10)
+        self.assertEqual(cursor.estimated_document_count(), 10)
 
         for event in cursor:
             mem_event = mem_events[event['data']['sequence']]
