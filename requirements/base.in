@@ -3,6 +3,8 @@
 -c constraints.txt
 
 django
+# https://pymongo.readthedocs.io/en/4.4.0/migrate-to-pymongo4.html#son-items-now-returns-dict-items-object
+pymongo>=2.7.2,<4.4.1
 pytz
 six
 celery<5.4.0
