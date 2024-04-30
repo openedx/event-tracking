@@ -58,12 +58,12 @@ click-plugins==1.1.1
     # via
     #   -r requirements/base.txt
     #   celery
-code-annotations==1.7.0
+code-annotations==1.8.0
     # via
     #   -r requirements/base.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.4.4
+coverage[toml]==7.5.0
     # via pytest-cov
 ddt==1.7.2
     # via -r requirements/test.in
@@ -94,13 +94,13 @@ edx-django-utils==5.12.0
     #   openedx-events
 edx-lint==5.3.6
     # via -r requirements/test.in
-edx-opaque-keys[django]==2.5.1
+edx-opaque-keys[django]==2.9.0
     # via
     #   -r requirements/base.txt
     #   openedx-events
 edx-toggles==5.2.0
     # via -r requirements/base.txt
-exceptiongroup==1.2.0
+exceptiongroup==1.2.1
     # via pytest
 fastavro==1.9.4
     # via
@@ -125,11 +125,11 @@ mccabe==0.7.0
     # via pylint
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==9.8.0
+newrelic==9.9.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-openedx-events==9.6.0
+openedx-events==9.9.2
     # via -r requirements/base.txt
 packaging==24.0
     # via pytest
@@ -137,9 +137,9 @@ pbr==6.0.0
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==4.2.0
+platformdirs==4.2.1
     # via pylint
-pluggy==1.4.0
+pluggy==1.5.0
     # via pytest
     # via
     #   -r requirements/base.txt
@@ -176,7 +176,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==8.1.1
+pytest==8.2.0
     # via pytest-cov
 pytest-cov==5.0.0
     # via -r requirements/test.in
@@ -199,7 +199,7 @@ six==1.16.0
     #   -r requirements/base.txt
     #   edx-lint
     #   python-dateutil
-sqlparse==0.4.4
+sqlparse==0.5.0
     # via
     #   -r requirements/base.txt
     #   django
@@ -220,7 +220,7 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.12.4
     # via pylint
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   -r requirements/base.txt
     #   asgiref
