@@ -11,7 +11,7 @@ asgiref==3.8.1
     # via
     #   -r requirements/base.txt
     #   django
-astroid==3.1.0
+astroid==3.2.2
     # via
     #   pylint
     #   pylint-celery
@@ -58,12 +58,12 @@ click-plugins==1.1.1
     # via
     #   -r requirements/base.txt
     #   celery
-code-annotations==1.7.0
+code-annotations==1.8.0
     # via
     #   -r requirements/base.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.4.4
+coverage[toml]==7.5.4
     # via pytest-cov
 ddt==1.7.2
     # via -r requirements/test.in
@@ -87,20 +87,25 @@ django-waffle==4.1.0
     #   -r requirements/base.txt
     #   edx-django-utils
     #   edx-toggles
-edx-django-utils==5.12.0
+edx-ccx-keys==1.3.0
+    # via
+    #   -r requirements/base.txt
+    #   openedx-events
+edx-django-utils==5.14.2
     # via
     #   -r requirements/base.txt
     #   edx-toggles
     #   openedx-events
 edx-lint==5.3.6
     # via -r requirements/test.in
-edx-opaque-keys[django]==2.5.1
+edx-opaque-keys[django]==2.10.0
     # via
     #   -r requirements/base.txt
+    #   edx-ccx-keys
     #   openedx-events
 edx-toggles==5.2.0
     # via -r requirements/base.txt
-exceptiongroup==1.2.0
+exceptiongroup==1.2.1
     # via pytest
 fastavro==1.9.4
     # via
@@ -110,7 +115,7 @@ iniconfig==2.0.0
     # via pytest
 isort==5.13.2
     # via pylint
-jinja2==3.1.3
+jinja2==3.1.4
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -125,36 +130,36 @@ mccabe==0.7.0
     # via pylint
 mock==5.1.0
     # via -r requirements/test.in
-newrelic==9.8.0
+newrelic==9.11.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-openedx-events==9.6.0
+openedx-events==9.11.0
     # via -r requirements/base.txt
-packaging==24.0
+packaging==24.1
     # via pytest
 pbr==6.0.0
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==4.2.0
+platformdirs==4.2.2
     # via pylint
-pluggy==1.4.0
+pluggy==1.5.0
     # via pytest
     # via
     #   -r requirements/base.txt
     #   click-repl
-psutil==5.9.8
+psutil==6.0.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pycodestyle==2.11.1
+pycodestyle==2.12.0
     # via -r requirements/test.in
 pycparser==2.22
     # via
     #   -r requirements/base.txt
     #   cffi
-pylint==3.1.0
+pylint==3.2.3
     # via
     #   edx-lint
     #   pylint-celery
@@ -176,7 +181,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==8.1.1
+pytest==8.2.2
     # via pytest-cov
 pytest-cov==5.0.0
     # via -r requirements/test.in
@@ -197,9 +202,10 @@ pyyaml==6.0.1
 six==1.16.0
     # via
     #   -r requirements/base.txt
+    #   edx-ccx-keys
     #   edx-lint
     #   python-dateutil
-sqlparse==0.4.4
+sqlparse==0.5.0
     # via
     #   -r requirements/base.txt
     #   django
@@ -218,9 +224,9 @@ tomli==2.0.1
     #   coverage
     #   pylint
     #   pytest
-tomlkit==0.12.4
+tomlkit==0.12.5
     # via pylint
-typing-extensions==4.10.0
+typing-extensions==4.12.2
     # via
     #   -r requirements/base.txt
     #   asgiref
