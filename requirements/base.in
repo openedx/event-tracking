@@ -3,10 +3,11 @@
 -c constraints.txt
 
 django
-pymongo>=2.7.2,<4.0.0
+# https://pymongo.readthedocs.io/en/4.4.0/migrate-to-pymongo4.html#son-items-now-returns-dict-items-object
+pymongo>=4.0.0,<4.4.1
 pytz
 six
-celery
+celery<5.4.0
 edx-django-utils
 openedx-events>=9.5.1
 edx-toggles
