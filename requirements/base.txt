@@ -72,7 +72,7 @@ edx-opaque-keys[django]==2.10.0
     #   openedx-events
 edx-toggles==5.2.0
     # via -r requirements/base.in
-fastavro==1.9.4
+fastavro==1.9.5
     # via openedx-events
 jinja2==3.1.4
     # via code-annotations
