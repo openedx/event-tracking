@@ -7,7 +7,7 @@ django
 pymongo>=4.0.0,<4.4.1
 pytz
 six
-celery<5.4.0
+celery
 edx-django-utils
 openedx-events>=9.5.1
 edx-toggles
