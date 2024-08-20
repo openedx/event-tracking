@@ -214,7 +214,7 @@ text-unidecode==1.3
     # via
     #   -r requirements/base.txt
     #   python-slugify
-tomlkit==0.13.0
+tomlkit==0.13.2
     # via pylint
 typing-extensions==4.12.2
     # via
