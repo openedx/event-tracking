@@ -41,7 +41,7 @@ celery==5.4.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-certifi==2024.7.4
+certifi==2024.8.30
     # via requests
 cffi==1.17.0
     # via
@@ -207,7 +207,7 @@ packaging==24.1
     #   pytest
     #   sphinx
     #   tox
-pbr==6.0.0
+pbr==6.1.0
     # via
     #   -r requirements/test.txt
     #   stevedore
