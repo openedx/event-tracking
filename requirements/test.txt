@@ -93,7 +93,7 @@ edx-django-utils==5.15.0
     #   -r requirements/base.txt
     #   edx-toggles
     #   openedx-events
-edx-lint==5.3.7
+edx-lint==5.4.0
     # via -r requirements/test.in
 edx-opaque-keys[django]==2.10.0
     # via
@@ -129,7 +129,7 @@ newrelic==9.13.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-openedx-events==9.11.0
+openedx-events==9.12.0
     # via -r requirements/base.txt
 packaging==24.1
     # via pytest
@@ -204,7 +204,7 @@ sqlparse==0.5.1
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==5.2.0
+stevedore==5.3.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -214,7 +214,7 @@ text-unidecode==1.3
     # via
     #   -r requirements/base.txt
     #   python-slugify
-tomlkit==0.13.0
+tomlkit==0.13.2
     # via pylint
 typing-extensions==4.12.2
     # via
