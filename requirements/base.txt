@@ -78,7 +78,7 @@ newrelic==9.13.0
     # via edx-django-utils
 openedx-events==9.12.0
     # via -r requirements/base.in
-pbr==6.0.0
+pbr==6.1.0
     # via stevedore
 prompt-toolkit==3.0.47
     # via click-repl
