@@ -154,7 +154,7 @@ pycparser==2.22
     # via
     #   -r requirements/base.txt
     #   cffi
-pylint==3.2.6
+pylint==3.2.7
     # via
     #   edx-lint
     #   pylint-celery
