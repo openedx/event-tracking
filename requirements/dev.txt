@@ -246,7 +246,7 @@ pycparser==2.22
     #   cffi
 pygments==2.18.0
     # via sphinx
-pylint==3.2.6
+pylint==3.2.7
     # via
     #   -r requirements/test.txt
     #   edx-lint
