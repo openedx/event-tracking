@@ -25,7 +25,7 @@ attrs==24.2.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
-cffi==1.17.0
+cffi==1.17.1
     # via
     #   -r requirements/base.txt
     #   pynacl
@@ -95,14 +95,14 @@ edx-django-utils==5.15.0
     #   openedx-events
 edx-lint==5.4.0
     # via -r requirements/test.in
-edx-opaque-keys[django]==2.10.0
+edx-opaque-keys[django]==2.11.0
     # via
     #   -r requirements/base.txt
     #   edx-ccx-keys
     #   openedx-events
 edx-toggles==5.2.0
     # via -r requirements/base.txt
-fastavro==1.9.5
+fastavro==1.9.7
     # via
     #   -r requirements/base.txt
     #   openedx-events
@@ -129,7 +129,7 @@ newrelic==9.13.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-openedx-events==9.12.0
+openedx-events==9.14.0
     # via -r requirements/base.txt
 packaging==24.1
     # via pytest
@@ -137,7 +137,7 @@ pbr==6.1.0
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==4.2.2
+platformdirs==4.3.2
     # via pylint
 pluggy==1.5.0
     # via pytest
