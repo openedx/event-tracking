@@ -14,7 +14,7 @@ asgiref==3.8.1
     # via
     #   -r requirements/test.txt
     #   django
-astroid==3.2.4
+astroid==3.3.4
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -25,11 +25,11 @@ attrs==24.2.0
     #   openedx-events
 babel==2.16.0
     # via sphinx
-billiard==4.2.0
+billiard==4.2.1
     # via
     #   -r requirements/test.txt
     #   celery
-build==1.2.1
+build==1.2.2
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
@@ -43,7 +43,7 @@ celery==5.4.0
     #   -r requirements/test.txt
 certifi==2024.8.30
     # via requests
-cffi==1.17.0
+cffi==1.17.1
     # via
     #   -r requirements/test.txt
     #   pynacl
@@ -106,7 +106,7 @@ distlib==0.3.8
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==4.2.15
+django==4.2.16
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -144,23 +144,23 @@ edx-lint==5.4.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-edx-opaque-keys[django]==2.10.0
+edx-opaque-keys[django]==2.11.0
     # via
     #   -r requirements/test.txt
     #   edx-ccx-keys
     #   openedx-events
 edx-toggles==5.2.0
     # via -r requirements/test.txt
-fastavro==1.9.5
+fastavro==1.9.7
     # via
     #   -r requirements/test.txt
     #   openedx-events
-filelock==3.15.4
+filelock==3.16.1
     # via
     #   -r requirements/ci.txt
     #   tox
     #   virtualenv
-idna==3.8
+idna==3.10
     # via requests
 imagesize==1.4.1
     # via sphinx
@@ -177,7 +177,7 @@ jinja2==3.1.4
     #   -r requirements/test.txt
     #   code-annotations
     #   sphinx
-kombu==5.4.0
+kombu==5.4.2
     # via
     #   -r requirements/test.txt
     #   celery
@@ -195,7 +195,7 @@ newrelic==9.13.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-openedx-events==9.12.0
+openedx-events==9.14.1
     # via -r requirements/test.txt
 packaging==24.1
     # via
@@ -215,7 +215,7 @@ pip-tools==7.4.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==4.2.2
+platformdirs==4.3.6
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -246,7 +246,7 @@ pycparser==2.22
     #   cffi
 pygments==2.18.0
     # via sphinx
-pylint==3.2.7
+pylint==3.3.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -274,7 +274,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-pyproject-api==1.7.1
+pyproject-api==1.8.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -283,7 +283,7 @@ pyproject-hooks==1.1.0
     #   -r requirements/pip-tools.txt
     #   build
     #   pip-tools
-pytest==8.3.2
+pytest==8.3.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -297,7 +297,7 @@ python-slugify==8.0.4
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2024.1
+pytz==2024.2
     # via -r requirements/test.txt
 pyyaml==6.0.2
     # via
@@ -345,7 +345,7 @@ tomlkit==0.13.2
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==4.18.0
+tox==4.20.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
@@ -353,11 +353,12 @@ typing-extensions==4.12.2
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
-tzdata==2024.1
+tzdata==2024.2
     # via
     #   -r requirements/test.txt
     #   celery
-urllib3==2.2.2
+    #   kombu
+urllib3==2.2.3
     # via requests
 vine==5.1.0
     # via
@@ -365,7 +366,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.26.3
+virtualenv==20.26.5
     # via
     #   -r requirements/ci.txt
     #   tox
