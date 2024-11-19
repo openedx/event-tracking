@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-amqp==5.2.0
+amqp==5.3.1
     # via kombu
 asgiref==3.8.1
     # via django
@@ -32,7 +32,7 @@ click-plugins==1.1.1
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==1.8.0
+code-annotations==1.8.1
     # via edx-toggles
 django==4.2.16
     # via
@@ -47,7 +47,7 @@ django-crum==0.7.9
     # via
     #   edx-django-utils
     #   edx-toggles
-django-waffle==4.1.0
+django-waffle==4.2.0
     # via
     #   edx-django-utils
     #   edx-toggles
@@ -74,7 +74,7 @@ kombu==5.4.2
     # via celery
 markupsafe==3.0.2
     # via jinja2
-newrelic==10.2.0
+newrelic==10.3.0
     # via edx-django-utils
 openedx-events==9.15.0
     # via -r requirements/base.in
@@ -105,7 +105,7 @@ six==1.16.0
     #   -r requirements/base.in
     #   edx-ccx-keys
     #   python-dateutil
-sqlparse==0.5.1
+sqlparse==0.5.2
     # via django
 stevedore==5.3.0
     # via
