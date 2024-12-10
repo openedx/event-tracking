@@ -118,7 +118,7 @@ class RoutingBackend:
                     processed_event = modified_event
             except EventEmissionExit:
                 raise
-            except Exception:  # pylint: disable=broad-except
+            except Exception:
                 LOG.exception(
                     'Failed to execute processor: %s', str(processor)
                 )
@@ -142,7 +142,7 @@ class RoutingBackend:
                 LOG.info('[send_to_backends] Failed to send edx event "%s" to "%s" backend. "%s" backend has'
                          ' not been enabled, [%s]', event["name"], name, name, repr(exc)
                          )
-            except Exception:  # pylint: disable=broad-except
+            except Exception:
                 LOG.exception(
                     'Unable to send edx event "%s" to backend: %s', event["name"], name
                 )

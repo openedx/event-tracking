@@ -11,35 +11,30 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-20.04]
-        python-version: ["3.8"]
-        toxenv:
-          [
-            celery44-django32,
-            celery52-django32,
-            celery53-django32,
-            celery53-django42,
-          ]
+        os: [ubuntu-latest]
+        python-version:
+        - '3.11'
+        toxenv: [celery54-django42]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
+    - uses: actions/checkout@v2
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
 
-      - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.6.0
-        with:
-          mongodb-version: 4.0
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.6.0
+      with:
+        mongodb-version: 4.0
 
-      - name: Install pip
-        run: pip install -r requirements/pip.txt
+    - name: Install pip
+      run: pip install -r requirements/pip.txt
 
-      - name: Install Dependencies
-        run: make test.setup install
+    - name: Install Dependencies
+      run: make test.setup install
 
-      - name: Run Tests
-        env:
-          TOXENV: ${{ matrix.toxenv }}
-        run: tox
+    - name: Run Tests
+      env:
+        TOXENV: ${{ matrix.toxenv }}
+      run: tox
