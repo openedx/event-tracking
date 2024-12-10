@@ -11,7 +11,7 @@ asgiref==3.8.1
     # via
     #   -r requirements/base.txt
     #   django
-astroid==3.3.5
+astroid==3.3.6
     # via
     #   pylint
     #   pylint-celery
@@ -56,7 +56,7 @@ code-annotations==2.0.0
     #   -r requirements/base.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.6.8
+coverage[toml]==7.6.9
     # via pytest-cov
 ddt==1.7.2
     # via -r requirements/test.in
@@ -88,7 +88,7 @@ edx-ccx-keys==2.0.2
     # via
     #   -r requirements/base.txt
     #   openedx-events
-edx-django-utils==7.0.1
+edx-django-utils==7.1.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
@@ -194,7 +194,7 @@ pyyaml==6.0.2
     # via
     #   -r requirements/base.txt
     #   code-annotations
-six==1.16.0
+six==1.17.0
     # via
     #   -r requirements/base.txt
     #   edx-ccx-keys
