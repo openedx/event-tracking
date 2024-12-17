@@ -14,12 +14,12 @@ asgiref==3.8.1
     # via
     #   -r requirements/test.txt
     #   django
-astroid==3.3.5
+astroid==3.3.6
     # via
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
-attrs==24.2.0
+attrs==24.3.0
     # via
     #   -r requirements/test.txt
     #   openedx-events
@@ -41,7 +41,7 @@ celery==5.4.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-certifi==2024.8.30
+certifi==2024.12.14
     # via requests
 cffi==1.17.1
     # via
@@ -82,7 +82,7 @@ click-repl==0.3.0
     # via
     #   -r requirements/test.txt
     #   celery
-code-annotations==2.0.0
+code-annotations==2.1.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -91,7 +91,7 @@ colorama==0.4.6
     # via
     #   -r requirements/ci.txt
     #   tox
-coverage[toml]==7.6.8
+coverage[toml]==7.6.9
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -106,7 +106,7 @@ distlib==0.3.9
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==4.2.16
+django==4.2.17
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -135,7 +135,7 @@ edx-ccx-keys==2.0.2
     # via
     #   -r requirements/test.txt
     #   openedx-events
-edx-django-utils==7.0.1
+edx-django-utils==7.1.0
     # via
     #   -r requirements/test.txt
     #   edx-toggles
@@ -191,7 +191,7 @@ mccabe==0.7.0
     #   pylint
 mock==5.1.0
     # via -r requirements/test.txt
-newrelic==10.3.1
+newrelic==10.4.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -305,7 +305,7 @@ pyyaml==6.0.2
     #   code-annotations
 requests==2.32.3
     # via sphinx
-six==1.16.0
+six==1.17.0
     # via
     #   -r requirements/test.txt
     #   edx-ccx-keys
@@ -327,7 +327,7 @@ sphinxcontrib-qthelp==2.0.0
     # via sphinx
 sphinxcontrib-serializinghtml==2.0.0
     # via sphinx
-sqlparse==0.5.2
+sqlparse==0.5.3
     # via
     #   -r requirements/test.txt
     #   django
