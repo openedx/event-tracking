@@ -82,7 +82,7 @@ click-repl==0.3.0
     # via
     #   -r requirements/test.txt
     #   celery
-code-annotations==2.1.0
+code-annotations==2.2.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -106,7 +106,7 @@ distlib==0.3.9
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==4.2.17
+django==4.2.18
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -195,7 +195,7 @@ newrelic==10.4.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-openedx-events==9.15.0
+openedx-events==9.15.2
     # via -r requirements/test.txt
 packaging==24.2
     # via
@@ -228,7 +228,7 @@ pluggy==1.5.0
     #   -r requirements/test.txt
     #   pytest
     #   tox
-prompt-toolkit==3.0.48
+prompt-toolkit==3.0.50
     # via
     #   -r requirements/test.txt
     #   click-repl
@@ -368,7 +368,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.28.1
+virtualenv==20.29.1
     # via
     #   -r requirements/ci.txt
     #   tox
