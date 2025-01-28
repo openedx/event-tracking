@@ -19,7 +19,7 @@ astroid==3.3.8
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
-attrs==24.3.0
+attrs==25.1.0
     # via
     #   -r requirements/test.txt
     #   openedx-events
@@ -33,7 +33,7 @@ build==1.2.2.post1
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-cachetools==5.5.0
+cachetools==5.5.1
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -82,7 +82,7 @@ click-repl==0.3.0
     # via
     #   -r requirements/test.txt
     #   celery
-code-annotations==2.1.0
+code-annotations==2.2.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -106,7 +106,7 @@ distlib==0.3.9
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==4.2.17
+django==4.2.18
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -140,7 +140,7 @@ edx-django-utils==7.1.0
     #   -r requirements/test.txt
     #   edx-toggles
     #   openedx-events
-edx-lint==5.4.1
+edx-lint==5.6.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
@@ -155,7 +155,7 @@ fastavro==1.10.0
     # via
     #   -r requirements/test.txt
     #   openedx-events
-filelock==3.16.1
+filelock==3.17.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -195,7 +195,7 @@ newrelic==10.4.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-openedx-events==9.15.0
+openedx-events==9.15.2
     # via -r requirements/test.txt
 packaging==24.2
     # via
@@ -228,7 +228,7 @@ pluggy==1.5.0
     #   -r requirements/test.txt
     #   pytest
     #   tox
-prompt-toolkit==3.0.48
+prompt-toolkit==3.0.50
     # via
     #   -r requirements/test.txt
     #   click-repl
@@ -274,7 +274,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-pyproject-api==1.8.0
+pyproject-api==1.9.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -345,7 +345,7 @@ tomlkit==0.13.2
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==4.23.2
+tox==4.24.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
@@ -353,7 +353,7 @@ typing-extensions==4.12.2
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
-tzdata==2024.2
+tzdata==2025.1
     # via
     #   -r requirements/test.txt
     #   celery
@@ -368,7 +368,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.28.1
+virtualenv==20.29.1
     # via
     #   -r requirements/ci.txt
     #   tox
