@@ -5,5 +5,5 @@ click==8.1.8
 click-didyoumean==0.3.1
 click-repl==0.3.0
 kombu==5.4.2
-prompt-toolkit==3.0.48
+prompt-toolkit==3.0.50
 vine==5.1.0
