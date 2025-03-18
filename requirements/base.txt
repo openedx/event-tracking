@@ -8,7 +8,7 @@ amqp==5.3.1
     # via kombu
 asgiref==3.8.1
     # via django
-attrs==25.1.0
+attrs==25.3.0
     # via openedx-events
 billiard==4.2.1
     # via celery
@@ -34,7 +34,7 @@ click-repl==0.3.0
     # via celery
 code-annotations==2.2.0
     # via edx-toggles
-django==4.2.19
+django==4.2.20
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -68,13 +68,13 @@ edx-toggles==5.3.0
     # via -r requirements/base.in
 fastavro==1.10.0
     # via openedx-events
-jinja2==3.1.5
+jinja2==3.1.6
     # via code-annotations
-kombu==5.4.2
+kombu==5.5.0
     # via celery
 markupsafe==3.0.2
     # via jinja2
-newrelic==10.6.0
+newrelic==10.7.0
     # via edx-django-utils
 openedx-events==9.18.2
     # via -r requirements/base.in
