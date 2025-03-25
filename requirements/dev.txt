@@ -91,7 +91,7 @@ colorama==0.4.6
     # via
     #   -r requirements/ci.txt
     #   tox
-coverage[toml]==7.7.0
+coverage[toml]==7.7.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -144,7 +144,7 @@ edx-lint==5.6.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-edx-opaque-keys[django]==2.11.0
+edx-opaque-keys[django]==2.12.0
     # via
     #   -r requirements/test.txt
     #   edx-ccx-keys
@@ -164,7 +164,7 @@ idna==3.10
     # via requests
 imagesize==1.4.1
     # via sphinx
-iniconfig==2.0.0
+iniconfig==2.1.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -177,7 +177,7 @@ jinja2==3.1.6
     #   -r requirements/test.txt
     #   code-annotations
     #   sphinx
-kombu==5.5.0
+kombu==5.5.1
     # via
     #   -r requirements/test.txt
     #   celery
@@ -195,7 +195,7 @@ newrelic==10.7.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-openedx-events==9.18.2
+openedx-events==9.20.0
     # via -r requirements/test.txt
 packaging==24.2
     # via
@@ -215,7 +215,7 @@ pip-tools==7.4.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==4.3.6
+platformdirs==4.3.7
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -246,7 +246,7 @@ pycparser==2.22
     #   cffi
 pygments==2.19.1
     # via sphinx
-pylint==3.3.5
+pylint==3.3.6
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -266,7 +266,7 @@ pylint-plugin-utils==0.8.2
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pymongo==4.11.2
+pymongo==4.11.3
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -297,7 +297,7 @@ python-slugify==8.0.4
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2025.1
+pytz==2025.2
     # via -r requirements/test.txt
 pyyaml==6.0.2
     # via
