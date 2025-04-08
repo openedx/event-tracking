@@ -37,7 +37,7 @@ cachetools==5.5.2
     # via
     #   -r requirements/ci.txt
     #   tox
-celery==5.5.0
+celery==5.5.1
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -287,7 +287,7 @@ pytest==8.3.5
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-pytest-cov==6.0.0
+pytest-cov==6.1.1
     # via -r requirements/test.txt
 python-dateutil==2.9.0.post0
     # via
@@ -351,7 +351,7 @@ tox==4.25.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
-typing-extensions==4.13.0
+typing-extensions==4.13.1
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
