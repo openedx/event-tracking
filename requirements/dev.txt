@@ -37,7 +37,7 @@ cachetools==5.5.2
     # via
     #   -r requirements/ci.txt
     #   tox
-celery==5.5.0
+celery==5.5.1
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -82,7 +82,7 @@ click-repl==0.3.0
     # via
     #   -r requirements/test.txt
     #   celery
-code-annotations==2.2.0
+code-annotations==2.3.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -135,7 +135,7 @@ edx-ccx-keys==2.0.2
     # via
     #   -r requirements/test.txt
     #   openedx-events
-edx-django-utils==7.2.0
+edx-django-utils==7.4.0
     # via
     #   -r requirements/test.txt
     #   edx-toggles
@@ -191,11 +191,11 @@ mccabe==0.7.0
     #   pylint
 mock==5.2.0
     # via -r requirements/test.txt
-newrelic==10.8.1
+newrelic==10.9.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-openedx-events==9.20.0
+openedx-events==10.0.0
     # via -r requirements/test.txt
 packaging==24.2
     # via
@@ -266,7 +266,7 @@ pylint-plugin-utils==0.8.2
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pymongo==4.11.3
+pymongo==4.12.0
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -287,7 +287,7 @@ pytest==8.3.5
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-pytest-cov==6.0.0
+pytest-cov==6.1.1
     # via -r requirements/test.txt
 python-dateutil==2.9.0.post0
     # via
@@ -351,7 +351,7 @@ tox==4.25.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
-typing-extensions==4.13.0
+typing-extensions==4.13.2
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
