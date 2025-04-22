@@ -98,7 +98,7 @@ coverage[toml]==7.8.0
     #   pytest-cov
 ddt==1.7.2
     # via -r requirements/test.txt
-dill==0.3.9
+dill==0.4.0
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -177,7 +177,7 @@ jinja2==3.1.6
     #   -r requirements/test.txt
     #   code-annotations
     #   sphinx
-kombu==5.5.2
+kombu==5.5.3
     # via
     #   -r requirements/test.txt
     #   celery
@@ -197,7 +197,7 @@ newrelic==10.9.0
     #   edx-django-utils
 openedx-events==10.0.0
     # via -r requirements/test.txt
-packaging==24.2
+packaging==25.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/pip-tools.txt
@@ -228,7 +228,7 @@ pluggy==1.5.0
     #   -r requirements/test.txt
     #   pytest
     #   tox
-prompt-toolkit==3.0.50
+prompt-toolkit==3.0.51
     # via
     #   -r requirements/test.txt
     #   click-repl
