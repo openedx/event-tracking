@@ -1,7 +1,6 @@
 export DJANGO_SETTINGS_MODULE=eventtracking.django.tests.settings
 
 MAKE_DOC=make -C doc
-SETUP=python setup.py
 PYTEST=python -m pytest
 
 .PHONY: lint requirements style test.unit upgrade
@@ -11,7 +10,6 @@ help: ## display this help message
 	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | sort | awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-25s\033[0m %s\n", $$1, $$2}'
 
 clean: ## delete most git-ignored files
-	$(SETUP) clean
 	$(MAKE_DOC) clean
 	coverage erase
 	find -name '*.pyc' -delete
@@ -39,10 +37,10 @@ lint: ## run pylint on the code
 	pylint --reports=y eventtracking
 
 install: ## install the event-tracking package locally
-	$(SETUP) install
+	pip install .
 
 develop:
-	$(SETUP) develop
+	pip install -e .
 
 doc: doc.html ## generate the documentation
 

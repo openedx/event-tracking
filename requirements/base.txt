@@ -12,7 +12,7 @@ attrs==25.3.0
     # via openedx-events
 billiard==4.2.1
     # via celery
-celery==5.5.1
+celery==5.5.2
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -60,7 +60,7 @@ edx-django-utils==7.4.0
     #   -r requirements/base.in
     #   edx-toggles
     #   openedx-events
-edx-opaque-keys[django]==2.12.0
+edx-opaque-keys[django]==3.0.0
     # via
     #   edx-ccx-keys
     #   openedx-events
@@ -70,17 +70,17 @@ fastavro==1.10.0
     # via openedx-events
 jinja2==3.1.6
     # via code-annotations
-kombu==5.5.2
+kombu==5.5.3
     # via celery
 markupsafe==3.0.2
     # via jinja2
-newrelic==10.9.0
+newrelic==10.10.0
     # via edx-django-utils
 openedx-events==10.0.0
     # via -r requirements/base.in
 pbr==6.1.1
     # via stevedore
-prompt-toolkit==3.0.50
+prompt-toolkit==3.0.51
     # via click-repl
 psutil==7.0.0
     # via edx-django-utils
