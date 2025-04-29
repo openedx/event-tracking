@@ -60,7 +60,7 @@ coverage[toml]==7.8.0
     # via pytest-cov
 ddt==1.7.2
     # via -r requirements/test.in
-dill==0.3.9
+dill==0.4.0
     # via pylint
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
@@ -95,7 +95,7 @@ edx-django-utils==7.4.0
     #   openedx-events
 edx-lint==5.6.0
     # via -r requirements/test.in
-edx-opaque-keys[django]==2.12.0
+edx-opaque-keys[django]==3.0.0
     # via
     #   -r requirements/base.txt
     #   edx-ccx-keys
@@ -125,13 +125,13 @@ mccabe==0.7.0
     # via pylint
 mock==5.2.0
     # via -r requirements/test.in
-newrelic==10.9.0
+newrelic==10.10.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
 openedx-events==10.0.0
     # via -r requirements/base.txt
-packaging==24.2
+packaging==25.0
     # via pytest
 pbr==6.1.1
     # via
