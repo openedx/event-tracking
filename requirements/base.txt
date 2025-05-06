@@ -74,9 +74,9 @@ kombu==5.5.3
     # via celery
 markupsafe==3.0.2
     # via jinja2
-newrelic==10.10.0
+newrelic==10.11.0
     # via edx-django-utils
-openedx-events==10.0.0
+openedx-events==10.1.0
     # via -r requirements/base.in
 pbr==6.1.1
     # via stevedore
@@ -86,7 +86,7 @@ psutil==7.0.0
     # via edx-django-utils
 pycparser==2.22
     # via cffi
-pymongo==4.12.0
+pymongo==4.12.1
     # via
     #   -r requirements/base.in
     #   edx-opaque-keys

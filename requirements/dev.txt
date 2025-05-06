@@ -51,7 +51,7 @@ chardet==5.2.0
     # via
     #   -r requirements/ci.txt
     #   tox
-charset-normalizer==3.4.1
+charset-normalizer==3.4.2
     # via requests
 click==8.1.8
     # via
@@ -191,11 +191,11 @@ mccabe==0.7.0
     #   pylint
 mock==5.2.0
     # via -r requirements/test.txt
-newrelic==10.10.0
+newrelic==10.11.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-openedx-events==10.0.0
+openedx-events==10.1.0
     # via -r requirements/test.txt
 packaging==25.0
     # via
@@ -246,7 +246,7 @@ pycparser==2.22
     #   cffi
 pygments==2.19.1
     # via sphinx
-pylint==3.3.6
+pylint==3.3.7
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -266,7 +266,7 @@ pylint-plugin-utils==0.8.2
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pymongo==4.12.0
+pymongo==4.12.1
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -369,7 +369,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.30.0
+virtualenv==20.31.1
     # via
     #   -r requirements/ci.txt
     #   tox
