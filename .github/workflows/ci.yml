@@ -11,20 +11,20 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-20.04]
+        os: [ubuntu-latest]
         python-version:
         - '3.11'
-        toxenv: [celery54-django42]
+        toxenv: [celery54-django42, celery54-django52]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: setup python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
     - name: Start MongoDB
-      uses: supercharge/mongodb-github-action@1.6.0
+      uses: supercharge/mongodb-github-action@1.12.0
       with:
         mongodb-version: 4.0
 
