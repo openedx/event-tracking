@@ -5,7 +5,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: "event-tracking"
-  description: The event-tracking library tracks context-aware semi-structured system events. It captures and stores events with nested data structures in order to truly take advantage of schemaless data storage systems."
+  description: "The event-tracking library tracks context-aware semi-structured system events. It captures and stores events with nested data structures in order to truly take advantage of schemaless data storage systems."
   links:
     - url: "https://github.com/openedx/event-tracking/blob/master/README.rst"
       title: "README"
