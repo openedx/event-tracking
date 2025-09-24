@@ -1,0 +1,23 @@
+# This file records information about this repo. Its use is described in OEP-55:
+# https://open-edx-proposals.readthedocs.io/en/latest/processes/oep-0055-proc-project-maintainers.html
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "event-tracking"
+  description: The event-tracking library tracks context-aware semi-structured system events. It captures and stores events with nested data structures in order to truly take advantage of schemaless data storage systems."
+  links:
+    - url: "https://github.com/openedx/event-tracking/blob/master/README.rst"
+      title: "README"
+      icon: "Article"
+  annotations:
+    # (Optional) Annotation keys and values can be whatever you want.
+    # We use it in Open edX repos to have a comma-separated list of GitHub user
+    # names that might be interested in changes to the architecture of this
+    # component.
+    openedx.org/arch-interest-groups: ""
+spec:
+  # (Required) This can be a group(`group:<group_name>` or a user(`user:<github_username>`)
+  owner: group:committers-events
+  type: "library"
+  lifecycle: "production"
