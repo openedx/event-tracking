@@ -6,7 +6,7 @@
 #
 amqp==5.3.1
     # via kombu
-asgiref==3.9.1
+asgiref==3.9.2
     # via django
 attrs==25.3.0
     # via openedx-events
@@ -55,7 +55,7 @@ dnspython==2.8.0
     # via pymongo
 edx-ccx-keys==2.0.2
     # via openedx-events
-edx-django-utils==8.0.0
+edx-django-utils==8.0.1
     # via
     #   -r requirements/base.in
     #   edx-toggles
@@ -72,7 +72,7 @@ jinja2==3.1.6
     # via code-annotations
 kombu==5.5.4
     # via celery
-markupsafe==3.0.2
+markupsafe==3.0.3
     # via jinja2
 openedx-events==10.5.0
     # via -r requirements/base.in
@@ -96,7 +96,7 @@ python-slugify==8.0.4
     # via code-annotations
 pytz==2025.2
     # via -r requirements/base.in
-pyyaml==6.0.2
+pyyaml==6.0.3
     # via code-annotations
 six==1.17.0
     # via
