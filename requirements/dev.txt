@@ -10,7 +10,7 @@ amqp==5.3.1
     # via
     #   -r requirements/test.txt
     #   kombu
-asgiref==3.9.2
+asgiref==3.10.0
     # via
     #   -r requirements/test.txt
     #   django
@@ -19,7 +19,7 @@ astroid==3.3.11
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
-attrs==25.3.0
+attrs==25.4.0
     # via
     #   -r requirements/test.txt
     #   openedx-events
@@ -41,7 +41,7 @@ celery==5.5.3
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-certifi==2025.8.3
+certifi==2025.10.5
     # via requests
 cffi==2.0.0
     # via
@@ -106,9 +106,9 @@ distlib==0.4.0
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==4.2.24
+django==4.2.25
     # via
-    #   -c https:/raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
     #   django-crum
     #   django-waffle
@@ -168,7 +168,7 @@ iniconfig==2.1.0
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==6.0.1
+isort==6.1.0
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -204,7 +204,7 @@ packaging==25.0
     #   pytest
     #   sphinx
     #   tox
-pip-tools==7.5.0
+pip-tools==7.5.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
@@ -243,7 +243,7 @@ pygments==2.19.2
     #   -r requirements/test.txt
     #   pytest
     #   sphinx
-pylint==3.3.8
+pylint==3.3.9
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -263,7 +263,7 @@ pylint-plugin-utils==0.9.0
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pymongo==4.15.1
+pymongo==4.15.2
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -344,7 +344,7 @@ tomlkit==0.13.3
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==4.30.2
+tox==4.30.3
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in

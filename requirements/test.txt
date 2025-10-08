@@ -7,7 +7,7 @@
     # via
     #   -r requirements/base.txt
     #   kombu
-asgiref==3.9.2
+asgiref==3.10.0
     # via
     #   -r requirements/base.txt
     #   django
@@ -15,7 +15,7 @@ astroid==3.3.11
     # via
     #   pylint
     #   pylint-celery
-attrs==25.3.0
+attrs==25.4.0
     # via
     #   -r requirements/base.txt
     #   openedx-events
@@ -63,7 +63,7 @@ ddt==1.7.2
 dill==0.4.0
     # via pylint
     # via
-    #   -c https:/raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
+    #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.txt
     #   django-crum
     #   django-waffle
@@ -108,7 +108,7 @@ fastavro==1.12.0
     #   openedx-events
 iniconfig==2.1.0
     # via pytest
-isort==6.0.1
+isort==6.1.0
     # via pylint
 jinja2==3.1.6
     # via
@@ -153,7 +153,7 @@ pycparser==2.23
     #   cffi
 pygments==2.19.2
     # via pytest
-pylint==3.3.8
+pylint==3.3.9
     # via
     #   edx-lint
     #   pylint-celery
@@ -167,7 +167,7 @@ pylint-plugin-utils==0.9.0
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==4.15.1
+pymongo==4.15.2
     # via
     #   -r requirements/base.txt
     #   edx-opaque-keys
