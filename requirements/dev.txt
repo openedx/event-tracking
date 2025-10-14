@@ -33,7 +33,7 @@ build==1.3.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-cachetools==6.2.0
+cachetools==6.2.1
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -151,16 +151,16 @@ edx-opaque-keys[django]==3.0.0
     #   openedx-events
 edx-toggles==5.4.1
     # via -r requirements/test.txt
-fastavro==1.12.0
+fastavro==1.12.1
     # via
     #   -r requirements/test.txt
     #   openedx-events
-filelock==3.19.1
+filelock==3.20.0
     # via
     #   -r requirements/ci.txt
     #   tox
     #   virtualenv
-idna==3.10
+idna==3.11
     # via requests
 imagesize==1.4.1
     # via sphinx
@@ -208,7 +208,7 @@ pip-tools==7.5.1
     # via
     #   -r requirements/dev.in
     #   -r requirements/pip-tools.txt
-platformdirs==4.4.0
+platformdirs==4.5.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/test.txt
@@ -263,7 +263,7 @@ pylint-plugin-utils==0.9.0
     #   -r requirements/test.txt
     #   pylint-celery
     #   pylint-django
-pymongo==4.15.2
+pymongo==4.15.3
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -271,7 +271,7 @@ pynacl==1.6.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-pyproject-api==1.9.1
+pyproject-api==1.10.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -344,7 +344,7 @@ tomlkit==0.13.3
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==4.30.3
+tox==4.31.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
@@ -364,7 +364,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==20.34.0
+virtualenv==20.35.3
     # via
     #   -r requirements/ci.txt
     #   tox
