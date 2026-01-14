@@ -28,8 +28,8 @@ jobs:
       with:
         mongodb-version: 4.0
 
-    - name: Install pip
-      run: pip install -r requirements/pip.txt
+    - name: Install pip and pip-tools
+      run: pip install -r requirements/pip-tools.txt
 
     - name: Install Dependencies
       run: make test.setup install

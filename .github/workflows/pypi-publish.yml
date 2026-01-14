@@ -17,8 +17,8 @@ jobs:
         with:
           python-version: 3.11
 
-      - name: Install pip
-        run: pip install -r requirements/pip.txt
+      - name: Install pip and pip-tools
+        run: pip install -r requirements/pip-tools.txt
 
       - name: Install Dependencies
         run: pip install setuptools wheel

@@ -6,19 +6,19 @@
 #
 amqp==5.3.1
     # via kombu
-asgiref==3.10.0
+asgiref==3.11.0
     # via django
 attrs==25.4.0
     # via openedx-events
-billiard==4.2.2
+billiard==4.2.4
     # via celery
-celery==5.5.3
+celery==5.6.2
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
 cffi==2.0.0
     # via pynacl
-click==8.3.0
+click==8.3.1
     # via
     #   celery
     #   click-didyoumean
@@ -34,7 +34,7 @@ click-repl==0.3.0
     # via celery
 code-annotations==2.3.0
     # via edx-toggles
-django==4.2.25
+django==5.2.10
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -70,7 +70,7 @@ fastavro==1.12.1
     # via openedx-events
 jinja2==3.1.6
     # via code-annotations
-kombu==5.5.4
+kombu==5.6.2
     # via celery
 markupsafe==3.0.3
     # via jinja2
@@ -80,15 +80,15 @@ packaging==25.0
     # via kombu
 prompt-toolkit==3.0.52
     # via click-repl
-psutil==7.1.1
+psutil==7.2.1
     # via edx-django-utils
 pycparser==2.23
     # via cffi
-pymongo==4.15.3
+pymongo==4.16.0
     # via
     #   -r requirements/base.in
     #   edx-opaque-keys
-pynacl==1.6.0
+pynacl==1.6.2
     # via edx-django-utils
 python-dateutil==2.9.0.post0
     # via celery
@@ -103,9 +103,9 @@ six==1.17.0
     #   -r requirements/base.in
     #   edx-ccx-keys
     #   python-dateutil
-sqlparse==0.5.3
+sqlparse==0.5.5
     # via django
-stevedore==5.5.0
+stevedore==5.6.0
     # via
     #   code-annotations
     #   edx-django-utils
@@ -114,8 +114,10 @@ text-unidecode==1.3
     # via python-slugify
 typing-extensions==4.15.0
     # via edx-opaque-keys
-tzdata==2025.2
+tzdata==2025.3
     # via kombu
+tzlocal==5.3.1
+    # via celery
 vine==5.1.0
     # via
     #   amqp
