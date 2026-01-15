@@ -53,7 +53,6 @@ report: ## generate reports for quality checks and code coverage
 	coverage xml -o coverage.xml
 
 requirements: ## install development environment requirements
-	pip install -r requirements/pip.txt
 	pip install -r requirements/pip-tools.txt
 	pip-sync requirements/dev.txt requirements/private.*
 
@@ -61,9 +60,7 @@ upgrade: export CUSTOM_COMPILE_COMMAND=make upgrade
 upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
 	pip install -qr requirements/pip-tools.txt
 	# Make sure to compile files after any other files they include!
-	pip-compile --upgrade --allow-unsafe -o requirements/pip.txt requirements/pip.in
-	pip-compile --upgrade -o requirements/pip-tools.txt requirements/pip-tools.in
-	pip install -qr requirements/pip.txt
+	pip-compile --upgrade --allow-unsafe -o requirements/pip-tools.txt requirements/pip-tools.in
 	pip install -qr requirements/pip-tools.txt
 	pip-compile --upgrade -o requirements/base.txt requirements/base.in
 	pip-compile --upgrade -o requirements/test.txt requirements/test.in
