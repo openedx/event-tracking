@@ -56,7 +56,7 @@ code-annotations==2.3.0
     #   -r requirements/base.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.13.1
+coverage[toml]==7.13.2
     # via pytest-cov
 ddt==1.7.2
     # via -r requirements/test.in
@@ -127,7 +127,7 @@ mock==5.2.0
     # via -r requirements/test.in
 openedx-events==10.5.0
     # via -r requirements/base.txt
-packaging==25.0
+packaging==26.0
     # via
     #   -r requirements/base.txt
     #   kombu
@@ -147,7 +147,7 @@ psutil==7.2.1
     #   edx-django-utils
 pycodestyle==2.14.0
     # via -r requirements/test.in
-pycparser==2.23
+pycparser==3.0
     # via
     #   -r requirements/base.txt
     #   cffi
@@ -232,7 +232,7 @@ tzlocal==5.3.1
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.2.14
+wcwidth==0.5.0
     # via
     #   -r requirements/base.txt
     #   prompt-toolkit
