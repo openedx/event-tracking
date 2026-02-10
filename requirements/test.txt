@@ -7,11 +7,11 @@
     # via
     #   -r requirements/base.txt
     #   kombu
-asgiref==3.11.0
+asgiref==3.11.1
     # via
     #   -r requirements/base.txt
     #   django
-astroid==4.0.3
+astroid==4.0.4
     # via
     #   pylint
     #   pylint-celery
@@ -56,7 +56,7 @@ code-annotations==2.3.0
     #   -r requirements/base.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.13.2
+coverage[toml]==7.13.4
     # via pytest-cov
 ddt==1.7.2
     # via -r requirements/test.in
@@ -141,7 +141,7 @@ pluggy==1.6.0
     # via
     #   -r requirements/base.txt
     #   click-repl
-psutil==7.2.1
+psutil==7.2.2
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -232,7 +232,7 @@ tzlocal==5.3.1
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.5.0
+wcwidth==0.6.0
     # via
     #   -r requirements/base.txt
     #   prompt-toolkit
