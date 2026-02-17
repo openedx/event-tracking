@@ -6,7 +6,7 @@
 #
 amqp==5.3.1
     # via kombu
-asgiref==3.11.0
+asgiref==3.11.1
     # via django
 attrs==25.4.0
     # via openedx-events
@@ -34,7 +34,7 @@ click-repl==0.3.0
     # via celery
 code-annotations==2.3.0
     # via edx-toggles
-django==5.2.10
+django==5.2.11
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -80,7 +80,7 @@ packaging==26.0
     # via kombu
 prompt-toolkit==3.0.52
     # via click-repl
-psutil==7.2.1
+psutil==7.2.2
     # via edx-django-utils
 pycparser==3.0
     # via cffi
@@ -123,7 +123,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.5.0
+wcwidth==0.6.0
     # via prompt-toolkit
 
 # The following packages are considered to be unsafe in a requirements file:
