@@ -108,7 +108,7 @@ fastavro==1.12.1
     #   openedx-events
 iniconfig==2.3.0
     # via pytest
-isort==7.0.0
+isort==8.0.0
     # via pylint
 jinja2==3.1.6
     # via
@@ -153,7 +153,7 @@ pycparser==3.0
     #   cffi
 pygments==2.19.2
     # via pytest
-pylint==4.0.4
+pylint==4.0.5
     # via
     #   edx-lint
     #   pylint-celery
@@ -203,7 +203,7 @@ sqlparse==0.5.5
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==5.6.0
+stevedore==5.7.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
