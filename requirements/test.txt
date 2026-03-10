@@ -51,7 +51,7 @@ click-plugins==1.1.1.2
     # via
     #   -r requirements/base.txt
     #   celery
-code-annotations==2.3.0
+code-annotations==2.3.2
     # via
     #   -r requirements/base.txt
     #   edx-lint
@@ -95,7 +95,7 @@ edx-django-utils==8.0.1
     #   openedx-events
 edx-lint==5.6.0
     # via -r requirements/test.in
-edx-opaque-keys[django]==3.0.0
+edx-opaque-keys[django]==3.1.0
     # via
     #   -r requirements/base.txt
     #   edx-ccx-keys
@@ -108,7 +108,7 @@ fastavro==1.12.1
     #   openedx-events
 iniconfig==2.3.0
     # via pytest
-isort==8.0.0
+isort==8.0.1
     # via pylint
 jinja2==3.1.6
     # via
@@ -132,7 +132,7 @@ packaging==26.0
     #   -r requirements/base.txt
     #   kombu
     #   pytest
-platformdirs==4.9.2
+platformdirs==4.9.4
     # via pylint
 pluggy==1.6.0
     # via
@@ -187,7 +187,7 @@ python-slugify==8.0.4
     # via
     #   -r requirements/base.txt
     #   code-annotations
-pytz==2025.2
+pytz==2026.1.post1
     # via -r requirements/base.txt
 pyyaml==6.0.3
     # via
