@@ -32,9 +32,9 @@ click-plugins==1.1.1.2
     # via celery
 click-repl==0.3.0
     # via celery
-code-annotations==2.3.0
+code-annotations==2.3.2
     # via edx-toggles
-django==5.2.11
+django==5.2.12
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -60,7 +60,7 @@ edx-django-utils==8.0.1
     #   -r requirements/base.in
     #   edx-toggles
     #   openedx-events
-edx-opaque-keys[django]==3.0.0
+edx-opaque-keys[django]==3.1.0
     # via
     #   edx-ccx-keys
     #   openedx-events
@@ -94,7 +94,7 @@ python-dateutil==2.9.0.post0
     # via celery
 python-slugify==8.0.4
     # via code-annotations
-pytz==2025.2
+pytz==2026.1.post1
     # via -r requirements/base.in
 pyyaml==6.0.3
     # via code-annotations
