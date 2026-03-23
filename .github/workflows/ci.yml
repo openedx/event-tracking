@@ -13,8 +13,8 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version:
-        - '3.11'
-        toxenv: [celery54-django42, celery54-django52]
+        - '3.12'
+        toxenv: [celery54-django52]
 
     steps:
     - uses: actions/checkout@v6
