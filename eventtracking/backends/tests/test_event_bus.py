@@ -43,19 +43,18 @@ class TestAsyncRoutingBackend(TestCase):
         backend.send(self.sample_event)
 
         mock_send_event.assert_called()
-        self.assertDictContainsSubset(
-            {
-                "tracking_log": TrackingLogData(
-                    name=self.sample_event["name"],
-                    timestamp=datetime.strptime(
-                        self.sample_event["timestamp"], "%Y-%m-%dT%H:%M:%S.%f%z"
-                    ),
-                    data=json.dumps(self.sample_event["data"]),
-                    context=json.dumps(self.sample_event["context"]),
-                )
-            },
-            mock_send_event.call_args.kwargs,
-        )
+        expected = {
+            "tracking_log": TrackingLogData(
+                name=self.sample_event["name"],
+                timestamp=datetime.strptime(
+                    self.sample_event["timestamp"], "%Y-%m-%dT%H:%M:%S.%f%z"
+                ),
+                data=json.dumps(self.sample_event["data"]),
+                context=json.dumps(self.sample_event["context"]),
+            )
+        }
+        actual = mock_send_event.call_args.kwargs
+        self.assertEqual(expected, {k: actual[k] for k in expected})
 
     @patch(
         "eventtracking.backends.event_bus.SEND_TRACKING_EVENT_EMITTED_SIGNAL.is_enabled"
