@@ -12,7 +12,7 @@ attrs==26.1.0
     # via openedx-events
 billiard==4.2.4
     # via celery
-celery==5.6.2
+celery==5.6.3
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -74,7 +74,7 @@ kombu==5.6.2
     # via celery
 markupsafe==3.0.3
     # via jinja2
-openedx-events==10.5.0
+openedx-events==11.1.0
     # via -r requirements/base.in
 packaging==26.0
     # via kombu
