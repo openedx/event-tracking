@@ -125,7 +125,7 @@ mccabe==0.7.0
     # via pylint
 mock==5.2.0
     # via -r requirements/test.in
-openedx-events==10.5.0
+openedx-events==11.1.0
     # via -r requirements/base.txt
 packaging==26.0
     # via
@@ -151,7 +151,7 @@ pycparser==3.0
     # via
     #   -r requirements/base.txt
     #   cffi
-pygments==2.19.2
+pygments==2.20.0
     # via pytest
 pylint==4.0.5
     # via
