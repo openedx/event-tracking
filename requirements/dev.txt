@@ -47,9 +47,9 @@ cffi==2.0.0
     # via
     #   -r requirements/test.txt
     #   pynacl
-charset-normalizer==3.4.6
+charset-normalizer==3.4.7
     # via requests
-click==8.3.1
+click==8.3.2
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
@@ -140,7 +140,7 @@ edx-lint==6.0.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
-edx-opaque-keys[django]==3.1.0
+edx-opaque-keys[django]==4.0.0
     # via
     #   -r requirements/test.txt
     #   edx-ccx-keys
@@ -360,7 +360,7 @@ typing-extensions==4.15.0
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
-tzdata==2025.3
+tzdata==2026.1
     # via
     #   -r requirements/test.txt
     #   kombu
