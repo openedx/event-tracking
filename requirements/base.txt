@@ -34,7 +34,7 @@ click-repl==0.3.0
     # via celery
 code-annotations==3.0.0
     # via edx-toggles
-django==5.2.12
+django==5.2.13
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
@@ -64,7 +64,7 @@ edx-opaque-keys[django]==4.0.0
     # via
     #   edx-ccx-keys
     #   openedx-events
-edx-toggles==5.4.1
+edx-toggles==6.0.0
     # via -r requirements/base.in
 fastavro==1.12.1
     # via openedx-events
@@ -74,7 +74,7 @@ kombu==5.6.2
     # via celery
 markupsafe==3.0.3
     # via jinja2
-openedx-events==11.1.0
+openedx-events==11.1.1
     # via -r requirements/base.in
 packaging==26.0
     # via kombu
