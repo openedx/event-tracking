@@ -17,7 +17,7 @@ filelock==3.29.0
     #   python-discovery
     #   tox
     #   virtualenv
-packaging==26.1
+packaging==26.2
     # via
     #   pyproject-api
     #   tox
@@ -38,5 +38,5 @@ tomli-w==1.2.0
     # via tox
 tox==4.53.0
     # via -r requirements/ci.in
-virtualenv==21.2.4
+virtualenv==21.3.0
     # via tox
