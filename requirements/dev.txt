@@ -29,7 +29,7 @@ billiard==4.2.4
     # via
     #   -r requirements/test.txt
     #   celery
-build==1.4.3
+build==1.4.4
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
@@ -41,7 +41,7 @@ celery==5.6.3
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-certifi==2026.2.25
+certifi==2026.4.22
     # via requests
 cffi==2.0.0
     # via
@@ -49,7 +49,7 @@ cffi==2.0.0
     #   pynacl
 charset-normalizer==3.4.7
     # via requests
-click==8.3.2
+click==8.3.3
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/test.txt
@@ -136,7 +136,7 @@ edx-django-utils==8.0.1
     #   -r requirements/test.txt
     #   edx-toggles
     #   openedx-events
-edx-lint==6.0.0
+edx-lint==6.1.0
     # via
     #   -r requirements/dev.in
     #   -r requirements/test.txt
@@ -147,7 +147,7 @@ edx-opaque-keys[django]==4.0.0
     #   openedx-events
 edx-toggles==6.0.0
     # via -r requirements/test.txt
-fastavro==1.12.1
+fastavro==1.12.2
     # via
     #   -r requirements/test.txt
     #   openedx-events
@@ -157,7 +157,7 @@ filelock==3.29.0
     #   python-discovery
     #   tox
     #   virtualenv
-idna==3.11
+idna==3.13
     # via requests
 imagesize==2.0.0
     # via sphinx
@@ -188,9 +188,9 @@ mccabe==0.7.0
     #   pylint
 mock==5.2.0
     # via -r requirements/test.txt
-openedx-events==11.1.1
+openedx-events==11.2.0
     # via -r requirements/test.txt
-packaging==26.1
+packaging==26.2
     # via
     #   -r requirements/ci.txt
     #   -r requirements/pip-tools.txt
@@ -351,6 +351,7 @@ tomli-w==1.2.0
 tomlkit==0.14.0
     # via
     #   -r requirements/test.txt
+    #   edx-lint
     #   pylint
 tox==4.53.0
     # via
@@ -360,7 +361,7 @@ typing-extensions==4.15.0
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
-tzdata==2026.1
+tzdata==2026.2
     # via
     #   -r requirements/test.txt
     #   kombu
@@ -376,7 +377,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==21.2.4
+virtualenv==21.3.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -384,7 +385,7 @@ wcwidth==0.6.0
     # via
     #   -r requirements/test.txt
     #   prompt-toolkit
-wheel==0.46.3
+wheel==0.47.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
