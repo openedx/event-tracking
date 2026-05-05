@@ -29,11 +29,11 @@ billiard==4.2.4
     # via
     #   -r requirements/test.txt
     #   celery
-build==1.4.4
+build==1.5.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-cachetools==7.0.6
+cachetools==7.1.1
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -298,7 +298,7 @@ python-slugify==8.0.4
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2026.1.post1
+pytz==2026.2
     # via -r requirements/test.txt
 pyyaml==6.0.3
     # via
@@ -353,7 +353,7 @@ tomlkit==0.14.0
     #   -r requirements/test.txt
     #   edx-lint
     #   pylint
-tox==4.53.0
+tox==4.53.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
@@ -377,11 +377,11 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==21.3.0
+virtualenv==21.3.1
     # via
     #   -r requirements/ci.txt
     #   tox
-wcwidth==0.6.0
+wcwidth==0.7.0
     # via
     #   -r requirements/test.txt
     #   prompt-toolkit
