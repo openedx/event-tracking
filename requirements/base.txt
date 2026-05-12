@@ -34,7 +34,7 @@ click-repl==0.3.0
     # via celery
 code-annotations==3.0.0
     # via edx-toggles
-django==5.2.13
+django==5.2.14
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/base.in
