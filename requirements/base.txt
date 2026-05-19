@@ -18,7 +18,7 @@ celery==5.6.3
     #   -r requirements/base.in
 cffi==2.0.0
     # via pynacl
-click==8.3.3
+click==8.4.0
     # via
     #   celery
     #   click-didyoumean
@@ -105,7 +105,7 @@ six==1.17.0
     #   python-dateutil
 sqlparse==0.5.5
     # via django
-stevedore==5.7.0
+stevedore==5.8.0
     # via
     #   code-annotations
     #   edx-django-utils
