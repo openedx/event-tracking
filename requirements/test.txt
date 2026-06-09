@@ -234,7 +234,7 @@ tzlocal==5.3.1
     #   amqp
     #   celery
     #   kombu
-wcwidth==0.7.0
+wcwidth==0.8.1
     # via
     #   -r requirements/base.txt
     #   prompt-toolkit

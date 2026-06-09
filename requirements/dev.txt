@@ -98,11 +98,11 @@ dill==0.4.1
     # via
     #   -r requirements/test.txt
     #   pylint
-distlib==0.4.0
+distlib==0.4.2
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==5.2.14
+django==5.2.15
     # via
     #   -c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
     #   -r requirements/test.txt
@@ -151,13 +151,13 @@ fastavro==1.12.2
     # via
     #   -r requirements/test.txt
     #   openedx-events
-filelock==3.29.0
+filelock==3.29.1
     # via
     #   -r requirements/ci.txt
     #   python-discovery
     #   tox
     #   virtualenv
-idna==3.17
+idna==3.18
     # via requests
 imagesize==2.0.0
     # via sphinx
@@ -314,7 +314,7 @@ six==1.17.0
     #   edx-ccx-keys
     #   edx-lint
     #   python-dateutil
-snowballstemmer==3.1.0
+snowballstemmer==3.1.1
     # via sphinx
 sphinx==9.1.0
     # via -r requirements/dev.in
@@ -353,7 +353,7 @@ tomlkit==0.15.0
     #   -r requirements/test.txt
     #   edx-lint
     #   pylint
-tox==4.55.0
+tox==4.55.1
     # via
     #   -r requirements/ci.txt
     #   -r requirements/dev.in
@@ -381,7 +381,7 @@ virtualenv==21.4.2
     # via
     #   -r requirements/ci.txt
     #   tox
-wcwidth==0.7.0
+wcwidth==0.8.1
     # via
     #   -r requirements/test.txt
     #   prompt-toolkit
