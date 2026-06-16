@@ -98,7 +98,7 @@ dill==0.4.1
     # via
     #   -r requirements/test.txt
     #   pylint
-distlib==0.4.2
+distlib==0.4.3
     # via
     #   -r requirements/ci.txt
     #   virtualenv
@@ -151,7 +151,7 @@ fastavro==1.12.2
     # via
     #   -r requirements/test.txt
     #   openedx-events
-filelock==3.29.1
+filelock==3.29.4
     # via
     #   -r requirements/ci.txt
     #   python-discovery
@@ -242,7 +242,7 @@ pygments==2.20.0
     #   -r requirements/test.txt
     #   pytest
     #   sphinx
-pylint==4.0.5
+pylint==4.0.6
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -279,7 +279,7 @@ pyproject-hooks==1.2.0
     #   -r requirements/pip-tools.txt
     #   build
     #   pip-tools
-pytest==9.0.3
+pytest==9.1.0
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -289,7 +289,7 @@ python-dateutil==2.9.0.post0
     # via
     #   -r requirements/test.txt
     #   celery
-python-discovery==1.4.0
+python-discovery==1.4.2
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -365,7 +365,7 @@ tzdata==2026.2
     # via
     #   -r requirements/test.txt
     #   kombu
-tzlocal==5.3.1
+tzlocal==5.4
     # via
     #   -r requirements/test.txt
     #   celery
@@ -377,7 +377,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==21.4.2
+virtualenv==21.5.0
     # via
     #   -r requirements/ci.txt
     #   tox
