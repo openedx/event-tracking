@@ -116,7 +116,7 @@ typing-extensions==4.15.0
     # via edx-opaque-keys
 tzdata==2026.2
     # via kombu
-tzlocal==5.4
+tzlocal==5.4.3
     # via celery
 vine==5.1.0
     # via

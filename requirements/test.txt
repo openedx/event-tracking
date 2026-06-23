@@ -56,7 +56,7 @@ code-annotations==3.0.0
     #   -r requirements/base.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.14.1
+coverage[toml]==7.14.3
     # via pytest-cov
 ddt==1.7.2
     # via -r requirements/test.in
@@ -175,7 +175,7 @@ pynacl==1.6.2
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==9.1.0
+pytest==9.1.1
     # via pytest-cov
 pytest-cov==7.1.0
     # via -r requirements/test.in
@@ -225,7 +225,7 @@ tzdata==2026.2
     # via
     #   -r requirements/base.txt
     #   kombu
-tzlocal==5.4
+tzlocal==5.4.3
     # via
     #   -r requirements/base.txt
     #   celery
