@@ -1,7 +1,7 @@
 export DJANGO_SETTINGS_MODULE=eventtracking.django.tests.settings
 
 MAKE_DOC=make -C doc
-PYTEST=uv run pytest
+PYTEST=pytest
 
 .PHONY: lint requirements style test.unit upgrade
 
@@ -31,10 +31,10 @@ test.performance: test.setup ## run performance tests
 	$(PYTEST) --verbose -s -k 'performance'
 
 style: ## run pycodestyle on the code
-	uv run pycodestyle src/eventtracking
+	pycodestyle src/eventtracking
 
 lint: ## run pylint on the code
-	uv run pylint --reports=y src/eventtracking
+	pylint --reports=y src/eventtracking
 
 install: ## install the event-tracking package locally
 	uv pip install .
@@ -48,9 +48,9 @@ doc.html:
 	$(MAKE_DOC) html
 
 report: ## generate reports for quality checks and code coverage
-	uv run pycodestyle src/eventtracking >pep8.report || true
-	uv run pylint -f parseable src/eventtracking >pylint.report || true
-	uv run coverage xml -o coverage.xml
+	pycodestyle src/eventtracking >pep8.report || true
+	pylint -f parseable src/eventtracking >pylint.report || true
+	coverage xml -o coverage.xml
 
 requirements: ## install development environment requirements
 	uv sync --group dev
